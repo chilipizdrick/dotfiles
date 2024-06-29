@@ -61,6 +61,8 @@
     unstable.obsidian
     # anki
 
+    ventoy
+
     ani-cli
   ];
 

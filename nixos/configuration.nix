@@ -68,7 +68,10 @@
     gzip
     vim
     wlr-randr
-    innernet
+
+    hyprland
+    alacritty
+    tmux
   ];
 
   # Remove XTerm

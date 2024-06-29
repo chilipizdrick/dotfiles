@@ -25,5 +25,5 @@
     killall # Self explainatory
   ];
   home.file.".config/hypr".source = ./config;
-  home.file."Pictures/wallpapers".source = ./wallpapers;
+  # home.file."Pictures/wallpapers".source = ./wallpapers;
 }
