@@ -1,0 +1,206 @@
+/* @define-color white #fffff; */
+/* @define-color black #000000; */
+/* @define-color red #ff7070; */
+/* @define-color orange #ffb870; */
+/* @define-color yellow #ffff70; */
+/* @define-color lime #b8ff70; */
+/* @define-color green #70ff70; */
+/* @define-color mint #70ffb8; */
+/* @define-color cyan #70ffff; */
+/* @define-color light-blue #70b7ff; */
+/* @define-color blue #7070ff; */
+/* @define-color purple #b870ff; */
+/* @define-color magenta #ff70ff; */
+/* @define-color pink #ff70b8; */
+
+* {
+  all: initial;
+  min-height: 0;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 8px 8px 8px 8px;
+}
+
+window#waybar {
+  border-radius: 0px 0px 0px 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+tooltip {
+  background: rgba(0, 0, 0, 0.7);
+  /* background: #000000; */
+}
+
+#tray menu {
+  background: rgba(0, 0, 0, 0.7);
+  /* background: #000000; */
+  padding: 5px;
+}
+
+#custom-launcher,
+#workspaces,
+#mpris,
+#clock,
+#tray,
+#backlight,
+#pulseaudio,
+#custom-vpn,
+#network,
+#cpu,
+#battery,
+#custom-powermenu {
+  background-color: transparent;
+  /* background-color: #000000; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+#custom-launcher {
+  margin-left: 0px;
+  padding-left: 8px;
+  padding-right: 13px;
+}
+
+#custom-launcher:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #70b7ff;
+}
+
+
+#workspaces {
+  padding: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#workspaces button {
+  /* padding: 0px; */
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: transparent;
+}
+
+#workspaces button.focused label {
+  color: #70b7ff;
+}
+
+#workspaces button.urgent {
+  background: #ffb870;
+}
+
+#workspaces button.urgent label {
+  color: #000000;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.urgent:hover {
+  background: rgba(255, 184, 112, 0.5);
+}
+
+
+#clock {}
+
+#clock:hover {}
+
+
+#tray {}
+
+#tray button {}
+
+#tray icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+#pulseaudio.bluetooth {
+  color: #70b7ff;
+}
+
+#pulseaudio.muted {
+  color: #ff6060;
+}
+
+#pulseaudio:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+#custom-vpn.on {
+  color: #70ff70;
+}
+
+#custom-vpn.off {
+  color: #ff7070;
+}
+
+#custom-vpn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+#network.disconnected {
+  color: #ff6060;
+}
+
+#network:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+#battery {
+  color: #70ff70;
+}
+
+#battery.full {
+  color: #70ff70;
+}
+
+#battery.plugged {
+  color: #70b7ff;
+}
+
+#battery.charging {
+  color: #70b7ff;
+}
+
+#battery.warning {
+  color: #ffff70;
+}
+
+#battery.critical {
+  color: #ffb870;
+}
+
+#battery.critical:not(.charging) {
+  color: #ff7070;
+}
+
+
+#custom-powermenu {
+  margin-right: 0px;
+  padding-left: 9px;
+  padding-right: 12px;
+}
+
+#custom-powermenu:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff7070;
+}

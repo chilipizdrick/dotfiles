@@ -1,0 +1,163 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 5,
+  "margin-bottom": 0,
+  "margin-left": 5,
+  "margin-right": 5,
+  "height": 0,
+  "spacing": 0,
+  "modules-left": [
+    "custom/launcher",
+    "sway/workspaces",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "pulseaudio",
+	"custom/vpn",
+    "network",
+    "battery",
+    "custom/powermenu"
+  ],
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 25,
+    "icon-theme": "Default",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Alacritty"
+    ]
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "memory": {
+    "interval": 5,
+    "format": "   {usage}% ",
+    "max-length": 10
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "   {usage}% ",
+    "max-length": 10
+  },
+  "tray": {
+    "spacing": 10,
+    "show-passive-items": true
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "format": " {:%a %d %b  %H:%M}",
+  },
+  "network": {
+    "format-wifi": "{icon} {essid}",
+    "format-disconnected": "Disconnected ⚠ ",
+    "format-icons": [
+      "󰤯 ",
+      "󰤟 ",
+      "󰤢 ",
+      "󰤥 ",
+      "󰤨 "
+    ],
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "on-click": "~/.config/waybar/rofi-wifi-menu.sh",
+    "format-ethernet": "{ifname}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "nospacing": 1,
+    "interval": 5
+  },
+  "pulseaudio": {
+    "format": "{icon}{volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "nospacing": 1,
+    "tooltip-format": "Volume : {volume}%",
+    "format-muted": "󰝟 ",
+    "format-icons": {
+      "headphone": " ",
+      "default": [
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
+      ]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 1
+  },
+  "custom/launcher": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -terminal ${terminal} -show drun -modes drun"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip": true
+  },
+  "custom/powermenu": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "rofi -show p -modi p:'~/.config/waybar/rofi-power-menu.sh'"
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "player-icons": {
+      "spotify": " ",
+      "default": "▶"
+    },
+    "dynamic-order": ["title", "artist", "position", "length"],
+    "dynamic-len": 50,
+    "interval": 1,
+    "status-icons": {
+      // "paused": "⏸"
+      "paused": "||"
+    },
+    "ignored-players": [ "firefox", "chromium" ]
+  },
+  "custom/vpn": {
+    "exec": "~/.config/waybar/query-wireguard-vpn.sh",
+    "interval": 5,
+    "format": "VPN",
+    // "tooltip-format": "{tooltip}",
+    "on-click": "~/.config/waybar/toggle-wireguard-vpn.sh",
+  }
+}
