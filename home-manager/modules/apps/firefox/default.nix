@@ -112,38 +112,113 @@ in {
       id = 0;
       isDefault = true;
       name = "alex";
-      # search = {
-      #   default = "Google";
-      #   privateDefault = "DuckDuckGo";
-      # };
-      # userChrome = /* css */''
-      #   html, html > *, html > * > *, .browser-toolbar  {
-      #     border: none !important;
-      #     -moz-appearance: none !important;
-      #     box-shadow: none !important;
-      #     background: transparent!important;
-      #   }
-      #
-      #   .titlebar-color, .browser-toolbar, findbar {
-      #     background: rgba(49, 54, 59, 0.75)!important;
-      #   }
-      #
-      #   .tab-line {
-      #     background: none !important;
-      #   }
-      #
-      #   .tab-background[selected=true] {
-      #     background: #5294e2 !important;
-      #     border-radius: 6px;
-      #     border: none !important;
-      #   }
-      #
-      #   tab[selected="true"]::after, .tabbrowser-tab[beforeselected-visible]::after {
-      #       opacity: 0 !important;
-      #   }
-      #
-      #   /*   rgba(49, 54, 59, 0.75) */
-      # '';
+      bookmarks = [
+        {
+          toolbar = true;
+          bookmarks = [
+            {
+              name = "";
+              url = "https://app.todoist.com/app";
+            }
+            {
+              name = "";
+              url = "https://calendar.google.com";
+            }
+            {
+              name = "";
+              url = "https://360.yandex.ru/mail";
+            }
+            {
+              name = "";
+              url = "https://mail.google.com";
+            }
+            {
+              name = "";
+              url = "https://translate.google.com";
+            }
+            {
+              name = "";
+              url = "https://vk.com/im";
+            }
+            {
+              name = "";
+              url = "https://github.com";
+            }
+            {
+              name = "";
+              url = "https://www.virustotal.com";
+            }
+            {
+              name = "";
+              url = "https://www.youtube.com";
+            }
+            {
+              name = "";
+              url = "https://www.twitch.tv";
+            }
+            {
+              name = "";
+              url = "https://monkeytype.com";
+            }
+            {
+              name = "";
+              url = "https://detexify.kirelabs.org";
+            }
+            {
+              name = "";
+              url = "https://tinywow.com";
+            }
+            {
+              name = "";
+              url = "https://docs.google.com";
+            }
+            {
+              name = "";
+              url = "https://invapi.hostkey.ru";
+            }
+            {
+              name = "";
+              url = "https://online-edu.mirea.ru";
+            }
+            {
+              name = "";
+              url = "https://lk.mirea.ru";
+            }
+            {
+              name = "";
+              url = "https://excalidraw.com";
+            }
+            {
+              name = "";
+              url = "https://overleaf.com";
+            }
+            {
+              name = "";
+              url = "https://www.desmos.com/calculator";
+            }
+            {
+              name = "";
+              url = "https://www.geogebra.org/3d";
+            }
+            {
+              name = "";
+              url = "https://octave-online.net";
+            }
+            {
+              name = "";
+              url = "https://www.wolframalpha.com";
+            }
+            {
+              name = "";
+              url = "https://discord.com";
+            }
+            {
+              name = "";
+              url = "https://search.nixos.org/packages";
+            }
+          ];
+        }
+      ];
     };
   };
 }

@@ -61,9 +61,9 @@
     unstable.obsidian
     # anki
 
-    ventoy
-
     ani-cli
+    ventoy
+    qbittorrent
   ];
 
   # Set default apps for some applications
