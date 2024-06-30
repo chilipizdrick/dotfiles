@@ -7,12 +7,17 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    grub2-themes,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -37,6 +42,8 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix
+
+          grub2-themes.nixosModules.default
         ];
       };
     };
