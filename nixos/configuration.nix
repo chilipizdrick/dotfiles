@@ -49,9 +49,6 @@
     cargo
     rustc
     php
-    # zulu8
-    # zulu17
-    # zulu
     # temurin-bin-8
     # temurin-bin-17
     temurin-bin
@@ -68,15 +65,17 @@
     gzip
     vim
     wlr-randr
-
+    docker
     hyprland
     alacritty
     tmux
+    htop
+    btop
   ];
 
   # Remove XTerm
-  # services.xserver.excludePackages = [pkgs.xterm];
-  # services.xserver.desktopManager.xterm.enable = false;
+  services.xserver.excludePackages = [pkgs.xterm];
+  services.xserver.desktopManager.xterm.enable = false;
 
   # Setup zsh
   programs.zsh.enable = true;

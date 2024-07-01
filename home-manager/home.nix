@@ -30,9 +30,6 @@
 
   # Add remaining packages
   home.packages = with pkgs; [
-    htop
-    docker
-
     openvpn
 
     gnome.nautilus
@@ -62,7 +59,7 @@
     # anki
 
     ani-cli
-    ventoy
+    # ventoy
     qbittorrent
   ];
 
