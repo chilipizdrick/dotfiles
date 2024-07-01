@@ -73,6 +73,11 @@ in {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
           installation_mode = "force_installed";
         };
+        # Adaptive Bar Color:
+        "ATBC@EasonWong" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/adaptive-tab-bar-colour/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       Preferences = {
         "browser.contentblocking.category" = {
