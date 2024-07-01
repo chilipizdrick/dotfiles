@@ -10,9 +10,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
-      fastfetch
-    '';
+    # initExtra = ''
+    #   fastfetch
+    # '';
   };
-  home.packages = [pkgs.fastfetch];
+  # home.packages = [pkgs.fastfetch];
 }
