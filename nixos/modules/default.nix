@@ -9,7 +9,6 @@
     ./bluetooth
     ./bootloader
     ./dconf
-    # ./edid
     ./firmware
     ./fonts
     ./greeter
@@ -17,11 +16,9 @@
     ./polkit
     ./power-management
     ./sudo
-    # ./sway
     ./tablet
     ./time
-    ./wireguard
+    ./vpn
     ./xdg
-    ./zerotier
   ];
 }

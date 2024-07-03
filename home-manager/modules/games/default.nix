@@ -5,8 +5,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    steam
-    osu-lazer
+    # steam
+    # osu-lazer
 
     glfw-wayland-minecraft
     prismlauncher

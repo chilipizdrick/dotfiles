@@ -55,8 +55,6 @@ toggle_blur
         sleep 0.2
         swww init && swww img "$HOME/.current_wallpaper"
         sleep 0.2
-        ./pywal.sh
-        sleep 0.2
         ./refresh.sh
         notify-send -e -u normal -i "${icons}/gamemode.png" "Gamemode disabled"
         

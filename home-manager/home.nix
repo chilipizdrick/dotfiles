@@ -45,10 +45,8 @@
     chromium
 
     spotify
-    # spotify-tray
 
     telegram-desktop
-    # discord
     # (discord.override {
     #   withVencord = true;
     #   vencord = unstable.vencord;

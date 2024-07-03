@@ -93,7 +93,6 @@ main() {
   # Check the file and execute
   if [[ -n "$selectedFile" ]]; then
     executeCommand "${selectedFile}"
-    $HOME/.config/hypr/scripts/pywal.sh
     return 0
   else
     echo "Image not found."

@@ -18,4 +18,5 @@
     layer = "top";
     sort = "-time";
   };
+  home.packages = [pkgs.libnotify];
 }

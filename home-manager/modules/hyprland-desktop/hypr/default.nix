@@ -18,7 +18,6 @@
     brightnessctl # Read and controll device brightness
     swww # Fancy wallpapers
     libnotify # For sending custom notifications
-    cava # Terminal audio visualiser
     grim # Screenshot functionality
     slurp # Screenshot functionality
     networkmanagerapplet # Easy network connection management

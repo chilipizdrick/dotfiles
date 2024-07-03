@@ -18,7 +18,4 @@ waybar > /dev/null 2>&1 &
 sleep 0.2
 swaync > /dev/null 2>&1 &
 
-# for cava-pywal (note, need to manually restart cava once wallpaper changes)
-ln -sf "$HOME/.cache/wal/cava-colors" "$HOME/.config/cava/config" || true
-
 exit 0

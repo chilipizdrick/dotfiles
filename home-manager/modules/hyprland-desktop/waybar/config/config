@@ -135,7 +135,7 @@
   "custom/powermenu": {
     "format": "⏻",
     "tooltip": false,
-    "on-click": "wlogout -C ~/.config/wlogout/style.css -l ~/.config/wlogout/layout"
+    "on-click": "wlogout"
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",

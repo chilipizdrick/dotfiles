@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./firefox
+    ./cava
     ./git
     ./tmux
     ./zsh
