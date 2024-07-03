@@ -10,6 +10,5 @@
     ./fonts
     # ./games
     ./hyprland-desktop
-    # ./sway-desktop
   ];
 }

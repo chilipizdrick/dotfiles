@@ -43,14 +43,21 @@
           grub2-themes.nixosModules.default
         ];
       };
+      aurora = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/aurora/configuration.nix
+          grub2-themes.nixosModules.default
+        ];
+      };
     };
 
     homeConfigurations = {
-      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
+      "alex" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/atlas/home.nix
+          ./home-manager/home.nix
         ];
       };
     };
