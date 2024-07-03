@@ -11,13 +11,8 @@ DURATION=3
 BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 
-# Check if swaybg is running
-if pidof swaybg > /dev/null; then
-  pkill swaybg
-fi
-
 # Retrieve image files as a list
-PICS=($(find "${wallpaperDir}" -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) | sort ))
+PICS=($(find $(realpath "${wallpaperDir}") -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) | sort ))
 
 # Use date variable to increase randomness
 randomNumber=$(( ($(date +%s) + RANDOM) + $$ ))

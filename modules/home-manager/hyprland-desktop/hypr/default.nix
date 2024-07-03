@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -19,5 +24,5 @@
     killall # Self explainatory
   ];
   home.file.".config/hypr".source = ./config;
-  # home.file."Pictures/wallpapers".source = ./wallpapers;
+  home.file."Pictures/wallpapers".source = inputs.wallpapers;
 }

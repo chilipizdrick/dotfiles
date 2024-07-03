@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ../../modules/home-manager
+    ../modules/home-manager
   ];
   nixpkgs = {
     overlays = [

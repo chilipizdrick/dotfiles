@@ -8,6 +8,11 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    wallpapers = {
+      url = "github:chilipizdrick/wallpapers";
+      flake = false;
+    };
+
     grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
