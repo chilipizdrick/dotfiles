@@ -8,9 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    grub2-themes = {
-      url = "github:vinceliuice/grub2-themes";
-    };
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
   outputs = {
@@ -38,22 +36,21 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      atlas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/configuration.nix
-
+          ./nixos/atlas/configuration.nix
           grub2-themes.nixosModules.default
         ];
       };
     };
 
     homeConfigurations = {
-      "alex@nixos" = home-manager.lib.homeManagerConfiguration {
+      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/home.nix
+          ./home-manager/atlas/home.nix
         ];
       };
     };
