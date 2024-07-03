@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       general = {
-        framerate = 120;
+        framerate = 60;
         lower_cutoff_freq = 20;
         higher_cutoff_freq = 20000;
       };

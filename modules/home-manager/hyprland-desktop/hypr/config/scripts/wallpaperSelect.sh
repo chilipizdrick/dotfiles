@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
-# Wallpapers Path
 wallpaperDir="$HOME/Pictures/wallpapers"
 themesDir="$HOME/.config/rofi/themes"
 
-# Transition config
 FPS=60
 TYPE="simple"
 DURATION=3
 BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 
-# Retrieve image files as a list
 PICS=($(find $(realpath "${wallpaperDir}") -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) | sort ))
 
 # Use date variable to increase randomness
@@ -19,20 +16,15 @@ randomNumber=$(( ($(date +%s) + RANDOM) + $$ ))
 randomPicture="${PICS[$(( randomNumber % ${#PICS[@]} ))]}"
 randomChoice="[${#PICS[@]}] Random"
 
-# Rofi command
 rofiCommand="rofi -show -dmenu -theme ${themesDir}/wallpaper-select.rasi"
 
-# Execute command according the wallpaper manager
 executeCommand() {
 
   if command -v swww &>/dev/null; then
     swww img "$1" ${SWWW_PARAMS}
 
-  elif command -v swaybg &>/dev/null; then
-    swaybg -i "$1" &
-  
   else
-    echo "Neither swww nor swaybg are installed."
+    echo "swww not installed"
     exit 1
   fi
 

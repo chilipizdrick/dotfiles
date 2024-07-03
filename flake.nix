@@ -13,6 +13,12 @@
       flake = false;
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
@@ -58,11 +64,18 @@
     };
 
     homeConfigurations = {
-      "alex" = home-manager.lib.homeManagerConfiguration {
+      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/home.nix
+          ./home-manager/atlas/home.nix
+        ];
+      };
+      "alex@aurora" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/aurora/home.nix
         ];
       };
     };
