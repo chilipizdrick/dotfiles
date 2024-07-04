@@ -12,7 +12,7 @@ return {
   require 'plugins.neo-tree',
   require 'plugins.nvim-cmd',
   require 'plugins.oil',
-  require 'plugins.otter',
+  -- require 'plugins.otter',
   require 'plugins.rosepine',
   require 'plugins.telescope',
   require 'plugins.todocomments',

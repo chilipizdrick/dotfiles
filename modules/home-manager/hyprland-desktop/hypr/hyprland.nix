@@ -20,6 +20,23 @@
       "$up" = "K";
       "$down" = "J";
 
+      env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "CLUTTER_BACKEND,wayland"
+        "GDK_BACKEND,wayland,x11"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_SCALE_FACTOR,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "SDL_VIDEODRIVER,wayland,x11"
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "NIXOS_OZONE_WL,1"
+        "MOZ_ENABLE_WAYLAND,1"
+      ];
+
       monitor = [
         ",preferred,auto,auto"
       ];
@@ -113,21 +130,6 @@
         ];
       };
 
-      env = [
-        "CLUTTER_BACKEND, wayland"
-        "GDK_BACKEND, wayland,x11"
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "QT_QPA_PLATFORM, wayland;xcb"
-        "QT_QPA_PLATFORMTHEME, qt5ct  "
-        "QT_SCALE_FACTOR, 1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_DESKTOP, Hyprland"
-        "XDG_SESSION_TYPE, wayland"
-        "NIXOS_OZONE_WL, 1"
-        "MOZ_ENABLE_WAYLAND, 1"
-      ];
-
       layerrule = [
         "blur, logout_dialog"
         "blur, class:^(swww)$"
@@ -170,8 +172,8 @@
         "hyprlock &"
         "swww query || swww init"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "waybar &"
-        "nm-applet &"
+        "pidof waybar || waybar &"
+        "pidof nm-applet || nm-applet &"
         "pidof hypridle || hypridle &"
         "pidof otd-daemon || otd-daemon &"
       ];
@@ -270,6 +272,24 @@
       ];
     };
   };
+
+  home.sessionVariables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    CLUTTER_BACKEND = "wayland";
+    GDK_BACKEND = "wayland,x11";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_SCALE_FACTOR = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    SDL_VIDEODRIVER = "wayland,x11";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
   home.packages = with pkgs; [
     wl-clipboard # Clipboard functionality
     pamixer # Pulseauido command line mixer
@@ -281,7 +301,7 @@
     networkmanagerapplet # Easy network connection management
     killall # Self explainatory
   ];
-  # home.file.".config/hypr".source = ./config;
+
   home.file.".config/hypr/scripts".source = ./config/scripts;
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
 }

@@ -44,10 +44,10 @@
     spotify
 
     telegram-desktop
-    # (discord.override {
-    #   withVencord = true;
-    #   vencord = unstable.vencord;
-    # })
+    (discord.override {
+      withVencord = true;
+      vencord = unstable.vencord;
+    })
     vesktop
 
     unstable.obsidian
