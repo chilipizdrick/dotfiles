@@ -56,6 +56,8 @@
     ani-cli
     # ventoy
     qbittorrent
+
+    wallust
   ];
 
   # Set default apps for some applications

@@ -62,14 +62,14 @@
     unzip
     gzip
     vim
-    wlr-randr
     docker
+
     hyprland
     alacritty
     tmux
     htop
     btop
-    gparted
+    fastfetch
   ];
 
   # Remove XTerm
