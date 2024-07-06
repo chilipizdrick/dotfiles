@@ -135,7 +135,7 @@
   "custom/powermenu": {
     "format": "⏻",
     "tooltip": false,
-    "on-click": "wlogout"
+    "on-click": "wlogout -b 5"
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",

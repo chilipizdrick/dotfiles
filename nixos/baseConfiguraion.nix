@@ -38,6 +38,8 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
 
+  services.xserver.enable = true;
+
   environment.systemPackages = with pkgs; [
     home-manager
     gcc_multi
@@ -67,6 +69,7 @@
     tmux
     htop
     btop
+    gparted
   ];
 
   # Remove XTerm

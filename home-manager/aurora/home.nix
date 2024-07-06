@@ -1,7 +1,19 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ../baseHome.nix
   ];
+
+  services.hypridle.settings.listener = lib.mkForce [
+    {
+      timeout = 3600;
+      on-timeout = "hyprlock";
+    }
+    {
+      timeout = 7200;
+      on-timeout = "systemctl suspend";
+    }
+  ];
+
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
@@ -10,20 +22,25 @@
         "DP-3,1920x1080@75,0x0,auto"
         "HDMI-A-1,preferred,1920x0,auto"
       ];
+      workspace = [
+        "10,monitor:DP-3"
+        "1,monitor:HDMI-A-1"
+      ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "NVD_BACKEND,direct"
       ];
-      cursor = {
-        no_hardware_cursors = true;
-      };
+      # cursor = {
+      #   no_hardware_cursors = true;
+      # };
     };
   };
   home.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    # NVD_BACKEND = "direct";
+    NVD_BACKEND = "direct";
   };
 }

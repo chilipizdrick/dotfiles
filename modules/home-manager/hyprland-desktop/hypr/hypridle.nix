@@ -8,16 +8,6 @@
         ignore_dbus_inhibit = false; # Whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
         lock_cmd = "pidof hyprlock || hyprlock"; # Avoid starting multiple hyprlock instances.
       };
-      listener = [
-        {
-          timeout = 300;
-          on-timeout = "hyprlock";
-        }
-        {
-          timeout = 360;
-          on-timeout = "systemctl suspend";
-        }
-      ];
     };
   };
 }

@@ -52,8 +52,8 @@
         layout = "dwindle";
       };
       dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
+        pseudotile = true;
+        preserve_split = true;
         special_scale_factor = 0.8;
       };
       master = {
@@ -103,7 +103,7 @@
         };
       };
       gestures = {
-        workspace_swipe = "on";
+        workspace_swipe = true;
       };
       misc = {
         vfr = true;
@@ -123,7 +123,7 @@
       };
 
       animations = {
-        enabled = "yes";
+        enabled = true;
         animation = [
           "windows, off, ,"
           "workspaces, off, , ,"
@@ -131,28 +131,28 @@
       };
 
       layerrule = [
-        "blur, logout_dialog"
-        "blur, class:^(swww)$"
-        "blur, rofi"
-        "blur, waybar"
-        "blur, notifications"
-        "blur, swaync-control-center"
-        "blur, swaync-notification-window"
-        "ignorezero, waybar"
-        "ignorezero, swaync-control-center"
-        "ignorezero, swaync-notification-window"
-        "ignorezero, notifications"
-        "ignorealpha 0.5, swaync-control-center"
-        "ignorealpha 0.5, swaync-notification-window"
+        "blur,logout_dialog"
+        "blur,class:^(swww)$"
+        "blur,rofi"
+        "blur,waybar"
+        "blur,notifications"
+        "blur,swaync-control-center"
+        "blur,swaync-notification-window"
+        "ignorezero,waybar"
+        "ignorezero,swaync-control-center"
+        "ignorezero,swaync-notification-window"
+        "ignorezero,notifications"
+        "ignorealpha 0.5,swaync-control-center"
+        "ignorealpha 0.5,swaync-notification-window"
       ];
       windowrule = [
-        "float, org.kde.polkit-kde-authentication-agent-1"
-        "float, nm-connection-editor|blueman-manager"
-        "float, pavucontrol"
-        "float, eog"
-        "float, rofi"
-        "float, gnome-system-monitor"
-        "float, yad"
+        "float,org.kde.polkit-kde-authentication-agent-1"
+        "float,nm-connection-editor|blueman-manager"
+        "float,pavucontrol"
+        "float,eog"
+        "float,rofi"
+        "float,gnome-system-monitor"
+        "float,yad"
       ];
       windowrulev2 = [
         "idleinhibit fullscreen, fullscreen:1"
@@ -169,13 +169,13 @@
       ];
 
       exec-once = [
-        "hyprlock &"
-        "swww query || swww init"
+        "hyprlock"
+        "swww query || swww-daemon"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "pidof waybar || waybar &"
-        "pidof nm-applet || nm-applet &"
-        "pidof hypridle || hypridle &"
-        "pidof otd-daemon || otd-daemon &"
+        "waybar"
+        "pidof nm-applet || nm-applet"
+        "pidof hypridle || hypridle"
+        "otd-daemon"
       ];
 
       bind = [
@@ -249,7 +249,7 @@
         "$mainMod ALT, C, exec, hyprctl reload # Reload config"
         "$mainMod SHIFT, E, exec, hyprctl dispatch exit"
         "$mainMod ALT, L, exec, hyprlock"
-        "$mainMod SHIFT, P, exec, pidof wlogout || wlogout"
+        "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 5"
         "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
         "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
         "$mainMod SHIFT, C, exec, $(killall hypridle && notify-send 'Caffeine mode enabled') || $(notify-send 'Caffeine mode disabled' && hypridle) # Toggle hypridle"

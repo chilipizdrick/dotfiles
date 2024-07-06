@@ -2,18 +2,24 @@ window {
     font-family: JetBrains Mono;
     font-size: 16pt;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 button {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;
+    /* background-color: rgba(255, 255, 255, 0.1); */
     background-color: transparent;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s ease-in;
     box-shadow: 0 0 10px 2px transparent;
-    border-radius: 36px; margin: 10px;
+    border-radius: 36px;
+    margin: 30px;
+    margin-top: 175px;
+    margin-bottom: 175px;
+    min-width: 130px;
+    min-height: 130px;
 }
 
 button:focus {
@@ -30,38 +36,42 @@ button:hover {
 }
 
 #shutdown {
-    background-image: image(url("./icons/power.png"));
+  background-image: image(url("./icons/power.png"));
 }
 #shutdown:hover {
   background-image: image(url("./icons/power-hover.png"));
+    color: #000000;
 }
 
 #logout {
-    background-image: image(url("./icons/logout.png"));
-
+  background-image: image(url("./icons/logout.png"));
 }
 #logout:hover {
   background-image: image(url("./icons/logout-hover.png"));
+    color: #000000;
 }
 
 #reboot {
-    background-image: image(url("./icons/restart.png"));
+  background-image: image(url("./icons/restart.png"));
 }
 #reboot:hover {
   background-image: image(url("./icons/restart-hover.png"));
+    color: #000000;
 }
 
 #lock {
-    background-image: image(url("./icons/lock.png"));
+  background-image: image(url("./icons/lock.png"));
 }
 #lock:hover {
   background-image: image(url("./icons/lock-hover.png"));
+    color: #000000;
 }
 
 #hibernate {
-    background-image: image(url("./icons/hibernate.png"));
+  background-image: image(url("./icons/hibernate.png"));
 }
 #hibernate:hover {
   background-image: image(url("./icons/hibernate-hover.png"));
+    color: #000000;
 }
 

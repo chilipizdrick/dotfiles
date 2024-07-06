@@ -50,7 +50,7 @@ menu() {
 
 # If swww exists, start it
 if command -v swww &>/dev/null; then
-  swww query || swww init
+  swww query || swww-daemon &
 fi
 
 # Execution
