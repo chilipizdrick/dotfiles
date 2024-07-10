@@ -44,7 +44,7 @@
       general = {
         allow_tearing = true;
         sensitivity = 1.00;
-        apply_sens_to_raw = 1;
+        apply_sens_to_raw = true;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 0;
@@ -88,18 +88,18 @@
         kb_rules = "";
         repeat_rate = 50;
         repeat_delay = 300;
-        numlock_by_default = 1;
-        left_handed = 0;
-        follow_mouse = 1;
-        float_switch_override_focus = 0;
+        numlock_by_default = true;
+        left_handed = false;
+        follow_mouse = true;
+        float_switch_override_focus = false;
         touchpad = {
           scroll_factor = 0.25;
-          disable_while_typing = 1;
-          natural_scroll = 1;
-          clickfinger_behavior = 0;
-          middle_button_emulation = 1;
-          tap-to-click = 1;
-          drag_lock = 0;
+          disable_while_typing = false;
+          natural_scroll = true;
+          clickfinger_behavior = false;
+          middle_button_emulation = true;
+          tap-to-click = true;
+          drag_lock = false;
         };
       };
       gestures = {
@@ -117,16 +117,16 @@
         swallow_regex = "^(alacritty|kitty)$";
       };
       binds = {
-        workspace_back_and_forth = 0;
-        allow_workspace_cycles = 1;
-        pass_mouse_when_bound = 0;
+        workspace_back_and_forth = false;
+        allow_workspace_cycles = true;
+        pass_mouse_when_bound = false;
       };
 
       animations = {
         enabled = true;
         animation = [
-          "windows, off, ,"
-          "workspaces, off, , ,"
+          "windows,off,,"
+          "workspaces,off,,"
         ];
       };
 

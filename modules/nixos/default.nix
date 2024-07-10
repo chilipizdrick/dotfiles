@@ -15,6 +15,7 @@
     ./polkit
     ./qt
     ./sudo
+    ./swap
     ./vpn
     ./xdg-portals
   ];

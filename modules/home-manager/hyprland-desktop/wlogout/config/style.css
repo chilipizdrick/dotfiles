@@ -15,11 +15,11 @@ button {
   transition: all 0.3s ease-in;
   box-shadow: 0 0 10px 2px transparent;
   border-radius: 36px;
-  margin: 30px;
-  margin-top: 175px;
-  margin-bottom: 175px;
-  min-width: 130px;
-  min-height: 130px;
+  margin: 10px;
+  /* margin-top: 175px; */
+  /* margin-bottom: 175px; */
+  /* min-width: 130px; */
+  /* min-height: 130px; */
 }
 
 button:focus {

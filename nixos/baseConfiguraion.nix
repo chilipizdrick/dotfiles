@@ -67,6 +67,7 @@
     hyprland
     alacritty
     tmux
+    tmux-sessionizer
     htop
     btop
     fastfetch
