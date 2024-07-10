@@ -30,6 +30,7 @@
     openvpn
 
     gnome.nautilus
+    ranger
     baobab
     imv
     loupe
