@@ -32,6 +32,7 @@
     gnome.nautilus
     baobab
     imv
+    loupe
     gimp
     zathura
     amberol
