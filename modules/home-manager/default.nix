@@ -9,6 +9,7 @@
     ./apps
     ./fonts
     # ./games
+    ./hyperion
     ./hyprland-desktop
   ];
 }

@@ -10,6 +10,7 @@
     ./firmware
     ./fonts
     ./greeter
+    ./hyperion
     ./locale
     ./misc
     ./polkit

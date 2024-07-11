@@ -85,7 +85,7 @@
       initialPassword = "password";
       isNormalUser = true;
       # openssh.authorizedKeys.keys = [];
-      extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video"];
+      extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout"];
       shell = pkgs.zsh;
     };
   };

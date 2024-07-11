@@ -42,6 +42,10 @@
             command = "${pkgs.systemd}/bin/poweroff";
             options = ["NOPASSWD"];
           }
+          {
+            command = "${pkgs.hyperion-ng}/bin/hyperiond";
+            options = ["NOPASSWD"];
+          }
         ];
         groups = ["wheel"];
       }
