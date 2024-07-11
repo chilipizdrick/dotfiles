@@ -155,7 +155,7 @@
   },
   "custom/vpn": {
     "exec": "~/.config/waybar/query-wireguard-vpn.sh",
-    "interval": 5,
+    "interval": 1,
     "format": "VPN",
     // "tooltip-format": "{tooltip}",
     "on-click": "~/.config/waybar/toggle-wireguard-vpn.sh",
