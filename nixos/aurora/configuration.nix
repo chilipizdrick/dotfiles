@@ -4,7 +4,6 @@
     ../baseConfiguraion.nix
   ];
 
-  # Nvidia video drivers
   nvidiaVideoDrivers.enable = true;
 
   # Enable ambilight support

@@ -4,8 +4,9 @@
     ../baseConfiguraion.nix
   ];
 
-  # AMD video drivers
   amdVideoDrivers.enable = true;
+
+  swapFile.enable = true;
 
   networking.hostName = "atlas";
 }
