@@ -212,8 +212,8 @@ return { -- LSP Configuration & Plugins
       nil_ls = {},
       shfmt = {},
       lua_ls = {
-        -- cmd = {...},
-        -- filetypes = { ...},
+        -- cmd = { ... },
+        -- filetypes = { ... },
         -- capabilities = {},
         settings = {
           Lua = {

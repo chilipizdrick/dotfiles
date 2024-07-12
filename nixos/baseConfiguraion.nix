@@ -71,6 +71,7 @@
     htop
     btop
     fastfetch
+    alejandra
   ];
 
   # Remove XTerm
