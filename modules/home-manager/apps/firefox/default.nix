@@ -217,6 +217,10 @@ in {
               name = "";
               url = "https://search.nixos.org/packages";
             }
+            {
+              name = "";
+              url = "https://open.spotify.com";
+            }
           ];
         }
       ];
