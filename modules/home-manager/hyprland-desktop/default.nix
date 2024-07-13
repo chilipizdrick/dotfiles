@@ -2,10 +2,11 @@
   imports = [
     ./cursor
     ./gtk
-    ./hypr
+    ./hypridle
+    ./hyprland
+    ./hyprlock
     ./mako
     ./rofi
-    # ./swaync
     ./waybar
     ./wlogout
   ];

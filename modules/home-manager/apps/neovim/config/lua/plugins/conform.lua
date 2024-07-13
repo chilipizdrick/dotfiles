@@ -35,6 +35,7 @@ return { -- Autoformat
       nix = { 'alejandra' },
       bash = { 'shfmt' },
       go = { 'gofmt' },
+      yaml = { 'yq' },
     },
   },
 }
