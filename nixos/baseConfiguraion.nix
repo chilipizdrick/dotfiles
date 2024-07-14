@@ -72,6 +72,8 @@
     btop
     fastfetch
     alejandra
+    sqlite
+    postgresql
   ];
 
   # Remove XTerm

@@ -94,7 +94,7 @@
         float_switch_override_focus = false;
         touchpad = {
           scroll_factor = 0.25;
-          disable_while_typing = false;
+          disable_while_typing = true;
           natural_scroll = true;
           clickfinger_behavior = false;
           middle_button_emulation = true;
