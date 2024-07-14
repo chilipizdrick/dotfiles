@@ -85,3 +85,11 @@ vim.keymap.set(
   '"+yy',
   { desc = 'Yank lilne to system clipboard' }
 )
+
+-- Open Oil file explorer
+vim.keymap.set(
+  'n',
+  '<leader>o',
+  '<Cmd>Oil<CR>',
+  { desc = 'Open Oil file explorer' }
+)

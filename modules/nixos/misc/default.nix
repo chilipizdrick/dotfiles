@@ -7,4 +7,10 @@
 
   # Configure PAM to enable hyprock to perform authentication
   security.pam.services.hyprlock = {};
+
+  # Allow discovery of connected monitors
+  hardware.i2c.enable = true;
+
+  # Hide boot log sequence
+  boot.plymouth.enable = true;
 }
