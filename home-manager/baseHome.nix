@@ -52,7 +52,7 @@
     # })
     vesktop
 
-    unstable.obsidian
+    obsidian
     # anki
 
     ani-cli
