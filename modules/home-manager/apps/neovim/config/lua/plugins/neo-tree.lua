@@ -14,16 +14,20 @@ return {
     { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
   },
   opts = {
+    window = {
+      position = 'right',
+      width = 30,
+    },
     filesystem = {
       filtered_items = {
-	    visible = true,
-	    show_hidden_count = false,
-	    hide_dotfiles = false,
-	    hide_gitignored = false,
-	    hide_by_name = {
-	      '.git',
-	    },
-	    never_show = {},
+        visible = true,
+        show_hidden_count = false,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = {
+          '.git',
+        },
+        never_show = {},
       },
       window = {
         mappings = {
