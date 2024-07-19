@@ -55,7 +55,7 @@
   },
   "clock": {
     "tooltip-format": "<tt>{calendar}</tt>",
-    "format": " {:%a %d %b  %H:%M}",
+    "format": "{:%H:%M  %a %d %b}",
   },
   "network": {
     "format-wifi": "{icon} {essid}",
