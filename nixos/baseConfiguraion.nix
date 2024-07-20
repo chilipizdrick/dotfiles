@@ -42,6 +42,7 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    xwayland
     gcc_multi
     go
     nodejs_22

@@ -1,4 +1,4 @@
-{lib, ...}: {
+{pkgs, lib, ...}: {
   imports = [
     ../baseHome.nix
   ];
@@ -58,4 +58,14 @@
 
   # Enable ambilight support
   hyperion.enable = true;
+
+  # Games
+  home.packages = with pkgs; [
+    steam
+    osu-lazer
+    glfw-wayland-minecraft
+    prismlauncher
+    fabric-installer
+  ];
+  home.file."lib/glfw-wayland-minecraft-libglfw".source = "${pkgs.glfw-wayland-minecraft}/lib";
 }
