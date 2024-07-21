@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./appimage
     ./bootloader
     ./dconf
     ./firmware

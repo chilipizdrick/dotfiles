@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../baseHome.nix
   ];
@@ -62,7 +66,9 @@
   # Games
   home.packages = with pkgs; [
     steam
+    r2modman
     osu-lazer
+
     glfw-wayland-minecraft
     prismlauncher
     fabric-installer
