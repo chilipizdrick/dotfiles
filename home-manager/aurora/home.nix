@@ -65,7 +65,6 @@
 
   # Games
   home.packages = with pkgs; [
-    steam
     r2modman
     osu-lazer
 

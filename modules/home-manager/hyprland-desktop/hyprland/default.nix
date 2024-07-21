@@ -44,7 +44,7 @@
       general = {
         allow_tearing = true;
         sensitivity = 1.00;
-        apply_sens_to_raw = true;
+        apply_sens_to_raw = false;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 0;
