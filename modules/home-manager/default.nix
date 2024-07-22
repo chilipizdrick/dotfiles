@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./aliases
     ./apps
@@ -11,5 +6,6 @@
     # ./games
     ./hyperion
     ./hyprland-desktop
+    ./mime-apps
   ];
 }

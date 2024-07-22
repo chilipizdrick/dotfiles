@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./firefox
     ./cava
@@ -14,5 +9,6 @@
     ./alacritty
     ./zoxide
     ./oh-my-posh
+    ./spotify
   ];
 }

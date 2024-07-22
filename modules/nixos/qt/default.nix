@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   qt.enable = true;
   qt.platformTheme = "qt5ct";
   qt.style = "adwaita-dark";

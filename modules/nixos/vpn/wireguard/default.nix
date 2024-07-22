@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   networking.wg-quick.interfaces = let
     serverIp = "176.222.54.208";
     serverPublicKey = "Te685O0zvtKDCLPUFV06PrfFj/cgKRqLl9rCTmaL3W8=";

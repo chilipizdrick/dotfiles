@@ -1,23 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  # Set scaling in gdm to 2
-  # programs.dconf.profiles.gdm.databases = [
-  #   {
-  #     settings."org/gnome/desktop/interface".scaling-factor = lib.gvariant.mkUint32 2;
-  #   }
-  # ];
-  # services.xserver.displayManager.gdm = {
-  #   enable = true;
-  #   wayland = true;
-  #   banner = ''
-  #     Nixosing?
-  #   '';
-  # };
-
+{pkgs, ...}: {
   security.pam.services.greetd = {enableGnomeKeyring = true;};
   services.greetd = let
     tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";

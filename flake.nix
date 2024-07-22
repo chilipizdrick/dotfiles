@@ -16,6 +16,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = {
@@ -23,6 +25,7 @@
     nixpkgs,
     home-manager,
     grub2-themes,
+    spicetify-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -65,6 +68,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/atlas/home.nix
+          spicetify-nix.homeManagerModule
         ];
       };
       "alex@aurora" = home-manager.lib.homeManagerConfiguration {
@@ -72,6 +76,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/aurora/home.nix
+          spicetify-nix.homeManagerModule
         ];
       };
     };
