@@ -1,9 +1,11 @@
 {...}: {
   boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    systemd-boot.enable = false;
+    timeout = 3;
+    efi.canTouchEfiVariables = true;
+    # systemd-boot = {
+    #   enable = true;
+    #   configurationLimit = 3;
+    # };
     grub = {
       enable = true;
       device = "nodev";
@@ -13,7 +15,7 @@
     };
     grub2-theme = {
       enable = true;
-      theme = "whitesur";
+      theme = "vimix";
       footer = true;
     };
   };

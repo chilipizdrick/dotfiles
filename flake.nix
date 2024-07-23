@@ -12,12 +12,9 @@
       url = "github:chilipizdrick/wallpapers";
       flake = false;
     };
-
     hyprland.url = "github:hyprwm/Hyprland";
-
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
-
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
   outputs = {
