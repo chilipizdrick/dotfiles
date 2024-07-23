@@ -3,7 +3,7 @@
     ./aliases
     ./apps
     ./fonts
-    # ./games
+    ./games
     ./hyperion
     ./hyprland-desktop
     ./mime-apps

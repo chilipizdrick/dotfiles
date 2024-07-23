@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../baseConfiguraion.nix
@@ -9,9 +9,13 @@
   # Enable ambilight support
   hyperion.enable = true;
 
-  # Games
-  programs.steam.enable = true;
-  environment.systemPackages = with pkgs; [protonup-qt];
+  # Printer and scanner config
+  printerScanner.enable = true;
+
+  games = {
+    enable = true;
+    steam = true;
+  };
 
   networking.hostName = "aurora";
 }

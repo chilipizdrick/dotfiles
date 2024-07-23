@@ -5,6 +5,7 @@
     ./dconf
     ./firmware
     ./fonts
+    ./games
     ./greeter
     ./hyperion
     ./locale
