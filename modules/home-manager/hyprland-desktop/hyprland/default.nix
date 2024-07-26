@@ -174,7 +174,7 @@
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "waybar"
         "pidof nm-applet || nm-applet"
-        "pidof hypridle || hypridle"
+        # "pidof hypridle || hypridle"
         "otd-daemon"
       ];
 
@@ -252,7 +252,7 @@
         "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 5"
         "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
         "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
-        "$mainMod SHIFT, C, exec, $(killall hypridle && notify-send 'Caffeine mode enabled') || $(notify-send 'Caffeine mode disabled' && hypridle) # Toggle hypridle"
+        "$mainMod SHIFT, C, exec, pidof caffeine-ng && killall c && notify-send '☕ Caffeine mode disabled' || $(caffeine & notify-send '☕ Caffeine mode enabled')"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -300,6 +300,7 @@
     slurp # Screenshot functionality
     networkmanagerapplet # Easy network connection management
     killall # Self explainatory
+    caffeine-ng # Caffeine mode
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
