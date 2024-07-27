@@ -169,13 +169,12 @@
       ];
 
       exec-once = [
-        "hyprlock"
-        "swww query || swww-daemon"
+        "hyprlock &"
+        "swww query || swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "waybar"
-        "pidof nm-applet || nm-applet"
-        # "pidof hypridle || hypridle"
-        "otd-daemon"
+        "waybar &"
+        "pidof nm-applet || nm-applet &"
+        "otd-daemon &"
       ];
 
       bind = [

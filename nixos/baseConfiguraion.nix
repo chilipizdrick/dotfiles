@@ -34,6 +34,9 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Enable execution of dynamically linked binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
