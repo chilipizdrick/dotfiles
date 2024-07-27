@@ -38,8 +38,10 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable execution of dynamically linked binaries
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld = {
+    enable = true;
+    libraries = [];
+  };
 
   services.xserver.enable = true;
 
@@ -54,6 +56,7 @@
     rustc
     php
     temurin-bin
+    temurin-bin-17
     julia_19
     luajitPackages.luarocks
     python312Packages.pip

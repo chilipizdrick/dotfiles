@@ -10,6 +10,7 @@ in {
   options.games = {
     enable = mkEnableOption "game related stuff";
     steam = mkEnableOption "steam";
+    minecraft = mkEnableOption "minecraft";
   };
   config = mkIf cfg.enable {
     programs.steam.enable =

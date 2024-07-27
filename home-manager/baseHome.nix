@@ -55,7 +55,7 @@
     # ventoy
     qbittorrent
 
-    wallust
+    unstable.wallust
   ];
 
   # Set default apps for some applications

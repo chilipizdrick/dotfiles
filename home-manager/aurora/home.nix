@@ -63,6 +63,7 @@
   games = {
     enable = true;
     minecraft = true;
+    # osu = true;
     r2modman = true;
   };
 }

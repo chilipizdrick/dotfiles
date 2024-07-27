@@ -22,7 +22,7 @@ in {
         fabric-installer
       ];
       r2modmanPkgs = [r2modman];
-      osuPkgs = [osu-lazer];
+      osuPkgs = [unstable.osu-lazer];
     in
       (
         if cfg.minecraft
