@@ -18,7 +18,7 @@ in {
       nvidiaSettings = true;
       package = (pkgs.unstable.linuxPackagesFor config.boot.kernelPackages.kernel).nvidiaPackages.beta;
     };
-    boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"]; # For correct suspention and hybernation
+    boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"]; # For correct suspention and hibernation
     hardware.opengl = {
       enable = true;
       driSupport = true;
