@@ -11,6 +11,7 @@ return {
   require 'plugins.mini',
   require 'plugins.neo-tree',
   require 'plugins.nvim-cmd',
+  require 'plugins.nvim-highlight-colors',
   require 'plugins.oil',
   -- require 'plugins.otter',
   require 'plugins.rosepine',
