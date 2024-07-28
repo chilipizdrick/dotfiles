@@ -2,6 +2,9 @@
   programs.hyprlock = {
     enable = true;
     settings = {
+      general = {
+        ignore_empty_input = true;
+      };
       background = [
         {
           monitor = "";
@@ -30,7 +33,7 @@
           font_color = "rgb(ffffff)";
           fade_on_empty = true;
           placeholder_text = "<i>Password...</i>";
-          position = "0, 120";
+          position = "0, 150";
           halign = "center";
           valign = "bottom";
         }
@@ -67,6 +70,8 @@
           font_size = 22;
           font_family = "JetBrainsMono Nerd Font 10";
           position = "0, 30";
+          shadow_passes = 3;
+          shadow_size = 1;
           halign = "center";
           valign = "center";
         }
@@ -76,17 +81,33 @@
           color = "rgb(ffffff)";
           font_size = 18;
           font_family = "JetBrainsMono Nerd Font 10";
+          shadow_passes = 3;
+          shadow_size = 1;
           position = "0, 6";
           halign = "center";
           valign = "center";
         }
         {
           monitor = "";
+          text = "cmd[update:1000] [ $(playerctl status) = Playing ] && [ $(playerctl metadata | head -1 | awk '{print $1}') != firefox ] && echo \"<b>$([ $(playerctl metadata | head -1 | awk '{print $1}') = spotify ] && echo ' ')$(playerctl metadata artist) - $(playerctl metadata title)</b>\"";
+          color = "rgb(ffffff)";
+          font_size = 18;
+          font_family = "JetBrainsMono Nerd Font 10";
+          shadow_passes = 3;
+          shadow_size = 1;
+          position = "0, 50";
+          halign = "center";
+          valign = "bottom";
+        }
+        {
+          monitor = "";
           text = "cmd[update:18000000] echo \"<b>Feels like<big> $(curl -s 'wttr.in?format=%t' | tr -d '+') </big></b>\"";
           color = "rgb(ffffff)";
           font_size = 18;
-          font_family = "Geist Mono 10";
-          position = "0, 40";
+          font_family = "JetBrainsMono Nerd Font 10";
+          shadow_passes = 3;
+          shadow_size = 1;
+          position = "0, 0";
           halign = "center";
           valign = "bottom";
         }

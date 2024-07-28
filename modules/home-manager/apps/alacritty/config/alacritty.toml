@@ -7,7 +7,7 @@ background = "#000000"
 dimensions = { columns = 108, lines = 30 }
 padding = { x = 4, y = 4 }
 decorations = "none"
-opacity = 0.80
+opacity = 0.75
 blur = true
 startup_mode = "maximized"
 decorations_theme_variant = "dark"

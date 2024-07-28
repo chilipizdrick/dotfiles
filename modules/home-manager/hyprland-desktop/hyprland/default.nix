@@ -125,8 +125,11 @@
       animations = {
         enabled = true;
         animation = [
-          "windows,off,,"
-          "workspaces,off,,"
+          "windows,on,2,default"
+          "windowsIn,on,2,default,slide,up"
+          "windowsOut,on,2,default,slide,down"
+
+          "workspaces,on,2,default"
         ];
       };
 
@@ -136,22 +139,13 @@
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
-        "blur,swaync-control-center"
-        "blur,swaync-notification-window"
         "ignorezero,waybar"
-        "ignorezero,swaync-control-center"
-        "ignorezero,swaync-notification-window"
         "ignorezero,notifications"
-        "ignorealpha 0.5,swaync-control-center"
-        "ignorealpha 0.5,swaync-notification-window"
       ];
       windowrule = [
-        "float,org.kde.polkit-kde-authentication-agent-1"
         "float,nm-connection-editor|blueman-manager"
         "float,pavucontrol"
-        "float,eog"
         "float,rofi"
-        "float,gnome-system-monitor"
         "float,yad"
       ];
       windowrulev2 = [
@@ -242,7 +236,7 @@
         "ALT, SPACE, exec, rofi -show drun -modi drun,filebrowser,run,window"
         "$mainMod, Return, exec, $term"
         "$mainMod, E, exec, $files"
-        "$mainMod ALT, R, exec, $scripts/refresh.sh # Refresh waybar, swaync, rofi"
+        "$mainMod ALT, R, exec, $scripts/refresh.sh # Refresh waybar, rofi"
         "$mainMod, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar "
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "$mainMod ALT, C, exec, hyprctl reload # Reload config"
@@ -290,10 +284,10 @@
   };
 
   home.packages = with pkgs; [
-    wl-clipboard # Clipboard functionality
+    wl-clipboard # Clipboard functionality on wayland
     pamixer # Pulseauido command line mixer
     brightnessctl # Read and controll device brightness
-    swww # Fancy wallpapers
+    swww # Fancy wallpaper daemon
     libnotify # For sending custom notifications
     grim # Screenshot functionality
     slurp # Screenshot functionality
