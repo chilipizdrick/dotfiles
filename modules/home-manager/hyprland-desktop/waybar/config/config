@@ -151,7 +151,7 @@
       // "paused": "⏸"
       "paused": "||"
     },
-    "ignored-players": [ "firefox", "chromium" ]
+    "ignored-players": [ "firefox", "chromium", "brave" ]
   },
   "custom/vpn": {
     "exec": "~/.config/waybar/query-wireguard-vpn.sh",
