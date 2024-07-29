@@ -38,15 +38,14 @@
     zathura
     amberol
     mpv
-    vlc
 
-    chromium
+    brave
 
     telegram-desktop
-    (discord.override {
-      withVencord = true;
-      vencord = unstable.vencord;
-    })
+    # (discord.override {
+    #   withVencord = true;
+    #   vencord = unstable.vencord;
+    # })
     vesktop
 
     obsidian

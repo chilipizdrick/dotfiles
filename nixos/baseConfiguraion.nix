@@ -47,40 +47,40 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+
     xwayland
+
     gcc_multi
     go
-    nodejs_22
+    # nodejs_22
     python3
-    cargo
-    rustc
-    php
+    # cargo
+    # rustc
+    # php
     temurin-bin
     temurin-bin-17
     julia_19
     luajitPackages.luarocks
-    python312Packages.pip
-    php83Packages.composer
+    # python312Packages.pip
+    # php83Packages.composer
+
     ripgrep
     wget
+    curl
     jq
     git
     zip
     unzip
     gzip
     vim
-    docker
 
     hyprland
     alacritty
     tmux
     tmux-sessionizer
-    htop
     btop
     fastfetch
     alejandra
-    sqlite
-    postgresql
   ];
 
   # Remove XTerm

@@ -8,6 +8,7 @@
     ./games
     ./greeter
     ./hyperion
+    ./hyprland
     ./locale
     ./misc
     ./polkit

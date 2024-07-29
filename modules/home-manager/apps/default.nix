@@ -2,6 +2,7 @@
   imports = [
     ./firefox
     ./cava
+    # ./chromium
     ./git
     ./tmux
     ./zsh
