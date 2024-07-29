@@ -126,8 +126,8 @@
         enabled = true;
         animation = [
           "windows,on,2,default"
-          "windowsIn,on,2,default,slide,up"
-          "windowsOut,on,2,default,slide,down"
+          "windowsIn,on,2,default,slide,top"
+          "windowsOut,on,2,default,slide,bottom"
 
           "workspaces,on,2,default"
         ];
@@ -135,19 +135,26 @@
 
       layerrule = [
         "blur,logout_dialog"
-        "blur,class:^(swww)$"
+        # "blur,class:^(swww)$"
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
+
         "ignorezero,waybar"
         "ignorezero,notifications"
+        "ignorealpha 0.5,waybar" # Fixes annoying visual effect
+        "ignorealpha 0.5,notifications" # Fixes annoying visual effect
+
+        "animation slide,waybar"
       ];
+
       windowrule = [
         "float,nm-connection-editor|blueman-manager"
         "float,pavucontrol"
         "float,rofi"
         "float,yad"
       ];
+
       windowrulev2 = [
         "idleinhibit fullscreen, fullscreen:1"
         "opacity 0.95 0.75,title:^(Picture-in-Picture)$ # for opacity: [focus num] [bg num]"
@@ -163,7 +170,7 @@
       ];
 
       exec-once = [
-        "hyprlock &"
+        "hyprlock &" # Lock on login
         "swww query || swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "waybar &"
