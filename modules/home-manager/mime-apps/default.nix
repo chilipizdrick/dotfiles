@@ -5,10 +5,10 @@
     defaultApplications = {
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/http" = "brave.desktop";
+      "x-scheme-handler/https" = "brave.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop" "brave.desktop"];
       "application/doc" = "libreoffice-writer.desktop";
       "application/docx" = "libreoffice-writer.desktop";
       "application/msword" = "libreoffice-writer.desktop";
