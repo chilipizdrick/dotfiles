@@ -89,7 +89,19 @@
         }
         {
           monitor = "";
-          text = "cmd[update:1000] [ $(playerctl status) = Playing ] && [ $(playerctl metadata | head -1 | awk '{print $1}') != firefox ] && echo \"<b>$([ $(playerctl metadata | head -1 | awk '{print $1}') = spotify ] && echo ' ')$(playerctl metadata artist) - $(playerctl metadata title)</b>\"";
+          text = ''cmd[update:250] echo "$(hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap')"'';
+          color = "rgb(ffffff)";
+          font_size = 15;
+          font_family = "JetBrainsMono Nerd Font 10";
+          shadow_passes = 3;
+          shadow_size = 1;
+          position = "0, 180";
+          halign = "center";
+          valign = "bottom";
+        }
+        {
+          monitor = "";
+          text = ''cmd[update:1000] [ $(playerctl status) = Playing ] && [ $(playerctl metadata | head -1 | awk '{print $1}') != firefox ] && echo "<b>$([ $(playerctl metadata | head -1 | awk '{print $1}') = spotify ] && echo ' ')$(playerctl metadata artist) - $(playerctl metadata title)</b>"'';
           color = "rgb(ffffff)";
           font_size = 18;
           font_family = "JetBrainsMono Nerd Font 10";
