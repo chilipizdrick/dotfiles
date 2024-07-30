@@ -153,6 +153,8 @@
         "float,pavucontrol"
         "float,rofi"
         "float,yad"
+
+        # "opacity 0.8,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [
@@ -236,7 +238,7 @@
         "$mainMod, comma, workspace, e-1"
         "$mainMod SHIFT, U, movetoworkspace, special"
         "$mainMod, U, togglespecialworkspace,"
-        "$mainMod, W, exec, $scripts/wallpaperSelect.sh"
+        "$mainMod, W, exec, $scripts/select_wallpaper.sh"
         ", Print, exec, grim - | wl-copy"
         "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mainMod, D, exec, rofi -show drun -modi drun,filebrowser,run,window"
@@ -253,6 +255,7 @@
         "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
         "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
         "$mainMod SHIFT, C, exec, pidof caffeine-ng && killall c && notify-send '☕ Caffeine mode disabled' || $(caffeine & notify-send '☕ Caffeine mode enabled')"
+        "$mainMod SHIFT, M, exec, $scripts/switch_layout.sh"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
