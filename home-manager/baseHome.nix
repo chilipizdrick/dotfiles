@@ -49,6 +49,7 @@
     vesktop
 
     obsidian
+    zed-editor
 
     ani-cli
     # ventoy

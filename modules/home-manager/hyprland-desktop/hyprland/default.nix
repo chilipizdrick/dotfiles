@@ -5,7 +5,8 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    # package = pkgs.unstable.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -19,6 +20,8 @@
       "$right" = "L";
       "$up" = "K";
       "$down" = "J";
+
+      # "experimental:explicit_sync" = true;
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
@@ -154,7 +157,7 @@
         "float,rofi"
         "float,yad"
 
-        # "opacity 0.8,title:^(Spotify)(.*)$"
+        "opacity 0.8,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [
@@ -172,11 +175,11 @@
       ];
 
       exec-once = [
-        "hyprlock &" # Lock on login
-        "swww query || swww-daemon &"
+        "${pkgs.hyprlock}/bin/hyprlock &" # Lock on login
+        "${pkgs.swww}/bin/swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "waybar &"
-        "pidof nm-applet || nm-applet &"
+        "${pkgs.waybar}/bin/waybar &"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
         "otd-daemon &"
       ];
 

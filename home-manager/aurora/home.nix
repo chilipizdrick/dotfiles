@@ -57,6 +57,60 @@
     NVD_BACKEND = "direct";
   };
 
+  # Fixes for poorly running electron apps
+  xdg.desktopEntries = {
+    /*
+    [Desktop Entry]
+    Categories=Network;InstantMessaging;Chat
+    Exec=vesktop %U
+    GenericName=Internet Messenger
+    Icon=vesktop
+    Keywords=discord;vencord;electron;chat
+    Name=Vesktop
+    StartupWMClass=Vesktop
+    Type=Application
+    Version=1.4
+    */
+    vesktop-x11 = {
+      categories = ["Network" "InstantMessaging" "Chat"];
+      exec = "env -u XDG_SESSION_TYPE vesktop %U";
+      genericName = "Voice Chat";
+      icon = "vesktop";
+      name = "Vesktop XDG_SESSION_TYPE Override";
+      type = "Application";
+      settings = {
+        Keywords = "discord;vencord;electron;chat";
+        StartupWMClass = "Vesktop";
+      };
+    };
+    /*
+    [Desktop Entry]
+    Type=Application
+    Name=Spotify
+    GenericName=Music Player
+    Icon=spotify-client
+    TryExec=spotify
+    Exec=spotify %U
+    Terminal=false
+    MimeType=x-scheme-handler/spotify;
+    Categories=Audio;Music;Player;AudioVideo;
+    StartupWMClass=spotify
+    */
+    spotify-xwayland = {
+      type = "Application";
+      name = "Spotify on Xwayland";
+      genericName = "Music Player";
+      icon = "spotify-client";
+      exec = "env -u WAYLAND_DISPLAY spotify %U";
+      terminal = false;
+      mimeType = ["x-scheme-handler/spotify"];
+      categories = ["Audio" "Music" "Player" "AudioVideo"];
+      settings = {
+        StartupWMClass = "spotify";
+      };
+    };
+  };
+
   # Enable ambilight support
   hyperion.enable = true;
 
