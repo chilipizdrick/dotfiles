@@ -13,8 +13,12 @@
       flake = false;
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
   };
 
   outputs = {
@@ -23,6 +27,7 @@
     home-manager,
     grub2-themes,
     spicetify-nix,
+    nix-flatpak,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -46,15 +51,19 @@
       atlas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/atlas/configuration.nix
           grub2-themes.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
+
+          ./nixos/atlas/configuration.nix
         ];
       };
       aurora = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/aurora/configuration.nix
           grub2-themes.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
+
+          ./nixos/aurora/configuration.nix
         ];
       };
     };
@@ -64,16 +73,20 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
+          spicetify-nix.homeManagerModules.default
+          nix-flatpak.homeManagerModules.nix-flatpak
+
           ./home-manager/atlas/home.nix
-          spicetify-nix.homeManagerModule
         ];
       };
       "alex@aurora" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
+          spicetify-nix.homeManagerModules.default
+          nix-flatpak.homeManagerModules.nix-flatpak
+
           ./home-manager/aurora/home.nix
-          spicetify-nix.homeManagerModule
         ];
       };
     };

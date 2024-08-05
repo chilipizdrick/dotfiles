@@ -157,7 +157,7 @@
         "float,rofi"
         "float,yad"
 
-        "opacity 0.8,title:^(Spotify)(.*)$"
+        # "opacity 0.8,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [

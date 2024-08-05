@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../baseHome.nix
   ];
@@ -120,4 +124,8 @@
     # osu = true;
     r2modman = true;
   };
+
+  home.packages = with pkgs; [
+    obs-studio
+  ];
 }

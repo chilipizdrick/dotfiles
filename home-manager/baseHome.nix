@@ -30,7 +30,6 @@
     openvpn
 
     gnome.nautilus
-    ranger
     baobab
     imv
     loupe
@@ -42,21 +41,39 @@
     brave
 
     telegram-desktop
-    # (discord.override {
-    #   withVencord = true;
-    #   vencord = unstable.vencord;
-    # })
+    (discord.override {
+      withVencord = true;
+      vencord = unstable.vencord;
+    })
     vesktop
 
     obsidian
-    zed-editor
 
     ani-cli
-    # ventoy
     qbittorrent
 
     unstable.wallust
+
+    gnome.gnome-software
   ];
+
+  # --command=soundux in .desktop file prevents Soundux from launching properly
+  xdg.desktopEntries = {
+    soundux-fix = {
+      categories = ["Audio" "Music" "Player" "AudioVideo"];
+      exec = "flatpak run --branch=stable --arch=x86_64 --file-forwarding io.github.Soundux @@u %U @@";
+      comment = "A universal soundboard that uses PulseAudio modules or PipeWire linking";
+      genericName = "SoundBoard";
+      icon = "io.github.Soundux";
+      name = "Soundux *FIX*";
+      type = "Application";
+      terminal = false;
+      settings = {
+        StartupWMClass = "Soundux";
+        X-Flatpak = "io.github.Soundux";
+      };
+    };
+  };
 
   # Set default apps for some applications
   home.sessionVariables = {

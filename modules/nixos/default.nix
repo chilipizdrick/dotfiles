@@ -4,6 +4,7 @@
     ./bootloader
     ./dconf
     ./firmware
+    ./flatpak
     ./fonts
     ./games
     ./greeter
