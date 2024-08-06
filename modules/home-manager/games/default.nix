@@ -21,7 +21,7 @@ in {
         prismlauncher
         fabric-installer
       ];
-      r2modmanPkgs = [r2modman];
+      r2modmanPkgs = [unstable.r2modman];
       osuPkgs = [unstable.osu-lazer];
     in
       (

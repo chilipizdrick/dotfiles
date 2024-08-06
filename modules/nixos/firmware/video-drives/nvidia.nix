@@ -15,7 +15,7 @@ in {
       powerManagement.enable = true;
       powerManagement.finegrained = false;
       nvidiaSettings = true;
-      package = (pkgs.unstable.linuxPackagesFor config.boot.kernelPackages.kernel).nvidiaPackages.beta;
+      package = (pkgs.unstable.linuxPackagesFor config.boot.kernelPackages.kernel).nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       #   version = "560.28.03";
       #

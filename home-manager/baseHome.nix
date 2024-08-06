@@ -35,7 +35,6 @@
     loupe
     gimp
     zathura
-    amberol
     mpv
 
     brave

@@ -51,6 +51,8 @@
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 0;
+        "col.active_border" = "0xffffffff";
+        "col.inactive_border" = "0xff000000";
         resize_on_border = false;
         layout = "dwindle";
       };
@@ -71,7 +73,7 @@
         dim_inactive = false;
         dim_strength = 0.1;
         drop_shadow = true;
-        shadow_range = 16;
+        shadow_range = 8;
         shadow_render_power = 2;
         shadow_offset = "2 2";
         "col.shadow" = "rgba(0C0E13A6)";

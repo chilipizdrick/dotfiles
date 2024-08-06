@@ -3,7 +3,8 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      "inode/directory" = "org.gnome.Nautilus.desktop";
+      # "inode/directory" = "org.gnome.Nautilus.desktop";
+      "inode/directory" = "ranger.desktop";
 
       "x-scheme-handler/http" = "brave.desktop";
       "x-scheme-handler/https" = "brave.desktop";
@@ -25,14 +26,14 @@
       "video/webm" = "mpv.desktop";
       "video/avi" = "mpv.desktop";
 
-      "audio/aac" = "io.bassi.Amberol.desktop";
-      "audio/mpeg" = "io.bassi.Amberol.desktop";
-      "audio/ogg" = "io.bassi.Amberol.desktop";
-      "audio/wav" = "io.bassi.Amberol.desktop";
-      "audio/webm" = "io.bassi.Amberol.desktop";
-      "audio/flac" = "io.bassi.Amberol.desktop";
-      "audio/m4a" = "io.bassi.Amberol.desktop";
-      "audio/opus" = "io.bassi.Amberol.desktop";
+      "audio/aac" = "mpv.desktop";
+      "audio/mpeg" = "mpv.desktop";
+      "audio/ogg" = "mpv.desktop";
+      "audio/wav" = "mpv.desktop";
+      "audio/webm" = "mpv.desktop";
+      "audio/flac" = "mpv.desktop";
+      "audio/m4a" = "mpv.desktop";
+      "audio/opus" = "mpv.desktop";
     };
   };
 }

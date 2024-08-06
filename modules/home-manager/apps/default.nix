@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./firefox
+    # ./firefox
     ./cava
     # ./chromium
     ./git

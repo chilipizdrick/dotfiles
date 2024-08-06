@@ -75,6 +75,7 @@
     unzip
     gzip
     vim
+    fzf
 
     hyprland
     alacritty
