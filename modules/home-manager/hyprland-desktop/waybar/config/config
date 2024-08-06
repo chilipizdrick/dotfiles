@@ -94,7 +94,8 @@
   },
   "custom/launcher": {
     "format": "",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "App Launcher",
     "on-click": "rofi -terminal ${terminal} -show drun -modes drun"
   },
   "battery": {
@@ -134,7 +135,8 @@
   },
   "custom/powermenu": {
     "format": "⏻",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
     "on-click": "wlogout -b 5"
   },
   "mpris": {

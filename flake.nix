@@ -19,6 +19,7 @@
     };
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    gBar.url = "github:scorpion-26/gBar";
   };
 
   outputs = {
@@ -28,6 +29,7 @@
     grub2-themes,
     spicetify-nix,
     nix-flatpak,
+    gBar,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -75,6 +77,7 @@
         modules = [
           spicetify-nix.homeManagerModules.default
           nix-flatpak.homeManagerModules.nix-flatpak
+          gBar.homeManagerModules.x86_64-linux.default
 
           ./home-manager/atlas/home.nix
         ];
@@ -85,6 +88,7 @@
         modules = [
           spicetify-nix.homeManagerModules.default
           nix-flatpak.homeManagerModules.nix-flatpak
+          gBar.homeManagerModules.x86_64-linux.default
 
           ./home-manager/aurora/home.nix
         ];
