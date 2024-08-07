@@ -3,8 +3,7 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      # "inode/directory" = "org.gnome.Nautilus.desktop";
-      "inode/directory" = "ranger.desktop";
+      "inode/directory" = "org.gnome.Nautilus.desktop";
 
       "x-scheme-handler/http" = "brave.desktop";
       "x-scheme-handler/https" = "brave.desktop";

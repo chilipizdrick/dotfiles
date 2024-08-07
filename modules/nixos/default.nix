@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./apps
     ./appimage
     ./bootloader
     ./dconf

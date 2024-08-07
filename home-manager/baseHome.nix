@@ -29,7 +29,6 @@
   home.packages = with pkgs; [
     openvpn
 
-    gnome.nautilus
     baobab
     imv
     loupe

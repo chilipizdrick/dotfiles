@@ -14,8 +14,9 @@
       "$mainMod" = "SUPER";
       "$scripts" = "$HOME/.config/hypr/scripts";
       "$configs" = "$HOME/.config/hypr/configs";
-      "$files" = "alacritty -e 'ranger'";
-      "$term" = "alacritty";
+      "$files" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      # "$files" = "env EDITOR=nvim VISUAL=nvim alacritty -e 'ranger'";
+      "$term" = "${pkgs.alacritty}/bin/alacritty";
       "$left" = "H";
       "$right" = "L";
       "$up" = "K";

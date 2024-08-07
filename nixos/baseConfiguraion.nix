@@ -59,8 +59,8 @@
     # cargo
     # rustc
     # php
-    temurin-bin
-    temurin-bin-17
+    # temurin-bin
+    # temurin-bin-17
     temurin-bin-8
     julia_19
     luajitPackages.luarocks
