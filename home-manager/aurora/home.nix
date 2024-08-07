@@ -101,5 +101,6 @@
 
   home.packages = with pkgs; [
     obs-studio
+    # davinci-resolve
   ];
 }

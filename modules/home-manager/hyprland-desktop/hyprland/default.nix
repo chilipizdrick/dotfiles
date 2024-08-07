@@ -14,7 +14,7 @@
       "$mainMod" = "SUPER";
       "$scripts" = "$HOME/.config/hypr/scripts";
       "$configs" = "$HOME/.config/hypr/configs";
-      "$files" = "nautilus";
+      "$files" = "alacritty -e 'ranger'";
       "$term" = "alacritty";
       "$left" = "H";
       "$right" = "L";
@@ -28,7 +28,7 @@
         "CLUTTER_BACKEND,wayland"
         "GDK_BACKEND,wayland,x11"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORM,wayland"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -286,7 +286,7 @@
     CLUTTER_BACKEND = "wayland";
     GDK_BACKEND = "wayland,x11";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
