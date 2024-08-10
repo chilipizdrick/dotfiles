@@ -78,7 +78,6 @@
     vim
     fzf
 
-    hyprland
     alacritty
     tmux
     tmux-sessionizer

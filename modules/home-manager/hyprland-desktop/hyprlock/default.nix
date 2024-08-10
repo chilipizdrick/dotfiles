@@ -1,9 +1,11 @@
-{...}: {
+{pkgs, ...}: {
   programs.hyprlock = {
     enable = true;
+    package = pkgs.unstable.hyprlock;
     settings = {
       general = {
         ignore_empty_input = true;
+        hide_cursor = true;
       };
       background = [
         {
@@ -47,9 +49,9 @@
           font_family = "Geist Mono 10";
           shadow_passes = 3;
           shadow_size = 4;
-          position = "0, 220";
+          position = "0, -100";
           halign = "center";
-          valign = "center";
+          valign = "top";
         }
         {
           monitor = "";
@@ -59,9 +61,9 @@
           font_family = "Geist Mono 10";
           shadow_passes = 3;
           shadow_size = 4;
-          position = "0, 80";
+          position = "0, -240";
           halign = "center";
-          valign = "center";
+          valign = "top";
         }
         {
           monitor = "";
@@ -69,11 +71,11 @@
           color = "rgb(ffffff)";
           font_size = 22;
           font_family = "JetBrainsMono Nerd Font 10";
-          position = "0, 30";
+          position = "0, -450";
           shadow_passes = 3;
           shadow_size = 1;
           halign = "center";
-          valign = "center";
+          valign = "top";
         }
         {
           monitor = "";
@@ -83,9 +85,9 @@
           font_family = "JetBrainsMono Nerd Font 10";
           shadow_passes = 3;
           shadow_size = 1;
-          position = "0, 6";
+          position = "0, -490";
           halign = "center";
-          valign = "center";
+          valign = "top";
         }
         {
           monitor = "";
@@ -95,7 +97,7 @@
           font_family = "JetBrainsMono Nerd Font 10";
           shadow_passes = 3;
           shadow_size = 1;
-          position = "0, 180";
+          position = "0, 210";
           halign = "center";
           valign = "bottom";
         }
@@ -107,7 +109,7 @@
           font_family = "JetBrainsMono Nerd Font 10";
           shadow_passes = 3;
           shadow_size = 1;
-          position = "0, 50";
+          position = "0, 70";
           halign = "center";
           valign = "bottom";
         }
@@ -119,7 +121,7 @@
           font_family = "JetBrainsMono Nerd Font 10";
           shadow_passes = 3;
           shadow_size = 1;
-          position = "0, 0";
+          position = "0, 20";
           halign = "center";
           valign = "bottom";
         }

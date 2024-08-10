@@ -12,6 +12,7 @@
       url = "github:chilipizdrick/wallpapers";
       flake = false;
     };
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -19,80 +20,76 @@
     };
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    gBar.url = "github:scorpion-26/gBar";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    grub2-themes,
-    spicetify-nix,
-    nix-flatpak,
-    gBar,
     ...
-  } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      # "aarch64-linux"
-      # "i686-linux"
-      "x86_64-linux"
-      # "aarch64-darwin"
-      # "x86_64-darwin"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+  } @ inputs:
+    with inputs; let
+      inherit (self) outputs;
+      systems = [
+        "x86_64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+      defaultNixosModules = [
+        hyprland.nixosModules.default
+        nix-flatpak.nixosModules.nix-flatpak
+        grub2-themes.nixosModules.default
+      ];
+      defaultHomeManagerOptions = [
+        hyprland.homeManagerModules.default
+        nix-flatpak.homeManagerModules.nix-flatpak
+        spicetify-nix.homeManagerModules.default
+      ];
+    in {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    overlays = import ./overlays {inherit inputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
+      overlays = import ./overlays {inherit inputs;};
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
 
-    nixosConfigurations = {
-      atlas = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          grub2-themes.nixosModules.default
-          nix-flatpak.nixosModules.nix-flatpak
-
-          ./nixos/atlas/configuration.nix
-        ];
+      nixosConfigurations = {
+        atlas = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs outputs;};
+          modules =
+            defaultNixosModules
+            ++ [
+              ./nixos/atlas/configuration.nix
+            ];
+        };
+        aurora = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs outputs;};
+          modules =
+            defaultNixosModules
+            ++ [
+              ./nixos/aurora/configuration.nix
+            ];
+        };
       };
-      aurora = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          grub2-themes.nixosModules.default
-          nix-flatpak.nixosModules.nix-flatpak
 
-          ./nixos/aurora/configuration.nix
-        ];
+      homeConfigurations = {
+        "alex@atlas" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules =
+            defaultHomeManagerOptions
+            ++ [
+              ./home-manager/atlas/home.nix
+            ];
+        };
+        "alex@aurora" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules =
+            defaultHomeManagerOptions
+            ++ [
+              ./home-manager/aurora/home.nix
+            ];
+        };
       };
     };
-
-    homeConfigurations = {
-      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          spicetify-nix.homeManagerModules.default
-          nix-flatpak.homeManagerModules.nix-flatpak
-          gBar.homeManagerModules.x86_64-linux.default
-
-          ./home-manager/atlas/home.nix
-        ];
-      };
-      "alex@aurora" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          spicetify-nix.homeManagerModules.default
-          nix-flatpak.homeManagerModules.nix-flatpak
-          gBar.homeManagerModules.x86_64-linux.default
-
-          ./home-manager/aurora/home.nix
-        ];
-      };
-    };
-  };
 }

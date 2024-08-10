@@ -2,11 +2,11 @@
   gtk = {
     enable = true;
     theme = {
-      # name = "rose-pine";
-      # package = pkgs.rose-pine-gtk-theme;
+      # name = "adw-gtk3-dark";
+      # package = pkgs.adw-gtk3;
 
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "Orchis-Dark";
+      package = pkgs.orchis-theme;
     };
     iconTheme = {
       name = "Flat-Remix-Blue-Dark";

@@ -2,7 +2,7 @@
   security.pam.services.greetd = {enableGnomeKeyring = true;};
   services.greetd = let
     tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-    sessionCommand = "${pkgs.hyprland}/bin/Hyprland";
+    sessionCommand = "Hyprland";
   in {
     enable = true;
     settings = {

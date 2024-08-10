@@ -5,8 +5,8 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = pkgs.unstable.hyprland;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = pkgs.hyprland; # Hyprland 0.42.0 is flaky for me at the moment
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -21,8 +21,6 @@
       "$right" = "L";
       "$up" = "K";
       "$down" = "J";
-
-      # "experimental:explicit_sync" = true;
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
@@ -118,7 +116,6 @@
         mouse_move_enables_dpms = true;
         vrr = 2;
         enable_swallow = true;
-        no_direct_scanout = true;
         focus_on_activate = false;
         swallow_regex = "^(alacritty|kitty)$";
       };
@@ -160,7 +157,7 @@
         "float,rofi"
         "float,yad"
 
-        # "opacity 0.8,title:^(Spotify)(.*)$"
+        "opacity 0.8,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [
@@ -178,11 +175,11 @@
       ];
 
       exec-once = [
-        "${pkgs.hyprlock}/bin/hyprlock &" # Lock on login
-        "${pkgs.swww}/bin/swww-daemon &"
+        "hyprlock &" # Lock on login
+        "swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "${pkgs.waybar}/bin/waybar &"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
+        "waybar &"
+        "nm-applet &"
         "otd-daemon &"
       ];
 

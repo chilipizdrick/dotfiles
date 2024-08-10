@@ -1,7 +1,7 @@
 {...}: {
   networking.networkmanager.enable = true;
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [24 80 443 25565];
     allowedUDPPortRanges = [
       {
