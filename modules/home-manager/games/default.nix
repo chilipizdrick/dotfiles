@@ -17,9 +17,9 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; let
       minecraftPkgs = [
-        glfw-wayland-minecraft
-        prismlauncher
-        fabric-installer
+        unstable.glfw-wayland-minecraft
+        unstable.prismlauncher
+        unstable.fabric-installer
       ];
       r2modmanPkgs = [unstable.r2modman];
       osuPkgs = [unstable.osu-lazer];

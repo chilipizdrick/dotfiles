@@ -18,6 +18,14 @@
     scale = 1.5;
   };
 
+  wayland.windowManager.hyprland = {
+    settings = {
+      monitor = lib.mkForce [
+        ",preferred,auto,1.666667"
+      ];
+    };
+  };
+
   games = {
     enable = true;
     minecraft = true;

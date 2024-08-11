@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     # ./firefox
+    ./flatpak
     ./cava
     ./git
     ./tmux

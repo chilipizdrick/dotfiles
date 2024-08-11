@@ -36,42 +36,40 @@
     zathura
     mpv
 
-    brave
+    unstable.brave
 
-    telegram-desktop
-    # (discord.override {
+    unstable.telegram-desktop
+    # (unstable.discord.override {
     #   withVencord = true;
     #   vencord = unstable.vencord;
     # })
-    vesktop
+    unstable.vesktop
 
-    obsidian
+    unstable.obsidian
 
-    ani-cli
-    qbittorrent
+    unstable.ani-cli
+    unstable.qbittorrent
 
     unstable.wallust
-
-    # gnome.gnome-software
   ];
 
   # --command=soundux in .desktop file prevents Soundux from launching properly
-  xdg.desktopEntries = {
-    soundux-fix = {
-      categories = ["Audio" "Music" "Player" "AudioVideo"];
-      exec = "flatpak run --branch=stable --arch=x86_64 --file-forwarding io.github.Soundux @@u %U @@";
-      comment = "A universal soundboard that uses PulseAudio modules or PipeWire linking";
-      genericName = "SoundBoard";
-      icon = "io.github.Soundux";
-      name = "Soundux *FIX*";
-      type = "Application";
-      terminal = false;
-      settings = {
-        StartupWMClass = "Soundux";
-        X-Flatpak = "io.github.Soundux";
-      };
-    };
-  };
+  # xdg.desktopEntries = {
+  #   soundux-fix = {
+  #     categories = ["Audio" "Music" "Player" "AudioVideo"];
+  #     exec = "flatpak run --branch=stable --arch=x86_64 --file-forwarding io.github.Soundux @@u %U @@";
+  #     comment = "A universal soundboard that uses PulseAudio modules or PipeWire linking";
+  #     genericName = "SoundBoard";
+  #     icon = "io.github.Soundux";
+  #     name = "Soundux *FIX*";
+  #     type = "Application";
+  #     terminal = false;
+  #     settings = {
+  #       StartupWMClass = "Soundux";
+  #       X-Flatpak = "io.github.Soundux";
+  #     };
+  #   };
+  # };
 
   # Set default apps for some applications
   home.sessionVariables = {

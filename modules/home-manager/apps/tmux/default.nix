@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.tmux = {
     enable = true;
-    # shortcut = "a";
+    package = pkgs.unstable.tmux;
     clock24 = true;
     keyMode = "vi";
     baseIndex = 1;
@@ -29,6 +29,6 @@
       bind c new-window -c "#{pane_current_path}"
     '';
   };
-  home.packages = with pkgs; [tmux-sessionizer];
+  home.packages = with pkgs; [unstable.tmux-sessionizer];
   home.file.".config/tms/config.toml".source = ./config/tms.toml;
 }

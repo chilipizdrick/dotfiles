@@ -48,21 +48,21 @@
   services.xserver.enable = true;
 
   environment.systemPackages = with pkgs; [
-    home-manager
+    unstable.home-manager
 
-    xwayland
+    unstable.xwayland
 
     gcc_multi
-    go
+    unstable.go
     # nodejs_22
-    python3
+    unstable.python3
     # cargo
     # rustc
     # php
     # temurin-bin
     # temurin-bin-17
     temurin-bin-8
-    julia_19
+    unstable.julia_19
     luajitPackages.luarocks
     # python312Packages.pip
     # php83Packages.composer
@@ -78,12 +78,12 @@
     vim
     fzf
 
-    alacritty
-    tmux
-    tmux-sessionizer
-    btop
-    fastfetch
-    alejandra
+    unstable.alacritty
+    unstable.tmux
+    unstable.tmux-sessionizer
+    unstable.btop
+    unstable.fastfetch
+    unstable.alejandra
 
     unstable.zapret
     # unstable.qemu
