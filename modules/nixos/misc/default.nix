@@ -12,5 +12,5 @@
   hardware.i2c.enable = true;
 
   # Hide boot log sequence
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 }
