@@ -181,6 +181,7 @@
         "waybar &"
         "nm-applet &"
         "otd-daemon &"
+        "zapret start &"
       ];
 
       bind = [
@@ -298,15 +299,16 @@
 
   home.packages = with pkgs; [
     wl-clipboard # Clipboard functionality on wayland
-    pamixer # Pulseauido command line mixer
+    unstable.pamixer # Pulseauido command line mixer
     brightnessctl # Read and controll device brightness
-    swww # Fancy wallpaper daemon
+    unstable.swww # Fancy wallpaper daemon
     libnotify # For sending custom notifications
     grim # Screenshot functionality
     slurp # Screenshot functionality
-    networkmanagerapplet # Easy network connection management
+    unstable.networkmanagerapplet # Easy network connection management
     killall # Self explainatory
-    caffeine-ng # Caffeine mode
+    unstable.caffeine-ng # Caffeine mode
+    unstable.zapret # DPI workaround used to avoid russian government internet restrictions
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
