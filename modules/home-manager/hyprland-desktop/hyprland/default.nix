@@ -5,8 +5,8 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland; # Hyprland 0.42.0 is flaky for me at the moment
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = pkgs.hyprland; # Hyprland 0.42.0 is flaky for me at the moment
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -175,7 +175,7 @@
       ];
 
       exec-once = [
-        "hyprlock --immediate &" # Lock on login
+        "hyprlock --immediate --immediate-render &" # Lock on login
         "swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "waybar &"
