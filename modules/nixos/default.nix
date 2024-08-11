@@ -10,7 +10,7 @@
     ./games
     ./greeter
     ./hyperion
-    ./hyprland
+    # ./hyprland
     ./locale
     ./misc
     ./polkit
