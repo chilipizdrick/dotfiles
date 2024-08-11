@@ -3,23 +3,42 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    hyprlock = {
+      url = "git+https://github.com/hyprwm/hyprlock?submodules=1&ref=refs/tags/v0.4.0";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    };
 
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
       flake = false;
     };
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
   };
 
   outputs = {

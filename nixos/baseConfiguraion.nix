@@ -84,6 +84,8 @@
     btop
     fastfetch
     alejandra
+
+    unstable.zapret
   ];
 
   # Remove XTerm

@@ -175,7 +175,7 @@
       ];
 
       exec-once = [
-        "hyprlock --immediate --immediate-render &" # Lock on login
+        "hyprlock --immediate &" # Lock on login
         "swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "waybar &"
