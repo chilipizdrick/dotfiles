@@ -25,7 +25,7 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      render.explicit_sync = 1;
+      # render.explicit_sync = 1;
 
       monitor = [
         ",preferred,auto,auto"
