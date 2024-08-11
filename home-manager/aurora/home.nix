@@ -18,12 +18,13 @@
     }
   ];
 
+  hyprlock = {
+    enable = true;
+    scale = 1.0;
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
-      general = {
-        sensitivity = lib.mkForce 0.50; # To compensate for different sensitivity on different scaling factors
-      };
-
       monitor = [
         ",preferred,auto,auto"
         "Unknown-1,disable"

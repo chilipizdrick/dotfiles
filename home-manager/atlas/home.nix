@@ -12,4 +12,14 @@
       on-timeout = "systemctl suspend";
     }
   ];
+
+  hyprlock = {
+    enable = true;
+    scale = 1.5;
+  };
+
+  games = {
+    enable = true;
+    minecraft = true;
+  };
 }
