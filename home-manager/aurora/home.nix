@@ -25,6 +25,8 @@
 
   wayland.windowManager.hyprland = {
     settings = {
+      render.explicit_sync = 1;
+
       monitor = [
         ",preferred,auto,auto"
         "Unknown-1,disable"
@@ -102,6 +104,5 @@
 
   home.packages = with pkgs; [
     obs-studio
-    # davinci-resolve
   ];
 }

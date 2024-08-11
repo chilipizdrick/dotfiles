@@ -39,10 +39,10 @@
     brave
 
     telegram-desktop
-    (discord.override {
-      withVencord = true;
-      vencord = unstable.vencord;
-    })
+    # (discord.override {
+    #   withVencord = true;
+    #   vencord = unstable.vencord;
+    # })
     vesktop
 
     obsidian
@@ -52,7 +52,7 @@
 
     unstable.wallust
 
-    gnome.gnome-software
+    # gnome.gnome-software
   ];
 
   # --command=soundux in .desktop file prevents Soundux from launching properly

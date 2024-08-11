@@ -86,6 +86,8 @@
     alejandra
 
     unstable.zapret
+    # unstable.qemu
+    # unstable.quickemu
   ];
 
   # Remove XTerm
