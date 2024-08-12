@@ -1,4 +1,5 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
   "margin-top": 5,
@@ -69,7 +70,6 @@
     ],
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    //"on-click": "~/.config/waybar/rofi-wifi-menu.sh",
     "format-ethernet": "{ifname}",
     "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "nospacing": 1,
@@ -150,16 +150,14 @@
     "dynamic-len": 50,
     "interval": 1,
     "status-icons": {
-      // "paused": "⏸"
       "paused": "||"
     },
     "ignored-players": [ "firefox", "chromium", "brave" ]
   },
   "custom/vpn": {
-    "exec": "~/.config/waybar/query-wireguard-vpn.sh",
+    "exec": "~/.config/waybar/scripts/query-wireguard-vpn.sh",
     "interval": 1,
     "format": "VPN",
-    // "tooltip-format": "{tooltip}",
-    "on-click": "~/.config/waybar/toggle-wireguard-vpn.sh",
+    "on-click": "~/.config/waybar/scripts/toggle-wireguard-vpn.sh",
   }
 }

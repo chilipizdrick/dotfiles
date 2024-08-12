@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/rose-pine.toml"]
+import = ["~/.config/alacritty/themes/wallust.toml"]
 
 [colors.primary]
 background = "#000000"

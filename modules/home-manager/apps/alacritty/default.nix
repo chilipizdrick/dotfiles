@@ -3,5 +3,5 @@
     enable = true;
     package = pkgs.unstable.alacritty;
   };
-  home.file.".config/alacritty".source = ./config;
+  home.file.".config/alacritty/alacritty.toml".source = ./config/alacritty.toml;
 }

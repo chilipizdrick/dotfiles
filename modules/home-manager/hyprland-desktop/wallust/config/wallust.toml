@@ -1,0 +1,24 @@
+backend = "thumb"
+color_space = "lch"
+# threshold = 10
+palette = "dark"
+generation = "interpolate"
+check_contrast = true
+saturation = 30
+alpha = 75
+
+[templates.hypr]
+template = 'colors-hypr.conf'
+target = '~/.config/hypr/themes/wallust.hypr'
+
+[templates.waybar]
+template = 'colors-waybar.css'
+target = '~/.config/waybar/themes/wallust.css'
+
+[templates.alacritty]
+template = 'colors-alacritty.toml'
+target = '~/.config/alacritty/themes/wallust.toml'
+
+[templates.vesktop]
+template = 'discord-wallust-beta.css'
+target = '~/.config/vesktop/themes/wallust.css'

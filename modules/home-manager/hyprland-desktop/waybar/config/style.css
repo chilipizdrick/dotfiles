@@ -1,4 +1,5 @@
 @import url("colors.css");
+@import url("themes/wallust.css");
 
 * {
   all: initial;
@@ -10,16 +11,36 @@
   border-radius: 8px 8px 8px 8px;
 }
 
-window#waybar {
+/* window#waybar { */
+/*   background-color: @main-transparent; */
+/* } */
+
+.modules-left {
+  background-color: @main-transparent;
+}
+.modules-right {
+  background-color: @main-transparent;
+}
+.modules-center {
   background-color: @main-transparent;
 }
 
+/* .modules-left { */
+/*   background-color: @background; */
+/* } */
+/* .modules-right { */
+/*   background-color: @background; */
+/* } */
+/* .modules-center { */
+/*   background-color: @background; */
+/* } */
+
 tooltip {
-  background: @main-transparent;
+  background: @background;
 }
 
 #tray menu {
-  background: @main-transparent;
+  background: @background;
   padding: 5px;
 }
 
@@ -100,7 +121,6 @@ tooltip {
 #workspaces button.urgent:hover {
   background: @hover-urgent;
 }
-
 
 #pulseaudio.bluetooth {
   color: @light-blue;

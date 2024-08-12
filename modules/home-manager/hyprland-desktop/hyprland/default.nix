@@ -13,7 +13,6 @@
       "$wallDIR" = "$HOME/Pictures/wallpapers";
       "$mainMod" = "SUPER";
       "$scripts" = "$HOME/.config/hypr/scripts";
-      "$configs" = "$HOME/.config/hypr/configs";
       "$files" = "${pkgs.gnome.nautilus}/bin/nautilus";
       # "$files" = "env EDITOR=nvim VISUAL=nvim alacritty -e 'ranger'";
       "$term" = "${pkgs.alacritty}/bin/alacritty";
@@ -21,6 +20,11 @@
       "$right" = "L";
       "$up" = "K";
       "$down" = "J";
+      "$colors" = "$HOME/.config/hypr/themes/wallust.hypr";
+
+      source = [
+        "$colors"
+      ];
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
@@ -49,9 +53,12 @@
         apply_sens_to_raw = false;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
-        border_size = 0;
-        "col.active_border" = "0xffffffff";
-        "col.inactive_border" = "0xff000000";
+        border_size = 2;
+        # "col.active_border" = "0xffffffff";
+        # "col.active_border" = "$color4 $color5 135deg";
+        "col.active_border" = "$color1";
+        # "col.inactive_border" = "0xff444444";
+        "col.inactive_border" = "$background";
         resize_on_border = false;
         layout = "dwindle";
       };

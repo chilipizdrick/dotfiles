@@ -5,6 +5,7 @@ vim.g.have_nerd_font = true
 require 'options'
 require 'keymaps'
 require 'autocommands'
+require 'usercommands'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
