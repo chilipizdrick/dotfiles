@@ -3,6 +3,14 @@ import = ["~/.config/alacritty/themes/wallust.toml"]
 [colors.primary]
 background = "#000000"
 
+[colors.cursor]
+text = "#e0def4"
+cursor = "#524f67"
+
+[colors.vi_mode_cursor]
+text = "#e0def4"
+cursor = "#524f67"
+
 [window]
 # dimensions = { columns = 108, lines = 30 }
 padding = { x = 4, y = 4 }

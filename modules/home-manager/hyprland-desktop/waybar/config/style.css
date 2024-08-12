@@ -7,7 +7,8 @@
   font-family: monospace;
   font-size: 12px;
   font-weight: bold;
-  color: @white;
+  /* color: @white; */
+  color: @foreground;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -15,25 +16,25 @@
 /*   background-color: @main-transparent; */
 /* } */
 
-.modules-left {
-  background-color: @main-transparent;
-}
-.modules-right {
-  background-color: @main-transparent;
-}
-.modules-center {
-  background-color: @main-transparent;
-}
-
 /* .modules-left { */
-/*   background-color: @background; */
+/*   background-color: @main-transparent; */
 /* } */
 /* .modules-right { */
-/*   background-color: @background; */
+/*   background-color: @main-transparent; */
 /* } */
 /* .modules-center { */
-/*   background-color: @background; */
+/*   background-color: @main-transparent; */
 /* } */
+
+.modules-left {
+  background-color: @background;
+}
+.modules-right {
+  background-color: @background;
+}
+.modules-center {
+  background-color: @background;
+}
 
 tooltip {
   background: @background;

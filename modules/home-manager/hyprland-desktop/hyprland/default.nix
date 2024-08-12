@@ -55,8 +55,8 @@
         gaps_out = 5;
         border_size = 2;
         # "col.active_border" = "0xffffffff";
-        # "col.active_border" = "$color4 $color5 135deg";
-        "col.active_border" = "$color1";
+        # "col.active_border" = "$color5 $color6 135deg";
+        "col.active_border" = "$color6";
         # "col.inactive_border" = "0xff444444";
         "col.inactive_border" = "$background";
         resize_on_border = false;
@@ -179,6 +179,8 @@
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
+
+        "noborder, onworkspace:w[t1]" # Disable borders for single window workspaces
       ];
 
       exec-once = [
