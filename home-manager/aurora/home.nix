@@ -35,7 +35,7 @@
       ];
 
       workspace = [
-        "10,monitor:DP-3"
+        "10,monitor:DP-3,border:false"
         "1,monitor:HDMI-A-1"
         "2,monitor:HDMI-A-1"
         "3,monitor:HDMI-A-1"

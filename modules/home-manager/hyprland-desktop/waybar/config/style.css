@@ -27,13 +27,13 @@
 /* } */
 
 .modules-left {
-  background-color: @background;
+  background: @background;
 }
 .modules-right {
-  background-color: @background;
+  background: @background;
 }
 .modules-center {
-  background-color: @background;
+  background: @background;
 }
 
 tooltip {

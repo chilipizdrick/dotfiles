@@ -1,5 +1,5 @@
 backend = "thumb"
-color_space = "lch"
+color_space = "lab"
 # threshold = 10
 palette = "dark"
 generation = "interpolate"
@@ -15,10 +15,14 @@ target = '~/.config/hypr/themes/wallust.hypr'
 template = 'colors-waybar.css'
 target = '~/.config/waybar/themes/wallust.css'
 
+[templates.wlogout]
+template = 'colors-wlogout.css'
+target = '~/.config/wlogout/themes/wallust.css'
+
 [templates.alacritty]
 template = 'colors-alacritty.toml'
 target = '~/.config/alacritty/themes/wallust.toml'
 
 [templates.vesktop]
-template = 'discord-wallust-beta.css'
+template = 'colors-discord.css'
 target = '~/.config/vesktop/themes/wallust.css'

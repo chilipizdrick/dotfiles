@@ -1,7 +1,10 @@
+@import url("themes/wallust.css");
+
 window {
   font-family: JetBrains Mono;
-  font-size: 16pt;
-  color: white;
+  font-size: 18pt;
+  /* color: white; */
+  color: @foreground;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -30,7 +33,8 @@ button:focus {
 button:hover {
   background-size: 50%;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
-  background-color: #ffffff;
+  /* background-color: white; */
+  background-color: @foreground;
   color: transparent;
   transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
 }
@@ -41,7 +45,8 @@ button:hover {
 
 #shutdown:hover {
   background-image: image(url("./icons/power-hover.png"));
-  color: #000000;
+  /* color: #000000; */
+  color: @background;
 }
 
 #logout {
@@ -50,7 +55,8 @@ button:hover {
 
 #logout:hover {
   background-image: image(url("./icons/logout-hover.png"));
-  color: #000000;
+  /* color: #000000; */
+  color: @background;
 }
 
 #reboot {
@@ -59,7 +65,8 @@ button:hover {
 
 #reboot:hover {
   background-image: image(url("./icons/restart-hover.png"));
-  color: #000000;
+  /* color: #000000; */
+  color: @background;
 }
 
 #lock {
@@ -68,7 +75,8 @@ button:hover {
 
 #lock:hover {
   background-image: image(url("./icons/lock-hover.png"));
-  color: #000000;
+  /* color: #000000; */
+  color: @background;
 }
 
 #hibernate {
@@ -77,5 +85,6 @@ button:hover {
 
 #hibernate:hover {
   background-image: image(url("./icons/hibernate-hover.png"));
-  color: #000000;
+  /* color: #000000; */
+  color: @background;
 }
