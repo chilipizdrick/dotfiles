@@ -23,6 +23,10 @@ target = '~/.config/wlogout/themes/wallust.css'
 template = 'colors-alacritty.toml'
 target = '~/.config/alacritty/themes/wallust.toml'
 
+[templates.neopywal]
+template = 'colors-neopywal.vim'
+target = "~/.cache/wallust/colors_neopywal.vim"
+
 [templates.vesktop]
 template = 'colors-discord.css'
 target = '~/.config/vesktop/themes/wallust.css'

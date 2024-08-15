@@ -10,6 +10,7 @@ return {
   require 'plugins.mason',
   require 'plugins.mini',
   require 'plugins.neo-tree',
+  require 'plugins.neopywal',
   require 'plugins.nvim-cmd',
   require 'plugins.nvim-highlight-colors',
   require 'plugins.oil',

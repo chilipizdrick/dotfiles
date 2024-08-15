@@ -84,7 +84,7 @@ tooltip {
 #workspaces {
   padding: 0px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 0px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -121,6 +121,10 @@ tooltip {
 
 #workspaces button.urgent:hover {
   background: @hover-urgent;
+}
+
+#mpris {
+  margin-left: 10px;
 }
 
 #pulseaudio.bluetooth {
