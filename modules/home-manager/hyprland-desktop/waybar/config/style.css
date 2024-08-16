@@ -124,7 +124,14 @@ tooltip {
 }
 
 #mpris {
+  padding-left: 8px;
+  padding-right: 5px;
   margin-left: 10px;
+  margin-right: 0px;
+}
+
+#mpris:hover {
+  background: @hover;
 }
 
 #pulseaudio.bluetooth {
