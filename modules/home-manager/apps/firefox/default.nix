@@ -113,10 +113,10 @@ in {
         "uc.tweak.no-window-controls" = lock-true;
       };
     };
-    profiles."${config.users.users.alex.name}" = {
+    profiles."alex" = {
       id = 0;
       isDefault = true;
-      name = "${config.users.users.alex.name}";
+      name = "alex";
       bookmarks = [
         {
           toolbar = true;
