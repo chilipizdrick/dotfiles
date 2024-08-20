@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   lock-false = {
     Value = false;
     Status = "locked";
@@ -109,10 +113,10 @@ in {
         "uc.tweak.no-window-controls" = lock-true;
       };
     };
-    profiles."alex" = {
+    profiles."${config.users.users.alex.name}" = {
       id = 0;
       isDefault = true;
-      name = "alex";
+      name = "${config.users.users.alex.name}";
       bookmarks = [
         {
           toolbar = true;

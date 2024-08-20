@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 if [ -z "$(systemctl list-units | grep "wg-quick-wg0")" ]
 then

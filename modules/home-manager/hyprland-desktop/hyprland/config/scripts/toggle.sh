@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 toggle_animations(){
     animations=$(hyprctl -j getoption animations:enabled | jq ".int")

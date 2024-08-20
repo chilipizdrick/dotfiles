@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   security.pam.services.greetd = {enableGnomeKeyring = true;};
   services.greetd = let
     tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
@@ -12,7 +16,7 @@
       };
       initial_session = {
         command = sessionCommand;
-        user = "alex";
+        user = config.users.users.alex.name;
       };
     };
   };

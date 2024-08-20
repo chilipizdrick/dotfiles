@@ -190,7 +190,7 @@
         "waybar &"
         "nm-applet &"
         "otd-daemon &"
-        "zapret start &"
+        # "zapret start &"
       ];
 
       bind = [

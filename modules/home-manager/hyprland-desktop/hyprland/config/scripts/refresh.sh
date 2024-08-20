@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Kill already running processes
 _ps=(waybar rofi swaync)
