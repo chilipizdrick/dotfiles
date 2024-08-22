@@ -249,7 +249,8 @@
         "$mainMod, U, togglespecialworkspace,"
         "$mainMod, W, exec, $scripts/select_wallpaper.sh"
         ", Print, exec, grim - | wl-copy"
-        "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+        "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 1x1 PNG:- | wl-copy"
+        "$mainMod CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 1x1 PNG:- | swappy -f -"
         "$mainMod, D, exec, rofi -show drun -modi drun,filebrowser,run,window"
         "ALT, SPACE, exec, rofi -show drun -modi drun,filebrowser,run,window"
         "$mainMod, Return, exec, $term"
@@ -309,6 +310,8 @@
     libnotify # For sending custom notifications
     grim # Screenshot functionality
     slurp # Screenshot functionality
+    swappy # Simple image editor for screnshots
+    imagemagick # Image manipulation
     killall # Self explainatory
     unstable.networkmanagerapplet # Easy network connection management
     unstable.swww # Fancy wallpaper daemon
@@ -318,4 +321,10 @@
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
+
+  home.file.".config/swappy/config".text = ''
+    [Default]
+    show_panel=true
+    text_font=monospace
+  '';
 }
