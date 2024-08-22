@@ -25,7 +25,10 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      # render.explicit_sync = 1;
+      # render = {
+      #   explicit_sync = 0;
+      #   explicit_sync_kms = 0;
+      # };
 
       monitor = [
         ",preferred,auto,auto"
@@ -63,7 +66,7 @@
     NVD_BACKEND = "direct";
   };
 
-  # Fixes for poorly running electron apps
+  # Fixes for electron apps
   xdg.desktopEntries = {
     vesktop-x11 = {
       categories = ["Network" "InstantMessaging" "Chat"];

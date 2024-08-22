@@ -5,7 +5,7 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland; # Hyprland 0.42.0 is flaky for me at the moment
+    package = pkgs.hyprland;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
@@ -54,10 +54,7 @@
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 2;
-        # "col.active_border" = "0xffffffff";
-        # "col.active_border" = "$color5 $color6 135deg";
         "col.active_border" = "$color6";
-        # "col.inactive_border" = "0xff444444";
         "col.inactive_border" = "$background";
         resize_on_border = false;
         layout = "dwindle";
@@ -190,7 +187,6 @@
         "waybar &"
         "nm-applet &"
         "otd-daemon &"
-        # "zapret start &"
       ];
 
       bind = [
@@ -310,12 +306,12 @@
     wl-clipboard # Clipboard functionality on wayland
     unstable.pamixer # Pulseauido command line mixer
     brightnessctl # Read and controll device brightness
-    unstable.swww # Fancy wallpaper daemon
     libnotify # For sending custom notifications
     grim # Screenshot functionality
     slurp # Screenshot functionality
-    unstable.networkmanagerapplet # Easy network connection management
     killall # Self explainatory
+    unstable.networkmanagerapplet # Easy network connection management
+    unstable.swww # Fancy wallpaper daemon
     unstable.caffeine-ng # Caffeine mode
     unstable.zapret # DPI workaround used to avoid russian government internet restrictions
   ];

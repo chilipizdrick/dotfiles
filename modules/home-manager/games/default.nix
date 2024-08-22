@@ -38,7 +38,11 @@ in {
         if cfg.osu
         then osuPkgs
         else []
-      );
+      )
+      ++ [
+        mangohud
+        gamemode
+      ];
 
     home.file."lib/glfw-wayland-minecraft-libglfw".source = mkIf cfg.minecraft "${pkgs.glfw-wayland-minecraft}/lib";
   };
