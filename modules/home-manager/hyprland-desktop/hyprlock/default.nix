@@ -136,18 +136,18 @@ in {
             halign = "center";
             valign = "bottom";
           }
-          {
-            monitor = "";
-            text = "cmd[update:18000000] echo \"<b>Feels like<big> $(curl -s 'wttr.in?format=%t' | tr -d '+') </big></b>\"";
-            color = "$foreground";
-            font_size = builtins.floor (18 * cfg.scale);
-            font_family = "JetBrainsMono Nerd Font 10";
-            shadow_passes = 3;
-            shadow_size = 1;
-            position = "0, ${builtins.toString (20 * cfg.scale)}";
-            halign = "center";
-            valign = "bottom";
-          }
+          # {
+          #   monitor = "";
+          #   text = "cmd[update:18000000] echo \"<b>Feels like<big> $(curl -s 'wttr.in?format=%t' | tr -d '+') </big></b>\"";
+          #   color = "$foreground";
+          #   font_size = builtins.floor (18 * cfg.scale);
+          #   font_family = "JetBrainsMono Nerd Font 10";
+          #   shadow_passes = 3;
+          #   shadow_size = 1;
+          #   position = "0, ${builtins.toString (20 * cfg.scale)}";
+          #   halign = "center";
+          #   valign = "bottom";
+          # }
         ];
       };
     };

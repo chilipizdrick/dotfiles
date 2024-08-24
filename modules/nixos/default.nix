@@ -11,6 +11,7 @@
     ./greeter
     ./hyperion
     ./hyprland
+    # ./kanata
     ./locale
     ./misc
     ./polkit

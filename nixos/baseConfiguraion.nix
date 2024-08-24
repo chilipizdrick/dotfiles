@@ -36,9 +36,6 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # Use latest kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Enable execution of dynamically linked binaries
   programs.nix-ld = {
     enable = true;
@@ -84,10 +81,6 @@
     unstable.btop
     unstable.fastfetch
     unstable.alejandra
-
-    unstable.zapret
-    # unstable.qemu
-    # unstable.quickemu
   ];
 
   # Remove XTerm
@@ -101,7 +94,7 @@
     alex = {
       initialPassword = "password";
       isNormalUser = true;
-      extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp"];
+      extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp" "uinput"];
       shell = pkgs.zsh;
     };
   };

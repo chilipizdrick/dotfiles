@@ -1,6 +1,13 @@
-{...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [unstable.hypridle];
+
   services.hypridle = {
     enable = true;
+    package = pkgs.unstable.hypridle;
     settings = {
       general = {
         before_sleep_cmd = "loginctl lock-session"; # Lock before suspend.
@@ -10,4 +17,7 @@
       };
     };
   };
+
+  systemd.user.services.hypridle = lib.mkForce {}; # Disable hypridle systemd service
+  # systemd.user.services.hypridle.name = lib.mkForce "hypridle.service"; # Disable hypridle systemd service
 }

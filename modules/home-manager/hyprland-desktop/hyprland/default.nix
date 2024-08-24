@@ -182,9 +182,10 @@
 
       exec-once = [
         "hyprlock --immediate --immediate-render &" # Lock on login
+        "hypridle &"
+        "waybar &"
         "swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "waybar &"
         "nm-applet &"
         "otd-daemon &"
       ];
@@ -264,7 +265,7 @@
         "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 5"
         "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
         "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
-        "$mainMod SHIFT, C, exec, pidof caffeine-ng && killall c && notify-send '☕ Caffeine mode disabled' || $(caffeine & notify-send '☕ Caffeine mode enabled')"
+        "$mainMod SHIFT, C, exec, pidof hypridle && killall hypridle && notify-send '☕ Caffeine mode enabled' || $(hypridle & notify-send '☕ Caffeine mode disabled')"
         "$mainMod SHIFT, M, exec, $scripts/switch_layout.sh"
       ];
       bindm = [
@@ -315,8 +316,6 @@
     killall # Self explainatory
     unstable.networkmanagerapplet # Easy network connection management
     unstable.swww # Fancy wallpaper daemon
-    unstable.caffeine-ng # Caffeine mode
-    unstable.zapret # DPI workaround used to avoid russian government internet restrictions
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
