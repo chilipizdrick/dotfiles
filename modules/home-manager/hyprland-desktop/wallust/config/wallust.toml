@@ -4,8 +4,8 @@ color_space = "lab"
 palette = "dark"
 generation = "interpolate"
 check_contrast = true
-saturation = 30
-alpha = 75
+saturation = 10
+alpha = 80
 
 [templates.hypr]
 template = 'colors-hypr.conf'
