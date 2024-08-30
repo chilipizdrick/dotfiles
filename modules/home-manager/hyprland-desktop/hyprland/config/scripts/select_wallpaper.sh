@@ -36,7 +36,7 @@ executeCommand() {
 # Show the images
 menu() {
 
-  printf "$randomChoice\n"
+  printf "$randomChoice\x00icon\x1f$HOME/.config/hypr/scripts/random.png\n"
 
   for i in "${!PICS[@]}"; do
   
