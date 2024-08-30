@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../baseHome.nix
   ];
@@ -19,6 +23,7 @@
   };
 
   wayland.windowManager.hyprland = {
+    package = lib.mkForce pkgs.hyprland; #Hyprland 0.42.0+ does not work on this machine for some reason
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,1.666667"

@@ -26,6 +26,10 @@
         "$colors"
       ];
 
+      # "debug:disable_logs" = false;
+      # "debug:enable_stdout_logs" = true;
+      # "debug:error_limit" = 100;
+
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "CLUTTER_BACKEND,wayland"
