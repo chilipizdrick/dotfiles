@@ -5,8 +5,8 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -49,8 +49,8 @@
 
       general = {
         allow_tearing = true;
-        sensitivity = 1.00;
-        apply_sens_to_raw = false;
+        # sensitivity = 1.00;
+        # apply_sens_to_raw = false;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 2;
@@ -185,6 +185,7 @@
         "hypridle &"
         "waybar &"
         "swww-daemon &"
+        "spoofdpi &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "nm-applet &"
         "otd-daemon &"
@@ -316,6 +317,7 @@
     killall # Self explainatory
     unstable.networkmanagerapplet # Easy network connection management
     unstable.swww # Fancy wallpaper daemon
+    spoofdpi # DPI workaround for russian ISPs
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;

@@ -21,7 +21,6 @@ in {
     programs.hyprlock = {
       enable = true;
       package = pkgs.unstable.hyprlock;
-      # package = inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock;
       settings = {
         "$colors" = "$HOME/.config/hypr/themes/wallust.hypr";
         source = [

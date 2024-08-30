@@ -11,16 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
-
-    # hyprlock = {
-    #   # url = "git+https://github.com/hyprwm/hyprlock?submodules=1/ref=refs/tags/v0.4.1";
-    #   url = "git+https://github.com/hyprwm/hyprlock?submodules=1";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -55,12 +49,12 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       defaultNixosModules = [
-        # hyprland.nixosModules.default
+        hyprland.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         grub2-themes.nixosModules.default
       ];
       defaultHomeManagerOptions = [
-        # hyprland.homeManagerModules.default
+        hyprland.homeManagerModules.default
         nix-flatpak.homeManagerModules.nix-flatpak
         spicetify-nix.homeManagerModules.default
       ];
