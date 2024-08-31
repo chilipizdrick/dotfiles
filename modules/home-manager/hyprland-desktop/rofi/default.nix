@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.rofi = {
     enable = true;
-    package = pkgs.unstable.rofi-wayland;
+    package = pkgs.rofi-wayland;
     plugins = [pkgs.rofi-calc];
     terminal = "${pkgs.alacritty}/bin/alacritty";
   };
