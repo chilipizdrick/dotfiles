@@ -26,7 +26,6 @@
   in {
     settings = {
       experimental-features = "nix-command flakes";
-      # flake-registry = "";
       nix-path = config.nix.nixPath;
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
@@ -46,23 +45,15 @@
 
   environment.systemPackages = with pkgs; [
     unstable.home-manager
-
     unstable.xwayland
 
-    gcc_multi
-    unstable.go
-    # nodejs_22
     unstable.python3
-    # cargo
-    # rustc
-    # php
+    cargo
     # temurin-bin
     # temurin-bin-17
     temurin-bin-8
     unstable.julia_19
     luajitPackages.luarocks
-    # python312Packages.pip
-    # php83Packages.composer
 
     ripgrep
     wget
@@ -99,6 +90,5 @@
     };
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 }

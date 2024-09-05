@@ -267,7 +267,7 @@
         "$mainMod ALT, C, exec, hyprctl reload # Reload config"
         "$mainMod SHIFT, E, exec, hyprctl dispatch exit"
         "$mainMod ALT, L, exec, hyprlock"
-        "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 5"
+        "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 4"
         "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
         "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
         "$mainMod SHIFT, C, exec, pidof hypridle && killall hypridle && notify-send '☕ Caffeine mode enabled' || $(hypridle & notify-send '☕ Caffeine mode disabled')"

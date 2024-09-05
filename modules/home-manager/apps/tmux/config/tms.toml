@@ -3,6 +3,6 @@ path = "/home/alex/dotfiles"
 depth = 10
 
 [[search_dirs]]
-path = "/home/alex/projects"
+path = "/home/alex/Projects"
 depth = 10
 

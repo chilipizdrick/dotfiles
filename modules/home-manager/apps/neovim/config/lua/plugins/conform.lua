@@ -30,6 +30,9 @@ return { -- Autoformat
     },
     formatters_by_ft = {
       lua = { 'stylua' },
+      cpp = { 'clang-format' },
+      cc = { 'clang-format' },
+      h = { 'clang-format' },
       javascript = { { 'prettierd', 'prettier' } },
       python = { 'black' },
       nix = { 'alejandra' },

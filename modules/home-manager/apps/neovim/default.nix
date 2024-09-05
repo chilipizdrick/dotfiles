@@ -13,5 +13,7 @@
     withNodeJs = true;
   };
 
+  # home.packages = with pkgs; [ clang-tools ];
+
   home.file.".config/nvim".source = ./config;
 }

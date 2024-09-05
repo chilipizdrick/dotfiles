@@ -14,7 +14,7 @@
     package = lib.mkForce pkgs.hyprland; #Hyprland 0.42.0+ does not work on this machine for some reason
   };
 
-  swapFile.enable = true;
+  # swapFile.enable = true;
 
   networking.hostName = "atlas";
 }

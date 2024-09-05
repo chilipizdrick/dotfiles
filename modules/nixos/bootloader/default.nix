@@ -1,6 +1,6 @@
 {...}: {
   boot.loader = {
-    timeout = 3;
+    timeout = 0;
     efi.canTouchEfiVariables = true;
     # systemd-boot = {
     #   enable = true;
@@ -14,7 +14,7 @@
       configurationLimit = 5;
     };
     grub2-theme = {
-      enable = true;
+      enable = false;
       theme = "vimix";
       footer = true;
     };

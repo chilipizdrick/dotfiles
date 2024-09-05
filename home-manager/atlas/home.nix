@@ -8,7 +8,7 @@
   ];
   services.hypridle.settings.listener = lib.mkForce [
     {
-      timeout = 300;
+      timeout = 600;
       on-timeout = "hyprlock";
     }
     {
@@ -23,7 +23,7 @@
   };
 
   wayland.windowManager.hyprland = {
-    package = lib.mkForce pkgs.hyprland; #Hyprland 0.42.0+ does not work on this machine for some reason
+    package = lib.mkForce pkgs.hyprland; # Hyprland 0.42.0+ does not work on this machine for some reason
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,1.666667"

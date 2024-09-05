@@ -51,6 +51,8 @@
     unstable.qbittorrent
 
     unstable.wallust
+
+    unstable.poetry
   ];
 
   # --command=soundux in .desktop file prevents Soundux from launching properly

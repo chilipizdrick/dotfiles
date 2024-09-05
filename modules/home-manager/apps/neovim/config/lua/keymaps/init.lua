@@ -37,15 +37,7 @@ vim.keymap.set(
   { desc = 'Exit terminal mode' }
 )
 
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set(
   'n',
@@ -80,7 +72,7 @@ vim.keymap.set(
   { desc = 'Yank selection to system clipboard' }
 )
 vim.keymap.set(
-  'v',
+  'n',
   '<leader>yy',
   '"+yy',
   { desc = 'Yank lilne to system clipboard' }
