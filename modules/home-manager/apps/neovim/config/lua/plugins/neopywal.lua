@@ -1,4 +1,4 @@
-return {
+return { -- wal theme for neovim
   -- 'RedsXDD/neopywal.nvim',
   -- name = 'neopywal',
   -- lazy = false,

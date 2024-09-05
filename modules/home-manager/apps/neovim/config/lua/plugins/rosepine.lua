@@ -1,4 +1,4 @@
-return {
+return { -- Rosepine colorscheme
   'rose-pine/neovim',
   name = 'rose-pine',
   priority = 1000,

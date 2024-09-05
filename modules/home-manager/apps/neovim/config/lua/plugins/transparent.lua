@@ -1,4 +1,4 @@
-return {
+return { -- Transparent background for fancy looks
   'xiyaowong/transparent.nvim',
   lazy = false,
   config = function()

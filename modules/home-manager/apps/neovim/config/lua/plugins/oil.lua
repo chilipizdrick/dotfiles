@@ -1,4 +1,4 @@
-return {
+return { -- File explorer
   'stevearc/oil.nvim',
   opts = {
     view_options = {
