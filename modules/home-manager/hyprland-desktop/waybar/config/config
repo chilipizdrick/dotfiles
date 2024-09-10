@@ -137,7 +137,7 @@
     "format": "⏻",
     "tooltip": true,
     "tooltip-format": "Power Menu",
-    "on-click": "wlogout -b 5"
+    "on-click": "wlogout -b 4"
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",

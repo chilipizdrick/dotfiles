@@ -35,6 +35,7 @@
     gimp
     zathura
     mpv
+    libreoffice-fresh
 
     unstable.brave
 

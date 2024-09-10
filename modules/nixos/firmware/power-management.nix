@@ -16,13 +16,9 @@
   };
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
-    HibernateDelaySec=1h
   '';
   services.logind = {
-    lidSwitch = "suspend-then-hibernate";
+    lidSwitch = "suspend";
     lidSwitchExternalPower = "suspend";
   };
 }

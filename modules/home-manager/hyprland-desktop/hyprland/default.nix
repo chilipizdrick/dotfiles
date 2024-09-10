@@ -125,7 +125,7 @@
         vrr = 2;
         enable_swallow = true;
         focus_on_activate = false;
-        swallow_regex = "^(alacritty|kitty)$";
+        swallow_regex = "^(alacritty|kitty|mpv|imv)$";
       };
       binds = {
         workspace_back_and_forth = false;
@@ -189,7 +189,7 @@
         "hypridle &"
         "waybar &"
         "swww-daemon &"
-        "spoofdpi &"
+        # "spoofdpi -port 8081 &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "nm-applet &"
         "otd-daemon &"

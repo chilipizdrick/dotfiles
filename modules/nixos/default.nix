@@ -7,11 +7,12 @@
     ./firmware
     ./flatpak
     ./fonts
+    # ./kanata
+    # ./kmonad
     ./games
     ./greeter
     ./hyperion
     ./hyprland
-    # ./kanata
     ./locale
     ./misc
     ./polkit

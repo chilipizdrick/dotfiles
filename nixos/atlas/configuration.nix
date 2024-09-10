@@ -16,5 +16,10 @@
 
   # swapFile.enable = true;
 
+  games = {
+    enable = true;
+    steam = true;
+  };
+
   networking.hostName = "atlas";
 }

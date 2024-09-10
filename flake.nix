@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    kmonad = {
+      url = "github:kmonad/kmonad?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     };
@@ -52,6 +57,7 @@
         hyprland.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         grub2-themes.nixosModules.default
+        kmonad.nixosModules.default
       ];
       defaultHomeManagerOptions = [
         hyprland.homeManagerModules.default

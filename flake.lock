@@ -254,6 +254,28 @@
         "type": "github"
       }
     },
+    "kmonad": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "dir": "nix",
+        "lastModified": 1725345689,
+        "narHash": "sha256-HuRZn/HJ9BXus3QGAae6zSN6xczN5AZF4TKEcHj21G0=",
+        "owner": "kmonad",
+        "repo": "kmonad",
+        "rev": "906b4e9620f3b1da7884787d43213c945affb786",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nix",
+        "owner": "kmonad",
+        "repo": "kmonad",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1711997201,
@@ -307,6 +329,7 @@
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "kmonad": "kmonad",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
@@ -353,11 +376,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1724525587,
-        "narHash": "sha256-rUgaBXTeJYkou9Ii9GP6lM3p5W+1BHRIjXuVi85PiQo=",
+        "lastModified": 1725986575,
+        "narHash": "sha256-tOgibPzYIcRXqAmxe3/+VlNSnQVtnoV3IV4bAX+kVPc=",
         "owner": "chilipizdrick",
         "repo": "wallpapers",
-        "rev": "9f577a828bc74abe77efa9a72eb7702a4f2eecaf",
+        "rev": "388d7623bf1f4f951e8dfc70bee76ef37caa029f",
         "type": "github"
       },
       "original": {

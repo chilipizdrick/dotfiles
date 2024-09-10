@@ -131,7 +131,7 @@ in {
             }
             {
               name = "";
-              url = "https://360.yandex.ru/mail";
+              url = "https://mail.yandex.ru";
             }
             {
               name = "";
@@ -224,6 +224,10 @@ in {
             {
               name = "";
               url = "https://open.spotify.com";
+            }
+            {
+              name = "";
+              url = "https://web.telegram.org";
             }
           ];
         }
