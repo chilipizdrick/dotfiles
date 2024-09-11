@@ -4,12 +4,11 @@
     package = pkgs.unstable.kanata;
     keyboards."default" = {
       config = ''
-        (defsrc
-          caps)
+        (defsrc)
 
-        (deflayermap (default-layer)
-          ;; tap caps lock as caps lock, hold caps lock as left control
-          caps (tap-hold 100 100 caps lctl))
+        (deflayermap (base-layer)
+          caps esc
+        )
       '';
     };
   };

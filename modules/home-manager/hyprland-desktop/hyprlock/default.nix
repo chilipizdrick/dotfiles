@@ -20,7 +20,7 @@ in {
   config = mkIf cfg.enable {
     programs.hyprlock = {
       enable = true;
-      package = pkgs.unstable.hyprlock;
+      package = pkgs.hyprlock;
       settings = {
         "$colors" = "$HOME/.config/hypr/themes/wallust.hypr";
         source = [
