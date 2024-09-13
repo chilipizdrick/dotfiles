@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   services.kmonad = {
     enable = true;
-    package = pkgs.unstable.kmonad;
+    package = pkgs.kmonad;
     keyboards."atlas-internal" = {
       name = "atlas-internal";
       device = "/dev/input/by-path/platform-i8042-serio-0-event-kb";

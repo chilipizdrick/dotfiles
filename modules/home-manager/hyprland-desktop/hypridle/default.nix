@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  home.packages = with pkgs; [unstable.hypridle];
+  home.packages = with pkgs; [hypridle];
 
   services.hypridle = {
     enable = true;
-    package = pkgs.unstable.hypridle;
+    package = pkgs.hypridle;
     settings = {
       general = {
         before_sleep_cmd = "loginctl lock-session"; # Lock before suspend.

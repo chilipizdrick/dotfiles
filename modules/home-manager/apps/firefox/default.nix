@@ -35,6 +35,12 @@ in {
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unfilled";
 
+      Proxy = {
+        Mode = "autoConfig";
+        Locked = true;
+        AutoConfigURL = "file:///home/alex/.config/firefox/proxy.js";
+      };
+
       /*
       ---- EXTENSIONS ----
       */
@@ -234,4 +240,25 @@ in {
       ];
     };
   };
+
+  home.file.".config/firefox/proxy.js".text =
+    /*
+    js
+    */
+    ''
+      function FindProxyForURL(url, host) {
+          function any(iterable) {
+            for (var index = 0; index < iterable.length; index++) {
+              if (iterable[index]) return true;
+            }
+            return false;
+          }
+
+        hosts = ["youtube.com", "googlevideo.com", "yt3.ggpht.com", "play.google.com", "medium.com"];
+
+        if (any(hosts.map((h) => host.includes(h)))) {
+            return "HTTP 127.0.0.1:8081";
+        }
+      }
+    '';
 }

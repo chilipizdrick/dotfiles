@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    hyprlock = {
+      url = "git+https://github.com/hyprwm/hyprlock?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

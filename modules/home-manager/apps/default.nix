@@ -2,7 +2,7 @@
   imports = [
     ./firefox
     ./flatpak
-    ./cava
+    # ./cava
     ./git
     ./tmux
     ./zsh
@@ -10,7 +10,7 @@
     ./alacritty
     ./zoxide
     ./oh-my-posh
-    ./ranger
+    # ./ranger
     ./spotify
   ];
 }

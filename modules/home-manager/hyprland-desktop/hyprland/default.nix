@@ -189,7 +189,7 @@
         "hypridle &"
         "waybar &"
         "swww-daemon &"
-        # "spoofdpi -port 8081 &"
+        "spoofdpi -port 8081 -dns-addr 1.1.1.1"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "nm-applet &"
         "otd-daemon &"
@@ -311,7 +311,7 @@
 
   home.packages = with pkgs; [
     wl-clipboard # Clipboard functionality on wayland
-    unstable.pamixer # Pulseauido command line mixer
+    pamixer # Pulseauido command line mixer
     brightnessctl # Read and controll device brightness
     libnotify # For sending custom notifications
     grim # Screenshot functionality
@@ -319,8 +319,8 @@
     swappy # Simple image editor for screnshots
     imagemagick # Image manipulation
     killall # Self explainatory
-    unstable.networkmanagerapplet # Easy network connection management
-    unstable.swww # Fancy wallpaper daemon
+    networkmanagerapplet # Easy network connection management
+    swww # Fancy wallpaper daemon
     spoofdpi # DPI workaround for russian ISPs
   ];
 

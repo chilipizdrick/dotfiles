@@ -44,16 +44,16 @@
   services.xserver.enable = true;
 
   environment.systemPackages = with pkgs; [
-    unstable.home-manager
-    unstable.xwayland
+    home-manager
 
-    unstable.python3
+    python3
     cargo
     # temurin-bin
     # temurin-bin-17
     temurin-bin-8
-    unstable.julia_19
+    julia
     luajitPackages.luarocks
+    poetry
 
     ripgrep
     wget
@@ -66,12 +66,12 @@
     vim
     fzf
 
-    unstable.alacritty
-    unstable.tmux
-    unstable.tmux-sessionizer
-    unstable.btop
-    unstable.fastfetch
-    unstable.alejandra
+    alacritty
+    tmux
+    tmux-sessionizer
+    btop
+    fastfetch
+    alejandra
   ];
 
   # Remove XTerm

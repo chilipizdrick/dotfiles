@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   services.mako = {
     enable = true;
-    package = pkgs.unstable.mako;
+    package = pkgs.mako;
     defaultTimeout = 5000;
     anchor = "top-right";
     textColor = "#ffffff";

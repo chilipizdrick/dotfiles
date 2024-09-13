@@ -28,7 +28,6 @@
   # Add remaining packages
   home.packages = with pkgs; [
     openvpn
-
     baobab
     imv
     loupe
@@ -36,24 +35,13 @@
     zathura
     mpv
     libreoffice-fresh
-
-    unstable.brave
-
-    unstable.telegram-desktop
-    # (unstable.discord.override {
-    #   withVencord = true;
-    #   vencord = unstable.vencord;
-    # })
-    unstable.vesktop
-
-    unstable.obsidian
-
-    unstable.ani-cli
-    unstable.qbittorrent
+    brave
+    vesktop
+    obsidian
+    ani-cli
+    telegram-desktop
 
     unstable.wallust
-
-    unstable.poetry
   ];
 
   # --command=soundux in .desktop file prevents Soundux from launching properly

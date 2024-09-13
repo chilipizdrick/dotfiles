@@ -10,8 +10,8 @@ in {
   options.hyperion.enable = mkEnableOption "Hyperion ambilight daemon";
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      unstable.hyperion-ng
-      unstable.wf-recorder
+      hyperion-ng
+      wf-recorder
       ffmpeg
       v4l-utils
     ];

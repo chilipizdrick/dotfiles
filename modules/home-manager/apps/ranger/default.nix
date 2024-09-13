@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    unstable.ranger
+    ranger
     file
     ffmpeg
     ffmpegthumbnailer
