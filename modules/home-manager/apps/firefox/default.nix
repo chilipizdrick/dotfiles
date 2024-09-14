@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   lock-false = {
     Value = false;
     Status = "locked";
@@ -41,12 +37,6 @@ in {
         AutoConfigURL = "file:///home/alex/.config/firefox/proxy.js";
       };
 
-      /*
-      ---- EXTENSIONS ----
-      */
-      # Check about:support for extension/add-on ID strings.
-      # Valid strings for installation_mode are "allowed", "blocked",
-      # "force_installed" and "normal_installed".
       ExtensionSettings = {
         "*".installation_mode = "allowed"; # blocks all addons except the ones specified below
         # uBlock Origin:
@@ -107,12 +97,10 @@ in {
         "browser.newtabpage.activity-stream.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
-
         "browser.uidensity" = {
           Value = 1;
           Status = "locked";
         };
-        # "browser.sessionstore.closedTabsFromAllWindows" = lock-true;
         "browser.sessionstore.closedTabsFromClosedWindows" = lock-true;
         "gfx.webrender.all" = lock-true;
         "uc.tweak.translucency" = lock-true;
@@ -254,7 +242,7 @@ in {
             return false;
           }
 
-        hosts = ["youtube.com", "googlevideo.com", "yt3.ggpht.com", "play.google.com", "medium.com"];
+        hosts = ["youtube.com", "i.ytimg.com", "googlevideo.com", "yt3.ggpht.com", "play.google.com", "medium.com"];
 
         if (any(hosts.map((h) => host.includes(h)))) {
             return "HTTP 127.0.0.1:8081";

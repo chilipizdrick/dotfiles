@@ -1,5 +1,10 @@
-@import url("colors.css");
-@import url("themes/wallust.css");
+/* @import url("colors.css"); */
+/* @import url("themes/wallust.css"); */
+@import url("catppuccin-mocha.css");
+
+@define-color background rgba(0, 0, 0, 0.8);
+@define-color hover rgba(255, 255, 255, 0.1);
+@define-color hover-urgent rgba(249, 205, 178, 0.5);
 
 * {
   all: initial;
@@ -8,7 +13,7 @@
   font-size: 12px;
   font-weight: bold;
   /* color: @white; */
-  color: @foreground;
+  color: @text;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -77,7 +82,7 @@ tooltip {
 
 #custom-launcher:hover {
   background: @hover;
-  color: @light-blue;
+  color: @blue;
 }
 
 
@@ -100,19 +105,19 @@ tooltip {
 }
 
 #workspaces button.focused label {
-  color: @light-blue;
+  color: @blue;
 }
 
 #workspaces button.active label {
-  color: @light-blue;
+  color: @blue;
 }
 
 #workspaces button.urgent {
-  background: @orange;
+  background: @peach;
 }
 
 #workspaces button.urgent label {
-  color: @black;
+  color: black;
 }
 
 #workspaces button:hover {
@@ -135,7 +140,7 @@ tooltip {
 }
 
 #pulseaudio.bluetooth {
-  color: @light-blue;
+  color: @blue;
 }
 
 #pulseaudio.muted {
@@ -178,11 +183,11 @@ tooltip {
 }
 
 #battery.plugged {
-  color: @light-blue;
+  color: @blue;
 }
 
 #battery.charging {
-  color: @light-blue;
+  color: @blue;
 }
 
 #battery.warning {
@@ -190,7 +195,7 @@ tooltip {
 }
 
 #battery.critical {
-  color: @orange;
+  color: @peach;
 }
 
 #battery.critical:not(.charging) {

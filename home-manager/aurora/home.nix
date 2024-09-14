@@ -68,18 +68,6 @@
 
   # Fixes for electron apps
   xdg.desktopEntries = {
-    vesktop-x11 = {
-      categories = ["Network" "InstantMessaging" "Chat"];
-      exec = "env -u XDG_SESSION_TYPE vesktop %U";
-      genericName = "Voice Chat";
-      icon = "vesktop";
-      name = "Vesktop XDG_SESSION_TYPE Override";
-      type = "Application";
-      settings = {
-        Keywords = "discord;vencord;electron;chat";
-        StartupWMClass = "Vesktop";
-      };
-    };
     spotify-xwayland = {
       type = "Application";
       name = "Spotify on Xwayland";

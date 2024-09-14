@@ -1,5 +1,6 @@
 @define-color cursor {{cursor}};
-@define-color background rgba({{background | red}}, {{background | green}}, {{background | blue}}, 0.8);
+/* @define-color background rgba({{background | red}}, {{background | green}}, {{background | blue}}, 0.8); */
+@define-color background rgba(0,0,0,0.8);
 @define-color foreground {{foreground}};
 @define-color color0  {{color0 }};
 @define-color color1  {{color1 }};

@@ -6,7 +6,7 @@
     anchor = "top-right";
     textColor = "#ffffff";
     backgroundColor = "#000000B3";
-    borderColor = "#303030";
+    borderColor = "#ffffff";
     borderSize = 0;
     borderRadius = 10;
     font = "JetBrainsMonoNL Nerd Font";

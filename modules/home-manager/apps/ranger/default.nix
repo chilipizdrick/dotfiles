@@ -11,12 +11,4 @@
 
   home.file.".config/ranger/scope.sh".source = ./config/scope.sh;
   home.file.".config/ranger/rc.conf".source = ./config/rc.conf;
-
-  # xdg.desktopEntries.rangerFix = {
-  #   type = "Application";
-  #   name = "ranger *FIX*";
-  #   icon = "utilities-terminal";
-  #   terminal = false;
-  #   exec = "alacritty -e ranger";
-  # };
 }

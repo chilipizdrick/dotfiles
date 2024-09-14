@@ -17,8 +17,4 @@
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes
   '';
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
-  };
 }

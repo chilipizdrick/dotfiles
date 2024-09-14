@@ -34,14 +34,10 @@
     gimp
     zathura
     mpv
-    libreoffice-fresh
     brave
-    vesktop
     obsidian
-    ani-cli
-    telegram-desktop
 
-    unstable.wallust
+    ani-cli
   ];
 
   # --command=soundux in .desktop file prevents Soundux from launching properly

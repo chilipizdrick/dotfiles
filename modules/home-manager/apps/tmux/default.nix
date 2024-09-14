@@ -12,6 +12,8 @@
 
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
+      tmuxPlugins.catppuccin
+      # tmuxPlugins.rose-pine
     ];
 
     extraConfig = ''
@@ -27,8 +29,24 @@
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
+
+      # set -g @catppuccin_flavor 'mocha'
+      set -g @rose_pine_variant 'main'
     '';
   };
+
   home.packages = with pkgs; [tmux-sessionizer];
-  home.file.".config/tms/config.toml".source = ./config/tms.toml;
+  home.file.".config/tms/config.toml".text =
+    /*
+    toml
+    */
+    ''
+      [[search_dirs]]
+      path = "/home/alex/dotfiles"
+      depth = 10
+
+      [[search_dirs]]
+      path = "/home/alex/Projects"
+      depth = 10
+    '';
 }
