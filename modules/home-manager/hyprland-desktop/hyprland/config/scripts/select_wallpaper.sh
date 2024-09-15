@@ -30,7 +30,7 @@ executeCommand() {
 
   ln -sf "$1" "$HOME/.current_wallpaper"
 
-  wallust run "$HOME/.current_wallpaper" -u 
+  # wallust run "$HOME/.current_wallpaper" -u 
 }
 
 # Show the images

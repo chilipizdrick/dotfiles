@@ -7,7 +7,7 @@
     ./hyprlock
     ./mako
     ./rofi
-    ./wallust
+    # ./wallust
     ./waybar
     ./wlogout
   ];
