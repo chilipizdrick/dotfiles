@@ -47,13 +47,8 @@
     home-manager
 
     python3
-    cargo
-    # temurin-bin
-    # temurin-bin-17
-    temurin-bin-8
-    julia
-    luajitPackages.luarocks
     poetry
+    julia
 
     ripgrep
     wget
@@ -66,7 +61,6 @@
     vim
     fzf
 
-    alacritty
     tmux
     tmux-sessionizer
     btop

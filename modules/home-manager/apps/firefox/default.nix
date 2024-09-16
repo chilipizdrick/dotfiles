@@ -242,7 +242,7 @@ in {
             return false;
           }
 
-        hosts = ["youtube.com", "i.ytimg.com", "googlevideo.com", "yt3.ggpht.com", "play.google.com", "medium.com"];
+        hosts = ["youtube.com", "i.ytimg.com", "googlevideo.com", "yt3.ggpht.com", "play.google.com", "medium.com", "reddit.com"];
 
         if (any(hosts.map((h) => host.includes(h)))) {
             return "HTTP 127.0.0.1:8081";

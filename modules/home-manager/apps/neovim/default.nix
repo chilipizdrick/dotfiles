@@ -13,7 +13,7 @@
     withNodeJs = true;
   };
 
-  home.packages = with pkgs; [gcc_multi go];
+  home.packages = with pkgs; [gcc_multi go cargo];
 
   home.file.".config/nvim".source = ./config;
 }

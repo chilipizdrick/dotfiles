@@ -3,7 +3,7 @@
     ./discord
     ./firefox
     ./flatpak
-    # ./cava
+    ./cava
     ./git
     ./tmux
     ./zsh

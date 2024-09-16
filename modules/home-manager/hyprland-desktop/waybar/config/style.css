@@ -51,6 +51,7 @@ tooltip {
 }
 
 #custom-launcher,
+#cava,
 #workspaces,
 #mpris,
 #clock,
@@ -137,6 +138,13 @@ tooltip {
 
 #mpris:hover {
   background: @hover;
+}
+
+#cava {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #pulseaudio.bluetooth {
