@@ -23,6 +23,7 @@
     "pulseaudio",
     "custom/vpn",
     "network",
+    "cpu",
     "battery",
     "custom/powermenu"
   ],
@@ -62,7 +63,7 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "   {usage}% ",
+    "format": "   {usage}% ",
     "max-length": 10
   },
   "tray": {

@@ -9,7 +9,7 @@ with lib; let
 in {
   options.games = {
     enable = mkEnableOption "games related stuff";
-    minecraft = mkEnableOption "prismlauncher and needed dependencies as well as fabric loader";
+    minecraft = mkEnableOption "prismlauncher and needed dependencies as well as fabric installer";
     r2modman = mkEnableOption "r2modman mod manager";
     osu = mkEnableOption "osu-lazer";
   };
@@ -27,25 +27,9 @@ in {
       r2modmanPkgs = [unstable.r2modman];
       osuPkgs = [unstable.osu-lazer];
     in
-      (
-        if cfg.minecraft
-        then minecraftPkgs
-        else []
-      )
-      ++ (
-        if cfg.r2modman
-        then r2modmanPkgs
-        else []
-      )
-      ++ (
-        if cfg.osu
-        then osuPkgs
-        else []
-      )
-      ++ [
-        mangohud
-        gamemode
-      ];
+      (optionals cfg.minecraft minecraftPkgs)
+      ++ (optionals cfg.r2modman r2modmanPkgs)
+      ++ (optionals cfg.osu osuPkgs);
 
     home.file."lib/glfw-wayland-minecraft-libglfw".source = mkIf cfg.minecraft "${pkgs.glfw-wayland-minecraft}/lib";
   };

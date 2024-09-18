@@ -29,6 +29,11 @@
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,1.666667"
+        # ",preferred,auto,1"
+      ];
+      bind = [
+        "$mainMod, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\""
+        "$mainMod, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\""
       ];
     };
   };

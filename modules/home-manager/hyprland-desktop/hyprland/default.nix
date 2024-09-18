@@ -40,7 +40,7 @@
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "SDL_VIDEODRIVER,wayland,x11"
+        # "SDL_VIDEODRIVER,wayland,x11"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
@@ -304,7 +304,7 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    SDL_VIDEODRIVER = "wayland,x11";
+    # SDL_VIDEODRIVER = "wayland,x11";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";

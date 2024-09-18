@@ -9,10 +9,10 @@
     enable = true;
     spotifyPackage = pkgs.unstable.spotify;
 
-    # theme = spicetifyPkgs.themes.comfy;
-    # colorScheme = "Hikari";
-    theme = spicetifyPkgs.themes.catppuccin;
-    colorScheme = "Mocha";
+    theme = spicetifyPkgs.themes.comfy;
+    colorScheme = "Hikari";
+    # theme = spicetifyPkgs.themes.catppuccin;
+    # colorScheme = "Mocha";
 
     enabledExtensions = with spicetifyPkgs.extensions; [
       adblock

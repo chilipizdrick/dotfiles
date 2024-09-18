@@ -7,9 +7,7 @@
 @define-color hover-urgent rgba(249, 205, 178, 0.5);
 
 * {
-  all: initial;
-  min-height: 0;
-  font-family: monospace;
+  all: initial; min-height: 0; font-family: monospace;
   font-size: 12px;
   font-weight: bold;
   /* color: @white; */
@@ -209,7 +207,6 @@ tooltip {
 #battery.critical:not(.charging) {
   color: @red;
 }
-
 
 #custom-powermenu {
   margin-right: 0px;
