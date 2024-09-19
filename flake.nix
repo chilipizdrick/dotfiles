@@ -11,28 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    hyprlock = {
-      url = "git+https://github.com/hyprwm/hyprlock?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    grub2-themes = {
-      url = "github:vinceliuice/grub2-themes";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    kmonad = {
-      url = "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
@@ -58,14 +38,8 @@
         "x86_64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      defaultNixosModules = [
-        hyprland.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
-        grub2-themes.nixosModules.default
-        kmonad.nixosModules.default
-      ];
-      defaultHomeManagerOptions = [
-        hyprland.homeManagerModules.default
+      defaultNixosModules = [];
+      defaultHomeManagerModules = [
         nix-flatpak.homeManagerModules.nix-flatpak
         spicetify-nix.homeManagerModules.default
       ];
@@ -74,24 +48,34 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       overlays = import ./overlays {inherit inputs;};
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      nixosModules = import ./nixos/modules;
+      homeManagerModules = import ./home-manager/modules;
 
       nixosConfigurations = {
-        atlas = nixpkgs.lib.nixosSystem {
+        "atlas" = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs outputs;};
           modules =
             defaultNixosModules
             ++ [
-              ./nixos/atlas/configuration.nix
+              ./nixos/hosts/atlas/configuration.nix
+              nix-flatpak.nixosModules.nix-flatpak
             ];
         };
-        aurora = nixpkgs.lib.nixosSystem {
+        "aurora" = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs outputs;};
           modules =
             defaultNixosModules
             ++ [
-              ./nixos/aurora/configuration.nix
+              ./nixos/hosts/aurora/configuration.nix
+              nix-flatpak.nixosModules.nix-flatpak
+            ];
+        };
+        "vps" = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs outputs;};
+          modules =
+            defaultNixosModules
+            ++ [
+              ./nixos/hosts/vps/configuration.nix
             ];
         };
       };
@@ -101,18 +85,18 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {inherit inputs outputs;};
           modules =
-            defaultHomeManagerOptions
+            defaultHomeManagerModules
             ++ [
-              ./home-manager/atlas/home.nix
+              ./home-manager/hosts/atlas/home.nix
             ];
         };
         "alex@aurora" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {inherit inputs outputs;};
           modules =
-            defaultHomeManagerOptions
+            defaultHomeManagerModules
             ++ [
-              ./home-manager/aurora/home.nix
+              ./home-manager/hosts/aurora/home.nix
             ];
         };
       };
