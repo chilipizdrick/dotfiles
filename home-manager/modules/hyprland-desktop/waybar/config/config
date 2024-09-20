@@ -21,7 +21,7 @@
     "tray",
     "backlight",
     "pulseaudio",
-    "custom/vpn",
+    // "custom/vpn",
     "network",
     "cpu",
     "battery",
