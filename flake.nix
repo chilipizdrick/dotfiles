@@ -1,5 +1,5 @@
 {
-  description = "Nixos config & home-manager config";
+  description = "Personal NixOs & home-manager config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
@@ -19,7 +19,6 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     };
-
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
       flake = false;
@@ -38,7 +37,9 @@
         "x86_64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      defaultNixosModules = [];
+      defaultNixosModules = [
+        nix-flatpak.nixosModules.nix-flatpak
+      ];
       defaultHomeManagerModules = [
         nix-flatpak.homeManagerModules.nix-flatpak
         spicetify-nix.homeManagerModules.default
@@ -58,7 +59,6 @@
             defaultNixosModules
             ++ [
               ./nixos/hosts/atlas/configuration.nix
-              nix-flatpak.nixosModules.nix-flatpak
             ];
         };
         "aurora" = nixpkgs.lib.nixosSystem {
@@ -67,15 +67,6 @@
             defaultNixosModules
             ++ [
               ./nixos/hosts/aurora/configuration.nix
-              nix-flatpak.nixosModules.nix-flatpak
-            ];
-        };
-        "vps" = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs outputs;};
-          modules =
-            defaultNixosModules
-            ++ [
-              ./nixos/hosts/vps/configuration.nix
             ];
         };
       };

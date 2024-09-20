@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ../modules/desktopModules
+    ../modules
   ];
 
   nixpkgs = {
