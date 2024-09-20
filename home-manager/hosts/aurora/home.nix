@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../baseHome.nix
+    ../base-home.nix
   ];
 
   services.hypridle.settings.listener = lib.mkForce [
@@ -25,11 +25,6 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      # render = {
-      #   explicit_sync = 0;
-      #   explicit_sync_kms = 0;
-      # };
-
       monitor = [
         ",preferred,auto,auto"
         "Unknown-1,disable"
