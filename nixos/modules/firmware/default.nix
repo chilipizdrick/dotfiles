@@ -10,8 +10,4 @@
     ./time.nix
     ./touchpad.nix
   ];
-
-  # Driver and other firmware updates
-  services.fwupd.enable = true;
-  hardware.enableAllFirmware = true;
 }

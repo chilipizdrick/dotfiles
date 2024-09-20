@@ -28,20 +28,18 @@
       warn-dirty = false;
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      # substituters = ["https://hyprland.cachix.org"];
+      # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = [];
-  };
-
-  services.xserver.enable = true;
+  # programs.nix-ld = {
+  #   enable = true;
+  #   libraries = [];
+  # };
 
   environment.systemPackages = with pkgs; [
     home-manager
@@ -72,7 +70,6 @@
   services.xserver.excludePackages = [pkgs.xterm];
   services.xserver.desktopManager.xterm.enable = false;
 
-  # Setup zsh
   programs.zsh.enable = true;
 
   users.users = {

@@ -43,10 +43,10 @@
     ''
       [[search_dirs]]
       path = "/home/alex/dotfiles"
-      depth = 10
+      depth = 2
 
       [[search_dirs]]
       path = "/home/alex/Projects"
-      depth = 10
+      depth = 2
     '';
 }

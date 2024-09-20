@@ -5,7 +5,7 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
+    package = pkgs.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     systemd.variables = ["--all"];
@@ -14,7 +14,6 @@
       "$mainMod" = "SUPER";
       "$scripts" = "$HOME/.config/hypr/scripts";
       "$files" = "${pkgs.gnome.nautilus}/bin/nautilus";
-      # "$files" = "env EDITOR=nvim VISUAL=nvim alacritty -e 'ranger'";
       "$term" = "${pkgs.alacritty}/bin/alacritty";
       "$left" = "H";
       "$right" = "L";
@@ -27,9 +26,9 @@
         "$colors"
       ];
 
-      # "debug:disable_logs" = false;
-      # "debug:enable_stdout_logs" = true;
-      # "debug:error_limit" = 100;
+      "debug:disable_logs" = false;
+      "debug:enable_stdout_logs" = true;
+      "debug:error_limit" = 100;
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
