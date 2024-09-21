@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }: {
   programs.alacritty = {
