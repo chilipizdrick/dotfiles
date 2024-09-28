@@ -36,10 +36,10 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # programs.nix-ld = {
-  #   enable = true;
-  #   libraries = [];
-  # };
+  programs.nix-ld = {
+    enable = true;
+    libraries = [];
+  };
 
   environment.systemPackages = with pkgs; [
     home-manager
@@ -64,6 +64,8 @@
     btop
     fastfetch
     alejandra
+
+    sops
   ];
 
   # Remove XTerm
