@@ -44,8 +44,8 @@
   environment.systemPackages = with pkgs; [
     home-manager
 
+    nodejs_22
     python3
-    poetry
     julia
 
     ripgrep
@@ -66,6 +66,9 @@
     alejandra
 
     sops
+    poetry
+    docker
+    docker-compose
   ];
 
   # Remove XTerm
