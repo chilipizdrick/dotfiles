@@ -1,9 +1,8 @@
 {
   inputs,
-  outputs,
-  lib,
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -12,9 +11,13 @@
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      (final: _prev: import ../../pkgs pkgs)
+      (final: _prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      })
     ];
     config = {
       allowUnfree = true;
@@ -28,8 +31,7 @@
       warn-dirty = false;
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
-      # substituters = ["https://hyprland.cachix.org"];
-      # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      keep-outputs = true;
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;

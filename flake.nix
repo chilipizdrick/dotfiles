@@ -31,66 +31,46 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs:
-    with inputs; let
-      inherit (self) outputs;
-      systems = [
-        "x86_64-linux"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-      defaultNixosModules = [
-        nix-flatpak.nixosModules.nix-flatpak
-      ];
-      defaultHomeManagerModules = [
-        nix-flatpak.homeManagerModules.nix-flatpak
-        spicetify-nix.homeManagerModules.default
-      ];
-    in {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = [
+      "x86_64-linux"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      overlays = import ./overlays {inherit inputs;};
-      nixosModules = import ./nixos/modules;
-      homeManagerModules = import ./home-manager/modules;
-
-      nixosConfigurations = {
-        "atlas" = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs outputs;};
-          modules =
-            defaultNixosModules
-            ++ [
-              ./nixos/hosts/atlas/configuration.nix
-            ];
-        };
-        "aurora" = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs outputs;};
-          modules =
-            defaultNixosModules
-            ++ [
-              ./nixos/hosts/aurora/configuration.nix
-            ];
-        };
+    nixosConfigurations = {
+      "atlas" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/hosts/atlas/configuration.nix
+        ];
       };
-
-      homeConfigurations = {
-        "alex@atlas" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {inherit inputs outputs;};
-          modules =
-            defaultHomeManagerModules
-            ++ [
-              ./home-manager/hosts/atlas/home.nix
-            ];
-        };
-        "alex@aurora" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {inherit inputs outputs;};
-          modules =
-            defaultHomeManagerModules
-            ++ [
-              ./home-manager/hosts/aurora/home.nix
-            ];
-        };
+      "aurora" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/hosts/aurora/configuration.nix
+        ];
       };
     };
+
+    homeConfigurations = {
+      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/hosts/atlas/home.nix
+        ];
+      };
+      "alex@aurora" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/hosts/aurora/home.nix
+        ];
+      };
+    };
+  };
 }

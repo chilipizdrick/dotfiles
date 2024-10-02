@@ -1,5 +1,5 @@
 {
-  outputs,
+  inputs,
   pkgs,
   ...
 }: {
@@ -8,9 +8,13 @@
   ];
   nixpkgs = {
     overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      (final: _prev: import ../../pkgs pkgs)
+      (final: _prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      })
     ];
     config = {
       allowUnfree = true;

@@ -30,7 +30,6 @@ in {
       DisplayBookmarksToolbar = "always";
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unfilled";
-
       Proxy = {
         Mode = "autoConfig";
         Locked = true;
@@ -106,7 +105,10 @@ in {
           Value = 1;
           Status = "locked";
         };
-        "browser.sessionstore.closedTabsFromClosedWindows" = lock-true;
+        "browser.startup.page" = {
+          Value = 3;
+          Status = "locked";
+        };
         "gfx.webrender.all" = lock-true;
         "uc.tweak.translucency" = lock-true;
         "uc.tweak.no-window-controls" = lock-true;

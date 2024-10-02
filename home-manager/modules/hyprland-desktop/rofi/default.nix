@@ -2,11 +2,9 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = [pkgs.rofi-calc];
+    plugins = [(pkgs.rofi-calc.override {rofi-unwrapped = pkgs.rofi-wayland-unwrapped;})];
     terminal = "${pkgs.alacritty}/bin/alacritty";
   };
-  home.packages = with pkgs; [
-    rofi-calc
-  ];
+
   home.file.".config/rofi".source = ./config;
 }
