@@ -18,5 +18,10 @@
     steam = true;
   };
 
+  swapFile = {
+    enable = true;
+    size = 16;
+  };
+
   networking.hostName = "atlas";
 }

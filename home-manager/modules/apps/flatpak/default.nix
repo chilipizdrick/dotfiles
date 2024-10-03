@@ -10,6 +10,6 @@
     ];
   };
   # home.packages = with pkgs; [
-  #   unstable.gnome.gnome-software
+  #   gnome.gnome-software
   # ];
 }
