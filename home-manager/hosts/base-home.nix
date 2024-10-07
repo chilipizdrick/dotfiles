@@ -40,6 +40,7 @@
     mpv
     brave
     obsidian
+    telegram-desktop
 
     ani-cli
   ];

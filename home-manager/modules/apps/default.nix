@@ -13,5 +13,6 @@
     ./oh-my-posh
     # ./ranger
     ./spotify
+    ./udiskie
   ];
 }

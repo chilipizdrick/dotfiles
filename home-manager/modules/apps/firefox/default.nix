@@ -220,7 +220,7 @@ in {
             }
             {
               name = "";
-              url = "https://search.nixos.org/packages";
+              url = "https://mynixos.com/search";
             }
             {
               name = "";
@@ -237,9 +237,7 @@ in {
   };
 
   home.file.".config/firefox/proxy.js".text =
-    /*
-    js
-    */
+    # js
     ''
       function FindProxyForURL(url, host) {
           function any(iterable) {

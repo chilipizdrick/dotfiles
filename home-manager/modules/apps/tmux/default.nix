@@ -37,14 +37,8 @@
 
   home.packages = with pkgs; [tmux-sessionizer];
   home.file.".config/tms/config.toml".text =
-    /*
-    toml
-    */
+    # toml
     ''
-      [[search_dirs]]
-      path = "/home/alex/dotfiles"
-      depth = 1
-
       [[search_dirs]]
       path = "/home/alex/Projects"
       depth = 2

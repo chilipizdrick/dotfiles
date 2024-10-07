@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [vesktop];
   home.file."/home/alex/.config/vesktop/themes/catppuccin-mocha.css".text =
-    /*
-    css
-    */
+    # css
     ''
        /**
        * @name Catppuccin Mocha

@@ -1,15 +1,10 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.alacritty = {
     enable = true;
     package = pkgs.alacritty;
   };
   home.file.".config/alacritty/alacritty.toml".text =
-    /*
-    toml
-    */
+    # toml
     ''
       [window]
       padding = { x = 4, y = 4 }
@@ -24,6 +19,7 @@
       normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
       bold = { family = "JetBrainsMonoNL Nerd Font", style = "Bold" }
       italic = { family = "JetBrainsMonoNL Nerd Font", style = "Italic" }
+
       [colors.primary]
       background = "#000000"
       foreground = "#cdd6f4"

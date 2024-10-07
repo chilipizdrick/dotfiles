@@ -10,9 +10,8 @@ in {
   options.games = {
     enable = mkEnableOption "game related stuff";
     steam = mkEnableOption "steam";
-    gamescope = mkEnableOption "gamescope";
     gamescopeScreenProfile = mkOption {
-      type = types.listOf types.str;
+      type = types.list;
       default = [
         "-W 2560"
         "-H 1600"
@@ -23,7 +22,7 @@ in {
         "-H 1080"
         "-r 60"
       ];
-      description = "Gamescope input/output screen profile args";
+      description = "Gamescope output screen profile to use";
     };
   };
 
@@ -31,29 +30,30 @@ in {
     programs = {
       steam = {
         enable = mkIf cfg.steam true;
-        gamescopeSession.enable = mkIf cfg.gamescope true;
+        gamescopeSession.enable = true;
       };
-
       gamescope = {
-        enable = mkIf cfg.gamescope true;
+        enable = mkIf cfg.steam true;
         capSysNice = true;
         args =
           [
-            # "-f"
+            "-f"
             "-S integer"
             "--rt"
             "--adaptive-sync"
-            # "--expose-wayland"
+            "--expose-wayland"
+            "--mangoapp"
           ]
           ++ cfg.gamescopeScreenProfile;
       };
-
-      gamemode.enable = true;
+      gamemode = {
+        enable = true;
+      };
     };
 
     environment.systemPackages = with pkgs; let
       steamPkgs = [
-        mangohud
+        # mangohud
       ];
     in
       (optionals cfg.steam steamPkgs) ++ [];

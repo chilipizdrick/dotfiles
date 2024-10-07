@@ -4,9 +4,7 @@
     package = pkgs.oh-my-posh;
     enableZshIntegration = true;
     settings = builtins.fromJSON (builtins.unsafeDiscardStringContext
-      /*
-      json
-      */
+      # json
       ''
         {
           "console_title_template": "{{ .Shell }} in {{ .Folder }}",

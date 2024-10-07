@@ -20,9 +20,9 @@ in {
         unstable.glfw-wayland-minecraft
         unstable.prismlauncher
         unstable.fabric-installer
-        # temurin-bin-8
+        temurin-bin-8
         # temurin-bin-17
-        temurin-bin
+        # temurin-bin
       ];
       r2modmanPkgs = [unstable.r2modman];
       osuPkgs = [unstable.osu-lazer];

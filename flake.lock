@@ -119,11 +119,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1727864032,
-        "narHash": "sha256-T/f/t0HYfjbAHgpAxTG17v5lSkWVP9AWtr+hGLV9qNg=",
+        "lastModified": 1727970769,
+        "narHash": "sha256-tOgibPzYIcRXqAmxe3/+VlNSnQVtnoV3IV4bAX+kVPc=",
         "owner": "chilipizdrick",
         "repo": "wallpapers",
-        "rev": "ebc9686fabf7e0bdd6e2736cfcf750703ac158b5",
+        "rev": "5cb2842866d2dd5f794aeafe5c854150cc833d4a",
         "type": "github"
       },
       "original": {
