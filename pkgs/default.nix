@@ -1,3 +1,1 @@
-pkgs: {
-  spoofdpi = pkgs.callPackage ./spoofdpi {};
-}
+pkgs: {}
