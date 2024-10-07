@@ -323,7 +323,7 @@
     killall # Self explainatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
-    spoofdpi # DPI workaround for russian ISPs
+    unstable.spoofdpi # DPI workaround for russian ISPs
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
