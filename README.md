@@ -1,3 +1,10 @@
+<h1 align="center">
+    Chilipizdrick's NixOS dotfiles
+    <br>
+</h1>
+
+![Screenshot](assets/preview.png)
+
 # dotfiles
 
 Personal NixOS and home-manager dotfiles.
