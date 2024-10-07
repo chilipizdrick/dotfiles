@@ -21,3 +21,9 @@ cp -f /etc/nixos/hardware-configuration.nix ./nixos/hosts/<host>/hardware-config
 sudo nixos-rebuild switch --flake .#<host>
 home-manager switch --flake .
 ```
+
+## Thanks to
+
+- [zDyant](https://github.com/zDyanTB) and [Ja.KooLit](https://github.com/JaKooLit) for creating insanely cool dotfiles
+- [Gabriel Fontes](https://github.com/Misterio77) for creating comprehensive and comprehensible starting templates for NixOS and home-manager configurations
+
