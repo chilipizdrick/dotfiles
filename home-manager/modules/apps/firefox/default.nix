@@ -78,6 +78,11 @@ in {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
+        # Owl-Assistant (for webinar.ru)
+        "{858f04f6-17b6-46fa-bef6-c20c41cd5ab1}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/owl-assistant-for-webinar/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       Preferences = {
         "browser.contentblocking.category" = {
@@ -124,111 +129,115 @@ in {
           bookmarks = [
             {
               name = "";
-              url = "https://app.todoist.com/app";
+              url = "https://app.todoist.com/app/";
             }
             {
               name = "";
-              url = "https://calendar.google.com";
+              url = "https://calendar.google.com/";
             }
             {
               name = "";
-              url = "https://mail.yandex.ru";
+              url = "https://mail.yandex.ru/";
             }
             {
               name = "";
-              url = "https://mail.google.com";
+              url = "https://mail.google.com/";
             }
             {
               name = "";
-              url = "https://translate.google.com";
+              url = "https://translate.google.com/";
             }
             {
               name = "";
-              url = "https://vk.com/im";
+              url = "https://vk.com/im/";
             }
             {
               name = "";
-              url = "https://github.com";
+              url = "https://github.com/";
             }
             {
               name = "";
-              url = "https://www.virustotal.com";
+              url = "https://www.virustotal.com/";
             }
             {
               name = "";
-              url = "https://www.youtube.com";
+              url = "https://www.youtube.com/";
             }
             {
               name = "";
-              url = "https://www.twitch.tv";
+              url = "https://www.twitch.tv/";
             }
             {
               name = "";
-              url = "https://monkeytype.com";
+              url = "https://monkeytype.com/";
             }
             {
               name = "";
-              url = "https://detexify.kirelabs.org";
+              url = "https://detexify.kirelabs.org/";
             }
             {
               name = "";
-              url = "https://tinywow.com";
+              url = "https://tinywow.com/";
             }
             {
               name = "";
-              url = "https://docs.google.com";
+              url = "https://docs.google.com/";
             }
             {
               name = "";
-              url = "https://invapi.hostkey.ru";
+              url = "https://invapi.hostkey.ru/";
             }
             {
               name = "";
-              url = "https://online-edu.mirea.ru";
+              url = "https://online-edu.mirea.ru/";
             }
             {
               name = "";
-              url = "https://lk.mirea.ru";
+              url = "https://lk.mirea.ru/";
             }
             {
               name = "";
-              url = "https://excalidraw.com";
+              url = "https://excalidraw.com/";
             }
             {
               name = "";
-              url = "https://overleaf.com";
+              url = "https://overleaf.com/";
             }
             {
               name = "";
-              url = "https://www.desmos.com/calculator";
+              url = "https://www.desmos.com/calculator/";
             }
             {
               name = "";
-              url = "https://www.geogebra.org/3d";
+              url = "https://www.geogebra.org/3d/";
             }
             {
               name = "";
-              url = "https://octave-online.net";
+              url = "https://octave-online.net/";
             }
             {
               name = "";
-              url = "https://www.wolframalpha.com";
+              url = "https://www.wolframalpha.com/";
             }
             {
               name = "";
-              url = "https://discord.com";
+              url = "https://discord.com/";
             }
             {
               name = "";
-              url = "https://mynixos.com/search";
+              url = "https://mynixos.com/search/";
             }
             {
               name = "";
-              url = "https://open.spotify.com";
+              url = "https://open.spotify.com/";
             }
             {
               name = "";
-              url = "https://web.telegram.org";
+              url = "https://web.telegram.org/";
+            }
+            {
+              name = "";
+              url = "https://online-dpo.mirea.ru/my/";
             }
           ];
         }

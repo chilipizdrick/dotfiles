@@ -128,6 +128,7 @@
         enable_swallow = true;
         focus_on_activate = false;
         swallow_regex = "^(alacritty|kitty|mpv|imv)$";
+        initial_workspace_tracking = false;
       };
       binds = {
         workspace_back_and_forth = false;
