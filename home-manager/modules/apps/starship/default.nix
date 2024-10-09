@@ -1,21 +1,5 @@
 {lib, ...}: {
-  programs.starship = let
-    elemsConcatted = builtins.concatStrings (
-      map (s: "\$${s}") [
-        "hostname"
-        "username"
-        "directory"
-        "shell"
-        "nix_shell"
-        "git_branch"
-        "git_commit"
-        "git_state"
-        "git_status"
-        "jobs"
-        "cmd_duration"
-      ]
-    );
-  in {
+  programs.starship = {
     enable = true;
     enableZshIntegration = true;
 
@@ -31,18 +15,15 @@
       ];
 
       directory = {
-        format = "[$path]($style) ";
-        style = "blue";
+        format = "[$path](bold blue) ";
       };
 
       git_branch = {
-        format = "[$branch]($style)";
-        style = "grey";
+        format = "[$branch](grey)";
       };
 
       git_status = {
-        format = "[$modified$ahead_behind]($style) ";
-        style = "grey";
+        format = "[$modified](grey)[$ahead_behind](green) ";
         modified = "*";
         ahead = "⇡";
         behind = "⇣";
@@ -50,8 +31,7 @@
 
       nix_shell = {
         symbol = "[󱄅 ](cyan)";
-        format = "[$symbol$name]($style) ";
-        style = "blue";
+        format = "$symbol[$name](blue) ";
       };
 
       character = {
@@ -59,40 +39,5 @@
         error_symbol = "[❯](red)";
       };
     };
-
-    #   settings = {
-    #     scan_timeout = 2;
-    #     command_timeout = 2000;
-    #     add_newline = false;
-    #     line_break.disabled = false;
-    #
-    #     format = " ${elemsConcatted}\n$character";
-    #
-    #
-    #     # configure specific elements
-    #     character = {
-    #       error_symbol = "[](bold red)";
-    #       #success_symbol = "[](bold green)";
-    #       success_symbol = "[󰗢](bold green)";
-    #       vicmd_symbol = "[](bold yellow)";
-    #       format = " $symbol [|](bold bright-black) ";
-    #     };
-    #
-    #
-    #
-    #     git_status = {
-    #       style = "red";
-    #       ahead = "⇡ ";
-    #       behind = "⇣ ";
-    #       conflicted = " ";
-    #       renamed = "»";
-    #       deleted = "✘ ";
-    #       diverged = "⇆ ";
-    #       modified = "!";
-    #       stashed = "≡";
-    #       staged = "+";
-    #       untracked = "?";
-    #     };
-    #   };
   };
 }
