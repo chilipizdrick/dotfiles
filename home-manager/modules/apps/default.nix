@@ -3,6 +3,7 @@
     ./discord
     ./firefox
     ./flatpak
+    ./starship
     ./cava
     ./git
     ./tmux
@@ -10,7 +11,7 @@
     ./neovim
     ./alacritty
     ./zoxide
-    ./oh-my-posh
+    # ./oh-my-posh
     # ./ranger
     ./spotify
     ./udiskie

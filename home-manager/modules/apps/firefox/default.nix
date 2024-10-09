@@ -32,7 +32,7 @@ in {
       SearchBar = "unfilled";
       Proxy = {
         Mode = "autoConfig";
-        Locked = true;
+        Locked = false;
         AutoConfigURL = "file:///home/alex/.config/firefox/proxy.js";
       };
 
