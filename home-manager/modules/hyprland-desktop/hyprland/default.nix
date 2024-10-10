@@ -107,7 +107,7 @@
         follow_mouse = true;
         float_switch_override_focus = false;
         touchpad = {
-          scroll_factor = 0.25;
+          scroll_factor = 0.5;
           disable_while_typing = true;
           natural_scroll = true;
           clickfinger_behavior = false;

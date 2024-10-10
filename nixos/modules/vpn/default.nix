@@ -2,5 +2,6 @@
   imports = [
     ./wireguard
     ./zerotier
+    ./tailscale
   ];
 }

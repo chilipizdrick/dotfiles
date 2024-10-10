@@ -4,7 +4,7 @@
     enableZshIntegration = true;
 
     settings = {
-      add_newline = true;
+      add_newline = false;
       format = lib.concatStrings [
         "$directory"
         "$git_branch"
@@ -12,6 +12,10 @@
         "$nix_shell"
         "\n"
         "$character"
+      ];
+
+      right_format = lib.concatStrings [
+        "$cmd_duration"
       ];
 
       directory = {
@@ -35,8 +39,13 @@
       };
 
       character = {
-        success_symbol = "[❯](purple)";
+        success_symbol = "[❯](green)";
         error_symbol = "[❯](red)";
+      };
+
+      cmd_duration = {
+        format = "[$duration](bold yellow)";
+        min_time = 5000;
       };
     };
   };
