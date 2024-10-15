@@ -27,6 +27,7 @@
       hidePodcasts
       playNext
       volumePercentage
+      randomBadToTheBoneRiff
     ];
   };
 }

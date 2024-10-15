@@ -192,7 +192,7 @@
         "hypridle &"
         "waybar &"
         "swww-daemon &"
-        "spoofdpi -port 8081 -dns-addr 1.1.1.1"
+        # "spoofdpi -port 8081 -dns-addr 1.1.1.1"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "nm-applet &"
         "otd-daemon &"
@@ -208,10 +208,10 @@
         "$mainMod, $right, movefocus, r"
         "$mainMod, $up, movefocus, u"
         "$mainMod, $down, movefocus, d"
-        "$mainMod CTRL, $left, movewindow, l"
-        "$mainMod CTRL, $right, movewindow, r"
-        "$mainMod CTRL, $up, movewindow, u"
-        "$mainMod CTRL, $down, movewindow, d"
+        "$mainMod SHIFT, $left, movewindow, l"
+        "$mainMod SHIFT, $right, movewindow, r"
+        "$mainMod SHIFT, $up, movewindow, u"
+        "$mainMod SHIFT, $down, movewindow, d"
         "$mainMod, G, togglegroup"
         "ALT, tab, changegroupactive  #change focus to another window  "
         "$mainMod SHIFT, code:10, movetoworkspace, 1"
@@ -285,6 +285,12 @@
         "$mainMod, C, exec, playerctl next"
         "$mainMod, X, exec, playerctl previous"
       ];
+      binde = [
+        "$mainMod CTRL, $left, resizeactive, -20 0"
+        "$mainMod CTRL, $right, resizeactive, 20 0"
+        "$mainMod CTRL, $up, resizeactive, 0 -20"
+        "$mainMod CTRL, $down, resizeactive, 0 20"
+      ];
       bindle = [
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 --allow-boost --set-limit 200"
         ", XF86AudioLowerVolume, exec, pamixer -d 5 --allow-boost --set-limit 200"
@@ -324,7 +330,7 @@
     killall # Self explainatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
-    unstable.spoofdpi # DPI workaround for russian ISPs
+    # unstable.spoofdpi # DPI workaround for russian ISPs
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;
