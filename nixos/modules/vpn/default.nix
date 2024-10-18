@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./wireguard
-    ./zerotier
+    # ./zerotier
     ./tailscale
   ];
 }

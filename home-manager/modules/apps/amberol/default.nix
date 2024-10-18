@@ -1,0 +1,3 @@
+{...}: {
+  services.amberol.enable = true;
+}

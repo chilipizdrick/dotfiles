@@ -11,7 +11,7 @@
     spicetifyPkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;
-    spotifyPackage = pkgs.unstable.spotify;
+    spotifyPackage = pkgs.spotify;
 
     theme = spicetifyPkgs.themes.comfy;
     colorScheme = "Hikari";

@@ -17,15 +17,15 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; let
       minecraftPkgs = [
-        unstable.glfw-wayland-minecraft
-        unstable.prismlauncher
-        unstable.fabric-installer
+        glfw-wayland-minecraft
+        prismlauncher
+        fabric-installer
         temurin-bin-8
         # temurin-bin-17
         # temurin-bin
       ];
-      r2modmanPkgs = [unstable.r2modman];
-      osuPkgs = [unstable.osu-lazer];
+      r2modmanPkgs = [r2modman];
+      osuPkgs = [osu-lazer];
     in
       (optionals cfg.minecraft minecraftPkgs)
       ++ (optionals cfg.r2modman r2modmanPkgs)

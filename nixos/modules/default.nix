@@ -4,7 +4,7 @@
     ./appimage
     ./bootloader
     ./firmware
-    ./flatpak
+    # ./flatpak
     ./fonts
     ./games
     ./greeter

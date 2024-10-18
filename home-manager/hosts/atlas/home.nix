@@ -23,7 +23,6 @@
   };
 
   wayland.windowManager.hyprland = {
-    package = lib.mkForce pkgs.hyprland;
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,1.666667"

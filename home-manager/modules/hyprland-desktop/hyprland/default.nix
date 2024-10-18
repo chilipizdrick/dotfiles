@@ -13,7 +13,7 @@
       "$wallDIR" = "$HOME/Pictures/wallpapers";
       "$mainMod" = "SUPER";
       "$scripts" = "$HOME/.config/hypr/scripts";
-      "$files" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      "$files" = "${pkgs.nautilus}/bin/nautilus";
       "$term" = "${pkgs.alacritty}/bin/alacritty";
       "$left" = "H";
       "$right" = "L";
@@ -330,7 +330,7 @@
     killall # Self explainatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
-    # unstable.spoofdpi # DPI workaround for russian ISPs
+    # spoofdpi # DPI workaround for russian ISPs
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;

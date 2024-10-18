@@ -2,7 +2,7 @@
   imports = [
     ./discord
     ./firefox
-    ./flatpak
+    # ./flatpak
     ./starship
     ./cava
     ./git
@@ -15,5 +15,7 @@
     # ./ranger
     ./spotify
     ./udiskie
+    ./direnv
+    # ./amberol
   ];
 }

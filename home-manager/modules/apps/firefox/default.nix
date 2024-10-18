@@ -10,7 +10,7 @@
 in {
   programs.firefox = {
     enable = true;
-    package = pkgs.unstable.firefox;
+    package = pkgs.firefox;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;

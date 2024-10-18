@@ -12,12 +12,6 @@
   nixpkgs = {
     overlays = [
       (final: _prev: import ../../pkgs pkgs)
-      (final: _prev: {
-        unstable = import inputs.nixpkgs-unstable {
-          system = final.system;
-          config.allowUnfree = true;
-        };
-      })
     ];
     config = {
       allowUnfree = true;
@@ -73,18 +67,15 @@
     docker-compose
   ];
 
-  # Remove XTerm
-  services.xserver.excludePackages = [pkgs.xterm];
-  services.xserver.desktopManager.xterm.enable = false;
-
   programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   users.users = {
     alex = {
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp" "uinput" "adm" "kvm" "users" "systemd-journal"];
-      shell = pkgs.zsh;
+      # shell = pkgs.zsh;
     };
   };
 

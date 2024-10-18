@@ -10,7 +10,7 @@ in {
   config = mkIf cfg.enable {
     services.xserver.videoDrivers = lib.mkDefault ["modesetting"];
     hardware.amdgpu.initrd.enable = lib.mkDefault true;
-    hardware.opengl.enable = true;
-    hardware.opengl.driSupport32Bit = true;
+    hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
   };
 }
