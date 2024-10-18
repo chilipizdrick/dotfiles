@@ -192,7 +192,6 @@
         "hypridle &"
         "waybar &"
         "swww-daemon &"
-        # "spoofdpi -port 8081 -dns-addr 1.1.1.1"
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "nm-applet &"
         "otd-daemon &"
@@ -330,7 +329,6 @@
     killall # Self explainatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
-    # spoofdpi # DPI workaround for russian ISPs
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;

@@ -11,11 +11,8 @@
     ./neovim
     ./alacritty
     ./zoxide
-    # ./oh-my-posh
-    # ./ranger
     ./spotify
     ./udiskie
     ./direnv
-    # ./amberol
   ];
 }
