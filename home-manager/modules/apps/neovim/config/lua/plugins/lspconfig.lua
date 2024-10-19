@@ -216,6 +216,15 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      tinymist = {
+        offset_encoding = 'utf-8',
+        settings = {
+          exportPdf = 'never',
+          outputPath = '$root/target/$name',
+          semanticTokens = 'enable',
+          formatterMode = 'typstfmt',
+        },
+      },
     }
 
     require('mason').setup()

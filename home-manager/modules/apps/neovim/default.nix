@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-unwrapped;
+    # package = pkgs.neovim-unwrapped;
 
     defaultEditor = true;
     viAlias = true;
@@ -13,7 +13,20 @@
     withNodeJs = true;
   };
 
-  home.packages = with pkgs; [gcc_multi go cargo];
+  home.packages = with pkgs; [
+    gcc_multi
+    cargo
+    go
+    nodejs
+    julia
+    python3
+    python3Packages.pip
+    lua51Packages.lua
+    luajitPackages.luarocks
+
+    fd
+    tree-sitter
+  ];
 
   home.file.".config/nvim".source = ./config;
 }

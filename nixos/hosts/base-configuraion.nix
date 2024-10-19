@@ -40,10 +40,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
 
-    nodejs_22
-    python3
-    julia
-
     ripgrep
     wget
     curl
@@ -52,7 +48,7 @@
     zip
     unzip
     gzip
-    vim
+    neovim
     fzf
 
     tmux

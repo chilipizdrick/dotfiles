@@ -9,7 +9,4 @@
       "io.github.Soundux"
     ];
   };
-  # home.packages = with pkgs; [
-  #   gnome.gnome-software
-  # ];
 }

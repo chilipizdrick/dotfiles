@@ -7,7 +7,7 @@
     "ru_RU.UTF-8/UTF-8"
   ];
 
-  # Configure keymap in X11
+  # Configure keymap
   services.xserver = {
     xkb.layout = "us,ru";
     xkb.variant = "";

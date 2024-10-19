@@ -20,3 +20,4 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80" -- Ruler
