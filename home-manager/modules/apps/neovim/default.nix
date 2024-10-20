@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     # package = pkgs.neovim-unwrapped;
@@ -28,5 +32,5 @@
     tree-sitter
   ];
 
-  home.file.".config/nvim".source = ./config;
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/alex/Projects/nix/dotfiles/home-manager/modules/apps/neovim/config";
 }

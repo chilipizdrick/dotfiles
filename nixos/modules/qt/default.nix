@@ -1,10 +1,14 @@
 {pkgs, ...}: {
-  qt.enable = true;
-  qt.platformTheme = "qt5ct";
-  qt.style = "adwaita-dark";
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
   };
+
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "gnome";
+  };
+
   environment.systemPackages = with pkgs; [
     qt5.qtwayland
   ];

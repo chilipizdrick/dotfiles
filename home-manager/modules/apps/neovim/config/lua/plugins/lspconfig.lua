@@ -221,7 +221,7 @@ return { -- LSP Configuration & Plugins
         settings = {
           exportPdf = 'never',
           outputPath = '$root/target/$name',
-          semanticTokens = 'enable',
+          semanticTokens = 'disable',
           formatterMode = 'typstfmt',
         },
       },
