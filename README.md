@@ -3,6 +3,7 @@
 </h1>
 
 ![Screenshot](assets/preview.png)
+![Screenshot](assets/lockscreen.png)
 
 ## Prerequisites
 

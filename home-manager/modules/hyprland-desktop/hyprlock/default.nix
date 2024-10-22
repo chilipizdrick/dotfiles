@@ -56,11 +56,25 @@ in {
             font_color = "$text";
             fade_on_empty = true;
             placeholder_text = "";
-            position = "0, ${builtins.toString (150 * cfg.scale)}";
+            position = "0, ${builtins.toString (50 * cfg.scale)}";
             halign = "center";
             valign = "bottom";
           }
         ];
+        # shape = [
+        #   {
+        #     monitor = "";
+        #     size = "${builtins.toString (cfg.scale * 480)}, ${builtins.toString (cfg.scale * 120)}";
+        #     rounding = 10;
+        #     border_size = 0;
+        #     color = "rgba(000000AA)";
+        #     reload_time = 3;
+        #     reload_cmd = "~/test-script.sh";
+        #     position = "0, ${builtins.toString (cfg.scale * 20)}";
+        #     halign = "center";
+        #     valign = "bottom";
+        #   }
+        # ];
         label = [
           {
             monitor = "";
@@ -118,34 +132,35 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 1;
-            position = "0, ${builtins.toString (210 * cfg.scale)}";
+            position = "0, ${builtins.toString (110 * cfg.scale)}";
             halign = "center";
             valign = "bottom";
           }
           {
             monitor = "";
-            text = ''cmd[update:1000] [ $(playerctl status) = Playing ] && [ $(playerctl metadata | head -1 | awk '{print $1}') != firefox ] && [ $(playerctl metadata | head -1 | awk '{print $1}') != brave ] && echo "<b>$([ $(playerctl metadata | head -1 | awk '{print $1}') = spotify ] && echo ' ')$(playerctl metadata artist) - $(playerctl metadata title)</b>"'';
+            text = ''cmd[update:1000] $HOME/.config/hypr/scripts/get_player_metadata.sh'';
             color = "$text";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 1;
-            position = "0, ${builtins.toString (70 * cfg.scale)}";
-            halign = "center";
+            position = "${builtins.toString (150 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+            halign = "left";
             valign = "bottom";
           }
-          # {
-          #   monitor = "";
-          #   text = "cmd[update:18000000] echo \"<b>Feels like<big> $(curl -s 'wttr.in?format=%t' | tr -d '+') </big></b>\"";
-          #   color = "$text";
-          #   font_size = builtins.floor (18 * cfg.scale);
-          #   font_family = "JetBrainsMono Nerd Font 10";
-          #   shadow_passes = 3;
-          #   shadow_size = 1;
-          #   position = "0, ${builtins.toString (20 * cfg.scale)}";
-          #   halign = "center";
-          #   valign = "bottom";
-          # }
+        ];
+        image = [
+          {
+            monitor = "";
+            size = builtins.floor (75 * cfg.scale);
+            rounding = 10;
+            border_size = 0;
+            reload_time = 1;
+            reload_cmd = "$HOME/.config/hypr/scripts/load_album_cover.sh";
+            position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+            halign = "left";
+            valign = "bottom";
+          }
         ];
       };
     };

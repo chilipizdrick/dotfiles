@@ -221,7 +221,7 @@ return { -- LSP Configuration & Plugins
         settings = {
           exportPdf = 'never',
           outputPath = '$root/target/$name',
-          semanticTokens = 'disable',
+          semanticTokens = 'enable',
           formatterMode = 'typstfmt',
         },
       },
@@ -235,6 +235,7 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'gopls',
+      'typstfmt',
     })
     require('mason-tool-installer').setup {
       ensure_installed = ensure_installed,

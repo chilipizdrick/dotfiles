@@ -19,7 +19,6 @@
       "$right" = "L";
       "$up" = "K";
       "$down" = "J";
-      # "$colors" = "$HOME/.config/hypr/themes/wallust.hypr";
       "$colors" = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
 
       source = [
@@ -256,9 +255,8 @@
         "$mainMod SHIFT, U, movetoworkspace, special"
         "$mainMod, U, togglespecialworkspace,"
         "$mainMod, W, exec, $scripts/select_wallpaper.sh"
-        ", Print, exec, grim - | wl-copy"
-        "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 1x1 PNG:- | wl-copy"
-        "$mainMod CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 1x1 PNG:- | swappy -f -"
+        "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | wl-copy"
+        "$mainMod CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | swappy -f -"
         "$mainMod, D, exec, rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, rofi -show drun -modi drun,calc"
         "$mainMod, Return, exec, $term"
@@ -283,6 +281,7 @@
         "$mainMod, SPACE, exec, playerctl play-pause"
         "$mainMod, C, exec, playerctl next"
         "$mainMod, X, exec, playerctl previous"
+        ", Print, exec, grim - | wl-copy"
       ];
       binde = [
         "$mainMod CTRL, $left, resizeactive, -20 0"
@@ -329,6 +328,7 @@
     killall # Self explainatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
+    fish # For that one script I have not rewritten in bash
   ];
 
   home.file.".config/hypr/scripts".source = ./config/scripts;

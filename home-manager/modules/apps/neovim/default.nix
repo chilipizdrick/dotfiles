@@ -1,11 +1,14 @@
 {
   pkgs,
   config,
+  lib,
+  inputs,
   ...
-}: {
+}: let
+  self = inputs.self;
+in {
   programs.neovim = {
     enable = true;
-    # package = pkgs.neovim-unwrapped;
 
     defaultEditor = true;
     viAlias = true;
@@ -32,5 +35,5 @@
     tree-sitter
   ];
 
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/alex/Projects/nix/dotfiles/home-manager/modules/apps/neovim/config";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink (builtins.unsafeDiscardStringContext "${self}/home-manager/modules/apps/neovim/config");
 }
