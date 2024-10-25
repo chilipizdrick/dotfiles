@@ -51,7 +51,7 @@
       ];
 
       general = {
-        allow_tearing = true;
+        # allow_tearing = true;
         # sensitivity = 1.00;
         # apply_sens_to_raw = false;
         gaps_in = "5,5,0,0";

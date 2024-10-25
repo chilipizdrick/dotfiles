@@ -1,11 +1,9 @@
-{...}: {
-  # Enable polkit
+{pkgs, ...}: {
   security.polkit.enable = true;
   security.polkit.extraConfig = ''
-    // Enable management of wireguard vpn for any user
     polkit.addRule(function(action, subject) {
-        if (action.id == "org.freedesktop.systemd1.manage-units" &&
-            action.lookup("unit") == "wg-quick-wg0.service") {
+        if (action.id == "org.freedesktop.policykit.exec" &&
+            action.lookup("program") == "/home/alex/.config/waybar/scripts/toggle-tailscale-vpn.sh") {
             return polkit.Result.YES;
         }
     });

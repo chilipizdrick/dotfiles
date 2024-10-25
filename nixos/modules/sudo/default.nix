@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Make power controll require no password
   security.sudo = {
     enable = true;
     extraRules = [

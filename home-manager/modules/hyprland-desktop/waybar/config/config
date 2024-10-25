@@ -21,7 +21,7 @@
     "tray",
     "backlight",
     "pulseaudio",
-    // "custom/vpn",
+    "custom/vpn",
     "network",
     "cpu",
     "battery",
@@ -86,8 +86,7 @@
     ],
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "format-ethernet": "{ifname}",
-    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "format-ethernet": "{ifname}", "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "nospacing": 1,
     "interval": 5
   },
@@ -171,9 +170,9 @@
     "ignored-players": [ "firefox", "chromium", "brave" ]
   },
   "custom/vpn": {
-    "exec": "~/.config/waybar/scripts/query-wireguard-vpn.sh",
+    "exec": "~/.config/waybar/scripts/query-tailscale-vpn.sh",
     "interval": 1,
     "format": "VPN",
-    "on-click": "~/.config/waybar/scripts/toggle-wireguard-vpn.sh",
+    "on-click": "pkexec ~/.config/waybar/scripts/toggle-tailscale-vpn.sh",
   }
 }
