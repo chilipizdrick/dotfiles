@@ -14,6 +14,7 @@ if test -z $url
 else if string match -q --regex "^file://" $url
     echo (string replace --regex "^file://" '' $url)
 else
+    mkdir /tmp/hyprlock -p
     set path /tmp/hyprlock/(basename $url)
     if not test -e $path
         curl -s $url -o "$path"
