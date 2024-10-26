@@ -25,11 +25,11 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      monitor = [
+      monitor = lib.mkForce [
         ",preferred,auto,auto"
         "Unknown-1,disable"
-        "DP-3,1920x1080@75,0x0,auto"
-        "HDMI-A-1,preferred,1920x0,auto"
+        "DP-3,1920x1080@75,0x0,1"
+        "HDMI-A-1,1920x1080@60,1920x0,1"
       ];
 
       workspace = [
