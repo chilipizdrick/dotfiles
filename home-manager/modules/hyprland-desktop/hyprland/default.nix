@@ -2,7 +2,22 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  mod = "SUPER";
+  scriptsDir = "$HOME/.config/hypr/scripts";
+  files = "${pkgs.nautilus}/bin/nautilus";
+  term = "${pkgs.alacritty}/bin/alacritty";
+  browser = "${pkgs.firefox}/bin/firefox";
+  left = "H";
+  right = "L";
+  up = "K";
+  down = "J";
+  colorsConfig = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
+in {
+  imports = [
+    ./colors.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -10,19 +25,8 @@
     systemd.enable = true;
     systemd.variables = ["--all"];
     settings = {
-      "$wallDIR" = "$HOME/Pictures/wallpapers";
-      "$mainMod" = "SUPER";
-      "$scripts" = "$HOME/.config/hypr/scripts";
-      "$files" = "${pkgs.nautilus}/bin/nautilus";
-      "$term" = "${pkgs.alacritty}/bin/alacritty";
-      "$left" = "H";
-      "$right" = "L";
-      "$up" = "K";
-      "$down" = "J";
-      "$colors" = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
-
       source = [
-        "$colors"
+        "${colorsConfig}"
       ];
 
       "debug:disable_logs" = false;
@@ -51,14 +55,9 @@
       ];
 
       general = {
-        # allow_tearing = true;
-        # sensitivity = 1.00;
-        # apply_sens_to_raw = false;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
         border_size = 2;
-        # "col.active_border" = "$color6";
-        # "col.inactive_border" = "$background";
         "col.active_border" = "$peach";
         "col.inactive_border" = "$base";
         resize_on_border = false;
@@ -123,6 +122,7 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
         vrr = 2;
         enable_swallow = true;
         focus_on_activate = false;
@@ -148,7 +148,6 @@
 
       layerrule = [
         "blur,logout_dialog"
-        # "blur,class:^(swww)$"
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
@@ -166,8 +165,7 @@
         "float,pavucontrol"
         "float,rofi"
         "float,yad"
-
-        # "opacity 0.8,title:^(Spotify)(.*)$"
+        "opacity 0.9,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [
@@ -197,97 +195,98 @@
       ];
 
       bind = [
-        "$mainMod SHIFT, Q, killactive,"
-        "$mainMod SHIFT, W, exec, kill -9 $(hyprctl activewindow | grep 'pid:' | awk '{print $2}')"
-        "$mainMod, F, fullscreen,"
-        "$mainMod SHIFT, F, togglefloating,"
-        "$mainMod ALT, F, exec, hyprctl dispatch workspaceopt allfloat"
-        "$mainMod, $left, movefocus, l"
-        "$mainMod, $right, movefocus, r"
-        "$mainMod, $up, movefocus, u"
-        "$mainMod, $down, movefocus, d"
-        "$mainMod SHIFT, $left, movewindow, l"
-        "$mainMod SHIFT, $right, movewindow, r"
-        "$mainMod SHIFT, $up, movewindow, u"
-        "$mainMod SHIFT, $down, movewindow, d"
-        "$mainMod, G, togglegroup"
+        "${mod} SHIFT, Q, killactive,"
+        "${mod} SHIFT, W, exec, kill -9 $(hyprctl activewindow | grep 'pid:' | awk '{print $2}')"
+        "${mod}, F, fullscreen,"
+        "${mod} SHIFT, F, togglefloating,"
+        "${mod} ALT, F, exec, hyprctl dispatch workspaceopt allfloat"
+        "${mod}, ${left}, movefocus, l"
+        "${mod}, ${right}, movefocus, r"
+        "${mod}, ${up}, movefocus, u"
+        "${mod}, ${down}, movefocus, d"
+        "${mod} SHIFT, ${left}, movewindow, l"
+        "${mod} SHIFT, ${right}, movewindow, r"
+        "${mod} SHIFT, ${up}, movewindow, u"
+        "${mod} SHIFT, ${down}, movewindow, d"
+        "${mod}, G, togglegroup"
         "ALT, tab, changegroupactive  #change focus to another window  "
-        "$mainMod SHIFT, code:10, movetoworkspace, 1"
-        "$mainMod SHIFT, code:11, movetoworkspace, 2"
-        "$mainMod SHIFT, code:12, movetoworkspace, 3"
-        "$mainMod SHIFT, code:13, movetoworkspace, 4"
-        "$mainMod SHIFT, code:14, movetoworkspace, 5"
-        "$mainMod SHIFT, code:15, movetoworkspace, 6"
-        "$mainMod SHIFT, code:16, movetoworkspace, 7"
-        "$mainMod SHIFT, code:17, movetoworkspace, 8"
-        "$mainMod SHIFT, code:18, movetoworkspace, 9"
-        "$mainMod SHIFT, code:19, movetoworkspace, 10"
-        "$mainMod SHIFT, bracketleft, movetoworkspace, -1 # brackets [ or ]"
-        "$mainMod SHIFT, bracketright, movetoworkspace, +1"
-        "$mainMod CTRL, code:10, movetoworkspacesilent, 1"
-        "$mainMod CTRL, code:11, movetoworkspacesilent, 2"
-        "$mainMod CTRL, code:12, movetoworkspacesilent, 3"
-        "$mainMod CTRL, code:13, movetoworkspacesilent, 4"
-        "$mainMod CTRL, code:14, movetoworkspacesilent, 5"
-        "$mainMod CTRL, code:15, movetoworkspacesilent, 6"
-        "$mainMod CTRL, code:16, movetoworkspacesilent, 7"
-        "$mainMod CTRL, code:17, movetoworkspacesilent, 8"
-        "$mainMod CTRL, code:18, movetoworkspacesilent, 9"
-        "$mainMod CTRL, code:19, movetoworkspacesilent, 10"
-        "$mainMod CTRL, bracketleft, movetoworkspacesilent, -1 # brackets [ or ]"
-        "$mainMod CTRL, bracketright, movetoworkspacesilent, +1"
-        "$mainMod, code:10, workspace, 1"
-        "$mainMod, code:11, workspace, 2"
-        "$mainMod, code:12, workspace, 3"
-        "$mainMod, code:13, workspace, 4"
-        "$mainMod, code:14, workspace, 5"
-        "$mainMod, code:15, workspace, 6"
-        "$mainMod, code:16, workspace, 7"
-        "$mainMod, code:17, workspace, 8"
-        "$mainMod, code:18, workspace, 9"
-        "$mainMod, code:19, workspace, 10"
-        "$mainMod, tab, workspace, m+1"
-        "$mainMod SHIFT, tab, workspace, m-1"
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
-        "$mainMod, period, workspace, e+1"
-        "$mainMod, comma, workspace, e-1"
-        "$mainMod SHIFT, U, movetoworkspace, special"
-        "$mainMod, U, togglespecialworkspace,"
-        "$mainMod, W, exec, $scripts/select_wallpaper.sh"
-        "$mainMod SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | wl-copy"
-        "$mainMod CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | swappy -f -"
-        "$mainMod, D, exec, rofi -show drun -modi drun,calc"
+        "${mod} SHIFT, code:10, movetoworkspace, 1"
+        "${mod} SHIFT, code:11, movetoworkspace, 2"
+        "${mod} SHIFT, code:12, movetoworkspace, 3"
+        "${mod} SHIFT, code:13, movetoworkspace, 4"
+        "${mod} SHIFT, code:14, movetoworkspace, 5"
+        "${mod} SHIFT, code:15, movetoworkspace, 6"
+        "${mod} SHIFT, code:16, movetoworkspace, 7"
+        "${mod} SHIFT, code:17, movetoworkspace, 8"
+        "${mod} SHIFT, code:18, movetoworkspace, 9"
+        "${mod} SHIFT, code:19, movetoworkspace, 10"
+        "${mod} SHIFT, bracketleft, movetoworkspace, -1"
+        "${mod} SHIFT, bracketright, movetoworkspace, +1"
+        "${mod} CTRL, code:10, movetoworkspacesilent, 1"
+        "${mod} CTRL, code:11, movetoworkspacesilent, 2"
+        "${mod} CTRL, code:12, movetoworkspacesilent, 3"
+        "${mod} CTRL, code:13, movetoworkspacesilent, 4"
+        "${mod} CTRL, code:14, movetoworkspacesilent, 5"
+        "${mod} CTRL, code:15, movetoworkspacesilent, 6"
+        "${mod} CTRL, code:16, movetoworkspacesilent, 7"
+        "${mod} CTRL, code:17, movetoworkspacesilent, 8"
+        "${mod} CTRL, code:18, movetoworkspacesilent, 9"
+        "${mod} CTRL, code:19, movetoworkspacesilent, 10"
+        "${mod} CTRL, bracketleft, movetoworkspacesilent, -1 # brackets [ or ]"
+        "${mod} CTRL, bracketright, movetoworkspacesilent, +1"
+        "${mod}, code:10, workspace, 1"
+        "${mod}, code:11, workspace, 2"
+        "${mod}, code:12, workspace, 3"
+        "${mod}, code:13, workspace, 4"
+        "${mod}, code:14, workspace, 5"
+        "${mod}, code:15, workspace, 6"
+        "${mod}, code:16, workspace, 7"
+        "${mod}, code:17, workspace, 8"
+        "${mod}, code:18, workspace, 9"
+        "${mod}, code:19, workspace, 10"
+        "${mod}, tab, workspace, m+1"
+        "${mod} SHIFT, tab, workspace, m-1"
+        "${mod}, mouse_down, workspace, e+1"
+        "${mod}, mouse_up, workspace, e-1"
+        "${mod}, period, workspace, e+1"
+        "${mod}, comma, workspace, e-1"
+        "${mod} SHIFT, U, movetoworkspace, special"
+        "${mod}, U, togglespecialworkspace,"
+        "${mod}, W, exec, ${scriptsDir}/select_wallpaper.sh"
+        "${mod} SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | wl-copy"
+        "${mod} CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | swappy -f -"
+        "${mod}, D, exec, rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, rofi -show drun -modi drun,calc"
-        "$mainMod, Return, exec, $term"
-        "$mainMod, E, exec, $files"
-        "$mainMod ALT, R, exec, $scripts/refresh.sh # Refresh waybar, rofi"
-        "$mainMod, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar "
+        "${mod}, Return, exec, ${term}"
+        "${mod}, B, exec, ${browser}"
+        "${mod}, E, exec, ${files}"
+        "${mod} ALT, R, exec, ${scriptsDir}/refresh.sh # Refresh waybar, rofi"
+        "${mod}, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar "
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
-        "$mainMod ALT, C, exec, hyprctl reload # Reload config"
-        "$mainMod SHIFT, E, exec, hyprctl dispatch exit"
-        "$mainMod ALT, L, exec, hyprlock"
-        "$mainMod SHIFT, P, exec, pidof wlogout || wlogout -b 4"
-        "$mainMod SHIFT, A, exec, $scripts/toggle.sh animations"
-        "$mainMod SHIFT, B, exec, $scripts/toggle.sh blur"
-        "$mainMod SHIFT, C, exec, pidof hypridle && killall hypridle && notify-send '☕ Caffeine mode enabled' || $(hypridle & notify-send '☕ Caffeine mode disabled')"
-        "$mainMod SHIFT, M, exec, $scripts/switch_layout.sh"
+        "${mod} ALT, C, exec, hyprctl reload # Reload config"
+        "${mod} SHIFT, E, exec, hyprctl dispatch exit"
+        "${mod} ALT, L, exec, hyprlock"
+        "${mod} SHIFT, P, exec, pidof wlogout || wlogout -b 4"
+        "${mod} SHIFT, A, exec, ${scriptsDir}/toggle.sh animations"
+        "${mod} SHIFT, B, exec, ${scriptsDir}/toggle.sh blur"
+        "${mod} SHIFT, C, exec, pidof hypridle && killall hypridle && notify-send '☕ Caffeine mode enabled' || $(hypridle & notify-send '☕ Caffeine mode disabled')"
+        "${mod} SHIFT, M, exec, ${scriptsDir}/switch_layout.sh"
       ];
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "${mod}, mouse:272, movewindow"
+        "${mod}, mouse:273, resizewindow"
       ];
       bindl = [
-        "$mainMod, SPACE, exec, playerctl play-pause"
-        "$mainMod, C, exec, playerctl next"
-        "$mainMod, X, exec, playerctl previous"
+        "${mod}, SPACE, exec, playerctl play-pause"
+        "${mod}, C, exec, playerctl next"
+        "${mod}, X, exec, playerctl previous"
         ", Print, exec, grim - | wl-copy"
       ];
       binde = [
-        "$mainMod CTRL, $left, resizeactive, -20 0"
-        "$mainMod CTRL, $right, resizeactive, 20 0"
-        "$mainMod CTRL, $up, resizeactive, 0 -20"
-        "$mainMod CTRL, $down, resizeactive, 0 20"
+        "${mod} CTRL, ${left}, resizeactive, -20 0"
+        "${mod} CTRL, ${right}, resizeactive, 20 0"
+        "${mod} CTRL, ${up}, resizeactive, 0 -20"
+        "${mod} CTRL, ${down}, resizeactive, 0 20"
       ];
       bindle = [
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 --allow-boost --set-limit 200"
@@ -319,13 +318,13 @@
   home.packages = with pkgs; [
     wl-clipboard # Clipboard functionality on wayland
     pamixer # Pulseauido command line mixer
-    brightnessctl # Read and controll device brightness
+    brightnessctl # Read and control device brightness
     libnotify # For sending custom notifications
     grim # Screenshot functionality
     slurp # Screenshot functionality
-    swappy # Simple image editor for screnshots
+    swappy # Simple image editor for screenshots
     imagemagick # Image manipulation
-    killall # Self explainatory
+    killall # Self explanatory
     networkmanagerapplet # Easy network connection management
     swww # Fancy wallpaper daemon
     fish # For that one script I have not rewritten in bash
@@ -338,85 +337,5 @@
     [Default]
     show_panel=true
     text_font=monospace
-  '';
-
-  home.file.".config/hypr/themes/catppuccin-mocha.hypr".text = ''
-    $rosewater = rgb(f5e0dc)
-    $rosewaterAlpha = f5e0dc
-
-    $flamingo = rgb(f2cdcd)
-    $flamingoAlpha = f2cdcd
-
-    $pink = rgb(f5c2e7)
-    $pinkAlpha = f5c2e7
-
-    $mauve = rgb(cba6f7)
-    $mauveAlpha = cba6f7
-
-    $red = rgb(f38ba8)
-    $redAlpha = f38ba8
-
-    $maroon = rgb(eba0ac)
-    $maroonAlpha = eba0ac
-
-    $peach = rgb(fab387)
-    $peachAlpha = fab387
-
-    $yellow = rgb(f9e2af)
-    $yellowAlpha = f9e2af
-
-    $green = rgb(a6e3a1)
-    $greenAlpha = a6e3a1
-
-    $teal = rgb(94e2d5)
-    $tealAlpha = 94e2d5
-
-    $sky = rgb(89dceb)
-    $skyAlpha = 89dceb
-
-    $sapphire = rgb(74c7ec)
-    $sapphireAlpha = 74c7ec
-
-    $blue = rgb(89b4fa)
-    $blueAlpha = 89b4fa
-
-    $lavender = rgb(b4befe)
-    $lavenderAlpha = b4befe
-
-    $text = rgb(cdd6f4)
-    $textAlpha = cdd6f4
-
-    $subtext1 = rgb(bac2de)
-    $subtext1Alpha = bac2de
-
-    $subtext0 = rgb(a6adc8)
-    $subtext0Alpha = a6adc8
-
-    $overlay2 = rgb(9399b2)
-    $overlay2Alpha = 9399b2
-
-    $overlay1 = rgb(7f849c)
-    $overlay1Alpha = 7f849c
-
-    $overlay0 = rgb(6c7086)
-    $overlay0Alpha = 6c7086
-
-    $surface2 = rgb(585b70)
-    $surface2Alpha = 585b70
-
-    $surface1 = rgb(45475a)
-    $surface1Alpha = 45475a
-
-    $surface0 = rgb(313244)
-    $surface0Alpha = 313244
-
-    $base = rgb(1e1e2e)
-    $baseAlpha = 1e1e2e
-
-    $mantle = rgb(181825)
-    $mantleAlpha = 181825
-
-    $crust = rgb(11111b)
-    $crustAlpha = 11111b
   '';
 }

@@ -35,6 +35,7 @@
     brave
     obsidian
     telegram-desktop
+    chromium
 
     ani-cli
   ];

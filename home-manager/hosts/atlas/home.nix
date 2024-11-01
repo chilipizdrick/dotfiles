@@ -22,14 +22,16 @@
     scale = 1.5;
   };
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = let
+    mod = "SUPER";
+  in {
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,1.666667"
       ];
       bind = [
-        "$mainMod, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\""
-        "$mainMod, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\""
+        "${mod}, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\""
+        "${mod}, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\""
       ];
     };
   };

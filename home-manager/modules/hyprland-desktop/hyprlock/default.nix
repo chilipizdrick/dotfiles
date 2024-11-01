@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.hyprlock;
+  colorsConfig = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
 in {
   options.hyprlock = {
     enable = mkEnableOption "Hyprlock locker";
@@ -21,9 +22,8 @@ in {
       enable = true;
       package = pkgs.hyprlock;
       settings = {
-        "$colors" = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
         source = [
-          "$colors"
+          "${colorsConfig}"
         ];
         general = {
           ignore_empty_input = true;
@@ -61,20 +61,6 @@ in {
             valign = "bottom";
           }
         ];
-        # shape = [
-        #   {
-        #     monitor = "";
-        #     size = "${builtins.toString (cfg.scale * 480)}, ${builtins.toString (cfg.scale * 120)}";
-        #     rounding = 10;
-        #     border_size = 0;
-        #     color = "rgba(000000AA)";
-        #     reload_time = 3;
-        #     reload_cmd = "~/test-script.sh";
-        #     position = "0, ${builtins.toString (cfg.scale * 20)}";
-        #     halign = "center";
-        #     valign = "bottom";
-        #   }
-        # ];
         label = [
           {
             monitor = "";
@@ -164,5 +150,12 @@ in {
         ];
       };
     };
+    home.file.".config/hypr/hyprlock_lid_close.conf".text = ''
+      source=$HOME/.config/hypr/hyprlock.conf
+
+      general {
+        no_fade_in=true
+      }
+    '';
   };
 }
