@@ -11,7 +11,7 @@ in {
     enable = mkEnableOption "game related stuff";
     steam = mkEnableOption "steam";
     gamescope = mkEnableOption "gamescope";
-    gamescopeScreenProfile = mkOption {
+    gamescopeExtraArgs = mkOption {
       type = types.listOf types.str;
       default = [
         "-W 2560"
@@ -40,12 +40,12 @@ in {
         args =
           [
             # "-f"
-            "-S integer"
+            "-S fsr"
             "--rt"
             "--adaptive-sync"
-            # "--expose-wayland"
+            "--expose-wayland"
           ]
-          ++ cfg.gamescopeScreenProfile;
+          ++ cfg.gamescopeExtraArgs;
       };
 
       gamemode.enable = true;

@@ -7,7 +7,8 @@
   scriptsDir = "$HOME/.config/hypr/scripts";
   files = "${pkgs.nautilus}/bin/nautilus";
   term = "${pkgs.alacritty}/bin/alacritty";
-  browser = "${pkgs.firefox}/bin/firefox";
+  # browser = "${pkgs.firefox}/bin/firefox";
+  browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
   left = "H";
   right = "L";
   up = "K";
@@ -86,6 +87,7 @@ in {
         "col.shadow" = "rgba(0C0E13A6)";
         blur = {
           enabled = true;
+          popups = true;
           size = 5;
           passes = 3;
           ignore_opacity = true;

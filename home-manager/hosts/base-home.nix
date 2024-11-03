@@ -36,6 +36,7 @@
     obsidian
     telegram-desktop
     chromium
+    inputs.zen-browser.packages."${system}".default
 
     ani-cli
   ];

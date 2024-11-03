@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../base-configuraion.nix
@@ -12,6 +8,7 @@
   games = {
     enable = true;
     steam = true;
+    # gamescope = true;
   };
 
   swapFile = {
