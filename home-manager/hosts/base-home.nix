@@ -9,6 +9,7 @@
   nixpkgs = {
     overlays = [
       (final: _prev: import ../../pkgs pkgs)
+      (final: _prev: {scripts = import ../../pkgs/scripts pkgs;})
     ];
     config = {
       allowUnfree = true;
@@ -37,6 +38,7 @@
     telegram-desktop
     chromium
     inputs.zen-browser.packages."${system}".default
+    mathematica
 
     ani-cli
   ];

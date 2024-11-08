@@ -28,6 +28,7 @@ in {
         general = {
           ignore_empty_input = true;
           hide_cursor = true;
+          no_fade_in = true;
         };
         background = [
           {
@@ -124,7 +125,7 @@ in {
           }
           {
             monitor = "";
-            text = ''cmd[update:1000] $HOME/.config/hypr/scripts/get_player_metadata.sh'';
+            text = ''cmd[update:1000] ${pkgs.scripts.get-player-metadata}/bin/get-player-metadata'';
             color = "$text";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
@@ -142,7 +143,7 @@ in {
             rounding = 10;
             border_size = 0;
             reload_time = 1;
-            reload_cmd = "$HOME/.config/hypr/scripts/load_album_cover.sh";
+            reload_cmd = "${pkgs.scripts.load-album-cover}/bin/load-album-cover";
             position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
             halign = "left";
             valign = "bottom";
@@ -150,12 +151,5 @@ in {
         ];
       };
     };
-    home.file.".config/hypr/hyprlock_lid_close.conf".text = ''
-      source=$HOME/.config/hypr/hyprlock.conf
-
-      general {
-        no_fade_in=true
-      }
-    '';
   };
 }

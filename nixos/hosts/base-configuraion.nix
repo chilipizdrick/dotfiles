@@ -12,6 +12,7 @@
   nixpkgs = {
     overlays = [
       (final: _prev: import ../../pkgs pkgs)
+      (final: _prev: {scripts = import ../../pkgs/scripts pkgs;})
     ];
     config = {
       allowUnfree = true;
@@ -61,6 +62,7 @@
     poetry
     docker
     docker-compose
+    heroic
   ];
 
   programs.zsh.enable = true;

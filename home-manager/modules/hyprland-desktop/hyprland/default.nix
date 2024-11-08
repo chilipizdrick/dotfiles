@@ -4,10 +4,8 @@
   ...
 }: let
   mod = "SUPER";
-  scriptsDir = "$HOME/.config/hypr/scripts";
   files = "${pkgs.nautilus}/bin/nautilus";
   term = "${pkgs.alacritty}/bin/alacritty";
-  # browser = "${pkgs.firefox}/bin/firefox";
   browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
   left = "H";
   right = "L";
@@ -143,7 +141,6 @@ in {
           "windows,on,2,default"
           "windowsIn,on,2,default,slide,top"
           "windowsOut,on,2,default,slide,bottom"
-
           "workspaces,on,2,default"
         ];
       };
@@ -153,12 +150,10 @@ in {
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
-
         "ignorezero,waybar"
         "ignorezero,notifications"
         "ignorealpha 0.5,waybar" # Fixes annoying visual effect
         "ignorealpha 0.5,notifications" # Fixes annoying visual effect
-
         "animation slide,waybar"
       ];
 
@@ -167,12 +162,12 @@ in {
         "float,pavucontrol"
         "float,rofi"
         "float,yad"
-        "opacity 0.9,title:^(Spotify)(.*)$"
+        # "opacity 0.9,title:^(Spotify)(.*)$"
       ];
 
       windowrulev2 = [
         "idleinhibit fullscreen, fullscreen:1"
-        "opacity 0.95 0.75,title:^(Picture-in-Picture)$ # for opacity: [focus num] [bg num]"
+        "opacity 0.95 0.75,title:^(Picture-in-Picture)$"
         "pin,title:^(Picture-in-Picture)$ "
         "float, title:^(Picture-in-Picture)$"
         "size 25% 25%,title:^(Picture-in-Picture)$ "
@@ -182,18 +177,17 @@ in {
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
-
         "noborder, onworkspace:w[t1]" # Disable borders for single window workspaces
       ];
 
       exec-once = [
-        "hyprlock --immediate --immediate-render &" # Lock on login
-        "hypridle &"
-        "waybar &"
-        "swww-daemon &"
+        "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
+        "${pkgs.hypridle}/bin/hypridle &"
+        "${pkgs.waybar}/bin/waybar &"
+        "${pkgs.swww}/bin/swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "nm-applet &"
-        "otd-daemon &"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet &"
+        "${pkgs.opentabletdriver}/bin/otd-daemon &"
       ];
 
       bind = [
@@ -211,7 +205,6 @@ in {
         "${mod} SHIFT, ${up}, movewindow, u"
         "${mod} SHIFT, ${down}, movewindow, d"
         "${mod}, G, togglegroup"
-        "ALT, tab, changegroupactive  #change focus to another window  "
         "${mod} SHIFT, code:10, movetoworkspace, 1"
         "${mod} SHIFT, code:11, movetoworkspace, 2"
         "${mod} SHIFT, code:12, movetoworkspace, 3"
@@ -234,7 +227,7 @@ in {
         "${mod} CTRL, code:17, movetoworkspacesilent, 8"
         "${mod} CTRL, code:18, movetoworkspacesilent, 9"
         "${mod} CTRL, code:19, movetoworkspacesilent, 10"
-        "${mod} CTRL, bracketleft, movetoworkspacesilent, -1 # brackets [ or ]"
+        "${mod} CTRL, bracketleft, movetoworkspacesilent, -1"
         "${mod} CTRL, bracketright, movetoworkspacesilent, +1"
         "${mod}, code:10, workspace, 1"
         "${mod}, code:11, workspace, 2"
@@ -254,25 +247,24 @@ in {
         "${mod}, comma, workspace, e-1"
         "${mod} SHIFT, U, movetoworkspace, special"
         "${mod}, U, togglespecialworkspace,"
-        "${mod}, W, exec, ${scriptsDir}/select_wallpaper.sh"
-        "${mod} SHIFT, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | wl-copy"
-        "${mod} CTRL, S, exec, grim -g \"$(slurp -d)\" - | convert - -shave 2x2 PNG:- | swappy -f -"
-        "${mod}, D, exec, rofi -show drun -modi drun,calc"
-        "ALT, SPACE, exec, rofi -show drun -modi drun,calc"
+        "${mod}, W, exec, ${pkgs.scripts.select-wallpaper}/bin/select-wallpaper"
+        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 2x2 PNG:- | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 2x2 PNG:- | ${pkgs.swappy}/bin/swappy -f -"
+        "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
+        "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"
         "${mod}, B, exec, ${browser}"
         "${mod}, E, exec, ${files}"
-        "${mod} ALT, R, exec, ${scriptsDir}/refresh.sh # Refresh waybar, rofi"
-        "${mod}, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar "
+        "${mod} ALT, R, exec, ${pkgs.scripts.reload-graphical-interface}/bin/reload-graphical-interface" # Refresh waybar, rofi
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
-        "${mod} ALT, C, exec, hyprctl reload # Reload config"
+        "${mod} ALT, C, exec, hyprctl reload"
         "${mod} SHIFT, E, exec, hyprctl dispatch exit"
-        "${mod} ALT, L, exec, hyprlock"
-        "${mod} SHIFT, P, exec, pidof wlogout || wlogout -b 4"
-        "${mod} SHIFT, A, exec, ${scriptsDir}/toggle.sh animations"
-        "${mod} SHIFT, B, exec, ${scriptsDir}/toggle.sh blur"
-        "${mod} SHIFT, C, exec, pidof hypridle && killall hypridle && notify-send '☕ Caffeine mode enabled' || $(hypridle & notify-send '☕ Caffeine mode disabled')"
-        "${mod} SHIFT, M, exec, ${scriptsDir}/switch_layout.sh"
+        "${mod} ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
+        "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
+        "${mod} SHIFT, A, exec, ${pkgs.scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
+        "${mod} SHIFT, B, exec, ${pkgs.scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings blur"
+        "${mod} SHIFT, C, exec, pidof hypridle && ${pkgs.killall}/bin/killall hypridle && notify-send '☕ Caffeine mode enabled' || $(${pkgs.hypridle}/bin/hypridle & ${pkgs.libnotify}/bin/notify-send '☕ Caffeine mode disabled')"
+        "${mod} SHIFT, M, exec, ${pkgs.scripts.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"
@@ -282,7 +274,7 @@ in {
         "${mod}, SPACE, exec, playerctl play-pause"
         "${mod}, C, exec, playerctl next"
         "${mod}, X, exec, playerctl previous"
-        ", Print, exec, grim - | wl-copy"
+        ", Print, exec, ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
       ];
       binde = [
         "${mod} CTRL, ${left}, resizeactive, -20 0"
@@ -291,11 +283,11 @@ in {
         "${mod} CTRL, ${down}, resizeactive, 0 20"
       ];
       bindle = [
-        ", XF86AudioRaiseVolume, exec, pamixer -i 5 --allow-boost --set-limit 200"
-        ", XF86AudioLowerVolume, exec, pamixer -d 5 --allow-boost --set-limit 200"
-        ", XF86AudioMute, exec, pamixer -t"
-        ", XF86MonBrightnessDown, exec, brightnessctl -c backlight s 5%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl -c backlight s 5%+"
+        ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 5 --allow-boost --set-limit 200"
+        ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 5 --allow-boost --set-limit 200"
+        ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%-"
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%+"
       ];
     };
   };
@@ -318,21 +310,10 @@ in {
   };
 
   home.packages = with pkgs; [
-    wl-clipboard # Clipboard functionality on wayland
-    pamixer # Pulseauido command line mixer
-    brightnessctl # Read and control device brightness
-    libnotify # For sending custom notifications
-    grim # Screenshot functionality
-    slurp # Screenshot functionality
-    swappy # Simple image editor for screenshots
-    imagemagick # Image manipulation
-    killall # Self explanatory
-    networkmanagerapplet # Easy network connection management
-    swww # Fancy wallpaper daemon
-    fish # For that one script I have not rewritten in bash
+    killall
+    wl-clipboard
   ];
 
-  home.file.".config/hypr/scripts".source = ./config/scripts;
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
 
   home.file.".config/swappy/config".text = ''
