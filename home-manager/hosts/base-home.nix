@@ -10,6 +10,15 @@
     overlays = [
       (final: _prev: import ../../pkgs pkgs)
       (final: _prev: {scripts = import ../../pkgs/scripts pkgs;})
+      (final: prev: {
+        rofi-wayland = prev.rofi-wayland.override {
+          plugins = [
+            (pkgs.rofi-calc.override {
+              rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
+            })
+          ];
+        };
+      })
     ];
     config = {
       allowUnfree = true;

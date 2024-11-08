@@ -8,6 +8,5 @@ writeShellScriptBin "get-player-metadata" ''
       exit 0
   else
       printf ""
-      exit 0
   fi
 ''
