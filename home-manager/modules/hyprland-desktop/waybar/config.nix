@@ -113,7 +113,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "App Launcher",
-        "on-click": "rofi -show drun -modes drun"
+        "on-click": "${pkgs.rofi-wayland}/bin/rofi -show drun -modes drun"
       },
       "battery": {
         "format": "{icon} {capacity}%",
@@ -154,7 +154,7 @@
         "format": "⏻",
         "tooltip": true,
         "tooltip-format": "Power Menu",
-        "on-click": "wlogout -b 4"
+        "on-click": "${pkgs.wlogout}/bin/wlogout -b 4"
       },
       "mpris": {
         "format": "{player_icon} {dynamic}",
