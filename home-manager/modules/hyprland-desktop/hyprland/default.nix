@@ -312,6 +312,7 @@ in {
   home.packages = with pkgs; [
     killall
     wl-clipboard
+    swww
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;

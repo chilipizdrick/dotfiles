@@ -1,6 +1,7 @@
 {
   writeShellScriptBin,
   rofi-wayland,
+  swww,
   ...
 }:
 writeShellScriptBin "select-wallpaper" ''
@@ -23,15 +24,7 @@ writeShellScriptBin "select-wallpaper" ''
   rofiCommand="${rofi-wayland}/bin/rofi -show -dmenu -theme ''${themesDir}/wallpaper-select.rasi"
 
   executeCommand() {
-
-    if command -v swww &>/dev/null; then
-      swww img "$1" ''${SWWW_PARAMS}
-
-    else
-      echo "swww not installed"
-      exit 1
-    fi
-
+    ${swww}/bin/swww img "$1" ''${SWWW_PARAMS}
     ln -sf "$1" "$HOME/.current_wallpaper"
   }
 
@@ -52,10 +45,7 @@ writeShellScriptBin "select-wallpaper" ''
     done
   }
 
-  # If swww exists, start it
-  if command -v swww &>/dev/null; then
-    swww query || swww-daemon &
-  fi
+  swww query || ${swww}/bin/swww-daemon &
 
   # Execution
   main() {
