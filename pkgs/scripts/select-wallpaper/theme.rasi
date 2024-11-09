@@ -1,0 +1,57 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    hover-select:                true;
+    font:                        "JetBrains Mono Nerd Font 10";
+}
+
+@import "default.rasi"
+
+mainbox {
+    children:                    [ "listview" ];
+    background-color:            transparent;
+
+    spacing:                     24px;
+    margin:                      0px;
+    padding:                     64px;
+}
+
+listview {
+    columns:                     4;
+    lines:                       4;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    background-color:           transparent;
+    text-color:                 @foreground;
+
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+}
+
+element {
+    cursor:                      pointer;
+    border-radius:               36px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    orientation:                 vertical;
+
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+}
+
+element-icon {
+    expand:                      false;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        26%;
+    cursor:                      inherit;
+}

@@ -271,9 +271,9 @@ in {
         "${mod}, mouse:273, resizewindow"
       ];
       bindl = [
-        "${mod}, SPACE, exec, playerctl play-pause"
-        "${mod}, C, exec, playerctl next"
-        "${mod}, X, exec, playerctl previous"
+        "${mod}, SPACE, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        "${mod}, C, exec, ${pkgs.playerctl}/bin/playerctl next"
+        "${mod}, X, exec, ${pkgs.playerctl}/bin/playerctl previous"
         ", Print, exec, ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
       ];
       binde = [

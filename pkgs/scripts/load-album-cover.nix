@@ -2,15 +2,16 @@
   writeShellScriptBin,
   imagemagick,
   curl,
+  playerctl,
   ...
 }:
 writeShellScriptBin "load-album-cover" ''
-  if [ $(playerctl metadata | head -1 | awk '{print $1}') == "firefox" ]; then
+  if [ $(${playerctl}/bin/playerctl metadata | head -1 | awk '{print $1}') == "firefox" ]; then
       echo ""
       exit 0
   fi
 
-  url=$(playerctl metadata mpris:artUrl)
+  url=$(${playerctl}/bin/playerctl metadata mpris:artUrl)
 
   if [[ -z $url ]]; then
       echo ""

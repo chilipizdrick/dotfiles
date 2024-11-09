@@ -4,7 +4,7 @@ pkgs: {
   reload-graphical-interface = pkgs.callPackage ./reload-graphical-interface.nix {};
   toggle-hyprland-settings = pkgs.callPackage ./toggle-hyprland-settings.nix {};
   toggle-hyprland-layout = pkgs.callPackage ./toggle-hyprland-layout.nix {};
-  select-wallpaper = pkgs.callPackage ./select-wallpaper.nix {};
+  select-wallpaper = pkgs.callPackage ./select-wallpaper {};
   toggle-tailscale = pkgs.callPackage ./toggle-tailscale.nix {};
   query-tailscale = pkgs.callPackage ./query-tailscale.nix {};
 }

@@ -12,8 +12,5 @@
   #   package = pkgs.rofi-wayland;
   #   plugins = [(pkgs.rofi-calc.override {rofi-unwrapped = pkgs.rofi-wayland-unwrapped;})];
   #   terminal = "${pkgs.alacritty}/bin/alacritty";
-  #   extraConfig = {
-  #     "@theme" = "~/.config/rofi/themes/nova-dark.rasi";
-  #   };
   # };
 }
