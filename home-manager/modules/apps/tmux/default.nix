@@ -40,7 +40,7 @@
     # toml
     ''
       [[search_dirs]]
-      path = "/home/alex/Projects"
+      path = "$HOME/Projects"
       depth = 2
     '';
 }

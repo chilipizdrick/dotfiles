@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [vesktop];
-  home.file."/home/alex/.config/vesktop/themes/catppuccin-mocha.css".text =
+  home.file.".config/vesktop/themes/catppuccin-mocha.css".text =
     # css
     ''
        /**
