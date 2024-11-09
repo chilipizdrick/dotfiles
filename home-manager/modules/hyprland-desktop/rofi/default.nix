@@ -5,13 +5,6 @@
 
   home.packages = with pkgs; [
     rofi-wayland
-    # (rofi-wayland.override {
-    #   plugins = [
-    #     (pkgs.rofi-calc.override {
-    #       rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
-    #     })
-    #   ];
-    # })
   ];
 
   # programs.rofi = {

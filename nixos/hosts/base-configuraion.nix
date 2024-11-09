@@ -9,10 +9,13 @@
     ../modules
   ];
 
-  nixpkgs = {
+  nixpkgs = let
+    overlays = import ../../overlays {};
+  in {
     overlays = [
-      (final: _prev: import ../../pkgs pkgs)
-      (final: _prev: {scripts = import ../../pkgs/scripts pkgs;})
+      overlays.additions
+      overlays.modifications
+      overlays.scripts
     ];
     config = {
       allowUnfree = true;
