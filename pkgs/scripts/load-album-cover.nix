@@ -17,7 +17,7 @@ writeShellScriptBin "load-album-cover" ''
       echo ""
       exit 0
   elif [[ $url =~ ^file://.*$ ]]; then
-      echo ''${a#*file://}
+      echo ''${url#*file://}
       exit 0
   else
       mkdir /tmp/hyprlock -p >/dev/null

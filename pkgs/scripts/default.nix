@@ -7,4 +7,5 @@ pkgs: {
   select-wallpaper = pkgs.callPackage ./select-wallpaper {};
   toggle-tailscale = pkgs.callPackage ./toggle-tailscale.nix {};
   query-tailscale = pkgs.callPackage ./query-tailscale.nix {};
+  spread-propaganda = pkgs.callPackage ./spread-propaganda {};
 }
