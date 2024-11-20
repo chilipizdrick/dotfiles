@@ -266,6 +266,7 @@ in {
         "${mod} SHIFT, C, exec, pidof hypridle && ${pkgs.killall}/bin/killall hypridle && notify-send '☕ Caffeine mode enabled' || $(${pkgs.hypridle}/bin/hypridle & ${pkgs.libnotify}/bin/notify-send '☕ Caffeine mode disabled')"
         "${mod} SHIFT, M, exec, ${pkgs.scripts.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
         "${mod} ALT, P, exec, ${pkgs.scripts.spread-propaganda}/bin/spread-propaganda"
+        "${mod} ALT, S, exec, ${pkgs.scripts.showcase}/bin/showcase"
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"
