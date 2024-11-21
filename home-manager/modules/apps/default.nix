@@ -4,7 +4,7 @@
     ./firefox
     # ./flatpak
     ./starship
-    ./cava
+    # ./cava
     ./git
     ./tmux
     ./zsh

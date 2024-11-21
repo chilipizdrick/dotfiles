@@ -41,7 +41,6 @@
     telegram-desktop
     chromium
     inputs.zen-browser.packages."${system}".default
-    mathematica
 
     ani-cli
   ];

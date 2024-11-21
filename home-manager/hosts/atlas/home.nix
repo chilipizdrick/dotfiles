@@ -40,4 +40,7 @@
     enable = true;
     minecraft = true;
   };
+  home.packages = with pkgs; [
+    mathematica
+  ];
 }

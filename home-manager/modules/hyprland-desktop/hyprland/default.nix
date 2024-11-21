@@ -78,11 +78,13 @@ in {
         fullscreen_opacity = 1.0;
         dim_inactive = false;
         dim_strength = 0.1;
-        drop_shadow = true;
-        shadow_range = 8;
-        shadow_render_power = 2;
-        shadow_offset = "2 2";
-        "col.shadow" = "rgba(0C0E13A6)";
+        shadow = {
+          enabled = true;
+          range = 8;
+          render_power = 2;
+          offset = "2 2";
+          color = "rgba(0C0E13A6)";
+        };
         blur = {
           enabled = true;
           popups = true;
