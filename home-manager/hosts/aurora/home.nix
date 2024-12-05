@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ../base-home.nix
   ];
@@ -69,9 +65,9 @@
     minecraft = true;
     # osu = true;
     r2modman = true;
+    heroic = true;
   };
 
-  home.packages = with pkgs; [
-    obs-studio
-  ];
+  # home.packages = with pkgs; [
+  # ];
 }

@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ../modules
   ];
@@ -16,6 +12,11 @@
     ];
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-6.0.36"
+        "dotnet-sdk-6.0.428"
+        "dotnet-sdk-wrapped-6.0.428"
+      ];
     };
   };
 
@@ -26,24 +27,6 @@
 
   # Enable home-manager
   programs.home-manager.enable = true;
-
-  # Add remaining packages
-  home.packages = with pkgs; [
-    openvpn
-    baobab
-    imv
-    loupe
-    gimp
-    zathura
-    mpv
-    brave
-    obsidian
-    telegram-desktop
-    chromium
-    inputs.zen-browser.packages."${system}".default
-
-    ani-cli
-  ];
 
   # Fixes for electron apps
   xdg.desktopEntries = {
@@ -61,24 +44,6 @@
       };
     };
   };
-
-  # --command=soundux in .desktop file prevents Soundux from launching properly
-  # xdg.desktopEntries = {
-  #   soundux-fix = {
-  #     categories = ["Audio" "Music" "Player" "AudioVideo"];
-  #     exec = "flatpak run --branch=stable --arch=x86_64 --file-forwarding io.github.Soundux @@u %U @@";
-  #     comment = "A universal soundboard that uses PulseAudio modules or PipeWire linking";
-  #     genericName = "SoundBoard";
-  #     icon = "io.github.Soundux";
-  #     name = "Soundux *FIX*";
-  #     type = "Application";
-  #     terminal = false;
-  #     settings = {
-  #       StartupWMClass = "Soundux";
-  #       X-Flatpak = "io.github.Soundux";
-  #     };
-  #   };
-  # };
 
   # Set default apps for some applications
   home.sessionVariables = {

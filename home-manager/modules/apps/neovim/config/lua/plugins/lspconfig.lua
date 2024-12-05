@@ -129,7 +129,9 @@ return { -- LSP Configuration & Plugins
         },
       },
       ts_ls = {},
-      clangd = {},
+      clangd = {
+        mason = false;
+      },
       gopls = {},
       pyright = {},
       nil_ls = {},
@@ -147,8 +149,8 @@ return { -- LSP Configuration & Plugins
         settings = {
           exportPdf = 'never',
           outputPath = '$root/target/$name',
-          semanticTokens = 'enable',
-          formatterMode = 'typstfmt',
+          -- semanticTokens = 'enable',
+          formatterMode = 'typstyle',
         },
       },
     }
@@ -159,7 +161,6 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       'stylua',
       'gopls',
-      'typstfmt',
       'rustfmt',
     })
     require('mason-tool-installer').setup {

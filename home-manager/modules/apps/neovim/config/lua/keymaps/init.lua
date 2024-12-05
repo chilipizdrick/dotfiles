@@ -23,6 +23,12 @@ vim.keymap.set(
   vim.diagnostic.setloclist,
   { desc = 'Open diagnostic [Q]uickfix list' }
 )
+vim.keymap.set(
+  'n',
+  '<leader>Q',
+  vim.lsp.buf.code_action,
+  { desc = 'Apply [Q]uickfix' }
+)
 
 -- Move focuse between windows
 vim.keymap.set(

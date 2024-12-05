@@ -9,4 +9,5 @@ pkgs: {
   query-tailscale = pkgs.callPackage ./query-tailscale.nix {};
   spread-propaganda = pkgs.callPackage ./spread-propaganda {};
   showcase = pkgs.callPackage ./showcase {};
+  setup-workflow-atlas = pkgs.callPackage ./setup-workflow-atlas.nix {};
 }

@@ -6,4 +6,11 @@ return {
   },
   cmd = 'Copilot',
   event = 'InsertEnter',
+  init = function()
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function()
+        vim.cmd 'Copilot disable'
+      end,
+    })
+  end,
 }

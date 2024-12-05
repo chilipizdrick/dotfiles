@@ -11,6 +11,7 @@ in {
     enable = mkEnableOption "games related stuff";
     minecraft = mkEnableOption "prismlauncher and needed dependencies as well as fabric installer";
     r2modman = mkEnableOption "r2modman mod manager";
+    heroic = mkEnableOption "heroic game launcher";
     osu = mkEnableOption "osu-lazer";
   };
 
@@ -26,10 +27,12 @@ in {
       ];
       r2modmanPkgs = [r2modman];
       osuPkgs = [osu-lazer];
+      heroicPkgs = [heroic];
     in
       (optionals cfg.minecraft minecraftPkgs)
       ++ (optionals cfg.r2modman r2modmanPkgs)
-      ++ (optionals cfg.osu osuPkgs);
+      ++ (optionals cfg.osu osuPkgs)
+      ++ (optionals cfg.heroic heroicPkgs);
 
     home.file."lib/glfw-wayland-minecraft-libglfw".source = mkIf cfg.minecraft "${pkgs.glfw-wayland-minecraft}/lib";
   };

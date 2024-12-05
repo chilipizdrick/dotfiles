@@ -1,10 +1,14 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
-    ./discord
-    ./firefox
+    # ./firefox
     # ./flatpak
-    ./starship
     # ./cava
+    ./discord
+    ./starship
     ./git
     ./tmux
     ./zsh
@@ -14,5 +18,27 @@
     ./spotify
     ./udiskie
     ./direnv
+    ./yazi
+  ];
+
+  home.packages = with pkgs; [
+    # CLI
+    openvpn
+    ani-cli
+
+    # GUI
+    chromium
+    inputs.zen-browser.packages."${system}".default
+
+    imv
+    loupe
+    gimp
+    zathura
+
+    mpv
+    obsidian
+    telegram-desktop
+    obs-studio
+    baobab
   ];
 }

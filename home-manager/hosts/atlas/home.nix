@@ -32,6 +32,7 @@
       bind = [
         "${mod}, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\""
         "${mod}, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\""
+        "${mod} ALT, W, exec, ${pkgs.scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
     };
   };
@@ -39,6 +40,8 @@
   games = {
     enable = true;
     minecraft = true;
+    heroic = true;
+    r2modman = true;
   };
   home.packages = with pkgs; [
     mathematica

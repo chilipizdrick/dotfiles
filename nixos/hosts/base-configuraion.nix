@@ -19,6 +19,11 @@
     ];
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-6.0.36"
+        "dotnet-sdk-6.0.428"
+        "dotnet-sdk-wrapped-6.0.428"
+      ];
     };
   };
 
@@ -43,26 +48,9 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-
-    ripgrep
-    wget
-    curl
-    jq
-    git
-    zip
-    unzip
-    gzip
-    neovim
-    fzf
-
-    tmux
-    tmux-sessionizer
-    btop
-    fastfetch
-    alejandra
-
-    sops
-    tealdeer
+    # wineWowPackages.waylandFull
+    # wineWowPackages.fonts
+    # wineWowPackages.full
   ];
 
   programs.zsh.enable = true;

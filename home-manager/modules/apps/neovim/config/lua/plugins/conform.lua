@@ -28,7 +28,7 @@ return { -- Autoformat
       bash = { 'shfmt' },
       go = { 'gofmt' },
       yaml = { 'yq' },
-      typst = { 'typstfmt' },
+      typst = { 'typstyle' },
     },
   },
 }
