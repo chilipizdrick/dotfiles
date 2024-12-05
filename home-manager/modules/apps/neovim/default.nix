@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   inputs,
   ...
 }: let
@@ -31,8 +30,8 @@ in {
     lua51Packages.lua
     luajitPackages.luarocks
 
-    fd
     tree-sitter
+    nixd
   ];
 
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink (builtins.unsafeDiscardStringContext "${self}/home-manager/modules/apps/neovim/config");

@@ -93,6 +93,7 @@ in {
           passes = 3;
           ignore_opacity = true;
           new_optimizations = true;
+          xray = false;
         };
       };
       input = {

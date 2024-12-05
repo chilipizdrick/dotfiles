@@ -118,28 +118,24 @@ return { -- LSP Configuration & Plugins
       require('cmp_nvim_lsp').default_capabilities()
     )
 
-    local servers = {
-      rust_analyzer = {
-        settings = {
-          ['rust-analyzer'] = {
-            cargo = {
-              allFeatures = true,
-            },
-          },
-        },
-      },
+    local mason_servers = {
       ts_ls = {},
-      clangd = {
-        mason = false;
-      },
-      gopls = {},
+      clangd = {},
       pyright = {},
-      nil_ls = {},
       lua_ls = {
         settings = {
           Lua = {
             completion = {
               callSnippet = 'Replace',
+            },
+          },
+        },
+      },
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            cargo = {
+              allFeatures = true,
             },
           },
         },
@@ -157,12 +153,11 @@ return { -- LSP Configuration & Plugins
 
     require('mason').setup()
 
-    local ensure_installed = vim.tbl_keys(servers or {})
+    local ensure_installed = vim.tbl_keys(mason_servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
-      'gopls',
-      'rustfmt',
     })
+
     require('mason-tool-installer').setup {
       ensure_installed = ensure_installed,
     }
@@ -170,7 +165,7 @@ return { -- LSP Configuration & Plugins
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
-          local server = servers[server_name] or {}
+          local server = mason_servers[server_name] or {}
           server.capabilities = vim.tbl_deep_extend(
             'force',
             {},
@@ -179,6 +174,30 @@ return { -- LSP Configuration & Plugins
           )
           require('lspconfig')[server_name].setup(server)
         end,
+      },
+    }
+
+    require('lspconfig').nixd.setup {
+      cmd = { 'nixd' },
+      nixd = {
+        settings = {
+          nixd = {
+            nixpkgs = {
+              expr = 'import <nixpkgs> {}',
+            },
+            formatting = {
+              command = { 'alejandra' },
+            },
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").nixosConfigurations."atlas".options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").homeConfigurations."atlas".options',
+              },
+            },
+          },
+        },
       },
     }
   end,

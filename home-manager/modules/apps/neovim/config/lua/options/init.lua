@@ -21,7 +21,8 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = '80' -- Ruler
-vim.opt.spelllang = 'en_us,ru_ru'
+-- vim.opt.spelllang = 'en_us,ru_ru'
+vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
 local function escape(str)

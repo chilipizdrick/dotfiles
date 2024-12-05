@@ -1,7 +1,4 @@
-{
-  writeShellScriptBin,
-  ...
-}:
+{writeShellScriptBin, ...}:
 writeShellScriptBin "setup-workflow-atlas" ''
   hyprctl dispatch exec "[workspace 1 silent] alacritty"
   hyprctl dispatch exec "[workspace 2 silent] zen"
