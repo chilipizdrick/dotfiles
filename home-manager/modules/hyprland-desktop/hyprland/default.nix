@@ -263,7 +263,7 @@ in {
         "${mod} ALT, R, exec, ${pkgs.scripts.reload-graphical-interface}/bin/reload-graphical-interface" # Refresh waybar, rofi
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, C, exec, hyprctl reload"
-        "${mod} ALT, E, exec, hyprctl dispatch exit"
+        # "${mod} ALT, E, exec, hyprctl dispatch exit"
         "${mod} ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
         "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
         "${mod} SHIFT, A, exec, ${pkgs.scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
