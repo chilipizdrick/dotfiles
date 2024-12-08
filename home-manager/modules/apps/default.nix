@@ -6,7 +6,7 @@
   imports = [
     # ./firefox
     # ./flatpak
-    # ./cava
+    ./cava
     ./discord
     ./starship
     ./git

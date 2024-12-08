@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../base-home.nix
   ];
@@ -19,7 +23,9 @@
     scale = 1.0;
   };
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = let
+    mod = "SUPER";
+  in {
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,auto"
@@ -46,6 +52,10 @@
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
+      ];
+
+      bind = [
+        "${mod} ALT, W, exec, ${pkgs.scripts.setup-workflow-aurora}/bin/setup-workflow-aurora"
       ];
     };
   };

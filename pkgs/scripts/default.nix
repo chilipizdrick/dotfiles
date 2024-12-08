@@ -10,4 +10,5 @@ pkgs: {
   spread-propaganda = pkgs.callPackage ./spread-propaganda {};
   showcase = pkgs.callPackage ./showcase {};
   setup-workflow-atlas = pkgs.callPackage ./setup-workflow-atlas.nix {};
+  setup-workflow-aurora = pkgs.callPackage ./setup-workflow-aurora.nix {};
 }
