@@ -19,6 +19,10 @@ in {
     withNodeJs = true;
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   home.packages = with pkgs; [
     gcc_multi
     cargo

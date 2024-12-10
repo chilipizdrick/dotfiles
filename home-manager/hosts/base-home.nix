@@ -47,7 +47,7 @@
 
   # Set default apps for some applications
   home.sessionVariables = {
-    BROWSER = "firefox";
+    BROWSER = "zen";
     TERMINAL = "alacritty";
   };
 

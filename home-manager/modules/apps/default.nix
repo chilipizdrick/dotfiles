@@ -12,6 +12,7 @@
     ./git
     ./tmux
     ./zsh
+    ./nushell
     ./neovim
     ./alacritty
     ./zoxide
@@ -19,6 +20,7 @@
     ./udiskie
     ./direnv
     ./yazi
+    ./carapace
   ];
 
   home.packages = with pkgs; [

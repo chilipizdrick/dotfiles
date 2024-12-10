@@ -1,10 +1,7 @@
 {...}: {
-  programs.zoxide = {
+  programs.carapace = {
     enable = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
-    options = [
-      "--cmd cd"
-    ];
   };
 }

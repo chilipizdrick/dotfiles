@@ -6,6 +6,7 @@
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
   files = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.yazi}/bin/yazi";
+  telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.alacritty}/bin/alacritty";
   browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
   left = "H";
@@ -258,8 +259,9 @@ in {
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"
         "${mod}, B, exec, ${browser}"
-        "${mod}, E, exec, ${files}"
-        "${mod} SHIFT, E, exec, ${guiFiles}"
+        "${mod}, E, exec, ${guiFiles}"
+        "${mod} SHIFT, E, exec, ${files}"
+        "${mod}, T, exec, ${telegram}"
         "${mod} ALT, R, exec, ${pkgs.scripts.reload-graphical-interface}/bin/reload-graphical-interface" # Refresh waybar, rofi
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, C, exec, hyprctl reload"

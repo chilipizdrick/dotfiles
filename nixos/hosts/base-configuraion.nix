@@ -48,13 +48,14 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    nushell
     # wineWowPackages.waylandFull
     # wineWowPackages.fonts
     # wineWowPackages.full
   ];
 
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.nushell;
 
   users.users = {
     alex = {
