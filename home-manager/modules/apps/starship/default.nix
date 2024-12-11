@@ -41,7 +41,11 @@
 
       character = {
         success_symbol = "[❯](green)";
-        error_symbol = "[❯](red)";
+        error_symbol = "[ ](red)";
+        vimcmd_symbol = "[ ](yellow)";
+        vimcmd_visual_symbol = "[ ](yellow)";
+        vimcmd_replace_symbol = "[ ](yellow)";
+        vimcmd_replace_one_symbol = "[ ](yellow)";
       };
 
       cmd_duration = {

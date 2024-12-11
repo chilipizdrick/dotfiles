@@ -96,4 +96,8 @@
       index = 17
       color = "#f5e0dc"
     '';
+
+  home.sessionVariables = {
+    TERMINAL = "alacritty";
+  };
 }

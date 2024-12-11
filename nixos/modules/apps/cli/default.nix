@@ -10,7 +10,6 @@
     unzip
     gzip
     neovim
-    fzf
 
     tmux
     tmux-sessionizer

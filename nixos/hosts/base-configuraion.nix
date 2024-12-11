@@ -41,21 +41,7 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = [];
-  };
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-    nushell
-    # wineWowPackages.waylandFull
-    # wineWowPackages.fonts
-    # wineWowPackages.full
-  ];
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.zsh;
 
   users.users = {
     alex = {

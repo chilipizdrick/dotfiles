@@ -17,6 +17,8 @@
     ./sudo
     ./swap
     ./vpn
+    ./zsh
     ./xdg-portals
+    ./nix-ld
   ];
 }

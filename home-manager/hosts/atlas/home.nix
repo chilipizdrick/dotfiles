@@ -43,6 +43,7 @@
     heroic = true;
     r2modman = true;
   };
+
   home.packages = with pkgs; [
     mathematica
   ];

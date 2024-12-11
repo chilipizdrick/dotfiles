@@ -43,4 +43,9 @@
     obs-studio
     baobab
   ];
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

@@ -7,5 +7,6 @@
     ./hyperion
     ./hyprland-desktop
     ./mime-apps
+    ./desktop-entries
   ];
 }

@@ -6,9 +6,21 @@
     syntaxHighlighting.enable = true;
     plugins = [
       {
+        name = pkgs.zsh-fzf-tab.pname;
+        src = pkgs.zsh-fzf-tab.src;
+      }
+      {
         name = pkgs.zsh-fzf-history-search.pname;
         src = pkgs.zsh-fzf-history-search.src;
       }
+      {
+        name = pkgs.zsh-completions.pname;
+        src = pkgs.zsh-completions.src;
+      }
+      # {
+      #   name = pkgs.zsh-vi-mode.pname;
+      #   src = pkgs.zsh-vi-mode.src;
+      # }
     ];
   };
 }
