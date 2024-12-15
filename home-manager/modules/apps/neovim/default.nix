@@ -33,10 +33,13 @@ in {
     python3Packages.pip
     lua51Packages.lua
     luajitPackages.luarocks
+    netrw
 
     tree-sitter
     nixd
   ];
 
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink (builtins.unsafeDiscardStringContext "${self}/home-manager/modules/apps/neovim/config");
+  home.file.".config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/Projects/nix/dotfiles/home-manager/modules/apps/neovim/config";
 }

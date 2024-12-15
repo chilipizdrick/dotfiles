@@ -1,5 +1,7 @@
 return { -- File explorer
   'stevearc/oil.nvim',
+  -- lazy = true,
+  -- cmd = 'Oil',
   opts = {
     view_options = {
       show_hidden = true,
