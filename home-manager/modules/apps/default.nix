@@ -29,6 +29,7 @@
     ani-cli
 
     # GUI
+    helvum
     chromium
     inputs.zen-browser.packages."${system}".default
 

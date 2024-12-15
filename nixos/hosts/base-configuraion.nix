@@ -19,11 +19,6 @@
     ];
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "dotnet-runtime-6.0.36"
-        "dotnet-sdk-6.0.428"
-        "dotnet-sdk-wrapped-6.0.428"
-      ];
     };
   };
 
@@ -41,6 +36,8 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  environment.shells = [pkgs.nushell pkgs.zsh];
+
   users.defaultUserShell = pkgs.zsh;
 
   users.users = {
@@ -48,6 +45,7 @@
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp" "uinput" "adm" "kvm" "users" "systemd-journal"];
+      shell = pkgs.nushell;
     };
   };
 
