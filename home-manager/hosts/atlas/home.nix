@@ -30,8 +30,8 @@
         ",preferred,auto,1.666667"
       ];
       bind = [
-        "${mod}, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\""
-        "${mod}, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\""
+        "${mod}, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\" && swww restore"
+        "${mod}, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\" && swww restore"
         "${mod} ALT, W, exec, ${pkgs.scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
     };

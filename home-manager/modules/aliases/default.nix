@@ -8,5 +8,6 @@
     tms = "TERM=\"tmux-256color\" tms";
     nrs = "sudo nixos-rebuild switch --flake .";
     hms = "home-manager switch --flake .";
+    nau = "export NIXPKGS_ALLOW_UNFREE=1";
   };
 }
