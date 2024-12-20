@@ -28,6 +28,12 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # For controllers and stuff
+    hardware.uinput.enable = true;
+    services.udev.packages = [
+      pkgs.game-devices-udev-rules
+    ];
+
     programs = {
       steam = {
         enable = mkIf cfg.steam true;
