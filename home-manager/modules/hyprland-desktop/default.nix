@@ -9,5 +9,6 @@
     ./rofi
     ./waybar
     ./wlogout
+    ./quickshell
   ];
 }

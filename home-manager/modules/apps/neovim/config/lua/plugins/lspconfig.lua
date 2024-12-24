@@ -200,5 +200,8 @@ return { -- LSP Configuration & Plugins
         },
       },
     }
+    require('lspconfig').qmlls.setup {
+      cmd = { "qmlls", "-E" },
+    }
   end,
 }

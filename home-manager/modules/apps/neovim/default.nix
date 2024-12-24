@@ -1,11 +1,8 @@
 {
   pkgs,
   config,
-  inputs,
   ...
-}: let
-  self = inputs.self;
-in {
+}: {
   programs.neovim = {
     enable = true;
 
@@ -37,6 +34,7 @@ in {
 
     tree-sitter
     nixd
+    qt6.full
   ];
 
   home.file.".config/nvim".source =
