@@ -32,9 +32,9 @@
     }
 
     element selected.normal {
-        background-color:            white / 10%;
+        background-color:            white / 15%;
         text-color:                  white;
-        border:                      1px solid;
+        border:                      0px solid;
         border-color:                lightgray;
     }
 
@@ -55,13 +55,13 @@
         margin:                      0px 4px;
         handle-width:                8px;
         handle-color:                white;
-        background-color:            white / 10%;
+        background-color:            white / 15%;
         border-radius:               4px;
     }
 
     message {
-        background-color:            white / 10%;
-        border:                      1px solid;
+        background-color:            white / 15%;
+        border:                      0px solid;
         border-color:                transparent;
         border-radius:               12px;
         padding:                     24px;
@@ -71,7 +71,7 @@
         padding:                     100px;
         border:                      0px solid;
         border-radius:               0px;
-        background-color:            white / 10%;
+        background-color:            white / 15%;
         text-color:                  white;
     }
 
@@ -110,7 +110,7 @@
         children:                    [ "prompt", "entry" ];
 
         border-radius:               12px;
-        background-color:            black / 10%;
+        background-color:            black / 30%;
         text-color:                  white;
 
         spacing:                     12px;
@@ -169,14 +169,14 @@
     button {
         padding:                     12px 0px;
         border-radius:               12px;
-        background-color:            black / 10%;
+        background-color:            black / 30%;
         text-color:                  white;
         cursor:                      pointer;
     }
 
     button selected {
-        background-color:            white / 10%;
-        border:                      1px solid;
+        background-color:            white / 15%;
+        border:                      0px solid;
         border-color:                white;
         text-color:                  white;
     }

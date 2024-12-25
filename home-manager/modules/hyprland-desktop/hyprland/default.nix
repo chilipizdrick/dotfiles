@@ -154,12 +154,16 @@ in {
         "blur,logout_dialog"
         "blur,rofi"
         "blur,waybar"
+        "blur,quickshell"
         "blur,notifications"
         "ignorezero,waybar"
         "ignorezero,notifications"
+        "ignorezero,quickshell"
         "ignorealpha 0.5,waybar" # Fixes annoying visual effect
+        "ignorealpha 0.5,quickshell" # Fixes annoying visual effect
         "ignorealpha 0.5,notifications" # Fixes annoying visual effect
         "animation slide,waybar"
+        "animation slide,quickshell"
       ];
 
       windowrule = [
