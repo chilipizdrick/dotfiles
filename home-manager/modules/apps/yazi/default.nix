@@ -10,7 +10,4 @@
     };
     package = pkgs.yazi;
   };
-  home.packages = with pkgs; [
-    ueberzugpp
-  ];
 }

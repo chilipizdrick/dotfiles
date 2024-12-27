@@ -1,4 +1,8 @@
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ../modules
   ];
@@ -19,6 +23,28 @@
     username = "alex";
     homeDirectory = "/home/alex";
   };
+
+  home.packages = with pkgs; [
+    # CLI
+    openvpn
+    ani-cli
+
+    # GUI
+    helvum
+    chromium
+    inputs.zen-browser.packages."${system}".default
+
+    imv
+    loupe
+    gimp
+    zathura
+
+    mpv
+    obsidian
+    telegram-desktop
+    obs-studio
+    baobab
+  ];
 
   # Enable home-manager
   programs.home-manager.enable = true;

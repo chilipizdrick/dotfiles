@@ -36,6 +36,32 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  environment.systemPackages = with pkgs; [
+    home-manager
+
+    ripgrep
+    fd
+    wget
+    curl
+    jq
+    git
+    zip
+    unzip
+    gzip
+    neovim
+
+    tmux
+    tmux-sessionizer
+    btop
+    fastfetch
+    alejandra
+
+    sops
+    tealdeer
+    imagemagick
+    ffmpeg
+  ];
+
   environment.shells = [pkgs.nushell pkgs.zsh];
 
   users.defaultUserShell = pkgs.zsh;
@@ -45,7 +71,6 @@
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp" "uinput" "adm" "kvm" "users" "systemd-journal"];
-      # shell = pkgs.zsh;
     };
   };
 

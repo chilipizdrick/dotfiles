@@ -9,5 +9,6 @@
     ./power-management.nix
     ./time.nix
     ./touchpad.nix
+    ./kernel.nix
   ];
 }

@@ -4,4 +4,5 @@
     package = pkgs.hyprland;
     xwayland.enable = true;
   };
+  # environment.defaultPackages = with pkgs; [];
 }
