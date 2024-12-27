@@ -34,6 +34,11 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
 
+    hyprland-qtutils = {
+      url = "github:hyprwm/hyprland-qtutils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
       flake = false;
