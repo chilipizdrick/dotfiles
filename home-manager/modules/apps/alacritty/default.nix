@@ -28,7 +28,7 @@
 
       [colors.cursor]
       text = "#1e1e2e"
-      cursor = "#f5e0dc"
+      cursor = "#cdd6f4"
 
       [colors.vi_mode_cursor]
       text = "#1e1e2e"

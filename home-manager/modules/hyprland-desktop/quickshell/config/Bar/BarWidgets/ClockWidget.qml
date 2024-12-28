@@ -2,7 +2,7 @@ import QtQuick
 import "root:/Bar"
 import "root:/Shared"
 
-BarWidgetWrapper {
+BarWidget {
     childId: timeWidget
     DefaultText {
         id: timeWidget

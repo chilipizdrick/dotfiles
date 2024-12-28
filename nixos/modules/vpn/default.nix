@@ -1,11 +1,7 @@
 {pkgs, ...}: {
   imports = [
     # ./wireguard
-    # ./zerotier
+    ./zerotier
     ./tailscale
-    # ./proxychains
   ];
-  # environment.systemPackages = with pkgs; [
-  #   shadowsocks-rust
-  # ];
 }

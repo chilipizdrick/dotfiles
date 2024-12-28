@@ -24,7 +24,6 @@ Scope {
             }
 
             height: 27
-
             color: "transparent"
 
             BarSegment {
@@ -33,9 +32,7 @@ Scope {
 
                 Row {
                     height: parent.height
-
                     width: childrenRect.width
-
                     spacing: 10
 
                     AppLauncherWidget {}
@@ -50,9 +47,7 @@ Scope {
 
                 Row {
                     height: parent.height
-
                     width: childrenRect.width
-
                     spacing: 10
 
                     ClockWidget {}
@@ -65,9 +60,7 @@ Scope {
 
                 Row {
                     height: parent.height
-
                     width: childrenRect.width
-
                     spacing: 10
 
                     ClockWidget {}

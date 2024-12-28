@@ -1,79 +1,33 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell.Io
-import Quickshell
 import "root:/Bar"
 import "root:/Shared"
 
-BarWidgetWrapper {
+BarWidget {
     childId: appLauncherButton
     width: parent.height
-    Button {
-        id: appLauncherButton
-        height: parent.height
-        width: parent.width
-        background: Rectangle {
-            radius: 8
-            height: parent.height
-            width: parent.height
-            color: appLauncherButton.buttonColor
-        }
 
-        property color colorNormal: "transparent"
-        property color colorHovered: Style.opague
-        property color colorClicked: Style.blue
+    BarButton {
+        id: appLauncherButton
 
         contentItem: Rectangle {
-            id: appLauncherButtonContent
+            id: barButtonContent
             height: parent.height
             width: parent.height
             color: "transparent"
-
             Image {
-                id: appLauncherButtonIcon
+                id: barButtonIcon
                 anchors.fill: parent
                 source: "root:Shared/assets/nix-snowflake-white.svg"
             }
         }
 
-        onPressed: {
-            appLauncherButtonAnimation.start();
-        }
-        onClicked: {
-            appLauncherProc.running = !appLauncherProc.running;
-        }
-
-        property var buttonColor: if (appLauncherButton.down) {
-            appLauncherButton.colorClicked;
-        } else {
-            appLauncherButton.hovered ? appLauncherButton.colorHovered : appLauncherButton.colorNormal;
-        }
-
-        SequentialAnimation {
-            id: appLauncherButtonAnimation
-
-            // Expand the button
-            PropertyAnimation {
-                target: appLauncherButtonContent
-                property: "scale"
-                to: 1.5
-                duration: 200
-                easing.type: Easing.InOutSine
-            }
-
-            // Shrink back to normal
-            PropertyAnimation {
-                target: appLauncherButtonContent
-                property: "scale"
-                to: 1.0
-                duration: 200
-                easing.type: Easing.InOutSine
-            }
+        action: Action {
+            onTriggered: appLauncherProc.running = !appLauncherProc.running
         }
     }
 
-    // Placeholder. Will be here until I create my own launcher
-    // (if I even do so in the first place).
     Process {
         id: appLauncherProc
         command: ["rofi", "-show", "drun", "-modi", "drun,calc"]
