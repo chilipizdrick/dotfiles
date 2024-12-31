@@ -136,6 +136,9 @@ return { -- LSP Configuration & Plugins
           ['rust-analyzer'] = {
             cargo = {
               allFeatures = true,
+              check = {
+                allTargets = false,
+              }
             },
           },
         },
