@@ -30,7 +30,6 @@
     python3Packages.pip
     lua51Packages.lua
     luajitPackages.luarocks
-    netrw
 
     tree-sitter
     nixd

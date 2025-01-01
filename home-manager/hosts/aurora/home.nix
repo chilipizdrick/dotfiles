@@ -75,7 +75,7 @@
     minecraft = true;
     # osu = true;
     r2modman = true;
-    heroic = true;
+    heroic = false;
   };
 
   # home.packages = with pkgs; [

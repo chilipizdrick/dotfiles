@@ -40,7 +40,7 @@
   games = {
     enable = true;
     minecraft = true;
-    heroic = true;
+    heroic = false;
     r2modman = true;
   };
 
