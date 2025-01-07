@@ -8,7 +8,7 @@
   files = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.yazi}/bin/yazi";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.alacritty}/bin/alacritty";
-  term2 = "${inputs.ghostty.packages."${pkgs.system}".default}/bin/ghostty";
+  # term2 = "${inputs.ghostty.packages."${pkgs.system}".default}/bin/ghostty";
   browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
   left = "H";
   right = "L";
@@ -263,7 +263,7 @@ in {
         "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"
-        "${mod} SHIFT, Return, exec, ${term2}"
+        # "${mod} SHIFT, Return, exec, ${term2}"
         "${mod}, B, exec, ${browser}"
         "${mod}, E, exec, ${guiFiles}"
         "${mod} SHIFT, E, exec, ${files}"

@@ -13,9 +13,9 @@
     enable = true;
     spotifyPackage = pkgs.spotify;
 
-    theme = spicetifyPkgs.themes.hazy;
-    # theme = spicetifyPkgs.themes.comfy;
-    # colorScheme = "Hikari";
+    # theme = spicetifyPkgs.themes.defaultDynamic;
+    theme = spicetifyPkgs.themes.comfy;
+    colorScheme = "Hikari";
     # theme = spicetifyPkgs.themes.catppuccin;
     # colorScheme = "Mocha";
 

@@ -17,6 +17,6 @@
     ./direnv
     ./yazi
     ./carapace
-    ./ghostty
+    # ./ghostty
   ];
 }
