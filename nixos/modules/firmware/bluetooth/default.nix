@@ -5,9 +5,8 @@
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-        AutoEnable = true;
-        ControllerMode = "dual";
-        # ControllerMode = "bredr";
+        Experimental = true;
+        FastConnectable = true;
       };
     };
   };
