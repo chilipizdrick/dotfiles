@@ -9,33 +9,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+    hyprland-qtutils = {
+      url = "github:hyprwm/hyprland-qtutils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # nix-flatpak = {
-    #   url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    # };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # quickshell = {
-    #   url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # ghostty = {
-    #   url = "github:ghostty-org/ghostty";
-    #   inputs.nixpkgs-stable.follows = "nixpkgs";
-    #   inputs.nixpkgs-unstable.follows = "nixpkgs";
-    # };
-
-    hyprland-qtutils = {
-      url = "github:hyprwm/hyprland-qtutils";
+    scripts = {
+      url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,29 +36,28 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     ...
   } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      "x86_64-linux"
-    ];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
+    scripts = inputs.scripts.packages."x86_64-linux";
+    specialArgs = {
+      inherit inputs;
+      inherit scripts;
+    };
+    extraSpecialArgs = specialArgs;
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
 
     nixosConfigurations = {
       "atlas" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        inherit specialArgs;
         modules = [
           ./nixos/hosts/atlas/configuration.nix
         ];
       };
       "aurora" = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        inherit specialArgs;
         modules = [
           ./nixos/hosts/aurora/configuration.nix
         ];
@@ -78,16 +67,16 @@
     homeConfigurations = {
       "alex@atlas" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        inherit extraSpecialArgs;
         modules = [
-          ./home-manager/hosts/atlas/home.nix
+          ./home/hosts/atlas/home.nix
         ];
       };
       "alex@aurora" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        inherit extraSpecialArgs;
         modules = [
-          ./home-manager/hosts/aurora/home.nix
+          ./home/hosts/aurora/home.nix
         ];
       };
     };

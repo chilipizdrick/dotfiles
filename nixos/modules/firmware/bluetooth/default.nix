@@ -2,13 +2,14 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    # settings = {
-    #   General = {
-    #     Enable = "Source,Sink,Media,Socket";
-    #     AutoEnable = true;
-    #     ControllerMode = "dual"; # bredr
-    #   };
-    # };
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        AutoEnable = true;
+        ControllerMode = "dual";
+        # ControllerMode = "bredr";
+      };
+    };
   };
   services.pipewire.wireplumber.enable = true;
   services.pipewire.wireplumber.extraConfig = {

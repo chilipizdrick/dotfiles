@@ -9,14 +9,7 @@
     ../modules
   ];
 
-  nixpkgs = let
-    overlays = import ../../overlays {};
-  in {
-    overlays = [
-      overlays.additions
-      overlays.modifications
-      overlays.scripts
-    ];
+  nixpkgs = {
     config = {
       allowUnfree = true;
     };
