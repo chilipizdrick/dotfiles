@@ -8,7 +8,7 @@
   games = {
     enable = true;
     steam = true;
-    # gamescope = true;
+    gamescope = true;
   };
 
   swapFile = {

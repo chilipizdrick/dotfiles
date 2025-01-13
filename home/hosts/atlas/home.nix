@@ -3,7 +3,9 @@
   lib,
   scripts,
   ...
-}: {
+}: let
+  scale = "1.666667";
+in {
   imports = [
     ../base-home.nix
   ];
@@ -28,14 +30,19 @@
   in {
     settings = {
       monitor = lib.mkForce [
-        ",preferred,auto,1.666667"
+        ",preferred,auto,${scale}"
       ];
       bind = [
-        "${mod}, bracketleft, exec, hyprctl keyword monitor \",auto,auto,1\" && swww restore"
-        "${mod}, bracketright, exec, hyprctl keyword monitor \",auto,auto,1.666667\" && swww restore"
         "${mod} ALT, W, exec, ${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
+      env = [
+        "GDK_SCALE,${scale}"
+      ];
     };
+  };
+
+  home.sessionVariables = {
+    GDK_SCALE = "${scale}";
   };
 
   games = {

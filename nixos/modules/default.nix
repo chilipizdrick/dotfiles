@@ -21,5 +21,6 @@
     ./xdg-portals
     ./nix-ld
     ./virtualization
+    # ./plasma
   ];
 }
