@@ -3,16 +3,13 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      # "text/html" = "firefox.desktop";
-      # "x-scheme-handler/http" = "firefox.desktop";
-      # "x-scheme-handler/https" = "firefox.desktop";
-      # "x-scheme-handler/about" = "firefox.desktop";
-      # "x-scheme-handler/unknown" = "firefox.desktop";
       "text/html" = "zen.desktop";
       "x-scheme-handler/http" = "zen.desktop";
       "x-scheme-handler/https" = "zen.desktop";
       "x-scheme-handler/about" = "zen.desktop";
       "x-scheme-handler/unknown" = "zen.desktop";
+      "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 

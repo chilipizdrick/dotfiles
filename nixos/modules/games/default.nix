@@ -46,7 +46,7 @@ in {
         args =
           [
             # "-f"
-            "-S fsr"
+            # "-S fsr"
             "--rt"
             "--adaptive-sync"
             "--expose-wayland"

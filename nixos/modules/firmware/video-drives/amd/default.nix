@@ -8,8 +8,8 @@ with lib; let
 in {
   options.amdVideoDrivers.enable = mkEnableOption "AMD video drivers";
   config = mkIf cfg.enable {
-    services.xserver.videoDrivers = lib.mkDefault ["modesetting"];
-    hardware.amdgpu.initrd.enable = lib.mkDefault true;
+    services.xserver.videoDrivers = mkDefault ["modesetting"];
+    hardware.amdgpu.initrd.enable = mkDefault true;
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
   };

@@ -37,9 +37,9 @@ in {
             path = "$HOME/.current_wallpaper";
             blur_size = 4;
             blur_passes = 3;
-            noise = 0.01;
+            noise = 0;
             contrast = 1.3;
-            brightness = 0.8;
+            brightness = 0.9;
             vibrancy = 0.21;
             vibrancy_darkness = 0.0;
           }

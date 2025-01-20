@@ -9,7 +9,7 @@
   files = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.yazi}/bin/yazi";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.alacritty}/bin/alacritty";
-  # term2 = "${pkgs.ghostty}/bin/ghostty";
+  term2 = "${pkgs.ghostty}/bin/ghostty";
   browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
   left = "H";
   right = "L";
@@ -28,21 +28,16 @@ in {
     systemd.enable = true;
     systemd.variables = ["--all"];
     settings = {
-      xwayland.force_zero_scaling = true;
       source = [
         "${colorsConfig}"
       ];
-
-      "debug:disable_logs" = false;
-      "debug:enable_stdout_logs" = true;
-      "debug:error_limit" = 100;
 
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "CLUTTER_BACKEND,wayland"
         "GDK_BACKEND,wayland,x11"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORM,wayland"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -51,7 +46,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "MOZ_ENABLE_WAYLAND,1"
-        "HYPRCURSOR_THEME, Bibata-Modern-Classic"
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,20"
       ];
 
@@ -68,15 +63,18 @@ in {
         resize_on_border = false;
         layout = "dwindle";
       };
+
       dwindle = {
         pseudotile = true;
         preserve_split = true;
         special_scale_factor = 0.8;
       };
+
       master = {
         new_on_top = 1;
         mfact = 0.5;
       };
+
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
@@ -84,23 +82,28 @@ in {
         fullscreen_opacity = 1.0;
         dim_inactive = false;
         dim_strength = 0.1;
+
         shadow = {
-          enabled = true;
-          range = 8;
-          render_power = 2;
-          offset = "2 2";
-          color = "rgba(0C0E13A6)";
+          enabled = false;
+          range = 10;
+          render_power = 3;
+          # offset = "2 2";
+          color = "rgba(000000ff)";
         };
+
         blur = {
           enabled = true;
-          popups = true;
           size = 5;
-          passes = 3;
+          passes = 5;
+          brightness = 0.9;
+          noise = 0.0;
           ignore_opacity = true;
           new_optimizations = true;
+          popups = true;
           xray = false;
         };
       };
+
       input = {
         kb_layout = "us,ru";
         kb_variant = "";
@@ -113,6 +116,7 @@ in {
         left_handed = false;
         follow_mouse = true;
         float_switch_override_focus = false;
+
         touchpad = {
           scroll_factor = 0.5;
           disable_while_typing = true;
@@ -123,9 +127,11 @@ in {
           drag_lock = false;
         };
       };
+
       gestures = {
         workspace_swipe = true;
       };
+
       misc = {
         vfr = true;
         disable_hyprland_logo = true;
@@ -133,11 +139,18 @@ in {
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         vrr = 2;
-        enable_swallow = true;
-        focus_on_activate = false;
-        swallow_regex = "^(alacritty|kitty|mpv|imv)$";
-        initial_workspace_tracking = false;
+        initial_workspace_tracking = 1;
       };
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
+      ecosystem = {
+        no_update_news = true;
+        # no_donation_nag = true;
+      };
+
       binds = {
         workspace_back_and_forth = false;
         allow_workspace_cycles = true;
@@ -158,33 +171,29 @@ in {
         "blur,logout_dialog"
         "blur,rofi"
         "blur,waybar"
-        "blur,quickshell"
         "blur,notifications"
         "ignorezero,waybar"
         "ignorezero,notifications"
         "ignorezero,quickshell"
-        "ignorealpha 0.5,waybar" # Fixes annoying visual effect
-        "ignorealpha 0.5,quickshell" # Fixes annoying visual effect
-        "ignorealpha 0.5,notifications" # Fixes annoying visual effect
+        "ignorealpha 0.79,waybar"
         "animation slide,waybar"
-        "animation slide,quickshell"
       ];
 
       windowrule = [
         "float,nm-connection-editor|blueman-manager"
-        "float,pavucontrol"
+        "float,^(.*)(pavucontrol)$"
         "float,rofi"
         "float,yad"
-        # "opacity 0.9,title:^(Spotify)(.*)$"
+        # "opacity 0.85,^(spotify)$"
       ];
 
       windowrulev2 = [
         "idleinhibit fullscreen, fullscreen:1"
-        "opacity 0.95 0.75,title:^(Picture-in-Picture)$"
-        "pin,title:^(Picture-in-Picture)$ "
-        "float, title:^(Picture-in-Picture)$"
-        "size 25% 25%,title:^(Picture-in-Picture)$ "
-        "move 72% 7%,title:^(Picture-in-Picture)$ "
+        # "opacity 0.95 0.75,title:^(Picture-in-Picture)$"
+        # "pin,title:^(Picture-in-Picture)$"
+        # "float, title:^(Picture-in-Picture)$"
+        # "size 25% 25%,title:^(Picture-in-Picture)$"
+        # "move 72% 7%,title:^(Picture-in-Picture)$ "
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
@@ -195,12 +204,12 @@ in {
 
       exec-once = [
         "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
-        "${pkgs.hypridle}/bin/hypridle &"
-        "${pkgs.waybar}/bin/waybar &"
-        "${pkgs.swww}/bin/swww-daemon &"
         "hyprctl setcursor Bibata-Modern-Classic 20"
+        "${pkgs.hypridle}/bin/hypridle &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
         "${pkgs.opentabletdriver}/bin/otd-daemon &"
+        "${pkgs.swww}/bin/swww-daemon &"
+        "${pkgs.waybar}/bin/waybar &"
       ];
 
       bind = [
@@ -266,12 +275,12 @@ in {
         "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"
-        # "${mod} SHIFT, Return, exec, ${term2}"
+        "${mod} SHIFT, Return, exec, ${term2}"
         "${mod}, B, exec, ${browser}"
         "${mod}, E, exec, ${guiFiles}"
         "${mod} SHIFT, E, exec, ${files}"
         "${mod}, T, exec, ${telegram}"
-        "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface" # Refresh waybar, rofi
+        "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, C, exec, hyprctl reload"
         # "${mod} ALT, E, exec, hyprctl dispatch exit"
@@ -317,7 +326,7 @@ in {
     CLUTTER_BACKEND = "wayland";
     GDK_BACKEND = "wayland,x11";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";

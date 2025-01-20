@@ -8,69 +8,13 @@
     font-family-bold = "JetBrainsMono Nerd Font, Bold"
     font-family-italic = "JetBrainsMono Nerd Font, Italic"
     font-family-bold-italic = "JetBrainsMono Nerd Font, Bold Italic"
-    font-style = default
-    font-style-bold = default
-    font-style-italic = default
-    font-style-bold-italic = default
-    font-synthetic-style = bold,italic,bold-italic
     font-feature = -liga
     font-size = 12
-    font-variation =
-    font-variation-bold =
-    font-variation-italic =
-    font-variation-bold-italic =
-    font-codepoint-map =
-    font-thicken = false
-
-    adjust-cell-width =
-    adjust-cell-height =
-    adjust-font-baseline =
-    adjust-underline-position =
-    adjust-underline-thickness =
-    adjust-strikethrough-position =
-    adjust-strikethrough-thickness =
-    adjust-overline-position =
-    adjust-overline-thickness =
-    adjust-cursor-thickness =
-    adjust-cursor-height =
-    adjust-box-thickness =
-
-    grapheme-width-method = unicode
-    freetype-load-flags = hinting,force-autohint,monochrome,autohint
 
     theme = "catppuccin-mocha"
     background = #000000
     # foreground = #ffffff
-    selection-foreground =
-    selection-background =
-    selection-invert-fg-bg = true
-    minimum-contrast = 1
-    cursor-color =
-    cursor-invert-fg-bg = false
-    cursor-opacity = 1
-    cursor-style = block
-    cursor-style-blink = false
-    cursor-text =
-    cursor-click-to-move = true
-    mouse-hide-while-typing = false
-    mouse-shift-capture = false
-    mouse-scroll-multiplier = 1
     background-opacity = 0.8
-    background-blur-radius = 0
-    unfocused-split-opacity = 0.7
-    unfocused-split-fill =
-
-    command =
-    initial-command =
-    wait-after-command = false
-    abnormal-command-exit-runtime = 250
-    scrollback-limit = 10000000
-    link-url = true
-    fullscreen = false
-    title =
-    class =
-    x11-instance-name =
-    working-directory =
 
     keybind = ctrl+comma=open_config
     keybind = ctrl+alt+k=goto_split:top
@@ -132,59 +76,22 @@
 
     window-padding-x = 2
     window-padding-y = 2
-    window-padding-balance = false
-    window-padding-color = background
-    window-vsync = false
-    window-inherit-working-directory = true
-    window-inherit-font-size = true
-    window-decoration = false
-    window-title-font-family =
-    window-theme = dark
-    window-colorspace = srgb
-    window-height = 0
-    window-width = 0
-    window-save-state = default
-    window-step-resize = false
-    window-new-tab-position = current
+
     resize-overlay = never
-    resize-overlay-position = center
-    resize-overlay-duration = 750ms
-    focus-follows-mouse = false
-    clipboard-read = allow
-    clipboard-write = allow
-    clipboard-trim-trailing-spaces = true
-    clipboard-paste-protection = true
-    clipboard-paste-bracketed-safe = true
-    image-storage-limit = 320000000
+
+    window-decoration = false
+
     copy-on-select = true
-    click-repeat-interval = 0
-    config-file =
     confirm-close-surface = false
-    quit-after-last-window-closed = true
-    quit-after-last-window-closed-delay =
-    initial-window = true
 
     shell-integration = zsh
     shell-integration-features = no-cursor,sudo,no-title
-    osc-color-report-format = 16-bit
-    vt-kam-allowed = false
-    custom-shader =
-    custom-shader-animation = true
-    linux-cgroup = single-instance
-    linux-cgroup-memory-limit =
-    linux-cgroup-processes-limit =
-    linux-cgroup-hard-fail = false
+    linux-cgroup = never
+
     gtk-single-instance = false
     gtk-titlebar = false
-    gtk-tabs-location = top
-    adw-toolbar-style = raised
     gtk-wide-tabs = false
     gtk-adwaita = false
-    desktop-notifications = true
-    bold-is-bright = false
-    term = xterm-ghostty
-    enquiry-response =
     auto-update = off
-    auto-update-channel =
   '';
 }

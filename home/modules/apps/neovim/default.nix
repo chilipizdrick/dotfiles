@@ -33,7 +33,6 @@
 
     tree-sitter
     nixd
-    qt6.full
   ];
 
   home.file.".config/nvim".source =
