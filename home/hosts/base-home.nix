@@ -46,7 +46,6 @@
     mpv
     obsidian
     telegram-desktop
-    obs-studio
     baobab
   ];
 

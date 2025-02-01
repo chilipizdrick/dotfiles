@@ -17,6 +17,7 @@
   games = {
     enable = true;
     steam = true;
+    minecraft = true;
   };
 
   networking.hostName = "aurora";

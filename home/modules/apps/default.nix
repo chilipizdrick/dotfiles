@@ -18,5 +18,6 @@
     ./yazi
     ./carapace
     ./ghostty
+    ./obs-studio
   ];
 }

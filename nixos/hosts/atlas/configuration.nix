@@ -9,6 +9,7 @@
     enable = true;
     steam = true;
     gamescope = true;
+    minecraft = true;
   };
 
   swapFile = {

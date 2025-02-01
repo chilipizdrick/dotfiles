@@ -46,8 +46,6 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "MOZ_ENABLE_WAYLAND,1"
-        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-        "HYPRCURSOR_SIZE,20"
       ];
 
       monitor = [
@@ -119,7 +117,7 @@ in {
 
         touchpad = {
           scroll_factor = 0.5;
-          disable_while_typing = true;
+          disable_while_typing = false;
           natural_scroll = true;
           clickfinger_behavior = false;
           middle_button_emulation = true;
@@ -283,7 +281,7 @@ in {
         "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, C, exec, hyprctl reload"
-        # "${mod} ALT, E, exec, hyprctl dispatch exit"
+        "${mod} ALT, E, exec, hyprctl dispatch exit"
         "${mod} ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
         "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
         "${mod} SHIFT, A, exec, ${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
@@ -335,8 +333,6 @@ in {
     XDG_SESSION_TYPE = "wayland";
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    HYPRCURSOR_THEME = "Bibata-Modern-Classic";
-    HYPRCURSOR_SIZE = "20";
   };
 
   home.packages = with pkgs; [

@@ -10,6 +10,7 @@ in {
   options.games = {
     enable = mkEnableOption "game related stuff";
     steam = mkEnableOption "steam";
+    minecraft = mkEnableOption "minecraft";
     gamescope = mkEnableOption "gamescope";
     gamescopeExtraArgs = mkOption {
       type = types.listOf types.str;
@@ -33,6 +34,12 @@ in {
     services.udev.packages = [
       pkgs.game-devices-udev-rules
     ];
+
+    environment.shellAliases = mkIf cfg.minecraft {
+      java8 = lib.getExe pkgs.temurin-bin-8;
+      java17 = lib.getExe pkgs.temurin-bin-17;
+      java21 = lib.getExe pkgs.temurin-bin-21;
+    };
 
     programs = {
       steam = {
@@ -61,7 +68,14 @@ in {
       steamPkgs = [
         mangohud
       ];
+      minecraftPkgs = [
+        temurin-bin-8
+        temurin-bin-17
+        temurin-bin-21
+      ];
     in
-      (optionals cfg.steam steamPkgs) ++ [];
+      (optionals cfg.steam steamPkgs)
+      ++ (optionals cfg.minecraft minecraftPkgs)
+      ++ [];
   };
 }

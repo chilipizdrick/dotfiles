@@ -21,9 +21,6 @@ in {
         glfw-wayland-minecraft
         prismlauncher
         fabric-installer
-        temurin-bin-8
-        # temurin-bin-17
-        # temurin-bin
       ];
       r2modmanPkgs = [r2modman];
       osuPkgs = [osu-lazer];
