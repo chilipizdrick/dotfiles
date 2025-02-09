@@ -20,7 +20,7 @@
     ./zsh
     ./xdg-portals
     ./nix-ld
-    ./virtualization
+    # ./virtualization
     # ./plasma
   ];
 }

@@ -201,13 +201,13 @@ in {
       ];
 
       exec-once = [
-        "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
+        "hyprlock --immediate --immediate-render &" # Lock on login
         "hyprctl setcursor Bibata-Modern-Classic 20"
-        "${pkgs.hypridle}/bin/hypridle &"
+        "hypridle &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "${pkgs.opentabletdriver}/bin/otd-daemon &"
-        "${pkgs.swww}/bin/swww-daemon &"
-        "${pkgs.waybar}/bin/waybar &"
+        "otd-daemon &"
+        "swww-daemon &"
+        "waybar &"
       ];
 
       bind = [
@@ -282,7 +282,7 @@ in {
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, C, exec, hyprctl reload"
         "${mod} ALT, E, exec, hyprctl dispatch exit"
-        "${mod} ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
+        "${mod} ALT, L, exec, hyprlock"
         "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
         "${mod} SHIFT, A, exec, ${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
         "${mod} SHIFT, B, exec, ${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings blur"
@@ -336,9 +336,12 @@ in {
   };
 
   home.packages = with pkgs; [
+    hyprlock
+    hypridle
     killall
     wl-clipboard
     swww
+    opentabletdriver
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;

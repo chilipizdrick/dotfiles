@@ -1,5 +1,11 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [vesktop];
+{pkgs, ...}: rec {
+  home.packages = with pkgs; [
+    vesktop
+    (discord.override {
+      withVencord = true;
+    })
+  ];
+
   home.file.".config/vesktop/themes/catppuccin-mocha.css".text =
     # css
     ''
@@ -15,6 +21,7 @@
 
       @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
     '';
+
   home.file.".config/vesktop/themes/clear-vision.css".text =
     # css
     ''
@@ -134,5 +141,9 @@
         --bd-blue-active: var(--hover-color); /* betterdiscord active color [default: var(--hover-color)] */
       }
     '';
+
+  home.file.".config/Vencord/themes/clear-vision.css".text = home.file.".config/vesktop/themes/clear-vision.css".text;
+
   home.file.".config/vesktop/themes/transparent.png".source = ./assets/transparent.png;
+
 }

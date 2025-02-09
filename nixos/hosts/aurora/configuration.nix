@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../base-configuraion.nix
@@ -20,5 +20,6 @@
     minecraft = true;
   };
 
+  hardware.bluetooth.settings.General.ControllerMode = lib.mkForce "bredr";
   networking.hostName = "aurora";
 }
