@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./nautilus
+    ./chromium
   ];
 }

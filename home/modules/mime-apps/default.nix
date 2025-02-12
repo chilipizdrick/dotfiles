@@ -3,16 +3,21 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      "x-scheme-handler/http" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "x-scheme-handler/https" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "x-scheme-handler/chrome" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "text/html" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/x-extension-htm" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/x-extension-html" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/x-extension-shtml" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/xhtml+xml" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/x-extension-xhtml" = "userapp-Zen Browser-9LFOZ2.desktop";
-      "application/x-extension-xht" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "x-scheme-handler/http" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "x-scheme-handler/https" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "x-scheme-handler/chrome" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "text/html" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/x-extension-htm" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/x-extension-html" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/x-extension-shtml" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/xhtml+xml" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/x-extension-xhtml" = "userapp-Zen Browser-9LFOZ2.desktop";
+      # "application/x-extension-xht" = "userapp-Zen Browser-9LFOZ2.desktop";
+
+      "x-scheme-handler/http" = "chromium-browser.desktop";
+      "x-scheme-handler/https" = "chromium-browser.desktop";
+      "x-scheme-handler/about" = "chromium-browser.desktop";
+      "x-scheme-handler/unknown" = "chromium-browser.desktop";
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";

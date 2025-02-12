@@ -53,6 +53,8 @@
     tealdeer
     imagemagick
     ffmpeg
+
+    wineWowPackages.full
   ];
 
   environment.shells = [pkgs.nushell pkgs.zsh];

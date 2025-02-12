@@ -19,5 +19,6 @@
     ./carapace
     ./ghostty
     ./obs-studio
+    ./chromium
   ];
 }

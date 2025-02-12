@@ -35,7 +35,7 @@
 
     # GUI
     helvum
-    chromium
+
     inputs.zen-browser.packages."${system}".default
 
     imv

@@ -10,7 +10,8 @@
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.alacritty}/bin/alacritty";
   term2 = "${pkgs.ghostty}/bin/ghostty";
-  browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
+  # browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
+  browser = "xdg-open \"http://\"";
   left = "H";
   right = "L";
   up = "K";
@@ -117,7 +118,7 @@ in {
 
         touchpad = {
           scroll_factor = 0.5;
-          disable_while_typing = false;
+          disable_while_typing = true;
           natural_scroll = true;
           clickfinger_behavior = false;
           middle_button_emulation = true;
@@ -136,7 +137,7 @@ in {
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        vrr = 2;
+        vrr = 1;
         initial_workspace_tracking = 1;
       };
 
