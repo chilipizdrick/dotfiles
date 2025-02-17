@@ -31,7 +31,6 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-
     ripgrep
     fd
     wget
@@ -42,19 +41,15 @@
     unzip
     gzip
     neovim
-
     tmux
     tmux-sessionizer
     btop
     fastfetch
     alejandra
-
     sops
     tealdeer
     imagemagick
     ffmpeg
-
-    wineWowPackages.full
   ];
 
   environment.shells = [pkgs.nushell pkgs.zsh];

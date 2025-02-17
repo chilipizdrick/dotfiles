@@ -1,6 +1,6 @@
 {pkgs, ...}: rec {
   home.packages = with pkgs; [
-    vesktop
+    # vesktop
     (discord.override {
       withVencord = true;
     })

@@ -36,7 +36,7 @@
     # GUI
     helvum
 
-    inputs.zen-browser.packages."${system}".default
+    # inputs.zen-browser.packages."${system}".default
 
     imv
     loupe
@@ -47,6 +47,8 @@
     obsidian
     telegram-desktop
     baobab
+
+    wpsoffice
   ];
 
   # Enable home-manager

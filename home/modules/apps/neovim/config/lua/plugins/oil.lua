@@ -14,6 +14,15 @@ return { -- File explorer
     },
     -- use_defalut_keymaps = false,
   },
+
+  init = function()
+    vim.keymap.set(
+      'n',
+      '<leader>o',
+      '<Cmd>Oil<CR>',
+      { desc = 'Open Oil file explorer' }
+    )
+  end,
   -- Optional dependencies
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 }

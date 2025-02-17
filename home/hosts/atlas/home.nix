@@ -38,14 +38,12 @@ in {
       ];
       env = [
         "GDK_SCALE,${scale}"
-        # "GDK_DPI_SCALE,${scale}"
       ];
     };
   };
 
   home.sessionVariables = {
     GDK_SCALE = "${scale}";
-    # GDK_DPI_SCALE = "${scale}";
   };
 
   games = {

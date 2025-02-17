@@ -3,9 +3,9 @@ return { -- Linting
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local lint = require 'lint'
-    lint.linters_by_ft = {
-      markdown = { 'markdownlint' },
-    }
+    -- lint.linters_by_ft = {
+    --   markdown = { 'markdownlint' },
+    -- }
 
     -- Create autocommand which carries out the actual linting
     -- on the specified events.

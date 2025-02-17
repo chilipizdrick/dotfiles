@@ -9,9 +9,12 @@
       "bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc" # Material Icons for GitHub
       "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
       "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube
+      "jiaopdjbehhjgokpphdfgmapkobbnmjp" # Youtube-shorts block
     ];
     extraOpts = {
       "RestoreOnStartup" = 1;
+      "FullRestoreEnabled" = true;
+      "FullRestoreMode" = 1;
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
       "PasswordManagerEnabled" = true;

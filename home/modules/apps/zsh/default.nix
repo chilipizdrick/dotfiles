@@ -22,5 +22,8 @@
       #   src = pkgs.zsh-vi-mode.src;
       # }
     ];
+    initExtra = ''
+      zstyle ':completion:*' completer _expand_alias _complete _ignored
+    '';
   };
 }
