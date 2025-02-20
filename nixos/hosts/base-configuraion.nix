@@ -50,6 +50,7 @@
     tealdeer
     imagemagick
     ffmpeg
+    bat
   ];
 
   environment.shells = [pkgs.nushell pkgs.zsh];

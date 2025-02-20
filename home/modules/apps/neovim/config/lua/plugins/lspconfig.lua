@@ -1,7 +1,7 @@
 return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+    { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependents
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
@@ -119,8 +119,8 @@ return { -- LSP Configuration & Plugins
     )
 
     local mason_servers = {
-      ts_ls = {},
-      clangd = {},
+      -- ts_ls = {},
+      -- clangd = {},
       pyright = {},
       lua_ls = {
         settings = {
@@ -166,6 +166,8 @@ return { -- LSP Configuration & Plugins
     }
 
     require('mason-lspconfig').setup {
+      ensure_installed = ensure_installed,
+      automatic_installation = false,
       handlers = {
         function(server_name)
           local server = mason_servers[server_name] or {}
@@ -203,8 +205,8 @@ return { -- LSP Configuration & Plugins
         },
       },
     }
-    require('lspconfig').qmlls.setup {
-      cmd = { "qmlls", "-E" },
-    }
+    -- require('lspconfig').qmlls.setup {
+    --   cmd = { "qmlls", "-E" },
+    -- }
   end,
 }

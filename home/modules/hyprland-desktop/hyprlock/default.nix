@@ -61,7 +61,7 @@ in {
             outer_color = "rgba(0, 0, 0, 0.7)";
             inner_color = "rgba(0, 0, 0, 0.7)";
             check_color = "$blue";
-            fail_color = "rgb(ff2222)";
+            fail_color = "$red";
           }
         ];
         label = [

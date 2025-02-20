@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -38,4 +39,17 @@
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/Projects/nix/dotfiles/home/modules/apps/neovim/config";
+
+  home.file.".config/vale/.vale.ini".text = ''
+    StylesPath = .
+    MinAlertLevel = suggestion
+    [*]
+    BasedOnStyles = Vale
+  '';
+
+  # home.activation = {
+  #   syncValeLinter = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #     $HOME/.local/share/nvim/mason/packages/vale/vale --config=$HOME/.config/vale/.vale.ini sync
+  #   '';
+  # };
 }
