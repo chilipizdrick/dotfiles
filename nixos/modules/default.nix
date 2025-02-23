@@ -22,6 +22,6 @@
     ./nix-ld
     ./virtualization
     # ./plasma
-    ./comma
+    # ./comma
   ];
 }

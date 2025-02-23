@@ -23,6 +23,7 @@
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
       keep-outputs = true;
+      trusted-users = ["alex"];
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;

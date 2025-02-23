@@ -20,6 +20,6 @@
     ./ghostty
     ./obs-studio
     ./chromium
-    ./comma
+    # ./comma
   ];
 }
