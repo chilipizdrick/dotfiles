@@ -1,16 +1,7 @@
-{...}: {
+{config, ...}: {
   programs.nushell = {
     enable = true;
-    shellAliases = {
-      l = "ls -l";
-      ll = "ls -l";
-      la = "ls -a";
-      gadd = "git add .";
-      tmux = "with-env { TERM: \"tmux-256color\" } { tmux -u }";
-      tms = "with-env { TERM: \"tmux-256color\" } { tms }";
-      nrs = "sudo nixos-rebuild switch --flake .";
-      hms = "home-manager switch --flake .";
-    };
+    shellAliases = builtins.removeAttrs config.home.shellAliases ["nau"];
     extraEnv =
       # nu
       ''
