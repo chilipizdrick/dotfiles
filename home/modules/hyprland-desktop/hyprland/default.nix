@@ -92,15 +92,25 @@ in {
 
         blur = {
           enabled = true;
-          size = 5;
-          passes = 5;
-          brightness = 0.9;
-          noise = 0.0;
-          ignore_opacity = true;
+          size = 4;
+          passes = 4;
+          vibrancy = 0.1696;
           new_optimizations = true;
-          popups = true;
+          ignore_opacity = true;
           xray = false;
         };
+
+        # blur = {
+        #   enabled = true;
+        #   size = 5;
+        #   passes = 5;
+        #   brightness = 0.9;
+        #   noise = 0.0;
+        #   ignore_opacity = true;
+        #   new_optimizations = true;
+        #   popups = true;
+        #   xray = false;
+        # };
       };
 
       input = {
@@ -281,7 +291,6 @@ in {
         "${mod}, T, exec, ${telegram}"
         "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"
-        "${mod} ALT, C, exec, hyprctl reload"
         "${mod} ALT, E, exec, hyprctl dispatch exit"
         "${mod} ALT, L, exec, hyprlock"
         "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
@@ -291,6 +300,8 @@ in {
         "${mod} SHIFT, M, exec, ${scripts.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
         "${mod} ALT, P, exec, ${scripts.spread-propaganda}/bin/spread-propaganda"
         "${mod} ALT, S, exec, ${scripts.showcase}/bin/showcase"
+        "${mod} ALT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod}, N, exec, swaync-client -t"
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"

@@ -52,6 +52,7 @@
     imagemagick
     ffmpeg
     bat
+    television
   ];
 
   environment.shells = [pkgs.nushell pkgs.zsh];

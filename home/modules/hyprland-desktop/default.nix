@@ -9,6 +9,7 @@
     ./rofi
     ./waybar
     ./wlogout
+    # ./swaync
     # ./quickshell
   ];
 }

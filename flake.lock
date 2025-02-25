@@ -153,7 +153,8 @@
         "nixpkgs": "nixpkgs",
         "scripts": "scripts",
         "spicetify-nix": "spicetify-nix",
-        "wallpapers": "wallpapers"
+        "wallpapers": "wallpapers",
+        "zen-browser": "zen-browser"
       }
     },
     "scripts": {
@@ -240,6 +241,26 @@
       "original": {
         "owner": "chilipizdrick",
         "repo": "wallpapers",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740464728,
+        "narHash": "sha256-1BgSGQTLf48FjQxzNdwp3LkWh+SXxbpTgNwOBoPy3VE=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "e66c876920bbfbaf391c1188e7ba8db691d92356",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
