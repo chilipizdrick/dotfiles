@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./podman
     ./distrobox
+    ./podman
   ];
 }

@@ -1,10 +1,12 @@
 {...}: {
   imports = [
-    ./apps
+    # ./comma
+    # ./flatpak
+    # ./plasma
     ./appimage
+    ./apps
     ./bootloader
     ./firmware
-    # ./flatpak
     ./fonts
     ./games
     ./greeter
@@ -12,16 +14,14 @@
     ./hyprland
     ./locale
     ./misc
+    ./nix-ld
     ./polkit
     ./qt
     ./sudo
     ./swap
-    ./vpn
-    ./zsh
-    ./xdg-portals
-    ./nix-ld
     ./virtualization
-    # ./plasma
-    # ./comma
+    ./vpn
+    ./xdg-portals
+    ./zsh
   ];
 }

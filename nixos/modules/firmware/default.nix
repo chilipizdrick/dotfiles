@@ -1,14 +1,14 @@
 {...}: {
   imports = [
-    ./video-drives
-    ./printing
     ./audio
     ./bluetooth
     ./graphical-tablet
+    ./kernel
     ./networking
     ./power-management
+    ./printing
     ./time
     ./touchpad
-    ./kernel
+    ./video-drives
   ];
 }

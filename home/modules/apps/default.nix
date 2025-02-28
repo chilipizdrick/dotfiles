@@ -1,26 +1,26 @@
 {...}: {
   imports = [
+    # ./comma
     # ./firefox
     # ./flatpak
-    ./cava
-    ./discord
-    ./starship
-    ./git
-    ./tmux
-    ./zsh
-    ./nushell
-    ./neovim
     ./alacritty
-    ./zoxide
-    ./spotify
-    ./udiskie
-    ./direnv
-    ./yazi
     ./carapace
-    ./ghostty
-    ./obs-studio
+    ./cava
     ./chromium
+    ./direnv
+    ./discord
     ./fzf
-    # ./comma
+    ./ghostty
+    ./git
+    ./neovim
+    ./nushell
+    ./obs-studio
+    ./spotify
+    ./starship
+    ./tmux
+    ./udiskie
+    ./yazi
+    ./zoxide
+    ./zsh
   ];
 }

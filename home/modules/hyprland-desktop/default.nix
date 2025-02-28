@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    # ./swaync
     ./cursor
     ./gtk
     ./hypridle
@@ -9,7 +10,5 @@
     ./rofi
     ./waybar
     ./wlogout
-    # ./swaync
-    # ./quickshell
   ];
 }
