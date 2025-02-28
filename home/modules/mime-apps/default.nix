@@ -3,10 +3,10 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      "x-scheme-handler/http" = "chromium-browser.desktop";
-      "x-scheme-handler/https" = "chromium-browser.desktop";
-      "x-scheme-handler/about" = "chromium-browser.desktop";
-      "x-scheme-handler/unknown" = "chromium-browser.desktop";
+      # "x-scheme-handler/http" = "chromium-browser.desktop";
+      # "x-scheme-handler/https" = "chromium-browser.desktop";
+      # "x-scheme-handler/about" = "chromium-browser.desktop";
+      # "x-scheme-handler/unknown" = "chromium-browser.desktop";
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";

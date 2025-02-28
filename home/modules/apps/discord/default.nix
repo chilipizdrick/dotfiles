@@ -145,5 +145,4 @@
   home.file.".config/Vencord/themes/clear-vision.css".text = home.file.".config/vesktop/themes/clear-vision.css".text;
 
   home.file.".config/vesktop/themes/transparent.png".source = ./assets/transparent.png;
-
 }

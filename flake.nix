@@ -24,16 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-search-tv = {
-    #   url = "github:3timeslazy/nix-search-tv";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # nix-index-database = {
-    #   url = "github:nix-community/nix-index-database";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,15 +66,15 @@
 
     homeConfigurations = {
       "alex@atlas" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         inherit extraSpecialArgs;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home/hosts/atlas/home.nix
         ];
       };
       "alex@aurora" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         inherit extraSpecialArgs;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home/hosts/aurora/home.nix
         ];

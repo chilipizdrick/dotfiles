@@ -3,7 +3,7 @@
     l = "ls -l";
     ll = "ls -l";
     la = "ls -a";
-    ns = "nix-search-tv print | tv";
+    ns = "xdg-open https://mynixos.com/";
     ga = "git add .";
     gc = "git commit -m ";
     gpl = "git pull";
@@ -12,7 +12,7 @@
     tmux = "TERM=\"tmux-256color\" tmux -u";
     tms = "TERM=\"tmux-256color\" tms";
     nrs = "sudo nixos-rebuild switch --flake .";
-    hms = "home-manager switch --flake .";
+    hms = "home-manager switch --flake . -b backup";
     nau = "export NIXPKGS_ALLOW_UNFREE=1";
   };
 }

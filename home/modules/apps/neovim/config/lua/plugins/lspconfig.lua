@@ -189,7 +189,7 @@ return { -- LSP Configuration & Plugins
               expr = 'import <nixpkgs> {}',
             },
             formatting = {
-              command = { 'alejandra' },
+              command = { 'nix fmt || alejandra' },
             },
             options = {
               nixos = {

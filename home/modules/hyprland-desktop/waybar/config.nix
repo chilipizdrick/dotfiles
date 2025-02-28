@@ -175,7 +175,7 @@
           "status-icons": {
             "paused": "||"
           },
-          "ignored-players": [ "firefox", "chromium", "brave" ]
+          "ignored-players": [ "firefox", "chromium", "brave", "zen" ]
         },
         "custom/vpn": {
           "exec": "${scripts.query-tailscale}/bin/query-tailscale",

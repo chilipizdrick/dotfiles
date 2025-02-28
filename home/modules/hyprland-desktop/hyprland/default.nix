@@ -10,7 +10,7 @@
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.alacritty}/bin/alacritty";
   term2 = "${pkgs.ghostty}/bin/ghostty";
-  # browser = "${inputs.zen-browser.packages.x86_64-linux.default}/bin/zen";
+  # browser = "${inputs.zen-browser.packages.x86_64-linux.twilight}/bin/zen";
   browser = "xdg-open \"http://\"";
   left = "H";
   right = "L";
@@ -181,6 +181,10 @@ in {
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
+        "blur,swaync-control-center"
+        "blur,swaync-notification-window"
+        "ignorealpha 0.79,swaync-control-center"
+        "ignorealpha 0.79,swaync-notification-window"
         "ignorezero,waybar"
         "ignorezero,notifications"
         "ignorezero,quickshell"
