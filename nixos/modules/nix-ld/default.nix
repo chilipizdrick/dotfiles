@@ -1,6 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   programs.nix-ld = {
     enable = true;
-    libraries = [];
+    libraries = [
+      pkgs.glfw
+    ];
   };
 }

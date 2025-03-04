@@ -2,6 +2,7 @@
   imports = [
     # ./swaync
     ./cursor
+    ./gammastep
     ./gtk
     ./hypridle
     ./hyprland

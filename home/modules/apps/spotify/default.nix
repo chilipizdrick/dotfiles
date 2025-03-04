@@ -13,11 +13,13 @@
     enable = true;
     spotifyPackage = pkgs.spotify;
 
-    # theme = spicetifyPkgs.themes.defaultDynamic;
+    # theme = spicetifyPkgs.themes.dribbblish;
+    # colorScheme = "Lunar";
+
+    # theme = spicetifyPkgs.themes.hazy;
+
     theme = spicetifyPkgs.themes.comfy;
-    colorScheme = "Hikari";
-    # theme = spicetifyPkgs.themes.catppuccin;
-    # colorScheme = "Mocha";
+    colorScheme = "Mono";
 
     enabledExtensions = with spicetifyPkgs.extensions; [
       adblock

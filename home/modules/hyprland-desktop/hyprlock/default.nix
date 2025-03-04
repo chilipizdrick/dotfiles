@@ -51,7 +51,7 @@ in {
             halign = "center";
             valign = "bottom";
             position = "0, ${builtins.toString (50 * cfg.scale)}";
-            outline_thickness = 5;
+            outline_thickness = 0;
             dots_size = 0.26;
             dots_spacing = 0.64;
             dots_center = true;

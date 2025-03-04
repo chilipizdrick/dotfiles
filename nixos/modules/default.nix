@@ -9,6 +9,7 @@
     ./firmware
     ./fonts
     ./games
+    # ./geolocation
     ./greeter
     ./hyperion
     ./hyprland

@@ -169,7 +169,7 @@
             "spotify": " ",
             "default": "▶"
           },
-          "dynamic-order": ["title", "artist", "position", "length"],
+          "dynamic-order": ["title", "artist"],
           "dynamic-len": 50,
           "interval": 1,
           "status-icons": {

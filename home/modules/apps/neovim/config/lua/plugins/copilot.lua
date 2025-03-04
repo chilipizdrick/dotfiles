@@ -1,6 +1,6 @@
 return {
   'zbirenbaum/copilot.lua',
-  enabled = false,
+  enabled = true,
   opts = {
     suggestion = { enabled = false },
     panel = { enabled = false },
