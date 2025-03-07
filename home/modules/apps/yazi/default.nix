@@ -7,13 +7,27 @@
       manager = {
         show_hidden = true;
       };
-      preview  = {
+      preview = {
         max_height = 600;
         max_width = 600;
       };
     };
-    package = pkgs.yazi;
+    plugins = {
+      filepicker = ./plugins/filepicker;
+    };
+    keymap = {
+      manager.prepend_keymap = [
+        {
+          run = "plugin filepicker";
+          on = ["<C-p>"];
+        }
+      ];
+    };
   };
+
+  home.packages = with pkgs; [
+    ripdrag
+  ];
 
   home.file.".config/yazi/theme.toml".text =
     # toml

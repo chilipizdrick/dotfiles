@@ -88,7 +88,7 @@
     cursor-color = #cdd6f4
     cursor-text = #1e1e2e
 
-    shell-integration = zsh
+    # shell-integration = zsh
     shell-integration-features = no-cursor,sudo,no-title
 
     gtk-single-instance = true
