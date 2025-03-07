@@ -8,9 +8,8 @@
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
   files = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.yazi}/bin/yazi";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
-  term = "${pkgs.alacritty}/bin/alacritty";
-  term2 = "${pkgs.ghostty}/bin/ghostty";
-  # browser = "${inputs.zen-browser.packages.x86_64-linux.twilight}/bin/zen";
+  term = "${pkgs.ghostty}/bin/ghostty";
+  term2 = "${pkgs.alacritty}/bin/alacritty";
   browser = "xdg-open \"http://\"";
   left = "H";
   right = "L";
@@ -223,6 +222,7 @@ in {
         "otd-daemon &"
         "swww-daemon &"
         "waybar &"
+        "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false &"
       ];
 
       bind = [
@@ -283,8 +283,8 @@ in {
         "${mod} SHIFT, U, movetoworkspace, special"
         "${mod}, U, togglespecialworkspace,"
         "${mod}, W, exec, ${scripts.select-wallpaper}/bin/select-wallpaper"
-        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 2x2 PNG:- | ${pkgs.wl-clipboard}/bin/wl-copy"
-        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 2x2 PNG:- | ${pkgs.swappy}/bin/swappy -f -"
+        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 3x3 PNG:- | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 3x3 PNG:- | ${pkgs.swappy}/bin/swappy -f -"
         "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"

@@ -20,7 +20,7 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = '80' -- Ruler
+-- vim.opt.colorcolumn = '80' -- Ruler
 
 -- Spelling
 vim.opt.spelllang = 'en_us,ru_ru'
@@ -41,3 +41,10 @@ vim.opt.langmap = vim.fn.join({
   escape(ru_shift) .. ';' .. escape(en_shift),
   escape(ru) .. ';' .. escape(en),
 }, ',')
+
+-- Neovide config
+
+if vim.g.neovide then
+  vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
+  vim.g.neovide_background_color = "#00000000"
+end

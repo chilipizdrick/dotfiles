@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   config,
   ...
 }: {
@@ -34,6 +33,7 @@
 
     tree-sitter
     nixd
+    ietf-cli
   ];
 
   home.file.".config/nvim".source =

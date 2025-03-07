@@ -13,7 +13,7 @@
 
     theme = "catppuccin-mocha"
     background = #000000
-    # foreground = #ffffff
+    foreground = #cdd6f4
     background-opacity = 0.8
 
     keybind = ctrl+comma=open_config
@@ -83,12 +83,15 @@
 
     copy-on-select = true
     confirm-close-surface = false
+    cursor-style = block
+    cursor-style-blink = false
+    cursor-color = #cdd6f4
+    cursor-text = #1e1e2e
 
     shell-integration = zsh
     shell-integration-features = no-cursor,sudo,no-title
-    linux-cgroup = never
 
-    gtk-single-instance = false
+    gtk-single-instance = true
     gtk-titlebar = false
     gtk-wide-tabs = false
     gtk-adwaita = false
