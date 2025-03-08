@@ -14,12 +14,17 @@
     };
     plugins = {
       filepicker = ./plugins/filepicker;
+      compress = ./plugins/compress;
     };
     keymap = {
       manager.prepend_keymap = [
         {
-          run = "plugin filepicker";
           on = ["<C-p>"];
+          run = "plugin filepicker";
+        }
+        {
+          on = ["c" "a"];
+          run = "plugin compress";
         }
       ];
     };
