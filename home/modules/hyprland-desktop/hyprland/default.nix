@@ -6,7 +6,7 @@
 }: let
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  files = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.yazi}/bin/yazi";
+  files = "${pkgs.ghostty}/bin/ghostty -e ${pkgs.yazi}/bin/yazi";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.ghostty}/bin/ghostty";
   term2 = "${pkgs.alacritty}/bin/alacritty";

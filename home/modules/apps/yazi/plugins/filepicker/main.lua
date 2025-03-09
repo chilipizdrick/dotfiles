@@ -16,7 +16,8 @@ return {
   entry = function()
     ya.manager_emit("escape", { visual = true })
     local names = selected_or_hovered()
-    local cmd = "ripdrag " .. table.concat(names, " ")
+    local cmd = "ripdrag " .. table.concat(names, " ") .. " --and-exit"
     os.execute(cmd)
   end,
 }
+

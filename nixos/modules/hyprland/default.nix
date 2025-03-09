@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
@@ -9,6 +8,6 @@
     xwayland.enable = true;
   };
   environment.defaultPackages = with pkgs; [
-    inputs.hyprland-qtutils.packages."${system}".default
+    hyprland-qtutils
   ];
 }
