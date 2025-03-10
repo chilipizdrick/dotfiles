@@ -5,7 +5,7 @@
     enableNushellIntegration = true;
     settings = {
       manager = {
-        show_hidden = true;
+        show_hidden = false;
       };
       preview = {
         max_height = 600;

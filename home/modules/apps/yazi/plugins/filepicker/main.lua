@@ -20,4 +20,3 @@ return {
     os.execute(cmd)
   end,
 }
-

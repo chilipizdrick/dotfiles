@@ -6,7 +6,7 @@
 }: let
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  files = "${pkgs.ghostty}/bin/ghostty -e ${pkgs.yazi}/bin/yazi";
+  files = "${pkgs.ghostty}/bin/ghostty -e \"EDITOR=nvim ${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.ghostty}/bin/ghostty";
   term2 = "${pkgs.alacritty}/bin/alacritty";
@@ -46,6 +46,7 @@ in {
         "XDG_SESSION_TYPE,wayland"
         "NIXOS_OZONE_WL,1"
         "MOZ_ENABLE_WAYLAND,1"
+        "EDITOR,nvim"
       ];
 
       monitor = [
@@ -290,8 +291,8 @@ in {
         "${mod}, Return, exec, ${term}"
         "${mod} SHIFT, Return, exec, ${term2}"
         "${mod}, B, exec, ${browser}"
-        "${mod}, E, exec, ${guiFiles}"
-        "${mod} SHIFT, E, exec, ${files}"
+        "${mod}, E, exec, ${files}"
+        "${mod} SHIFT, E, exec, ${guiFiles}"
         "${mod}, T, exec, ${telegram}"
         "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
         "CTRL ALT, Delete, exec, hyprctl dispatch exit"

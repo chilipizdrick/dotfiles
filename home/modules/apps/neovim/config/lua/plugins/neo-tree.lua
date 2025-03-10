@@ -1,18 +1,18 @@
 return { -- Filetree
-  'nvim-neo-tree/neo-tree.nvim',
-  version = '*',
+  "nvim-neo-tree/neo-tree.nvim",
+  version = "*",
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
   },
-  cmd = 'Neotree',
+  cmd = "Neotree",
   keys = {
-    { '\\', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle NeoTree visibility' } },
+    { "\\", "<Cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree visibility" } },
   },
   opts = {
     window = {
-      position = 'right',
+      position = "right",
       width = 30,
     },
     filesystem = {
@@ -22,13 +22,13 @@ return { -- Filetree
         hide_dotfiles = false,
         hide_gitignored = false,
         hide_by_name = {
-          '.git',
+          ".git",
         },
         never_show = {},
       },
       window = {
         mappings = {
-          ['\\'] = 'close_window',
+          ["\\"] = "close_window",
         },
       },
     },

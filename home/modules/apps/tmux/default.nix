@@ -16,6 +16,8 @@
     ];
 
     extraConfig = ''
+      set -g focus-events on
+
       # Color config
       set -g default-terminal "tmux-256color"
       set -ga terminal-overrides ",*256col*:Tc"

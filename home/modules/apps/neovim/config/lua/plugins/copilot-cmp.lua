@@ -1,7 +1,7 @@
 return {
-  'zbirenbaum/copilot-cmp',
+  "zbirenbaum/copilot-cmp",
   enabled = true,
   config = function()
-    require('copilot_cmp').setup()
+    require("copilot_cmp").setup()
   end,
 }

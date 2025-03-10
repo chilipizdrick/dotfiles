@@ -44,6 +44,7 @@
     zathura
 
     mpv
+    decibels
     obsidian
     telegram-desktop
     baobab

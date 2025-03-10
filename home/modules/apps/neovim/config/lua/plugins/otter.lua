@@ -1,7 +1,7 @@
 return { -- Code highlighting inside strings
-  'jmbuhr/otter.nvim',
+  "jmbuhr/otter.nvim",
   dependencies = {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
   },
   opts = {},
 }

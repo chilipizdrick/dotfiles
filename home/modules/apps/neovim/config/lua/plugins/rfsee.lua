@@ -1,8 +1,8 @@
 return {
-  'matthewmturner/rfsee',
+  "matthewmturner/rfsee",
   enabled = false,
   opts = {},
   dependencies = {
-    'nvim-lua/plenary.nvim',
+    "nvim-lua/plenary.nvim",
   },
 }
