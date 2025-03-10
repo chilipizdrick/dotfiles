@@ -52,7 +52,7 @@
 
     typst
     tinymist
-    prettypst
+    typstyle
 
     vale
     mdformat

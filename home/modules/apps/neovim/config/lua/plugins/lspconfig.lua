@@ -146,7 +146,7 @@ return { -- LSP Configuration & Plugins
         settings = {
           exportPdf = "never",
           outputPath = "$root/target/$name",
-          formatterMode = "prettypst",
+          formatterMode = "typstyle",
         },
       },
     }

@@ -33,24 +33,25 @@ return { -- Autoformat
       bash = { "shfmt" },
       go = { "gofmt" },
       yaml = { "yq" },
-      typst = { "prettypst", lsp_format = "fallback" },
+      -- typst = { "prettypst", lsp_format = "fallback" },
+      typst = { "typstyle", lsp_format = "fallback" },
       json = { "fixjson" },
       markdown = { "commonmark" },
       rust = { "rustfmt", lsp_format = "fallback" },
     },
 
     formatters = {
-      prettypst = {
-        command = "prettypst",
-        args = {
-          "--use-std-in",
-          "--use-std-out",
-          "--style=default",
-          "--file-location",
-          "~/.config/prettypst/prettypst.toml",
-        },
-        stdin = true,
-      },
+      -- prettypst = {
+      --   command = "prettypst",
+      --   args = {
+      --     "--use-std-in",
+      --     "--use-std-out",
+      --     "--style=default",
+      --     "--file-location",
+      --     "~/.config/prettypst/prettypst.toml",
+      --   },
+      --   stdin = true,
+      -- },
     },
   },
 }
