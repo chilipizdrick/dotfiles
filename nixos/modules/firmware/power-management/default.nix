@@ -22,14 +22,4 @@
     AllowHybridSleep=no
     AllowSuspendThenHibernate=no
   '';
-
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     DISK_IDLE_SECS_ON_BAT = 2;
-  #     WIFI_PWR_ON_BAT = true;
-  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
-  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-  #   };
-  # };
 }

@@ -5,6 +5,7 @@ return { -- Linting
     local lint = require "lint"
     lint.linters_by_ft = {
       markdown = { "vale" },
+      -- rust = { "clippy" },
     }
 
     -- Create autocommand which carries out the actual linting

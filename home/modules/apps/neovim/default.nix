@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   ...
@@ -22,10 +23,21 @@
 
   home.packages = with pkgs; let
     llvmPkgs = llvmPackages;
+    fenixPkgs = inputs.fenix.packages.${pkgs.system};
   in [
-    cargo
-    rust-analyzer
-    rustfmt
+    (fenixPkgs.stable.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+      "rust-analyzer"
+    ])
+    # cargo
+    # clippy
+    # rustc
+    # rustfmt
+    # rust-analyzer
 
     python3
     python3Packages.pip

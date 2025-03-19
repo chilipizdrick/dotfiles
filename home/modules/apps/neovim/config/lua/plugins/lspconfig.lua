@@ -1,10 +1,6 @@
-return { -- LSP Configuration & Plugins
+return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependents
-    -- 'williamboman/mason-lspconfig.nvim',
-    -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
-    -- { 'folke/neodev.nvim', opts = {} },
     { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
@@ -60,7 +56,7 @@ return { -- LSP Configuration & Plugins
 
         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        map("<leader>a", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
         map("K", vim.lsp.buf.hover, "Hover Documentation")
 
@@ -149,6 +145,29 @@ return { -- LSP Configuration & Plugins
           formatterMode = "typstyle",
         },
       },
+      nixd = {
+        cmd = { "nixd" },
+        nixd = {
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = "import <nixpkgs> {}",
+              },
+              formatting = {
+                command = { "nix fmt || alejandra" },
+              },
+              options = {
+                nixos = {
+                  expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").nixosConfigurations."atlas".options',
+                },
+                home_manager = {
+                  expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").homeConfigurations."atlas".options',
+                },
+              },
+            },
+          },
+        },
+      },
     }
 
     for server, config in pairs(servers) do
@@ -160,59 +179,5 @@ return { -- LSP Configuration & Plugins
       )
       require("lspconfig")[server].setup(config)
     end
-
-    -- require('mason').setup()
-    --
-    -- require('mason-tool-installer').setup {
-    --   ensure_installed = {
-    --     'stylua',
-    --   },
-    -- }
-
-    -- local ensure_installed = vim.tbl_keys(mason_servers or {})
-    -- require('mason-lspconfig').setup {
-    --   ensure_installed = ensure_installed,
-    --   automatic_installation = false,
-    --   handlers = {
-    --     function(server_name)
-    --       local server = mason_servers[server_name] or {}
-    --       server.capabilities = vim.tbl_deep_extend(
-    --         'force',
-    --         {},
-    --         capabilities,
-    --         server.capabilities or {}
-    --       )
-    --       require('lspconfig')[server_name].setup(server)
-    --     end,
-    --   },
-    -- }
-
-    require("lspconfig").nixd.setup {
-      cmd = { "nixd" },
-      nixd = {
-        settings = {
-          nixd = {
-            nixpkgs = {
-              expr = "import <nixpkgs> {}",
-            },
-            formatting = {
-              command = { "nix fmt || alejandra" },
-            },
-            options = {
-              nixos = {
-                expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").nixosConfigurations."atlas".options',
-              },
-              home_manager = {
-                expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").homeConfigurations."atlas".options',
-              },
-            },
-          },
-        },
-      },
-    }
-
-    -- require('lspconfig').qmlls.setup {
-    --   cmd = { "qmlls", "-E" },
-    -- }
   end,
 }

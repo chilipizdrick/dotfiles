@@ -1,6 +1,9 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
-    # ./comma
     # ./firefox
     # ./flatpak
     ./alacritty
@@ -12,6 +15,7 @@
     ./fzf
     ./ghostty
     ./git
+    ./helix
     ./neovim
     ./nushell
     ./obs-studio
@@ -22,5 +26,23 @@
     ./yazi
     ./zoxide
     ./zsh
+  ];
+
+  home.packages = with pkgs; [
+    affine
+    ani-cli
+    baobab
+    decibels
+    gimp
+    helvum
+    imv
+    inputs.zen-browser.packages."${system}".twilight
+    loupe
+    mpv
+    obsidian
+    openvpn
+    telegram-desktop
+    thunderbird
+    zathura
   ];
 }

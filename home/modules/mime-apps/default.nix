@@ -3,21 +3,21 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      # "x-scheme-handler/http" = "chromium-browser.desktop";
-      # "x-scheme-handler/https" = "chromium-browser.desktop";
-      # "x-scheme-handler/about" = "chromium-browser.desktop";
-      # "x-scheme-handler/unknown" = "chromium-browser.desktop";
+      "x-scheme-handler/http" = "zen_twilight.desktop";
+      "x-scheme-handler/https" = "zen_twilight.desktop";
+      "x-scheme-handler/about" = "zen_twilight.desktop";
+      "x-scheme-handler/unknown" = "zen_twilight.desktop";
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
-      # "application/doc" = "libreoffice-writer.desktop";
-      # "application/docx" = "libreoffice-writer.desktop";
-      # "application/msword" = "libreoffice-writer.desktop";
-      # "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
+      "application/pdf" = ["org.pwmt.zathura.desktop" "zen_twilight.desktop"];
+      "application/doc" = "onlyoffice-desktopeditors.desktop";
+      "application/docx" = "onlyoffice-desktopeditors.desktop";
+      "application/msword" = "onlyoffice-desktopeditors.desktop";
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
 
       "image/png" = ["imv.desktop" "gimp.desktop"];
       "image/jpg" = ["imv.desktop" "gimp.desktop"];

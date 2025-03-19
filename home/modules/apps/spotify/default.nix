@@ -13,11 +13,6 @@
     enable = true;
     spotifyPackage = pkgs.spotify;
 
-    # theme = spicetifyPkgs.themes.dribbblish;
-    # colorScheme = "Lunar";
-
-    # theme = spicetifyPkgs.themes.hazy;
-
     theme = spicetifyPkgs.themes.comfy;
     colorScheme = "Mono";
 
@@ -30,6 +25,11 @@
       hidePodcasts
       playNext
       volumePercentage
+    ];
+
+    enabledCustomApps = with spicetifyPkgs.apps; [
+      lyricsPlus
+      ncsVisualizer
     ];
   };
 }

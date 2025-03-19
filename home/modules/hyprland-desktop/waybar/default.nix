@@ -8,9 +8,4 @@
     enable = true;
     package = pkgs.waybar;
   };
-
-  # home.packages = [
-  #   pkgs.cantarell-fonts
-  #   pkgs.minecraftia
-  # ];
 }

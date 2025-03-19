@@ -6,7 +6,7 @@
 }: let
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  files = "${pkgs.ghostty}/bin/ghostty -e \"EDITOR=nvim ${pkgs.yazi}/bin/yazi\"";
+  files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.ghostty}/bin/ghostty";
   term2 = "${pkgs.alacritty}/bin/alacritty";
@@ -82,12 +82,21 @@ in {
         dim_inactive = false;
         dim_strength = 0.1;
 
+        # shadow = {
+        #   enabled = true;
+        #   range = 10;
+        #   render_power = 3;
+        #   offset = "2 2";
+        #   color = "rgba(000000ff)";
+        # };
+
         shadow = {
-          enabled = false;
-          range = 10;
-          render_power = 3;
-          # offset = "2 2";
-          color = "rgba(000000ff)";
+          enabled = true;
+          range = 300;
+          render_power = 5;
+          color = "rgba(1a1a1aaf)";
+          offset = "20 20";
+          scale = 0.9;
         };
 
         blur = {
@@ -99,18 +108,6 @@ in {
           ignore_opacity = true;
           xray = false;
         };
-
-        # blur = {
-        #   enabled = true;
-        #   size = 5;
-        #   passes = 5;
-        #   brightness = 0.9;
-        #   noise = 0.0;
-        #   ignore_opacity = true;
-        #   new_optimizations = true;
-        #   popups = true;
-        #   xray = false;
-        # };
       };
 
       input = {
@@ -157,7 +154,7 @@ in {
 
       ecosystem = {
         no_update_news = true;
-        # no_donation_nag = true;
+        no_donation_nag = true;
       };
 
       binds = {
@@ -181,37 +178,21 @@ in {
         "blur,rofi"
         "blur,waybar"
         "blur,notifications"
-        "blur,swaync-control-center"
-        "blur,swaync-notification-window"
-        "ignorealpha 0.79,swaync-control-center"
-        "ignorealpha 0.79,swaync-notification-window"
         "ignorezero,waybar"
         "ignorezero,notifications"
-        "ignorezero,quickshell"
         "ignorealpha 0.79,waybar"
         "animation slide,waybar"
       ];
 
       windowrule = [
-        "float,nm-connection-editor|blueman-manager"
+        "float,^(.*)(blueman-manager-wrapped)"
         "float,^(.*)(pavucontrol)$"
         "float,rofi"
         "float,yad"
-        # "opacity 0.85,^(spotify)$"
       ];
 
       windowrulev2 = [
         "idleinhibit fullscreen, fullscreen:1"
-        # "opacity 0.95 0.75,title:^(Picture-in-Picture)$"
-        # "pin,title:^(Picture-in-Picture)$"
-        # "float, title:^(Picture-in-Picture)$"
-        # "size 25% 25%,title:^(Picture-in-Picture)$"
-        # "move 72% 7%,title:^(Picture-in-Picture)$ "
-        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
         "noborder, onworkspace:w[t1]" # Disable borders for single window workspaces
       ];
 
@@ -230,7 +211,7 @@ in {
         "${mod} SHIFT, Q, killactive,"
         "${mod} SHIFT, W, exec, kill -9 $(hyprctl activewindow | grep 'pid:' | awk '{print $2}')"
         "${mod}, F, fullscreen,"
-        "${mod} SHIFT, F, togglefloating,"
+        "${mod} SHIFT, F, togglefloating"
         "${mod} ALT, F, exec, hyprctl dispatch workspaceopt allfloat"
         "${mod}, ${left}, movefocus, l"
         "${mod}, ${right}, movefocus, r"
@@ -284,8 +265,8 @@ in {
         "${mod} SHIFT, U, movetoworkspace, special"
         "${mod}, U, togglespecialworkspace,"
         "${mod}, W, exec, ${scripts.select-wallpaper}/bin/select-wallpaper"
-        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 3x3 PNG:- | ${pkgs.wl-clipboard}/bin/wl-copy"
-        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.imagemagick}/bin/magick - -shave 3x3 PNG:- | ${pkgs.swappy}/bin/swappy -f -"
+        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.swappy}/bin/swappy -f -"
         "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"

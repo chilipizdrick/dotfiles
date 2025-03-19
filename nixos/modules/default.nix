@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    # ./comma
     # ./flatpak
     # ./plasma
     ./appimage
@@ -9,7 +8,6 @@
     ./firmware
     ./fonts
     ./games
-    # ./geolocation
     ./greeter
     ./hyperion
     ./hyprland
@@ -23,6 +21,8 @@
     ./virtualization
     ./vpn
     ./xdg-portals
-    ./zsh
+    ./shell
+    ./kanata
+    ./users
   ];
 }

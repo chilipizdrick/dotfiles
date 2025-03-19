@@ -28,14 +28,6 @@ return { -- Collection of various small independent plugins/modules
         suffix_last = "l", -- Suffix to search with "prev" method
         suffix_next = "n", -- Suffix to search with "next" method
       },
-
-      require("mini.comment").setup {
-        mappings = {
-          comment = "gc",
-          comment_line = "gcc",
-          text_object = "gc",
-        },
-      },
     }
 
     -- Simple and easy statusline.

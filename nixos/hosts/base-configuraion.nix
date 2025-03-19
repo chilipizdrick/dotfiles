@@ -9,11 +9,15 @@
     ../modules
   ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  nixpkgs.config.allowUnfreePredicate = let
+    whitelist = map lib.getName [
+      pkgs.steam
+      pkgs.steam-unwrapped
+      pkgs.corefonts
+      pkgs.zerotierone
+    ];
+  in
+    pkg: builtins.elem (lib.getName pkg) whitelist;
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -28,43 +32,6 @@
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-    ripgrep
-    fd
-    wget
-    curl
-    jq
-    git
-    zip
-    unzip
-    gzip
-    neovim
-    tmux
-    tmux-sessionizer
-    btop
-    fastfetch
-    alejandra
-    sops
-    tealdeer
-    imagemagick
-    ffmpeg
-    bat
-    television
-  ];
-
-  environment.shells = [pkgs.nushell pkgs.zsh];
-
-  users.defaultUserShell = pkgs.zsh;
-
-  users.users = {
-    alex = {
-      initialPassword = "password";
-      isNormalUser = true;
-      extraGroups = ["admin" "networkmanager" "wheel" "audio" "docker" "video" "dialout" "scanner" "lp" "uinput" "adm" "kvm" "users" "systemd-journal"];
-    };
   };
 
   system.stateVersion = "24.05";

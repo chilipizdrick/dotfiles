@@ -2,17 +2,19 @@
   programs.nushell = {
     enable = true;
     shellAliases = builtins.removeAttrs config.home.shellAliases ["nau"];
+
     extraEnv =
       # nu
       ''
         $env.EDITOR = "nvim"
-        $env.TERMINAL = "alacritty"
+        $env.TERMINAL = "ghostty"
         $env.BROWSER = "zen"
         $env.PROMPT_INDICATOR = ""
         $env.PROMPT_INDICATOR_VI_INSERT = ""
         $env.PROMPT_INDICATOR_VI_NORMAL = " "
         $env.PROMPT_MULTILINE_INDICATOR = ""
       '';
+
     extraConfig =
       # nu
       ''

@@ -1,11 +1,12 @@
 {
-  inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
     ../modules
   ];
+
   nixpkgs = {
     overlays = [
       (final: prev: {
@@ -18,9 +19,16 @@
         };
       })
     ];
-    config = {
-      allowUnfree = true;
-    };
+
+    config.allowUnfreePredicate = let
+      whitelist = map lib.getName [
+        pkgs.spotify
+        pkgs.discord
+        pkgs.obsidian
+        pkgs.mathematica
+      ];
+    in
+      pkg: builtins.elem (lib.getName pkg) whitelist;
   };
 
   home = {
@@ -28,36 +36,9 @@
     homeDirectory = "/home/alex";
   };
 
-  home.packages = with pkgs; [
-    # CLI
-    openvpn
-    ani-cli
-
-    # GUI
-    helvum
-
-    inputs.zen-browser.packages."${system}".twilight
-
-    imv
-    loupe
-    gimp
-    zathura
-
-    mpv
-    decibels
-    obsidian
-    telegram-desktop
-    baobab
-
-    wpsoffice
-  ];
-
-  # Enable home-manager
   programs.home-manager.enable = true;
 
-  # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }

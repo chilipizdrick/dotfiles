@@ -81,7 +81,4 @@
     r2modman = true;
     heroic = false;
   };
-
-  # home.packages = with pkgs; [
-  # ];
 }
