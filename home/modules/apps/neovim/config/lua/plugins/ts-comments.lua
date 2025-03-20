@@ -1,5 +1,10 @@
 return {
   "folke/ts-comments.nvim",
+
+  enabled = vim.fn.has "nvim-0.10.0" == 1,
+
+  event = "VeryLazy",
+
   opts = {
     lang = {
       typst = { "// %s", "/* %s */" },
@@ -24,9 +29,9 @@ return {
       ini = "; %s",
       ipynb = "# %s",
       javascript = {
-        "// %s", -- default commentstring when no treesitter node matches
+        "// %s",
         "/* %s */",
-        call_expression = "// %s", -- specific commentstring for call_expression
+        call_expression = "// %s",
         jsx_attribute = "// %s",
         jsx_element = "{/* %s */}",
         jsx_fragment = "{/* %s */}",
@@ -47,9 +52,9 @@ return {
       },
       terraform = "# %s",
       tsx = {
-        "// %s", -- default commentstring when no treesitter node matches
+        "// %s",
         "/* %s */",
-        call_expression = "// %s", -- specific commentstring for call_expression
+        call_expression = "// %s",
         jsx_attribute = "// %s",
         jsx_element = "{/* %s */}",
         jsx_fragment = "{/* %s */}",
@@ -57,11 +62,9 @@ return {
         statement_block = "// %s",
       },
       twig = "{# %s #}",
-      typescript = { "// %s", "/* %s */" }, -- langs can have multiple commentstrings
+      typescript = { "// %s", "/* %s */" },
       vue = "<!-- %s -->",
       xaml = "<!-- %s -->",
     },
   },
-  event = "VeryLazy",
-  enabled = vim.fn.has "nvim-0.10.0" == 1,
 }

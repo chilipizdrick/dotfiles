@@ -1,7 +1,8 @@
-return { -- File explorer
+return {
   "stevearc/oil.nvim",
-  -- lazy = true,
-  -- cmd = 'Oil',
+
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+
   opts = {
     view_options = {
       show_hidden = true,
@@ -12,7 +13,6 @@ return { -- File explorer
       ["<C-h>"] = false,
       ["<C-l>"] = false,
     },
-    -- use_defalut_keymaps = false,
   },
 
   init = function()
@@ -23,6 +23,4 @@ return { -- File explorer
       { desc = "Open Oil file explorer" }
     )
   end,
-  -- Optional dependencies
-  dependencies = { "nvim-tree/nvim-web-devicons" },
 }

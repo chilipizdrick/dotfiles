@@ -1,14 +1,19 @@
 return {
   "neovim/nvim-lspconfig",
+
+  enabled = true,
+
   dependencies = {
     { "j-hui/fidget.nvim", opts = {} },
   },
+
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup(
         "kickstart-lsp-attach",
         { clear = true }
       ),
+
       callback = function(event)
         local map = function(keys, func, desc)
           vim.keymap.set(
@@ -48,6 +53,7 @@ return {
           require("telescope.builtin").lsp_document_symbols,
           "[D]ocument [S]ymbols"
         )
+
         map(
           "<leader>ws",
           require("telescope.builtin").lsp_dynamic_workspace_symbols,
@@ -64,10 +70,8 @@ return {
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
-          local highlight_augroup = vim.api.nvim_create_augroup(
-            "kickstart-lsp-highlight",
-            { clear = false }
-          )
+          local highlight_augroup =
+            vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
           vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
             buffer = event.buf,
             group = highlight_augroup,
@@ -81,10 +85,7 @@ return {
           })
 
           vim.api.nvim_create_autocmd("LspDetach", {
-            group = vim.api.nvim_create_augroup(
-              "kickstart-lsp-detach",
-              { clear = true }
-            ),
+            group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
               vim.api.nvim_clear_autocmds {
@@ -108,6 +109,8 @@ return {
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
     capabilities = vim.tbl_deep_extend(
       "force",
       capabilities,
@@ -122,18 +125,6 @@ return {
           Lua = {
             completion = {
               callSnippet = "Replace",
-            },
-          },
-        },
-      },
-      rust_analyzer = {
-        settings = {
-          ["rust-analyzer"] = {
-            cargo = {
-              allFeatures = true,
-              check = {
-                allTargets = false,
-              },
             },
           },
         },

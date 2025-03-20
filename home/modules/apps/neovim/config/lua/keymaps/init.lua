@@ -1,4 +1,3 @@
--- Diagnostic keymaps
 vim.keymap.set(
   "n",
   "[d",
@@ -30,7 +29,6 @@ vim.keymap.set(
   { desc = "Apply [Q]uickfix" }
 )
 
--- Move focuse between windows
 vim.keymap.set(
   "n",
   "<C-h>",
@@ -56,7 +54,6 @@ vim.keymap.set(
   { desc = "Move focus to the upper window" }
 )
 
--- Yank to system clipboard
 vim.keymap.set(
   "v",
   "<leader>y",

@@ -1,4 +1,4 @@
-return { -- Fancy gitsigns
+return {
   "lewis6991/gitsigns.nvim",
   opts = {
 
@@ -19,7 +19,6 @@ return { -- Fancy gitsigns
         vim.keymap.set(mode, l, r, opts)
       end
 
-      -- Navigation
       map("n", "]c", function()
         if vim.wo.diff then
           vim.cmd.normal { "]c", bang = true }
@@ -36,15 +35,12 @@ return { -- Fancy gitsigns
         end
       end, { desc = "Jump to previous git [c]hange" })
 
-      -- Actions
-      -- visual mode
       map("v", "<leader>hs", function()
         gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
       end, { desc = "stage git hunk" })
       map("v", "<leader>hr", function()
         gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
       end, { desc = "reset git hunk" })
-      -- normal mode
       map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" })
       map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" })
       map(
@@ -81,7 +77,6 @@ return { -- Fancy gitsigns
       map("n", "<leader>hD", function()
         gitsigns.diffthis "@"
       end, { desc = "git [D]iff against last commit" })
-      -- Toggles
       map(
         "n",
         "<leader>tb",

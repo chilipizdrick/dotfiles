@@ -1,6 +1,8 @@
-return { -- Transparent background for fancy looks
+return {
   "xiyaowong/transparent.nvim",
+
   lazy = false,
+
   config = function()
     require("transparent").setup {
       groups = {
@@ -24,8 +26,6 @@ return { -- Transparent background for fancy looks
         "LineNr",
         "NonText",
         "SignColumn",
-        -- 'CursorLine',
-        -- 'CursorLineNr',
         "StatusLine",
         "StatusLineNC",
         "EndOfBuffer",

@@ -33,11 +33,6 @@
       "rustfmt"
       "rust-analyzer"
     ])
-    # cargo
-    # clippy
-    # rustc
-    # rustfmt
-    # rust-analyzer
 
     python3
     python3Packages.pip
@@ -132,10 +127,4 @@
     [*]
     BasedOnStyles = Vale
   '';
-
-  # home.activation = {
-  #   syncValeLinter = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  #     $HOME/.local/share/nvim/mason/packages/vale/vale --config=$HOME/.config/vale/.vale.ini sync
-  #   '';
-  # };
 }

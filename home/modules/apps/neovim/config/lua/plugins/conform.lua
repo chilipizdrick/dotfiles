@@ -1,4 +1,4 @@
-return { -- Autoformat
+return {
   "stevearc/conform.nvim",
   lazy = true,
   keys = {
@@ -11,6 +11,7 @@ return { -- Autoformat
       desc = "[F]ormat buffer",
     },
   },
+
   opts = {
     notify_on_error = false,
     default_format_opts = {
@@ -33,25 +34,10 @@ return { -- Autoformat
       bash = { "shfmt" },
       go = { "gofmt" },
       yaml = { "yq" },
-      -- typst = { "prettypst", lsp_format = "fallback" },
       typst = { "typstyle", lsp_format = "fallback" },
       json = { "fixjson" },
       markdown = { "commonmark" },
       rust = { "rustfmt", lsp_format = "fallback" },
-    },
-
-    formatters = {
-      -- prettypst = {
-      --   command = "prettypst",
-      --   args = {
-      --     "--use-std-in",
-      --     "--use-std-out",
-      --     "--style=default",
-      --     "--file-location",
-      --     "~/.config/prettypst/prettypst.toml",
-      --   },
-      --   stdin = true,
-      -- },
     },
   },
 }

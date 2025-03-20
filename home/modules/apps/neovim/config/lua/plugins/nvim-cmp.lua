@@ -1,6 +1,6 @@
-return { -- Autocompletion
+return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+
   dependencies = {
     {
       "L3MON4D3/LuaSnip",
@@ -16,6 +16,9 @@ return { -- Autocompletion
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
   },
+
+  event = "InsertEnter",
+
   config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"

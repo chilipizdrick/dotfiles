@@ -1,12 +1,15 @@
 return {
   "ThePrimeagen/refactoring.nvim",
+
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+
   config = function()
     require("refactoring").setup()
   end,
+
   init = function()
     vim.keymap.set("x", "<leader>rn", vim.lsp.buf.rename)
     vim.keymap.set("x", "<leader>re", ":Refactor extract ")
