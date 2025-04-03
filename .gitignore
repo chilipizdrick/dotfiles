@@ -1,0 +1,7 @@
+# Nixos build results
+result
+*.qcow2
+
+# Spell files
+*.spl
+*.sug
