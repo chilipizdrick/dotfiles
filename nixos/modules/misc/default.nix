@@ -12,7 +12,4 @@
   hardware.i2c.enable = true;
 
   programs.dconf.enable = true;
-
-  # Hide boot log sequence
-  # boot.plymouth.enable = true;
 }

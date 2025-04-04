@@ -5,10 +5,6 @@
     style = "adwaita-dark";
   };
 
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gnome";
-  };
-
   environment.systemPackages = with pkgs; [
     qt5.qtwayland
     qt6.qtwayland

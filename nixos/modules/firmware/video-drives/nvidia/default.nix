@@ -8,6 +8,7 @@ with lib; let
   cfg = config.nvidiaVideoDrivers;
 in {
   options.nvidiaVideoDrivers.enable = mkEnableOption "Nvidia video drivers";
+
   config = mkIf cfg.enable {
     services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {

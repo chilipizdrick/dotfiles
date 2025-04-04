@@ -6,11 +6,4 @@
     "en_US.UTF-8/UTF-8"
     "ru_RU.UTF-8/UTF-8"
   ];
-
-  # Configure keymap
-  services.xserver = {
-    xkb.layout = "us,ru";
-    xkb.variant = "";
-    xkb.options = "grp:alt_shift_toggle";
-  };
 }

@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   scripts,
   ...
@@ -53,8 +52,4 @@ in {
     heroic = false;
     r2modman = true;
   };
-
-  # home.packages = with pkgs; [
-  #   mathematica
-  # ];
 }

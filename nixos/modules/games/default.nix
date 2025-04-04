@@ -36,9 +36,9 @@ in {
     ];
 
     environment.shellAliases = mkIf cfg.minecraft {
-      # java8 = lib.getExe pkgs.temurin-bin-8;
-      # java17 = lib.getExe pkgs.temurin-bin-17;
-      # java21 = lib.getExe pkgs.temurin-bin-21;
+      java8 = lib.getExe pkgs.temurin-bin-8;
+      java17 = lib.getExe pkgs.temurin-bin-17;
+      java21 = lib.getExe pkgs.temurin-bin-21;
     };
 
     programs = {
@@ -52,8 +52,6 @@ in {
         capSysNice = true;
         args =
           [
-            # "-f"
-            # "-S fsr"
             "--rt"
             "--adaptive-sync"
             "--expose-wayland"
@@ -70,8 +68,8 @@ in {
       ];
       minecraftPkgs = [
         temurin-bin-8
-        # temurin-bin-17
-        # temurin-bin-21
+        temurin-bin-17
+        temurin-bin-21
       ];
     in
       (optionals cfg.steam steamPkgs)

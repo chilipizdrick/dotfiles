@@ -25,8 +25,6 @@
     llvmPkgs = llvmPackages;
     fenixPkgs = inputs.fenix.packages.${pkgs.system};
   in [
-    neovide
-
     (fenixPkgs.stable.withComponents [
       "cargo"
       "clippy"

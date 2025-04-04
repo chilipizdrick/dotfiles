@@ -5,7 +5,7 @@
 }: {
   imports = [
     # ./firefox
-    # ./flatpak
+    # ./helix
     ./alacritty
     ./carapace
     ./cava
@@ -15,7 +15,6 @@
     ./fzf
     ./ghostty
     ./git
-    ./helix
     ./neovim
     ./nushell
     ./obs-studio

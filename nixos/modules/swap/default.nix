@@ -15,6 +15,7 @@ in {
       description = "Size of swap file in GiB";
     };
   };
+
   config = mkIf cfg.enable {
     swapDevices = [
       {

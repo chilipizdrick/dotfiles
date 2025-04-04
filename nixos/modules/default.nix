@@ -1,7 +1,5 @@
 {...}: {
   imports = [
-    # ./flatpak
-    # ./plasma
     ./appimage
     ./apps
     ./bootloader

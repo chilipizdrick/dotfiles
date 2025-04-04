@@ -25,7 +25,6 @@
         pkgs.spotify
         pkgs.discord
         pkgs.obsidian
-        # pkgs.mathematica
       ];
     in
       pkg: builtins.elem (lib.getName pkg) whitelist;

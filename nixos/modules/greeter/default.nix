@@ -31,21 +31,4 @@ in {
       };
     };
   };
-
-  # services.displayManager.ly = {
-  #   enable = true;
-  #   package = pkgs.ly;
-  #   settings = {
-  #     hide_borders = true;
-  #     save = true;
-  #     login_cmd = sessionCommand + ''exec "$@"'';
-  #     asterisk = ">";
-  #     blank_box = true;
-  #     input_len = 34;
-  #     clear_password = true;
-  #     clock = "%H:%M:%S";
-  #     box_title = "Sosal?";
-  #     text_in_center = true;
-  #   };
-  # };
 }

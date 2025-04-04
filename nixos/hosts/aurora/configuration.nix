@@ -6,8 +6,6 @@
 
   nvidiaVideoDrivers.enable = true;
 
-  # boot.kernelParams = ["video=HDMI-A-1:1920x1080@73"];
-
   # Enable ambilight support
   hyperion.enable = true;
 

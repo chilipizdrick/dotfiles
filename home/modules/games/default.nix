@@ -18,7 +18,6 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; let
       minecraftPkgs = [
-        # glfw-wayland-minecraft
         prismlauncher
         fabric-installer
       ];
@@ -30,7 +29,5 @@ in {
       ++ (optionals cfg.r2modman r2modmanPkgs)
       ++ (optionals cfg.osu osuPkgs)
       ++ (optionals cfg.heroic heroicPkgs);
-
-    # home.file."lib/glfw-wayland-minecraft-libglfw".source = mkIf cfg.minecraft "${pkgs.glfw-wayland-minecraft}/lib";
   };
 }
