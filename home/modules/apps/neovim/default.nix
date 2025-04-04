@@ -65,7 +65,6 @@
 
     shfmt
 
-    vale
     mdformat
 
     gnumake
@@ -126,11 +125,4 @@
       table = "columns"
       tablex = "columns"
     '';
-
-  home.file.".config/vale/.vale.ini".text = ''
-    StylesPath = .
-    MinAlertLevel = suggestion
-    [*]
-    BasedOnStyles = Vale
-  '';
 }
