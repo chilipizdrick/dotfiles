@@ -7,8 +7,27 @@
     ../modules
   ];
 
-  nixpkgs = {
+  nixpkgs = let
+    inherit (lib.trivial) const;
+    nixPackage = pkgs.lix;
+    whitelist = map lib.getName [
+      pkgs.spotify
+      pkgs.discord
+      pkgs.obsidian
+    ];
+  in {
     overlays = [
+      (const (prev: {
+        nixos-rebuild = prev.nixos-rebuild.override {
+          nix = nixPackage;
+        };
+        nix-direnv = prev.nix-direnv.override {
+          nix = nixPackage;
+        };
+        nix-index = prev.nix-index.override {
+          nix = nixPackage;
+        };
+      }))
       (final: prev: {
         rofi-wayland = prev.rofi-wayland.override {
           plugins = [
@@ -20,14 +39,7 @@
       })
     ];
 
-    config.allowUnfreePredicate = let
-      whitelist = map lib.getName [
-        pkgs.spotify
-        pkgs.discord
-        pkgs.obsidian
-      ];
-    in
-      pkg: builtins.elem (lib.getName pkg) whitelist;
+    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) whitelist;
   };
 
   home = {
