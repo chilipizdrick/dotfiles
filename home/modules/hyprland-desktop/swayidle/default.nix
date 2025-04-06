@@ -1,29 +1,32 @@
 {pkgs, ...}: {
   services.swayidle = {
-    package = pkgs.swayidle;
     enable = true;
     events = [
       {
         event = "before-sleep";
-        command = "\"hyprlock\"";
-      }
-      {
-        event = "lock";
-        command = "\"hyprlock\"";
+        command = "loginctl lock-session";
       }
       {
         event = "after-resume";
-        command = "\"hyprctl dispatch dpms on\"";
+        command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
+      {
+        event = "lock";
+        command = "${pkgs.hyprlock}/bin/hyprlock &";
+      }
+      # {
+      #   event = "unlock";
+      #   command = "pkill -SIGUSR1 hyprlock";
+      # }
     ];
     timeouts = [
       {
-        timeout = 600;
-        command = "\"hyprlock\"";
+        timeout = 15;
+        command = "loginctl lock-session";
       }
       {
-        timeout = 900;
-        command = "\"systemctl suspend\"";
+        timeout = 30;
+        command = "systemctl suspend";
       }
     ];
   };
