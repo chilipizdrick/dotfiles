@@ -21,7 +21,6 @@
     tmux-sessionizer
     btop
     microfetch
-    yafetch
     alejandra
     sops
     tealdeer
