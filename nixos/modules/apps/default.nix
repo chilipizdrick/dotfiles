@@ -20,7 +20,7 @@
     tmux
     tmux-sessionizer
     btop
-    pfetch-rs
+    microfetch
     yafetch
     alejandra
     sops
