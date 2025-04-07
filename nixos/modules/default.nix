@@ -14,7 +14,6 @@
     ./nix-ld
     ./polkit
     ./qt
-    ./sudo
     ./swap
     ./virtualization
     ./vpn
