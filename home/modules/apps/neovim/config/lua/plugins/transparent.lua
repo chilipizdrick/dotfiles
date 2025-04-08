@@ -1,0 +1,45 @@
+return {
+  "xiyaowong/transparent.nvim",
+
+  enabled = false,
+
+  event = "VimEnter",
+
+  opts = {
+    groups = {
+      "Normal",
+      "NormalNC",
+      "Comment",
+      "Constant",
+      "Special",
+      "Identifier",
+      "Statement",
+      "PreProc",
+      "Type",
+      "Underlined",
+      "Todo",
+      "String",
+      "Function",
+      "Conditional",
+      "Repeat",
+      "Operator",
+      "Structure",
+      "LineNr",
+      "NonText",
+      "SignColumn",
+      "StatusLine",
+      "StatusLineNC",
+      "EndOfBuffer",
+    },
+    extra_groups = {
+      "NeoTreeNormal",
+      "NeoTreeNormalNC",
+      "TelescopeNormal",
+      "TelescopeNormalNC",
+      "TelescopePromptBorder",
+      "TelescopeResultsBorder",
+      "TelescopePreviewBorder",
+    },
+    exclude_groups = {},
+  },
+}
