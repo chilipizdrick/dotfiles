@@ -8,4 +8,6 @@
     enable = true;
     package = pkgs.waybar;
   };
+
+  home.packages = with pkgs; [playerctl];
 }
