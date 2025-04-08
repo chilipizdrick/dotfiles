@@ -1,7 +1,11 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   programs.nushell = {
     enable = true;
-    shellAliases = builtins.removeAttrs config.home.shellAliases ["nau"];
+    shellAliases = lib.mkForce (builtins.removeAttrs config.home.shellAliases ["nau"]);
 
     extraEnv =
       # nu
