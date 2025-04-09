@@ -5,5 +5,10 @@ return {
 
   event = "VimEnter",
 
-  opts = { signs = false },
+  opts = {
+    signs = true,
+    highlight = {
+      pattern = ".*<(KEYWORDS)\\s*[: ]",
+    },
+  },
 }
