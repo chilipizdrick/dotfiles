@@ -3,6 +3,7 @@
     l = "ls -l";
     ll = "ls -l";
     la = "ls -a";
+    lla = "ls -la";
     ns = "xdg-open https://mynixos.com/";
     ga = "git add .";
     gc = "git commit -S";
