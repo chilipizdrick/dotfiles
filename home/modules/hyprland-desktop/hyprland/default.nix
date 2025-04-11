@@ -200,7 +200,7 @@ in {
 
       bind = [
         "${mod} SHIFT, Q, killactive,"
-        "${mod} SHIFT, W, exec, kill -9 $(hyprctl activewindow | grep 'pid:' | awk '{print $2}')"
+        "${mod} SHIFT, W, forcekillactive,"
         "${mod}, F, fullscreen,"
         "${mod} SHIFT, F, togglefloating"
         "${mod} ALT, F, exec, hyprctl dispatch workspaceopt allfloat"
