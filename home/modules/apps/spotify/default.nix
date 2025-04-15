@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -13,11 +14,24 @@
     enable = true;
     spotifyPackage = pkgs.spotify;
 
-    theme = spicetifyPkgs.themes.comfy;
-    colorScheme = "Mono";
+    # theme = spicetifyPkgs.themes.comfy;
+    # colorScheme = "Mono";
+
+    # theme = spicetifyPkgs.themes.Blackout;
+    # colorScheme = "default";
+
+    theme = {
+      name = "Blackout";
+      src = "${pkgs.fetchFromGitHub {
+        owner = "spicetify";
+        repo = "spicetify-themes";
+        rev = "a9ce22b3d3df303d994974b746c839c7d0907101";
+        sha256 = "sha256-HQJrCB5kN8mE4yzC6Sc0Dh7mpttoAGIx3cvlNGnkPvc=";
+      }}/Blackout";
+    };
 
     enabledExtensions = with spicetifyPkgs.extensions; [
-      adblock
+      # adblock
       shuffle
       fullAlbumDate
       showQueueDuration
