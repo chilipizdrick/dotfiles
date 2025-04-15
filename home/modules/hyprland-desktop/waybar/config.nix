@@ -167,6 +167,7 @@
           "format-paused": "{status_icon} {dynamic}",
           "player-icons": {
             "spotify": " ",
+            "spotify_player": " ",
             "default": "▶"
           },
           "dynamic-order": ["title", "artist"],
