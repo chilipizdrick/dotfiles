@@ -17,7 +17,9 @@
       pkgs.steam-unwrapped
       pkgs.corefonts
       pkgs.zerotierone
+      pkgs.brscan4
     ];
+    whitelistPackageNames = ["nvidia-x11" "brother-udev-rule-type1" "nvidia-settings" "brscan4-etc-files"];
   in {
     overlays = [
       (const (prev: {
@@ -32,7 +34,7 @@
         };
       }))
     ];
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) whitelist;
+    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) (whitelist ++ whitelistPackageNames);
   };
 
   nix = let

@@ -27,10 +27,6 @@
     mod = "SUPER";
   in {
     settings = {
-      opengl = {
-        force_introspection = 0;
-      };
-
       monitor = lib.mkForce [
         ",preferred,auto,auto"
         "Unknown-1,disable"
