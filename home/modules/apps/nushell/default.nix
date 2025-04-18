@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -19,9 +20,18 @@
         $env.PROMPT_MULTILINE_INDICATOR = ""
       '';
 
-    extraConfig =
+    extraConfig = let
+      themeRepo = pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "nushell";
+        rev = "82c31124b39294c722f5853cf94edc01ad5ddf34";
+        sha256 = "sha256-O95OrdF9UA5xid1UlXzqrgZqw3fBpTChUDmyExmD2i4=";
+      };
+    in
       # nu
       ''
+        source ${themeRepo}/themes/catppuccin_mocha.nu
+
         $env.config = {
           show_banner: false,
           edit_mode: vi,
