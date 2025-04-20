@@ -1,4 +1,9 @@
-{lib, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../base-configuraion.nix
@@ -17,6 +22,8 @@
     steam = true;
     minecraft = true;
   };
+
+  environment.systemPackages = [inputs.sl1.packages.${pkgs.system}.sl1-desktop];
 
   hardware.bluetooth.settings.General.ControllerMode = lib.mkForce "bredr";
   networking.hostName = "aurora";

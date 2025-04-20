@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sl1 = {
+      url = "github:chilipizdrick/sl1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
       flake = false;
