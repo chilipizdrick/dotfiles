@@ -138,19 +138,19 @@ in {
             valign = "bottom";
           }
         ];
-        image = [
-          {
-            monitor = "";
-            size = builtins.floor (75 * cfg.scale);
-            rounding = 10;
-            border_size = 0;
-            reload_time = 1;
-            reload_cmd = "${scripts.load-album-cover}/bin/load-album-cover";
-            position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
-            halign = "left";
-            valign = "bottom";
-          }
-        ];
+        # image = [
+        #   {
+        #     monitor = "";
+        #     size = builtins.floor (75 * cfg.scale);
+        #     rounding = 10;
+        #     border_size = 0;
+        #     reload_time = 1;
+        #     reload_cmd = "${scripts.load-album-cover}/bin/load-album-cover";
+        #     position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+        #     halign = "left";
+        #     valign = "bottom";
+        #   }
+        # ];
       };
     };
   };
