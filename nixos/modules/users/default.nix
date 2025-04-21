@@ -13,13 +13,12 @@
         "dialout"
         "scanner"
         "lp"
+        "input"
         "uinput"
         "adm"
         "kvm"
         "users"
         "systemd-journal"
-        "input"
-        "uinput"
       ];
     };
   };
