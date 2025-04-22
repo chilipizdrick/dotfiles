@@ -192,7 +192,6 @@ in {
         "hyprctl setcursor Bibata-Modern-Classic 20"
         "hypridle &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "otd-daemon &"
         "swww-daemon &"
         "waybar &"
         "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
