@@ -16,8 +16,6 @@ return {
 
       styles = {
         comments = { "italic" },
-        -- conditionals = { "italic" },
-        -- functions = { "italic" },
         keywords = { "italic" },
       },
 

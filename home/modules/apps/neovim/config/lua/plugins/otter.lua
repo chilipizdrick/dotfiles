@@ -1,7 +1,7 @@
 return {
   "jmbuhr/otter.nvim",
 
-  event = "BufEnter",
+  event = "VeryLazy",
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter",

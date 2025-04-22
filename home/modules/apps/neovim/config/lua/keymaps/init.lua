@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>do", function()
-  vim.diagnostic.open_float({border = "rounded"})
+  vim.diagnostic.open_float({ border = "rounded" })
 end, { desc = "Floating [d]iagnostic [o]pen" })
 vim.keymap.set("n", "[d", function()
   vim.diagnostic.goto_prev({ float = false })

@@ -1,7 +1,9 @@
 return {
   "brenoprata10/nvim-highlight-colors",
 
-  event = "BufEnter",
+  event = "VeryLazy",
 
-  opts = {},
+  opts = {
+    render = "virtual",
+  },
 }

@@ -1,7 +1,7 @@
 return {
   "lukas-reineke/virt-column.nvim",
 
-  event = "VimEnter",
+  event = "VeryLazy",
 
   opts = {
     config = {

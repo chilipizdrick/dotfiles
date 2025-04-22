@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
 
-  event = "BufEnter",
+  event = "VeryLazy",
 
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -57,7 +57,9 @@ return {
 
         map("<leader>a", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-        map("K", vim.lsp.buf.hover, "Hover Documentation")
+        map("K", function()
+          vim.lsp.buf.hover({ border = "rounded" })
+        end, "Hover Documentation")
 
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 

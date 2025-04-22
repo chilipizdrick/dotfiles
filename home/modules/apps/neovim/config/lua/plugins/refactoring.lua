@@ -1,7 +1,7 @@
 return {
   "ThePrimeagen/refactoring.nvim",
 
-  event = "BufEnter",
+  event = "VeryLazy",
 
   dependencies = {
     "nvim-lua/plenary.nvim",

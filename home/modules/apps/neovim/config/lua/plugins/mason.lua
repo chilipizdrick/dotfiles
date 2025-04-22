@@ -1,7 +1,7 @@
 return {
   "williamboman/mason.nvim",
 
-  event = "VimEnter",
+  event = "VeryLazy",
 
   config = function()
     require("mason").setup({

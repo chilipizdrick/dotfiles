@@ -1,7 +1,7 @@
 return {
   "stevearc/conform.nvim",
 
-  event = "BufEnter",
+  event = "VeryLazy",
 
   keys = {
     {

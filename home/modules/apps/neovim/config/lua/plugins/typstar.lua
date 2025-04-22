@@ -6,7 +6,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
 
-  opts = {},
+  ft = "typst",
 
-  ft = { "typst" },
+  opts = {},
 }

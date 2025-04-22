@@ -18,9 +18,4 @@ return {
       desc = "[N]eo[g]it",
     },
   },
-
-  -- init = function()
-  --   require("neogit").setup({})
-  --   vim.keymap.set("n", "<leader>ng", "<Cmd>Neogit<CR>")
-  -- end,
 }
