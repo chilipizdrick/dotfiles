@@ -34,6 +34,17 @@
 
   home.packages = with pkgs; [
     ripdrag
+    ffmpeg
+    p7zip
+    jq
+    poppler
+    fd
+    ripgrep
+    fzf
+    zoxide
+    resvg
+    imagemagick
+    wl-clipboard
   ];
 
   home.file.".config/yazi/theme.toml".text =
