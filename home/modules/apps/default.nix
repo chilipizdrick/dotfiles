@@ -23,6 +23,7 @@
     ./tmux
     ./udiskie
     ./yazi
+    ./zathura
     ./zoxide
     ./zsh
   ];
@@ -41,6 +42,5 @@
     openvpn
     telegram-desktop
     thunderbird
-    zathura
   ];
 }
