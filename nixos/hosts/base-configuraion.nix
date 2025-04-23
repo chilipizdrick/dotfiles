@@ -12,14 +12,6 @@
   nixpkgs = let
     inherit (lib.trivial) const;
     nixPackage = config.nix.package; # Lix
-    whitelist = map lib.getName [
-      pkgs.steam
-      pkgs.steam-unwrapped
-      pkgs.corefonts
-      pkgs.zerotierone
-      pkgs.brscan4
-    ];
-    whitelistPackageNames = ["nvidia-x11" "brother-udev-rule-type1" "nvidia-settings" "brscan4-etc-files"];
   in {
     overlays = [
       (const (prev: {
@@ -34,7 +26,10 @@
         };
       }))
     ];
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) (whitelist ++ whitelistPackageNames);
+    config = {
+      allowUnfree = true;
+      android_sdk.accept_license = true;
+    };
   };
 
   nix = let

@@ -4,21 +4,22 @@
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = [
-        "admin"
-        "networkmanager"
-        "wheel"
-        "audio"
-        "docker"
-        "video"
-        "dialout"
-        "scanner"
-        "lp"
-        "input"
-        "uinput"
+        "adbusers"
         "adm"
+        "admin"
+        "audio"
+        "dialout"
+        "docker"
+        "input"
         "kvm"
-        "users"
+        "lp"
+        "networkmanager"
+        "scanner"
         "systemd-journal"
+        "uinput"
+        "users"
+        "video"
+        "wheel"
       ];
     };
   };

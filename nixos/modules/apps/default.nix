@@ -2,6 +2,7 @@
   imports = [
     ./chromium
     ./nautilus
+    ./android-studio
   ];
 
   environment.systemPackages = with pkgs; [

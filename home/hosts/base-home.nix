@@ -10,11 +10,6 @@
   nixpkgs = let
     inherit (lib.trivial) const;
     nixPackage = pkgs.lix;
-    whitelist = map lib.getName [
-      pkgs.spotify
-      pkgs.discord
-      pkgs.obsidian
-    ];
   in {
     overlays = [
       (const (prev: {
@@ -39,7 +34,7 @@
       })
     ];
 
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) whitelist;
+    config.allowUnfree = true;
   };
 
   home = {
