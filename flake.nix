@@ -40,11 +40,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     scripts = inputs.scripts.packages."x86_64-linux";
     specialArgs = {
       inherit inputs;
@@ -53,37 +49,7 @@
     extraSpecialArgs = specialArgs;
   in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
-
-    nixosConfigurations = {
-      "atlas" = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = [
-          ./nixos/hosts/atlas/configuration.nix
-        ];
-      };
-      "aurora" = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = [
-          ./nixos/hosts/aurora/configuration.nix
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      "alex@atlas" = home-manager.lib.homeManagerConfiguration {
-        inherit extraSpecialArgs;
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home/hosts/atlas/home.nix
-        ];
-      };
-      "alex@aurora" = home-manager.lib.homeManagerConfiguration {
-        inherit extraSpecialArgs;
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home/hosts/aurora/home.nix
-        ];
-      };
-    };
+    nixosConfigurations = import ./nixos/configurations.nix (inputs // {inherit specialArgs;});
+    homeConfigurations = import ./home/configurations.nix (inputs // {inherit extraSpecialArgs;});
   };
 }
