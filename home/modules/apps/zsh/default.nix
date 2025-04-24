@@ -17,12 +17,8 @@
         name = pkgs.zsh-completions.pname;
         src = pkgs.zsh-completions.src;
       }
-      # {
-      #   name = pkgs.zsh-vi-mode.pname;
-      #   src = pkgs.zsh-vi-mode.src;
-      # }
     ];
-    initExtra = ''
+    initContent = ''
       zstyle ':completion:*' completer _expand_alias _complete _ignored
     '';
   };

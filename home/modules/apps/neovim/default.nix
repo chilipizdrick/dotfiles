@@ -71,7 +71,7 @@
     chafa
   ];
 
-  home.file.".config/nvim".source =
+  xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/Projects/nix/dotfiles/home/modules/apps/neovim/config";
 }

@@ -3,7 +3,7 @@
   scripts,
   ...
 }: {
-  home.file.".config/waybar/config".text =
+  xdg.configFile."waybar/config".text =
     # json
     ''
       {

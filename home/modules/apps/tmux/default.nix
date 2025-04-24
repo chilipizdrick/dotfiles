@@ -43,7 +43,7 @@
 
   home.packages = with pkgs; [tmux-sessionizer];
 
-  home.file.".config/tms/config.toml".text =
+  xdg.configFile."tms/config.toml".text =
     # toml
     ''
       [[search_dirs]]

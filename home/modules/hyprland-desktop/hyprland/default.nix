@@ -17,9 +17,7 @@
   down = "J";
   colorsConfig = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
 in {
-  imports = [
-    ./colors.nix
-  ];
+  xdg.configFile."hypr/themes/catppuccin-mocha.hypr".source = ./catppuccin-mocha.hypr;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -335,7 +333,7 @@ in {
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
 
-  home.file.".config/swappy/config".text = ''
+  xdg.configFile."swappy/config".text = ''
     [Default]
     show_panel=true
     text_font=monospace

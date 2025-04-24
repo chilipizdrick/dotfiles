@@ -245,7 +245,7 @@ in {
     };
   };
 
-  home.file.".config/firefox/proxy.js".text =
+  xdg.configFile."firefox/proxy.js".text =
     # js
     ''
       function FindProxyForURL(url, host) {

@@ -1,12 +1,5 @@
 {...}: {
-  imports = [
-    ./config.nix
-    ./style.nix
-  ];
+  programs.wlogout.enable = true;
 
-  programs.wlogout = {
-    enable = true;
-  };
-
-  home.file.".config/wlogout/icons".source = ./assets/icons;
+  xdg.configFile."wlogout".source = ./config;
 }
