@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,16 +42,30 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    scripts = inputs.scripts.packages."x86_64-linux";
-    specialArgs = {
-      inherit inputs;
-      inherit scripts;
+  outputs = {self, ...} @ inputs: let
+  in
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      perSystem = {pkgs, ...}: {
+        formatter = pkgs.alejandra;
+        packages = import ./pkgs pkgs;
+      };
+
+      flake = let
+        scripts = inputs.scripts.packages."x86_64-linux";
+        specialArgs = {
+          inherit inputs self scripts;
+        };
+        extraSpecialArgs = specialArgs;
+      in {
+        nixosConfigurations = import ./nixos/configurations.nix (inputs // {inherit specialArgs;});
+        homeConfigurations = import ./home/configurations.nix (inputs // {inherit extraSpecialArgs;});
+      };
     };
-    extraSpecialArgs = specialArgs;
-  in {
-    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
-    nixosConfigurations = import ./nixos/configurations.nix (inputs // {inherit specialArgs;});
-    homeConfigurations = import ./home/configurations.nix (inputs // {inherit extraSpecialArgs;});
-  };
 }

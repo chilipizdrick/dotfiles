@@ -7,6 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    vim
     ripgrep
     fd
     wget
@@ -17,7 +18,6 @@
     unzip
     p7zip
     gzip
-    neovim
     tmux
     tmux-sessionizer
     btop
