@@ -103,19 +103,26 @@
     source ${./config}/init.lua
   '';
 
-  neovimConfig = neovimUtils.makeNeovimConfig {
-    withPython3 = false;
-    withNodeJs = false;
-    withRuby = false;
-    wrapperArgs = [
-      "--prefix"
-      "PATH"
-      ":"
-      "${lib.makeBinPath extraPackages}"
-    ];
-    extraLuaPackages = p: with p; [magick fd ripgrep];
-    inherit extraPackages customRC;
-  };
+  neovimConfig =
+    neovimUtils.makeNeovimConfig {
+      withPython3 = false;
+      withRuby = false;
+      withNodeJs = false;
+      extraLuaPackages = p:
+        with p; [
+          magick
+          fd
+        ];
+      inherit extraPackages customRC;
+    }
+    // {
+      wrapperArgs = [
+        "--prefix"
+        "PATH"
+        ":"
+        "${lib.makeBinPath extraPackages}"
+      ];
+    };
 
   nvim = wrapNeovimUnstable neovim-unwrapped neovimConfig;
 in
