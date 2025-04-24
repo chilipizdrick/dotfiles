@@ -99,6 +99,7 @@
     ];
 
   customRC = ''
+    set runetimepath-=$HOME/.config/nvim
     set runtimepath^=${./config}
     source ${./config}/init.lua
   '';
@@ -112,6 +113,7 @@
         with p; [
           magick
           fd
+          ripgrep
         ];
       inherit extraPackages customRC;
     }
@@ -126,25 +128,10 @@
 
   nvim = wrapNeovimUnstable neovim-unwrapped neovimConfig;
 in
-  lib.recursiveUpdate
-  (buildFHSEnv {
+  buildFHSEnv {
     name = "nvim";
     targetPkgs = _: [nvim];
     runScript = writeShellScript "nvim-fhs.sh" ''
       exec ${nvim}/bin/nvim "$@"
     '';
-  })
-  {
-    lua = neovim-unwrapped.lua;
-    meta = {
-      description = "Chilipizdrick's neovim config budled into a nix package.";
-      license = with lib.licenses; [mit apsl20];
-      platforms = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      maintainers = [];
-    };
   }
