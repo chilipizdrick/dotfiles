@@ -32,9 +32,9 @@
     ani-cli
     baobab
     decibels
-    gimp
     helvum
     imv
+    gimp3
     inputs.zen-browser.packages.${system}.default
     loupe
     mpv

@@ -136,7 +136,7 @@ in {
         animate_mouse_windowdragging = true;
         key_press_enables_dpms = true;
         vrr = 1;
-        initial_workspace_tracking = 1;
+        initial_workspace_tracking = 2;
         font_family = "monospace";
         enable_anr_dialog = false;
       };
