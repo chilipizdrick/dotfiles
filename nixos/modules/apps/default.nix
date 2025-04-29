@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./chromium
     ./nautilus
@@ -30,5 +34,6 @@
     bat
     television
     onlyoffice-bin
+    inputs.flint.packages.${system}.default
   ];
 }

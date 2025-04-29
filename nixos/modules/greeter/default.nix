@@ -7,15 +7,10 @@
   sessionCommand = "Hyprland";
   tuiTheme = "time=lightred;input=red";
 in {
-  security.pam.services = let
-    settings = {
-      enableGnomeKeyring = true;
-    };
-  in {
-    login = settings;
-    greetd = settings;
-    tuigreet = settings;
-    ly = settings;
+  security.pam.services = {
+    login = {};
+    greetd = {};
+    tuigreet = {};
   };
 
   services.greetd = {

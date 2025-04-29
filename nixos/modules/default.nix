@@ -2,7 +2,7 @@
   imports = [
     ./appimage
     ./apps
-    ./bootloader
+    ./boot
     ./firmware
     ./fonts
     ./games

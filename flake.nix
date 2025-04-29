@@ -13,6 +13,14 @@
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    flint = {
+      url = "github:NotAShelf/flint";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,7 +41,10 @@
 
     sl1 = {
       url = "github:chilipizdrick/sl1";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     wallpapers = {

@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }: {
   imports = [
@@ -14,12 +13,6 @@
     enable = true;
     spotifyPackage = pkgs.spotify;
 
-    # theme = spicetifyPkgs.themes.comfy;
-    # colorScheme = "Mono";
-
-    # theme = spicetifyPkgs.themes.Blackout;
-    # colorScheme = "default";
-
     theme = {
       name = "Blackout";
       src = "${pkgs.fetchFromGitHub {
@@ -29,9 +22,9 @@
         sha256 = "sha256-HQJrCB5kN8mE4yzC6Sc0Dh7mpttoAGIx3cvlNGnkPvc=";
       }}/Blackout";
     };
+    colorScheme = "def";
 
     enabledExtensions = with spicetifyPkgs.extensions; [
-      # adblock
       shuffle
       fullAlbumDate
       showQueueDuration

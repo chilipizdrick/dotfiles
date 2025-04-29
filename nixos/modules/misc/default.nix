@@ -13,6 +13,8 @@
 
   programs.dconf.enable = true;
 
-  # This garbage is throttling my system startup time
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  # This garbage is killing my system boot time
+  systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
+
+  services.journald.extraConfig = "SystemMaxUse=50M";
 }

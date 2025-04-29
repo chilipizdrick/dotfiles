@@ -12,9 +12,9 @@
   term2 = "${pkgs.alacritty}/bin/alacritty";
   browser = "xdg-open \"http://\"";
   left = "H";
-  right = "L";
-  up = "K";
   down = "J";
+  up = "K";
+  right = "L";
   colorsConfig = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
 in {
   xdg.configFile."hypr/themes/catppuccin-mocha.hypr".source = ./catppuccin-mocha.hypr;
@@ -123,9 +123,7 @@ in {
         };
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
+      gestures.workspace_swipe = true;
 
       misc = {
         vfr = true;
@@ -136,14 +134,12 @@ in {
         animate_mouse_windowdragging = true;
         key_press_enables_dpms = true;
         vrr = 1;
-        initial_workspace_tracking = 2;
+        initial_workspace_tracking = 1;
         font_family = "monospace";
         enable_anr_dialog = false;
       };
 
-      xwayland = {
-        force_zero_scaling = true;
-      };
+      xwayland.force_zero_scaling = true;
 
       ecosystem = {
         no_update_news = true;

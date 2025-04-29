@@ -4,6 +4,7 @@
     enable = true;
     description = "Kanata service";
     serviceConfig = {
+      Restart = "on-failure";
       RestartSec = 5;
       ExecStart = "${pkgs.kanata}/bin/kanata -c ${./config/config.kdb}";
     };

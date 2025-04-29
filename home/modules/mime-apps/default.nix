@@ -24,6 +24,7 @@
       "image/jpeg" = ["imv.desktop" "gimp.desktop"];
       "image/webp" = ["imv.desktop" "gimp.desktop"];
       "image/gif" = ["imv.desktop" "gimp.desktop"];
+      "image/svg" = ["imv.desktop" "gimp.desktop"];
 
       "video/mp4" = "mpv.desktop";
       "video/mkv" = "mpv.desktop";

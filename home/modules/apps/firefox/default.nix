@@ -30,11 +30,6 @@ in {
       DisplayBookmarksToolbar = "always";
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unfilled";
-      # Proxy = {
-      #   Mode = "autoConfig";
-      #   Locked = false;
-      #   AutoConfigURL = "file:///home/alex/.config/firefox/proxy.js";
-      # };
 
       ExtensionSettings = {
         "*".installation_mode = "allowed"; # blocks all addons except the ones specified below
