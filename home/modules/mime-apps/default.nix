@@ -3,10 +3,14 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps = {
     defaultApplications = {
-      "x-scheme-handler/http" = "zen-beta.desktop";
-      "x-scheme-handler/https" = "zen-beta.desktop";
-      "x-scheme-handler/about" = "zen-beta.desktop";
-      "x-scheme-handler/unknown" = "zen-beta.desktop";
+      # "x-scheme-handler/http" = "zen-beta.desktop";
+      # "x-scheme-handler/https" = "zen-beta.desktop";
+      # "x-scheme-handler/about" = "zen-beta.desktop";
+      # "x-scheme-handler/unknown" = "zen-beta.desktop";
+      "x-scheme-handler/http" = "zen-twilight.desktop";
+      "x-scheme-handler/https" = "zen-twilight.desktop";
+      "x-scheme-handler/about" = "zen-twilight.desktop";
+      "x-scheme-handler/unknown" = "zen-twilight.desktop";
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";

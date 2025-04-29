@@ -35,7 +35,7 @@
     helvum
     imv
     gimp3
-    inputs.zen-browser.packages.${system}.default
+    inputs.zen-browser.packages.${system}.twilight
     loupe
     mpv
     obsidian
