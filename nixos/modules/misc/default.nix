@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   # Mount, trash, and other functionalities
   services.gvfs.enable = true;
 
@@ -12,4 +12,7 @@
   hardware.i2c.enable = true;
 
   programs.dconf.enable = true;
+
+  # This garbage is throttling my system startup time
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 }

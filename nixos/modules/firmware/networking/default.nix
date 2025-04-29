@@ -1,5 +1,6 @@
 {...}: {
   networking.networkmanager.enable = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [25565];
