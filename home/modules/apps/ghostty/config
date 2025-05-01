@@ -81,7 +81,7 @@ resize-overlay = never
 
 window-decoration = false
 
-term = xterm-ghostty
+term = ghostty
 
 copy-on-select = true
 confirm-close-surface = false

@@ -20,7 +20,6 @@
           "custom/launcher",
           "hyprland/workspaces",
           "mpris"
-          // "cava"
         ],
         "modules-center": [
           "clock"
@@ -35,31 +34,6 @@
           "battery",
           "custom/powermenu"
         ],
-        "cava": {
-          "method": "pipewire",
-          "stereo": false,
-          "framerate": 30,
-          "bars": 10,
-          "bar_delimiter": 0,
-          "lower_cutoff_freq": 20,
-          "hide_on_silence": false,
-          "noise_reduction": 0.5,
-          "input_delay": 0,
-          "sensitivity": 2,
-          "autosens": 1,
-          "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
-        },
-        "wlr/taskbar": {
-          "format": "{icon}",
-          "icon-size": 25,
-          "icon-theme": "Default",
-          "tooltip-format": "{title}",
-          "on-click": "activate",
-          "on-click-middle": "close",
-          "ignore-list": [
-            "Alacritty"
-          ]
-        },
         "backlight": {
           "format": "{icon} {percent}%",
           "format-icons": ["", "", "", "", "", "", "", "", ""]

@@ -41,7 +41,6 @@ menu menuitem:hover{
 }
 
 #custom-launcher,
-#cava,
 #workspaces,
 #mpris,
 #clock,
@@ -128,13 +127,6 @@ menu menuitem:hover{
 
 #mpris:hover {
   background: @hover;
-}
-
-#cava {
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #pulseaudio.bluetooth {

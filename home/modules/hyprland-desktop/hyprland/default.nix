@@ -9,7 +9,6 @@
   files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.ghostty}/bin/ghostty";
-  term2 = "${pkgs.alacritty}/bin/alacritty";
   browser = "xdg-open \"http://\"";
   left = "H";
   down = "J";
@@ -21,7 +20,6 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     systemd.variables = ["--all"];
@@ -31,23 +29,25 @@ in {
       ];
 
       env = [
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "CLUTTER_BACKEND,wayland"
-        "GDK_BACKEND,wayland,x11"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland"
-        "QT_SCALE_FACTOR,1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "NIXOS_OZONE_WL,1"
-        "MOZ_ENABLE_WAYLAND,1"
-        "EDITOR,nvim"
+        "ELECTRON_OZONE_PLATFORM_HINT, auto"
+        "CLUTTER_BACKEND, wayland"
+        "GDK_BACKEND, wayland,x11"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+        "QT_QPA_PLATFORM, wayland"
+        "QT_SCALE_FACTOR, 1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_DESKTOP, Hyprland"
+        "XDG_SESSION_TYPE, wayland"
+        "NIXOS_OZONE_WL, 1"
+        "MOZ_ENABLE_WAYLAND, 1"
+        "EDITOR, nvim"
+        "TERMINAL, ghostty"
+        "BROWSER, zen"
       ];
 
       monitor = [
-        ",preferred,auto,auto"
+        ", preferred, auto, auto"
       ];
 
       general = {
@@ -155,30 +155,30 @@ in {
       animations = {
         enabled = true;
         animation = [
-          "windows,on,2,default"
-          "windowsIn,on,2,default,slide,top"
-          "windowsOut,on,2,default,slide,bottom"
-          "workspaces,on,2,default"
+          "windows, on, 2, default"
+          "windowsIn, on, 2, default, slide, top"
+          "windowsOut, on, 2, default, slide, bottom"
+          "workspaces, on, 2, default"
         ];
       };
 
       layerrule = [
-        "blur,logout_dialog"
-        "blur,rofi"
-        "blur,waybar"
-        "blur,notifications"
-        "ignorezero,waybar"
-        "ignorezero,notifications"
-        "ignorealpha 0.79,waybar"
-        "animation slide,waybar"
+        "blur, logout_dialog"
+        "blur, rofi"
+        "blur, waybar"
+        "blur, notifications"
+        "ignorezero, waybar"
+        "ignorezero, notifications"
+        "ignorealpha 0.79, waybar"
+        "animation slide, waybar"
       ];
 
       windowrule = [
-        "float,class:.blueman-manager-wrapped"
-        "float,class:org.pulseaudio.pavucontrol$"
-        "float,class:yad"
+        "float, class:.blueman-manager-wrapped"
+        "float, class:org.pulseaudio.pavucontrol$"
+        "float, class:yad"
         "idleinhibit fullscreen, fullscreen:1"
-        "noborder, onworkspace:w[t1]" # Disable borders for single window workspaces
+        "noborder, onworkspace:w[t1], floating:0" # Disable borders for single window workspaces
       ];
 
       exec-once = [
@@ -188,6 +188,7 @@ in {
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
         "swww-daemon &"
         "waybar &"
+        "echo 'Xft.dpi: 192' | ${pkgs.xorg.xrdb}/bin/xrdb -merge"
         "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
@@ -205,31 +206,6 @@ in {
         "${mod} SHIFT, ${right}, movewindow, r"
         "${mod} SHIFT, ${up}, movewindow, u"
         "${mod} SHIFT, ${down}, movewindow, d"
-        "${mod}, G, togglegroup"
-        "${mod} SHIFT, code:10, movetoworkspace, 1"
-        "${mod} SHIFT, code:11, movetoworkspace, 2"
-        "${mod} SHIFT, code:12, movetoworkspace, 3"
-        "${mod} SHIFT, code:13, movetoworkspace, 4"
-        "${mod} SHIFT, code:14, movetoworkspace, 5"
-        "${mod} SHIFT, code:15, movetoworkspace, 6"
-        "${mod} SHIFT, code:16, movetoworkspace, 7"
-        "${mod} SHIFT, code:17, movetoworkspace, 8"
-        "${mod} SHIFT, code:18, movetoworkspace, 9"
-        "${mod} SHIFT, code:19, movetoworkspace, 10"
-        "${mod} SHIFT, bracketleft, movetoworkspace, -1"
-        "${mod} SHIFT, bracketright, movetoworkspace, +1"
-        "${mod} CTRL, code:10, movetoworkspacesilent, 1"
-        "${mod} CTRL, code:11, movetoworkspacesilent, 2"
-        "${mod} CTRL, code:12, movetoworkspacesilent, 3"
-        "${mod} CTRL, code:13, movetoworkspacesilent, 4"
-        "${mod} CTRL, code:14, movetoworkspacesilent, 5"
-        "${mod} CTRL, code:15, movetoworkspacesilent, 6"
-        "${mod} CTRL, code:16, movetoworkspacesilent, 7"
-        "${mod} CTRL, code:17, movetoworkspacesilent, 8"
-        "${mod} CTRL, code:18, movetoworkspacesilent, 9"
-        "${mod} CTRL, code:19, movetoworkspacesilent, 10"
-        "${mod} CTRL, bracketleft, movetoworkspacesilent, -1"
-        "${mod} CTRL, bracketright, movetoworkspacesilent, +1"
         "${mod}, code:10, workspace, 1"
         "${mod}, code:11, workspace, 2"
         "${mod}, code:12, workspace, 3"
@@ -240,27 +216,43 @@ in {
         "${mod}, code:17, workspace, 8"
         "${mod}, code:18, workspace, 9"
         "${mod}, code:19, workspace, 10"
+        "${mod} SHIFT, code:10, movetoworkspace, 1"
+        "${mod} SHIFT, code:11, movetoworkspace, 2"
+        "${mod} SHIFT, code:12, movetoworkspace, 3"
+        "${mod} SHIFT, code:13, movetoworkspace, 4"
+        "${mod} SHIFT, code:14, movetoworkspace, 5"
+        "${mod} SHIFT, code:15, movetoworkspace, 6"
+        "${mod} SHIFT, code:16, movetoworkspace, 7"
+        "${mod} SHIFT, code:17, movetoworkspace, 8"
+        "${mod} SHIFT, code:18, movetoworkspace, 9"
+        "${mod} SHIFT, code:19, movetoworkspace, 10"
+        "${mod} CTRL, code:10, movetoworkspacesilent, 1"
+        "${mod} CTRL, code:11, movetoworkspacesilent, 2"
+        "${mod} CTRL, code:12, movetoworkspacesilent, 3"
+        "${mod} CTRL, code:13, movetoworkspacesilent, 4"
+        "${mod} CTRL, code:14, movetoworkspacesilent, 5"
+        "${mod} CTRL, code:15, movetoworkspacesilent, 6"
+        "${mod} CTRL, code:16, movetoworkspacesilent, 7"
+        "${mod} CTRL, code:17, movetoworkspacesilent, 8"
+        "${mod} CTRL, code:18, movetoworkspacesilent, 9"
+        "${mod} CTRL, code:19, movetoworkspacesilent, 10"
         "${mod}, tab, workspace, m+1"
         "${mod} SHIFT, tab, workspace, m-1"
-        "${mod}, mouse_down, workspace, e+1"
-        "${mod}, mouse_up, workspace, e-1"
         "${mod}, period, workspace, e+1"
         "${mod}, comma, workspace, e-1"
         "${mod} SHIFT, U, movetoworkspace, special"
         "${mod}, U, togglespecialworkspace,"
+
         "${mod}, W, exec, ${scripts.select-wallpaper}/bin/select-wallpaper"
         "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
         "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.swappy}/bin/swappy -f -"
-        "${mod}, D, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
         "${mod}, Return, exec, ${term}"
-        "${mod} SHIFT, Return, exec, ${term2}"
         "${mod}, B, exec, ${browser}"
         "${mod}, E, exec, ${files}"
         "${mod} SHIFT, E, exec, ${guiFiles}"
         "${mod}, T, exec, ${telegram}"
         "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
-        "CTRL ALT, Delete, exec, hyprctl dispatch exit"
         "${mod} ALT, E, exec, hyprctl dispatch exit"
         "${mod} ALT, L, exec, hyprlock"
         "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
@@ -271,7 +263,6 @@ in {
         "${mod} ALT, P, exec, ${scripts.spread-propaganda}/bin/spread-propaganda"
         "${mod} ALT, S, exec, ${scripts.showcase}/bin/showcase"
         "${mod} ALT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
-        "${mod}, N, exec, swaync-client -t"
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"

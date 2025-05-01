@@ -36,14 +36,7 @@ in {
       bind = [
         "${mod} ALT, W, exec, ${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
-      env = [
-        "GDK_SCALE,${scale}"
-      ];
     };
-  };
-
-  home.sessionVariables = {
-    GDK_SCALE = "${scale}";
   };
 
   games = {

@@ -6,7 +6,7 @@
   imports = [
     # ./firefox
     # ./helix
-    ./alacritty
+    # ./alacritty
     ./carapace
     ./cava
     ./chromium
