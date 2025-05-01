@@ -188,7 +188,6 @@ in {
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
         "swww-daemon &"
         "waybar &"
-        "echo 'Xft.dpi: 192' | ${pkgs.xorg.xrdb}/bin/xrdb -merge"
         "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
