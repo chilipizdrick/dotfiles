@@ -13,7 +13,7 @@
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "zen_twilight.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop" "zen-beta.desktop"];
       "application/doc" = "onlyoffice-desktopeditors.desktop";
       "application/docx" = "onlyoffice-desktopeditors.desktop";
       "application/msword" = "onlyoffice-desktopeditors.desktop";
@@ -40,16 +40,6 @@
       "audio/opus" = "org.gnome.Decibels.desktop";
       "audio/mp3" = "org.gnome.Decibels.desktop";
       "audio/webm" = "org.gnome.Decibels.desktop";
-
-      # "audio/aac" = "mpv.desktop";
-      # "audio/mpeg" = "mpv.desktop";
-      # "audio/ogg" = "mpv.desktop";
-      # "audio/wav" = "mpv.desktop";
-      # "audio/flac" = "mpv.desktop";
-      # "audio/webm" = "mpv.desktop";
-      # "audio/m4a" = "mpv.desktop";
-      # "audio/opus" = "mpv.desktop";
-      # "audio/mp3" = "mpv.desktop";
     };
   };
 }
