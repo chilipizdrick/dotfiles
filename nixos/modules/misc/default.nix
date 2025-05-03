@@ -16,5 +16,9 @@
   # This garbage is killing my system boot time
   systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
 
+  # Limit max size of systemd journal
   services.journald.extraConfig = "SystemMaxUse=50M";
+
+  # Disable NixOS manual and such
+  documentation.enable = false;
 }
