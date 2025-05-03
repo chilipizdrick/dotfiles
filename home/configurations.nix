@@ -3,19 +3,13 @@
   nixpkgs,
   extraSpecialArgs,
   ...
-}: {
-  "alex@atlas" = home-manager.lib.homeManagerConfiguration {
-    inherit extraSpecialArgs;
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    modules = [
-      ./hosts/atlas/home.nix
-    ];
-  };
-  "alex@aurora" = home-manager.lib.homeManagerConfiguration {
-    inherit extraSpecialArgs;
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    modules = [
-      ./hosts/aurora/home.nix
-    ];
-  };
+}: let
+  homeConfiguration = modules:
+    home-manager.lib.homeManagerConfiguration {
+      inherit modules extraSpecialArgs;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    };
+in {
+  "alex@atlas" = homeConfiguration [./hosts/atlas/home.nix];
+  "alex@aurora" = homeConfiguration [./hosts/aurora/home.nix];
 }

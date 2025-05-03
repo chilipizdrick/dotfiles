@@ -2,17 +2,12 @@
   nixpkgs,
   specialArgs,
   ...
-}: {
-  "atlas" = nixpkgs.lib.nixosSystem {
-    inherit specialArgs;
-    modules = [
-      ./hosts/atlas/configuration.nix
-    ];
-  };
-  "aurora" = nixpkgs.lib.nixosSystem {
-    inherit specialArgs;
-    modules = [
-      ./hosts/aurora/configuration.nix
-    ];
-  };
+}: let
+  nixosConfiguration = modules:
+    nixpkgs.lib.nixosSystem {
+      inherit modules specialArgs;
+    };
+in {
+  atlas = nixosConfiguration [./hosts/atlas/configuration.nix];
+  aurora = nixosConfiguration [./hosts/aurora/configuration.nix];
 }
