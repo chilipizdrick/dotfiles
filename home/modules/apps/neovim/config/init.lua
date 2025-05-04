@@ -5,6 +5,7 @@ vim.g.have_nerd_font = true
 require("options")
 require("keymaps")
 require("autocommands")
+require("lsp")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

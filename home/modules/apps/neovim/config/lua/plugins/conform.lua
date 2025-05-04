@@ -15,7 +15,7 @@ return {
   },
 
   opts = {
-    notify_on_error = false,
+    notify_on_error = true,
     default_format_opts = {
       lsp_format = "fallback",
     },
@@ -39,7 +39,6 @@ return {
       typst = { "typstyle", lsp_format = "fallback" },
       json = { "fixjson" },
       markdown = { "commonmark" },
-      -- rust = { "rustfmt", lsp_format = "fallback" },
     },
   },
 }

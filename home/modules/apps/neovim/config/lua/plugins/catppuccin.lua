@@ -28,7 +28,6 @@ return {
         treesitter = true,
         notify = true,
         noice = true,
-        mason = true,
         indent_blankline = {
           enabled = true,
         },

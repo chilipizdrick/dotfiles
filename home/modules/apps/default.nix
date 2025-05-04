@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # ./firefox
     # ./helix
@@ -26,6 +22,7 @@
     ./zathura
     ./zoxide
     ./zsh
+    ./zen
   ];
 
   home.packages = with pkgs; [
@@ -35,7 +32,6 @@
     helvum
     imv
     gimp3
-    inputs.zen-browser.packages.${system}.beta
     loupe
     mpv
     obsidian

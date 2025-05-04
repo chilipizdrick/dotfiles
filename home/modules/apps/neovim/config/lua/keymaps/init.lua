@@ -1,45 +1,26 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", "<leader>do", function()
-  vim.diagnostic.open_float({ border = "rounded" })
-end, { desc = "Floating [d]iagnostic [o]pen" })
-vim.keymap.set("n", "[d", function()
-  vim.diagnostic.goto_prev({ float = false })
-end, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", function()
-  vim.diagnostic.goto_next({ float = false })
-end, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set(
-  "n",
-  "<leader>q",
-  vim.diagnostic.setloclist,
-  { desc = "Open diagnostic [Q]uickfix list" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>Q",
-  vim.lsp.buf.code_action,
-  { desc = "Apply [Q]uickfix" }
-)
-
 vim.keymap.set(
   "n",
   "<C-h>",
   "<C-w><C-h>",
   { desc = "Move focus to the left window" }
 )
+
 vim.keymap.set(
   "n",
   "<C-l>",
   "<C-w><C-l>",
   { desc = "Move focus to the right window" }
 )
+
 vim.keymap.set(
   "n",
   "<C-j>",
   "<C-w><C-j>",
   { desc = "Move focus to the lower window" }
 )
+
 vim.keymap.set(
   "n",
   "<C-k>",
@@ -53,9 +34,49 @@ vim.keymap.set(
   '"+y',
   { desc = "Yank selection to system clipboard" }
 )
+
 vim.keymap.set(
   "n",
   "<leader>yy",
   '"+yy',
   { desc = "Yank lilne to system clipboard" }
 )
+
+vim.keymap.set("n", "<leader>do", function()
+  vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Floating [d]iagnostic [o]pen" })
+
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.jump({ count = -1, float = false })
+end, { desc = "Go to previous [D]iagnostic message" })
+
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.jump({ count = 1, float = false })
+end, { desc = "Go to next [D]iagnostic message" })
+
+vim.keymap.set(
+  "n",
+  "<leader>q",
+  vim.diagnostic.setloclist,
+  { desc = "Open diagnostic [Q]uickfix list" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>Q",
+  vim.lsp.buf.code_action,
+  { desc = "Apply [Q]uickfix" }
+)
+
+vim.keymap.set("x", "<leader>rn", vim.lsp.buf.rename)
+
+vim.keymap.set(
+  "n",
+  "gD",
+  vim.lsp.buf.declaration,
+  { desc = "[G]oto [D]eclaration" }
+)
+
+vim.keymap.set("n", "K", function()
+  vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "[G]oto [D]eclaration" })

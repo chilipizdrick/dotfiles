@@ -19,7 +19,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "80" -- Ruler
 
 -- Spelling
 vim.opt.spelllang = "en_us,ru_ru"
