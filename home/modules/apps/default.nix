@@ -38,5 +38,6 @@
     openvpn
     telegram-desktop
     thunderbird
+    code-cursor
   ];
 }

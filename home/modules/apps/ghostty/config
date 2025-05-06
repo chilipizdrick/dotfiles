@@ -98,3 +98,5 @@ gtk-titlebar = false
 gtk-wide-tabs = false
 gtk-adwaita = false
 auto-update = off
+
+command = nu

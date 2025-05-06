@@ -11,6 +11,8 @@
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
 
+      "x-scheme-handler/spotify" = "spotify.desktop";
+
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
       "application/pdf" = ["org.pwmt.zathura.desktop" "zen-beta.desktop"];

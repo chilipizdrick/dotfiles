@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.tmux = {
     enable = true;
-    package = pkgs.tmux;
+    shell = "${pkgs.nushell}/bin/nu";
     clock24 = true;
     keyMode = "vi";
     baseIndex = 1;
