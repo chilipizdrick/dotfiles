@@ -4,22 +4,24 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    plugins = [
+    plugins = with pkgs; [
       {
-        name = pkgs.zsh-fzf-tab.pname;
-        src = pkgs.zsh-fzf-tab.src;
+        name = zsh-fzf-tab.pname;
+        src = zsh-fzf-tab.src;
       }
       {
-        name = pkgs.zsh-fzf-history-search.pname;
-        src = pkgs.zsh-fzf-history-search.src;
+        name = zsh-fzf-history-search.pname;
+        src = zsh-fzf-history-search.src;
       }
       {
-        name = pkgs.zsh-completions.pname;
-        src = pkgs.zsh-completions.src;
+        name = zsh-completions.pname;
+        src = zsh-completions.src;
       }
     ];
-    initContent = ''
-      zstyle ':completion:*' completer _expand_alias _complete _ignored
-    '';
+    initContent =
+      # sh
+      ''
+        zstyle ':completion:*' completer _expand_alias _complete _ignored
+      '';
   };
 }

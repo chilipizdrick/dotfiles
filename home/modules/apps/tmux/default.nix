@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.tmux = {
     enable = true;
-    shell = "${pkgs.nushell}/bin/nu";
     clock24 = true;
     keyMode = "vi";
     baseIndex = 1;

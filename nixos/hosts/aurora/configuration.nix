@@ -26,5 +26,12 @@
   environment.systemPackages = [inputs.sl1.packages.${pkgs.system}.sl1-desktop];
 
   hardware.bluetooth.settings.General.ControllerMode = lib.mkForce "bredr";
+
+  boot.loader.timeout = lib.mkForce null;
+  boot.loader.systemd-boot.windows.windows-11 = {
+    title = "Windows 11";
+    efiDeviceHandle = "FS0";
+  };
+
   networking.hostName = "aurora";
 }
