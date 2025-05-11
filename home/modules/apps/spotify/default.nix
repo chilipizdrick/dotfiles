@@ -11,7 +11,6 @@
     spicetifyPkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;
-    spotifyPackage = pkgs.spotify;
 
     theme = {
       name = "Blackout";
@@ -26,17 +25,10 @@
 
     enabledExtensions = with spicetifyPkgs.extensions; [
       shuffle
-      fullAlbumDate
-      showQueueDuration
-      history
-      hidePodcasts
-      playNext
-      volumePercentage
     ];
 
     enabledCustomApps = with spicetifyPkgs.apps; [
       lyricsPlus
-      ncsVisualizer
     ];
   };
 }

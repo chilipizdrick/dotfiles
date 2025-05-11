@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     # ./firefox
     # ./helix
@@ -23,6 +27,7 @@
     ./zoxide
     ./zsh
     ./zen
+    ./fish
   ];
 
   home.packages = with pkgs; [
@@ -39,5 +44,7 @@
     telegram-desktop
     thunderbird
     code-cursor
+    element-desktop
+    inputs.hijacker.packages.${system}.default
   ];
 }

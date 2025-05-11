@@ -3,6 +3,7 @@
     enable = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
+    enableFishIntegration = true;
 
     settings = {
       add_newline = false;

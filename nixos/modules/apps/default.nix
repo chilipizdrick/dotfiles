@@ -13,6 +13,7 @@
     home-manager
     ripgrep
     fd
+    fzf
     wget
     curl
     jq

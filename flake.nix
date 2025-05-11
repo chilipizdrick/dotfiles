@@ -56,8 +56,16 @@
     sl1 = {
       url = "github:chilipizdrick/sl1";
       inputs = {
-        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
+    hijacker = {
+      url = "github:chilipizdrick/hijacker";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
       };
     };
 

@@ -2,7 +2,8 @@
   imports = [
     ./zsh
     ./nu
+    ./fish
   ];
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
 }

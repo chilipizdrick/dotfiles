@@ -13,6 +13,7 @@ return {
         light = "latte",
         dark = "mocha",
       },
+      term_colors = true,
 
       styles = {
         comments = { "italic" },
@@ -25,9 +26,6 @@ return {
         markdown = true,
         gitsigns = true,
         nvimtree = false,
-        treesitter = true,
-        notify = true,
-        noice = true,
         indent_blankline = {
           enabled = true,
         },
@@ -36,9 +34,6 @@ return {
           indentscope_color = "",
         },
         neotree = true,
-        neogit = true,
-        dap = true,
-        dap_ui = true,
         native_lsp = {
           enabled = true,
           virtual_text = {

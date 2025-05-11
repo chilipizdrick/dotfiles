@@ -3,6 +3,8 @@
     enable = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
+    enableFishIntegration = true;
+
     settings = {
       manager = {
         show_hidden = false;

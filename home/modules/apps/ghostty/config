@@ -90,7 +90,7 @@ cursor-style-blink = false
 cursor-color = #cdd6f4
 cursor-text = #1e1e2e
 
-shell-integration-features = cursor,sudo,no-title
+shell-integration-features = no-cursor,sudo,no-title
 
 gtk-single-instance = true
 gtk-titlebar = false
