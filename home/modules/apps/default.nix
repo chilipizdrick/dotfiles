@@ -16,7 +16,7 @@
     ./ghostty
     ./git
     ./neovim
-    ./nushell
+    # ./nushell
     ./obs-studio
     ./spotify
     ./starship
@@ -28,6 +28,7 @@
     ./zsh
     ./zen
     ./fish
+    ./command-not-found
   ];
 
   home.packages = with pkgs; [
@@ -40,11 +41,8 @@
     loupe
     mpv
     obsidian
-    openvpn
     telegram-desktop
     thunderbird
-    code-cursor
-    element-desktop
     inputs.hijacker.packages.${system}.default
   ];
 }

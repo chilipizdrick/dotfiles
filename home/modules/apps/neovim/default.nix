@@ -23,7 +23,7 @@
 
   home.packages = with pkgs; let
     llvmPkgs = llvmPackages;
-    fenixPkgs = inputs.fenix.packages.${pkgs.system};
+    fenixPkgs = inputs.fenix.packages.${system};
   in [
     (fenixPkgs.stable.withComponents [
       "cargo"
@@ -70,6 +70,18 @@
 
     chafa
   ];
+
+  xdg.configFile."clippy/clippy.toml".text =
+    # toml
+    ''
+      [lints.clippy]
+      enum_glob_use = "deny"
+      pedantic = "deny"
+      nursery = "deny"
+      unwrap_used = "deny"
+    '';
+
+  home.sessionVariables.CLIPPY_CONF_DIR = "$HOME/.config/clippy";
 
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink

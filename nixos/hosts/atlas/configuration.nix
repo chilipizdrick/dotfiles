@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../base-configuraion.nix
@@ -22,6 +18,4 @@
   };
 
   networking.hostName = "atlas";
-
-  environment.systemPackages = [inputs.sl1.packages.${pkgs.system}.sl1-desktop];
 }

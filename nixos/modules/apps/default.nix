@@ -6,7 +6,8 @@
   imports = [
     ./chromium
     ./nautilus
-    ./android-studio
+    # ./android-studio
+    ./command-not-found
   ];
 
   environment.systemPackages = with pkgs; [
