@@ -19,7 +19,15 @@ return {
       },
 
       completion = {
-        ghost_text = { enabled = true },
+        ghost_text = {
+          enabled = function()
+            local selected_item = require("blink-cmp").get_selected_item()
+            if selected_item and selected_item.client_name == "copilot" then
+              return true
+            end
+            return false
+          end,
+        },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 500,
@@ -61,6 +69,7 @@ return {
               local kind_idx = #CompletionItemKind + 1
               CompletionItemKind[kind_idx] = "Copilot"
               for _, item in ipairs(items) do
+                item.client_name = "copilot"
                 item.kind = kind_idx
               end
               return items

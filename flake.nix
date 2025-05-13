@@ -39,15 +39,6 @@
       };
     };
 
-    zen-nebula = {
-      url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
-      };
-    };
-
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";

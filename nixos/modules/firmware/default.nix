@@ -2,7 +2,7 @@
   imports = [
     ./audio
     ./bluetooth
-    ./graphical-tablet
+    # ./graphical-tablet
     ./kernel
     ./networking
     ./power-management
