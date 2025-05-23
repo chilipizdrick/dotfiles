@@ -43,6 +43,7 @@
     obsidian
     telegram-desktop
     thunderbird
+    element-desktop
     inputs.hijacker.packages.${system}.default
   ];
 }

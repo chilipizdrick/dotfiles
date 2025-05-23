@@ -37,8 +37,8 @@ in {
       bind = [
         "${mod} ALT, W, exec, ${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
-      exec-once = [
-        "echo 'Xft.dpi: 160' | ${pkgs.xorg.xrdb}/bin/xrdb -merge"
+      env = [
+        "GDK_SCALE,1.6"
       ];
     };
   };

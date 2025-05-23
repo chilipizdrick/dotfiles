@@ -16,10 +16,13 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.file."lib/glfw-wayland".source = mkIf cfg.minecraft pkgs.glfw;
+
     home.packages = with pkgs; let
       minecraftPkgs = [
         prismlauncher
         fabric-installer
+        glfw
       ];
       r2modmanPkgs = [r2modman];
       osuPkgs = [osu-lazer];
