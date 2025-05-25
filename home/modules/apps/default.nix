@@ -11,7 +11,7 @@
     ./cava
     ./chromium
     ./direnv
-    ./discord
+    # ./discord
     ./fzf
     ./ghostty
     ./git
