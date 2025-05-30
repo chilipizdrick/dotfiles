@@ -21,6 +21,6 @@
     ./shell
     ./kanata
     ./users
-    ./firewall
+    # ./firewall
   ];
 }

@@ -11,7 +11,21 @@
   # Allow discovery of connected monitors
   hardware.i2c.enable = true;
 
-  programs.dconf.enable = true;
+  programs.dconf = {
+    enable = true;
+    profiles.user.databases = [
+      {
+        lockAll = true;
+        settings = {
+          "org/gnome/desktop/media-handling" = {
+            automount = false;
+            automount-open = false;
+            autorun-never = true;
+          };
+        };
+      }
+    ];
+  };
 
   # This garbage is killing my system boot time
   systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
