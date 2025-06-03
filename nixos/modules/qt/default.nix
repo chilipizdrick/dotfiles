@@ -2,7 +2,7 @@
   qt = {
     enable = true;
     platformTheme = "gnome";
-    style = "adwaita-dark";
+    style = "breeze";
   };
 
   environment.systemPackages = with pkgs; [

@@ -189,6 +189,9 @@ in {
         "swww-daemon &"
         "waybar &"
         "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
+
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       bind = [
@@ -243,10 +246,11 @@ in {
         "${mod}, U, togglespecialworkspace,"
 
         "${mod}, W, exec, ${scripts.select-wallpaper}/bin/select-wallpaper"
-        "${mod} SHIFT, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
-        "${mod} CTRL, S, exec, ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.swappy}/bin/swappy -f -"
+        "${mod} SHIFT, S, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -z -s --clipboard-only"
+        "${mod} CTRL, S, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -rzs | ${pkgs.swappy}/bin/swappy -f -"
         "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
-        "${mod}, Return, exec, ${term}"
+        "${mod}, V, exec, ${scripts.clipboard}/bin/clipboard"
+        "${mod}, RETURN, exec, ${term}"
         "${mod}, B, exec, ${browser}"
         "${mod}, E, exec, ${guiFiles}"
         "${mod} SHIFT, E, exec, ${files}"
@@ -262,6 +266,18 @@ in {
         "${mod} ALT, P, exec, ${scripts.spread-propaganda}/bin/spread-propaganda"
         "${mod} ALT, S, exec, ${scripts.showcase}/bin/showcase"
         "${mod} ALT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
+
+        # Soundpad configs
+        "${mod} ALT, 1, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/1.mp3"
+        "${mod} ALT, 2, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/2.mp3"
+        "${mod} ALT, 3, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/3.mp3"
+        "${mod} ALT, 4, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/4.mp3"
+        "${mod} ALT, 5, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/5.mp3"
+        "${mod} ALT, 6, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/6.mp3"
+        "${mod} ALT, 7, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/7.mp3"
+        "${mod} ALT, 8, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/8.mp3"
+        "${mod} ALT, 9, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/9.mp3"
+        "${mod} ALT, 0, exec, pkill hijacker"
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"
@@ -315,6 +331,7 @@ in {
     wl-clipboard
     swww
     opentabletdriver
+    cliphist
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;

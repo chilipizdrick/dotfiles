@@ -8,6 +8,7 @@
     ./nautilus
     # ./android-studio
     ./command-not-found
+    ./kde-connect
   ];
 
   environment.systemPackages = with pkgs; [

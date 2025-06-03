@@ -1,5 +1,5 @@
 font-family = "JetBrainsMono Nerd Font"
-font-feature = -liga
+font-feature = -calt,-liga,-dlig
 font-size = 12
 
 window-padding-x = 5
