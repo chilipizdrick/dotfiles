@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [kanata];
+
   systemd.services.kanata = {
     enable = true;
     description = "Kanata service";

@@ -26,14 +26,6 @@ vim.lsp.config["nixd"] = {
       formatting = {
         command = { "nix fmt || alejandra" },
       },
-      options = {
-        nixos = {
-          expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").nixosConfigurations."atlas".options',
-        },
-        home_manager = {
-          expr = '(builtins.getFlake "/home/alex/Projects/nix/dotfiles/flake.nix").homeConfigurations."atlas".options',
-        },
-      },
     },
   },
 }

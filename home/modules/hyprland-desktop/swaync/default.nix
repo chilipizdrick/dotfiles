@@ -95,7 +95,7 @@
         @define-color mantle #181825;
         @define-color crust #11111b;
 
-        @define-color background rgba(0, 0, 0, 0.8);
+        @define-color background rgba(0, 0, 0, 0.7);
         @define-color background-light rgba(0, 0, 0, 0.6);
 
         * {

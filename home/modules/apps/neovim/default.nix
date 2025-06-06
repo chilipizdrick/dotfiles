@@ -1,5 +1,5 @@
 {
-  inputs,
+  inputs',
   pkgs,
   config,
   ...
@@ -23,7 +23,7 @@
 
   home.packages = with pkgs; let
     llvmPkgs = llvmPackages;
-    fenixPkgs = inputs.fenix.packages.${system};
+    fenixPkgs = inputs'.fenix.packages;
   in [
     (fenixPkgs.stable.withComponents [
       "cargo"

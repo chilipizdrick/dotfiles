@@ -1,15 +1,17 @@
 {...}: {
   imports = [
+    # ./swayidle
     # ./swaync
+    ./copyq
     ./cursor
     ./gammastep
     ./gtk
     ./hypridle
-    # ./swayidle
     ./hyprland
     ./hyprlock
     ./mako
     ./rofi
+    ./swww
     ./waybar
     ./wlogout
   ];

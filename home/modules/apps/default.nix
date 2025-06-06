@@ -1,22 +1,25 @@
 {
-  inputs,
+  inputs',
   pkgs,
   ...
 }: {
   imports = [
+    # ./alacritty
     # ./firefox
     # ./helix
-    # ./alacritty
+    # ./nushell
     ./carapace
     ./cava
     ./chromium
+    ./command-not-found
     ./direnv
-    # ./discord
+    ./discord
+    ./fish
     ./fzf
     ./ghostty
     ./git
+    ./kdeconnect
     ./neovim
-    # ./nushell
     ./obs-studio
     ./spotify
     ./starship
@@ -24,11 +27,9 @@
     ./udiskie
     ./yazi
     ./zathura
+    ./zen
     ./zoxide
     ./zsh
-    ./zen
-    ./fish
-    ./command-not-found
   ];
 
   home.packages = with pkgs; [
@@ -43,7 +44,6 @@
     obsidian
     telegram-desktop
     thunderbird
-    element-desktop
-    inputs.hijacker.packages.${system}.default
+    inputs'.hijacker.packages.default
   ];
 }

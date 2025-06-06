@@ -14,10 +14,6 @@
         event = "lock";
         command = "${pkgs.hyprlock}/bin/hyprlock &";
       }
-      # {
-      #   event = "unlock";
-      #   command = "pkill -SIGUSR1 hyprlock";
-      # }
     ];
     timeouts = [
       {
@@ -30,6 +26,4 @@
       }
     ];
   };
-
-  # systemd.user.services.swayidle.serviceConfig.Restart = lib.mkForce "no"; # Dissable restarting swayidle service
 }

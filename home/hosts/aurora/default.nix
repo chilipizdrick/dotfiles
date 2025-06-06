@@ -1,6 +1,7 @@
 {
   lib,
-  scripts,
+  pkgs,
+  inputs',
   ...
 }: {
   imports = [
@@ -10,7 +11,7 @@
   services.hypridle.settings.listener = lib.mkForce [
     {
       timeout = 3600;
-      on-timeout = "hyprlock";
+      on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
     }
     {
       timeout = 7200;
@@ -30,7 +31,7 @@
       monitor = lib.mkForce [
         ",preferred,auto,auto"
         "Unknown-1,disable"
-        "DP-3,1920x1080@75,0x0,1"
+        "DP-3,1920x1080@75, 0x0,1"
         "HDMI-A-1,1920x1080@60,1920x0,1"
       ];
 
@@ -55,7 +56,7 @@
       ];
 
       bind = [
-        "${mod} ALT, W, exec, ${scripts.setup-workflow-aurora}/bin/setup-workflow-aurora"
+        "${mod} ALT,W,exec,${inputs'.scripts.packages.setup-workflow-aurora}/bin/setup-workflow-aurora"
       ];
     };
   };
@@ -66,9 +67,6 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
   };
-
-  # Enable ambilight support
-  hyperion.enable = true;
 
   games = {
     enable = true;

@@ -1,9 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs', ...}: {
   home.packages = [
-    inputs.zen-browser.packages.${pkgs.system}.beta
+    inputs'.zen-browser.packages.beta
   ];
 }

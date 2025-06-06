@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    platformTheme = "gnome";
+    platformTheme = "kde6";
     style = "breeze";
   };
 

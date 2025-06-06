@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs,
+  inputs',
   ...
 }: {
   imports = [
@@ -37,6 +37,6 @@
     bat
     television
     onlyoffice-bin
-    inputs.flint.packages.${system}.default
+    inputs'.flint.packages.default
   ];
 }

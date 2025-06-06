@@ -1,5 +1,6 @@
 {
   inputs,
+  inputs',
   pkgs,
   ...
 }: {
@@ -8,7 +9,7 @@
   ];
 
   programs.spicetify = let
-    spicetifyPkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    spicetifyPkgs = inputs'.spicetify-nix.legacyPackages;
   in {
     enable = true;
 

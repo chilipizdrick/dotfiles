@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  scripts,
+  inputs',
   ...
 }: let
   mod = "SUPER";
@@ -9,7 +9,7 @@
   files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
   term = "${pkgs.ghostty}/bin/ghostty";
-  browser = "xdg-open \"http://\"";
+  browser = "${pkgs.xdg-utils}/bin/xdg-open \"http://\"";
   left = "H";
   down = "J";
   up = "K";
@@ -29,25 +29,25 @@ in {
       ];
 
       env = [
-        "ELECTRON_OZONE_PLATFORM_HINT, auto"
-        "CLUTTER_BACKEND, wayland"
-        "GDK_BACKEND, wayland,x11"
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "QT_QPA_PLATFORM, wayland"
-        "QT_SCALE_FACTOR, 1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_DESKTOP, Hyprland"
-        "XDG_SESSION_TYPE, wayland"
-        "NIXOS_OZONE_WL, 1"
-        "MOZ_ENABLE_WAYLAND, 1"
-        "EDITOR, nvim"
-        "TERMINAL, ghostty"
-        "BROWSER, zen"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "CLUTTER_BACKEND,wayland"
+        "GDK_BACKEND,wayland,x11"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland"
+        "QT_SCALE_FACTOR,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "NIXOS_OZONE_WL,1"
+        "MOZ_ENABLE_WAYLAND,1"
+        "EDITOR,nvim"
+        "TERMINAL,ghostty"
+        "BROWSER,zen"
       ];
 
       monitor = [
-        ", preferred, auto, auto"
+        ",preferred,auto,auto"
       ];
 
       general = {
@@ -152,157 +152,163 @@ in {
         pass_mouse_when_bound = false;
       };
 
+      bezier = [
+        "easeOutCubic,0.215,0.61,0.355,1"
+      ];
+
       animations = {
         enabled = true;
         animation = [
-          "windows, on, 2, default"
-          "windowsIn, on, 2, default, slide, top"
-          "windowsOut, on, 2, default, slide, bottom"
-          "workspaces, on, 2, default"
+          "windows,on,2,easeOutCubic"
+          "windowsMove,on,2,default"
+          "windowsIn,on,2,easeOutCubic,slide,top"
+          "windowsOut,on,2,easeOutCubic,slide,bottom"
+          "workspaces,on,2,easeOutCubic"
         ];
       };
 
       layerrule = [
-        "blur, logout_dialog"
-        "blur, rofi"
-        "blur, waybar"
-        "blur, notifications"
-        "ignorezero, waybar"
-        "ignorezero, notifications"
-        "ignorealpha 0.79, waybar"
-        "animation slide, waybar"
+        "blur,logout_dialog"
+        "blur,rofi"
+        "blur,waybar"
+        "blur,notifications"
+        "ignorezero,waybar"
+        "ignorezero,notifications"
+        "ignorealpha 0.5,waybar"
+        "animation slide,waybar"
       ];
 
       windowrule = [
-        "float, class:.blueman-manager-wrapped"
-        "float, class:org.pulseaudio.pavucontrol$"
-        "float, class:yad"
-        "idleinhibit fullscreen, fullscreen:1"
-        "noborder, onworkspace:w[t1], floating:0" # Disable borders for single window workspaces
+        "idleinhibit fullscreen,fullscreen:1"
+        "noborder,onworkspace:w[t1],floating:0" # Disable borders for single window workspaces
+
+        # "Menu windows" configuration
+        "float,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
+        "center,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
+        "size 50% 70%,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
+
+        # "File dialogs" configuration
+        "float,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+        "center,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+        "size 50% 70%,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
       ];
 
       exec-once = [
-        "hyprlock --immediate --immediate-render &" # Lock on login
-        "hyprctl setcursor Bibata-Modern-Classic 20"
-        "hypridle &"
+        "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
+        "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "swww-daemon &"
-        "waybar &"
-        "ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
-
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
+        "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
       bind = [
-        "${mod} SHIFT, Q, killactive,"
-        "${mod} SHIFT, W, forcekillactive,"
-        "${mod}, F, fullscreen,"
-        "${mod} SHIFT, F, togglefloating"
-        "${mod} ALT, F, exec, hyprctl dispatch workspaceopt allfloat"
-        "${mod}, ${left}, movefocus, l"
-        "${mod}, ${right}, movefocus, r"
-        "${mod}, ${up}, movefocus, u"
-        "${mod}, ${down}, movefocus, d"
-        "${mod} SHIFT, ${left}, movewindow, l"
-        "${mod} SHIFT, ${right}, movewindow, r"
-        "${mod} SHIFT, ${up}, movewindow, u"
-        "${mod} SHIFT, ${down}, movewindow, d"
-        "${mod}, 1, workspace, 1"
-        "${mod}, 2, workspace, 2"
-        "${mod}, 3, workspace, 3"
-        "${mod}, 4, workspace, 4"
-        "${mod}, 5, workspace, 5"
-        "${mod}, 6, workspace, 6"
-        "${mod}, 7, workspace, 7"
-        "${mod}, 8, workspace, 8"
-        "${mod}, 9, workspace, 9"
-        "${mod}, 0, workspace, 10"
-        "${mod} SHIFT, 1, movetoworkspace, 1"
-        "${mod} SHIFT, 2, movetoworkspace, 2"
-        "${mod} SHIFT, 3, movetoworkspace, 3"
-        "${mod} SHIFT, 4, movetoworkspace, 4"
-        "${mod} SHIFT, 5, movetoworkspace, 5"
-        "${mod} SHIFT, 6, movetoworkspace, 6"
-        "${mod} SHIFT, 7, movetoworkspace, 7"
-        "${mod} SHIFT, 8, movetoworkspace, 8"
-        "${mod} SHIFT, 9, movetoworkspace, 9"
-        "${mod} SHIFT, 0, movetoworkspace, 10"
-        "${mod} CTRL, 1, movetoworkspacesilent, 1"
-        "${mod} CTRL, 2, movetoworkspacesilent, 2"
-        "${mod} CTRL, 3, movetoworkspacesilent, 3"
-        "${mod} CTRL, 4, movetoworkspacesilent, 4"
-        "${mod} CTRL, 5, movetoworkspacesilent, 5"
-        "${mod} CTRL, 6, movetoworkspacesilent, 6"
-        "${mod} CTRL, 7, movetoworkspacesilent, 7"
-        "${mod} CTRL, 8, movetoworkspacesilent, 8"
-        "${mod} CTRL, 9, movetoworkspacesilent, 9"
-        "${mod} CTRL, 0, movetoworkspacesilent, 10"
-        "${mod}, tab, workspace, m+1"
-        "${mod} SHIFT, tab, workspace, m-1"
-        "${mod}, period, workspace, e+1"
-        "${mod}, comma, workspace, e-1"
-        "${mod} SHIFT, U, movetoworkspace, special"
-        "${mod}, U, togglespecialworkspace,"
+        "${mod} SHIFT,Q,killactive,"
+        "${mod} SHIFT,W,forcekillactive,"
+        "${mod},F,fullscreen,"
+        "${mod} SHIFT,F,togglefloating"
+        "${mod} ALT,F,exec,hyprctl dispatch workspaceopt allfloat"
+        "${mod},${left},movefocus,l"
+        "${mod},${right},movefocus,r"
+        "${mod},${up},movefocus,u"
+        "${mod},${down},movefocus,d"
+        "${mod} SHIFT,${left},movewindow,l"
+        "${mod} SHIFT,${right},movewindow,r"
+        "${mod} SHIFT,${up},movewindow,u"
+        "${mod} SHIFT,${down},movewindow,d"
+        "${mod},1,workspace,1"
+        "${mod},2,workspace,2"
+        "${mod},3,workspace,3"
+        "${mod},4,workspace,4"
+        "${mod},5,workspace,5"
+        "${mod},6,workspace,6"
+        "${mod},7,workspace,7"
+        "${mod},8,workspace,8"
+        "${mod},9,workspace,9"
+        "${mod},0,workspace,10"
+        "${mod} SHIFT,1,movetoworkspace,1"
+        "${mod} SHIFT,2,movetoworkspace,2"
+        "${mod} SHIFT,3,movetoworkspace,3"
+        "${mod} SHIFT,4,movetoworkspace,4"
+        "${mod} SHIFT,5,movetoworkspace,5"
+        "${mod} SHIFT,6,movetoworkspace,6"
+        "${mod} SHIFT,7,movetoworkspace,7"
+        "${mod} SHIFT,8,movetoworkspace,8"
+        "${mod} SHIFT,9,movetoworkspace,9"
+        "${mod} SHIFT,0,movetoworkspace,10"
+        "${mod} CTRL,1,movetoworkspacesilent,1"
+        "${mod} CTRL,2,movetoworkspacesilent,2"
+        "${mod} CTRL,3,movetoworkspacesilent,3"
+        "${mod} CTRL,4,movetoworkspacesilent,4"
+        "${mod} CTRL,5,movetoworkspacesilent,5"
+        "${mod} CTRL,6,movetoworkspacesilent,6"
+        "${mod} CTRL,7,movetoworkspacesilent,7"
+        "${mod} CTRL,8,movetoworkspacesilent,8"
+        "${mod} CTRL,9,movetoworkspacesilent,9"
+        "${mod} CTRL,0,movetoworkspacesilent,10"
+        "${mod},tab,workspace,m+1"
+        "${mod} SHIFT,tab,workspace,m-1"
+        "${mod},period,workspace,e+1"
+        "${mod},comma,workspace,e-1"
+        "${mod} SHIFT,U,movetoworkspace,special"
+        "${mod},U,togglespecialworkspace,"
 
-        "${mod}, W, exec, ${scripts.select-wallpaper}/bin/select-wallpaper"
-        "${mod} SHIFT, S, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -z -s --clipboard-only"
-        "${mod} CTRL, S, exec, ${pkgs.hyprshot}/bin/hyprshot -m region -rzs | ${pkgs.swappy}/bin/swappy -f -"
-        "ALT, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
-        "${mod}, V, exec, ${scripts.clipboard}/bin/clipboard"
-        "${mod}, RETURN, exec, ${term}"
-        "${mod}, B, exec, ${browser}"
-        "${mod}, E, exec, ${guiFiles}"
-        "${mod} SHIFT, E, exec, ${files}"
-        "${mod}, T, exec, ${telegram}"
-        "${mod} ALT, R, exec, ${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
-        "${mod} ALT, E, exec, hyprctl dispatch exit"
-        "${mod} ALT, L, exec, hyprlock"
-        "${mod} SHIFT, P, exec, pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
-        "${mod} SHIFT, A, exec, ${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
-        "${mod} SHIFT, B, exec, ${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings blur"
-        "${mod} SHIFT, C, exec, ${scripts.toggle-caffeine-mode}/bin/toggle-caffeine-mode"
-        "${mod} SHIFT, M, exec, ${scripts.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
-        "${mod} ALT, P, exec, ${scripts.spread-propaganda}/bin/spread-propaganda"
-        "${mod} ALT, S, exec, ${scripts.showcase}/bin/showcase"
-        "${mod} ALT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod},W,exec,${inputs'.scripts.packages.select-wallpaper}/bin/select-wallpaper"
+        "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -z -s --clipboard-only"
+        "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -rzs | ${pkgs.swappy}/bin/swappy -f -"
+        "${mod} CTRL SHIFT,S,exec,${inputs'.scripts.packages.ocr}/bin/ocr"
+        "ALT,SPACE,exec,${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
+        "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
+        "${mod},RETURN,exec,${term}"
+        "${mod},B,exec,${browser}"
+        "${mod},E,exec,${guiFiles}"
+        "${mod} SHIFT,E,exec,${files}"
+        "${mod},T,exec,${telegram}"
+        "${mod} ALT,R,exec,${inputs'.scripts.packages.reload-graphical-interface}/bin/reload-graphical-interface"
+        "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
+        "${mod} ALT,L,exec,${pkgs.hyprlock}/bin/hyprlock"
+        "${mod} SHIFT,P,exec,${pkgs.procps}/bin/pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
+        "${mod} SHIFT,A,exec,${inputs'.scripts.packages.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
+        "${mod} SHIFT,B,exec,${inputs'.scripts.packages.toggle-hyprland-settings}/bin/toggle-hyprland-settings blur"
+        "${mod} SHIFT,C,exec,${inputs'.scripts.packages.toggle-caffeine-mode}/bin/toggle-caffeine-mode"
+        "${mod} SHIFT,M,exec,${inputs'.scripts.packages.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
+        "${mod} ALT,P,exec,${inputs'.scripts.packages.spread-propaganda}/bin/spread-propaganda"
+        "${mod} ALT,S,exec,${inputs'.scripts.packages.showcase}/bin/showcase"
+        "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
         # Soundpad configs
-        "${mod} ALT, 1, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/1.mp3"
-        "${mod} ALT, 2, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/2.mp3"
-        "${mod} ALT, 3, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/3.mp3"
-        "${mod} ALT, 4, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/4.mp3"
-        "${mod} ALT, 5, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/5.mp3"
-        "${mod} ALT, 6, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/6.mp3"
-        "${mod} ALT, 7, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/7.mp3"
-        "${mod} ALT, 8, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/8.mp3"
-        "${mod} ALT, 9, exec, ${inputs.hijacker.packages.${pkgs.system}.default}/bin/hijacker ~/Music/hijacker-presets/9.mp3"
-        "${mod} ALT, 0, exec, pkill hijacker"
+        "${mod} ALT,1,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/1.mp3"
+        "${mod} ALT,2,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/2.mp3"
+        "${mod} ALT,3,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/3.mp3"
+        "${mod} ALT,4,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/4.mp3"
+        "${mod} ALT,5,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/5.mp3"
+        "${mod} ALT,6,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/6.mp3"
+        "${mod} ALT,7,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/7.mp3"
+        "${mod} ALT,8,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/8.mp3"
+        "${mod} ALT,9,exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/9.mp3"
+        "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker"
       ];
       bindm = [
-        "${mod}, mouse:272, movewindow"
-        "${mod}, mouse:273, resizewindow"
+        "${mod},mouse:272,movewindow"
+        "${mod},mouse:273,resizewindow"
       ];
       bindl = [
-        "${mod}, SPACE, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-        "${mod}, C, exec, ${pkgs.playerctl}/bin/playerctl next"
-        "${mod}, X, exec, ${pkgs.playerctl}/bin/playerctl previous"
-        ", Print, exec, ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
+        "${mod},SPACE,exec,${pkgs.playerctl}/bin/playerctl play-pause"
+        "${mod},C,exec,${pkgs.playerctl}/bin/playerctl next"
+        "${mod},X,exec,${pkgs.playerctl}/bin/playerctl previous"
       ];
       binde = [
-        "${mod} CTRL, ${left}, resizeactive, -20 0"
-        "${mod} CTRL, ${right}, resizeactive, 20 0"
-        "${mod} CTRL, ${up}, resizeactive, 0 -20"
-        "${mod} CTRL, ${down}, resizeactive, 0 20"
+        "${mod} CTRL,${left},resizeactive,-20 0"
+        "${mod} CTRL,${right},resizeactive,20 0"
+        "${mod} CTRL,${up},resizeactive,0 -20"
+        "${mod} CTRL,${down},resizeactive,0 20"
       ];
       bindle = [
-        ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 5 --allow-boost --set-limit 200"
-        ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 5 --allow-boost --set-limit 200"
-        ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"
-        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%-"
-        "SHIFT, XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 0%"
-        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%+"
-        "SHIFT, XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 100%"
+        ",XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 5 --allow-boost --set-limit 200"
+        ",XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 5 --allow-boost --set-limit 200"
+        ",XF86AudioMute,exec,${pkgs.pamixer}/bin/pamixer -t"
+        ",XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%-"
+        "SHIFT,XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 0%"
+        ",XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%+"
+        "SHIFT,XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 100%"
       ];
     };
   };
@@ -329,9 +335,8 @@ in {
     hypridle
     killall
     wl-clipboard
-    swww
-    opentabletdriver
-    cliphist
+    networkmanagerapplet
+    copyq
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;

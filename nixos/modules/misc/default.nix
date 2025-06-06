@@ -34,5 +34,12 @@
   services.journald.extraConfig = "SystemMaxUse=50M";
 
   # Disable NixOS manual and such
-  documentation.enable = false;
+  documentation = {
+    enable = false;
+    man.enable = false;
+    dev.enable = false;
+    doc.enable = false;
+    nixos.enable = false;
+    info.enable = false;
+  };
 }

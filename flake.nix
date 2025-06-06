@@ -68,23 +68,10 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-      ];
-
+      imports = [./nixos ./home];
+      systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
-      };
-
-      flake = let
-        scripts = inputs.scripts.packages."x86_64-linux";
-        specialArgs = {
-          inherit inputs scripts;
-        };
-        extraSpecialArgs = specialArgs;
-      in {
-        nixosConfigurations = import ./nixos/configurations.nix (inputs // {inherit specialArgs;});
-        homeConfigurations = import ./home/configurations.nix (inputs // {inherit extraSpecialArgs;});
       };
     };
 }

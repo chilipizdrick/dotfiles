@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  scripts,
+  inputs',
   ...
 }: let
   scale = "1.666667";
@@ -13,7 +13,7 @@ in {
   services.hypridle.settings.listener = lib.mkForce [
     {
       timeout = 600;
-      on-timeout = "hyprlock";
+      on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
     }
     {
       timeout = 900;
@@ -35,7 +35,7 @@ in {
         ",preferred,auto,${scale},mirror,eDP-1"
       ];
       bind = [
-        "${mod} ALT, W, exec, ${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
+        "${mod} ALT,W,exec,${inputs'.scripts.packages.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
       env = [
         "GDK_SCALE,1.6"

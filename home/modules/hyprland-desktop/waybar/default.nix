@@ -5,7 +5,7 @@
 
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    systemd.enable = true;
   };
 
   home.packages = with pkgs; [playerctl];

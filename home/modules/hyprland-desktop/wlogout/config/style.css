@@ -1,10 +1,13 @@
 @import url("themes/catppuccin-mocha.css");
 
-window {
+* {
+  all: initial;
   font-family: JetBrains Mono;
   font-size: 18pt;
-  color: @rosewater;
-  background-color: rgba(0, 0, 0, 0.5);
+}
+
+window {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -17,6 +20,7 @@ button {
   box-shadow: 0 0 10px 2px transparent;
   border-radius: 36px;
   margin: 10px;
+  color: @text;
 }
 
 button:focus {
@@ -26,9 +30,13 @@ button:focus {
 
 button:hover {
   background-size: 50%;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
-  background-color: @rosewater;
-  color: transparent;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+  background-color: @sapphire;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+}
+
+button:hover label {
+  color: @base;
   transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
 }
 
@@ -38,16 +46,6 @@ button:hover {
 
 #shutdown:hover {
   background-image: image(url("./icons/power-hover.png"));
-  color: @base;
-}
-
-#logout {
-  background-image: image(url("./icons/logout.png"));
-}
-
-#logout:hover {
-  background-image: image(url("./icons/logout-hover.png"));
-  color: @base;
 }
 
 #reboot {
@@ -56,7 +54,14 @@ button:hover {
 
 #reboot:hover {
   background-image: image(url("./icons/restart-hover.png"));
-  color: @base;
+}
+
+#logout {
+  background-image: image(url("./icons/logout.png"));
+}
+
+#logout:hover {
+  background-image: image(url("./icons/logout-hover.png"));
 }
 
 #lock {
@@ -65,14 +70,5 @@ button:hover {
 
 #lock:hover {
   background-image: image(url("./icons/lock-hover.png"));
-  color: @base;
 }
 
-#hibernate {
-  background-image: image(url("./icons/hibernate.png"));
-}
-
-#hibernate:hover {
-  background-image: image(url("./icons/hibernate-hover.png"));
-  color: @base;
-}

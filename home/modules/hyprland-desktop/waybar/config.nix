@@ -1,6 +1,6 @@
 {
   pkgs,
-  scripts,
+  inputs',
   ...
 }: {
   xdg.configFile."waybar/config".text =
@@ -149,14 +149,13 @@
           "interval": 1,
           "status-icons": {
             "paused": "||"
-          },
-          "ignored-players": [ "firefox", "chromium", "brave", "zen" ]
+          }
         },
         "custom/vpn": {
-          "exec": "${scripts.query-tailscale}/bin/query-tailscale",
+          "exec": "${inputs'.scripts.packages.query-tailscale}/bin/query-tailscale",
           "interval": 1,
           "format": "VPN",
-          "on-click": "pkexec ${scripts.toggle-tailscale}/bin/toggle-tailscale",
+          "on-click": "pkexec ${inputs'.scripts.packages.toggle-tailscale}/bin/toggle-tailscale",
         }
       }
     '';

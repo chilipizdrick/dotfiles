@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  home.packages = with pkgs; [hypridle];
-
+{pkgs, ...}: {
   services.hypridle = {
     enable = true;
     package = pkgs.hypridle;
@@ -15,9 +9,16 @@
         ignore_dbus_inhibit = false; # Whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
         lock_cmd = "pidof hyprlock || hyprlock"; # Avoid starting multiple hyprlock instances.
       };
+      listener = [
+        {
+          timeout = 600;
+          on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+        }
+        {
+          timeout = 900;
+          on-timeout = "systemctl suspend";
+        }
+      ];
     };
   };
-
-  systemd.user.services.hypridle = lib.mkForce {}; # Disable hypridle systemd service
-  # systemd.user.services.hypridle.name = lib.mkForce "hypridle.service"; # Disable hypridle systemd service
 }
