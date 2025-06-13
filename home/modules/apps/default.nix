@@ -7,20 +7,20 @@
     # ./alacritty
     # ./firefox
     # ./helix
-    # ./nushell
     ./carapace
     ./cava
     ./chromium
     ./command-not-found
     ./direnv
     ./discord
-    ./fish
+    ./eza
     ./fzf
     ./ghostty
     ./git
     ./kdeconnect
     ./neovim
     ./obs-studio
+    ./shells
     ./spotify
     ./starship
     ./tmux
@@ -29,7 +29,6 @@
     ./zathura
     ./zen
     ./zoxide
-    ./zsh
   ];
 
   home.packages = with pkgs; [

@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs',
+  scripts,
   ...
 }: {
   xdg.configFile."waybar/config".text =
@@ -152,10 +152,10 @@
           }
         },
         "custom/vpn": {
-          "exec": "${inputs'.scripts.packages.query-tailscale}/bin/query-tailscale",
+          "exec": "${scripts.query-tailscale}/bin/query-tailscale",
           "interval": 1,
           "format": "VPN",
-          "on-click": "pkexec ${inputs'.scripts.packages.toggle-tailscale}/bin/toggle-tailscale",
+          "on-click": "pkexec ${scripts.toggle-tailscale}/bin/toggle-tailscale",
         }
       }
     '';

@@ -3,9 +3,15 @@
   inputs,
   ...
 }: let
-  nixosConfiguration = {modules ? []}:
-    withSystem "x86_64-linux" ({inputs', ...}: let
-      specialArgs = {inherit inputs inputs';};
+  nixosConfiguration = {
+    system ? "x86_64-linux",
+    modules ? [],
+  }:
+    withSystem system ({inputs', ...}: let
+      specialArgs = {
+        inherit inputs inputs';
+        scripts = inputs'.scripts.packages;
+      };
     in
       inputs.nixpkgs.lib.nixosSystem {inherit modules specialArgs;});
 in {

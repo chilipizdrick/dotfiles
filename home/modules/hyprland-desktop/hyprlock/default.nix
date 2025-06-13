@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  inputs',
+  scripts,
   ...
 }:
 with lib; let
@@ -127,7 +127,7 @@ in {
           }
           {
             monitor = "";
-            text = ''cmd[update:1000] ${inputs'.scripts.packages.get-player-metadata}/bin/get-player-metadata'';
+            text = ''cmd[update:1000] ${scripts.get-player-metadata}/bin/get-player-metadata'';
             color = "$text";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
@@ -145,7 +145,7 @@ in {
             rounding = 10;
             border_size = 0;
             reload_time = 1;
-            reload_cmd = "${inputs'.scripts.packages.load-album-cover}/bin/load-album-cover";
+            reload_cmd = "${scripts.load-album-cover}/bin/load-album-cover";
             position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
             halign = "left";
             valign = "bottom";

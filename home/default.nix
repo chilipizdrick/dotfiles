@@ -12,7 +12,10 @@
       pkgs,
       ...
     }: let
-      extraSpecialArgs = {inherit inputs inputs';};
+      extraSpecialArgs = {
+        inherit inputs inputs';
+        scripts = inputs'.scripts.packages;
+      };
     in
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs extraSpecialArgs;

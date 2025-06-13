@@ -36,7 +36,7 @@
   # Disable NixOS manual and such
   documentation = {
     enable = false;
-    man.enable = false;
+    man.enable = true;
     dev.enable = false;
     doc.enable = false;
     nixos.enable = false;

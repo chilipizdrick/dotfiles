@@ -4,11 +4,11 @@
   ...
 }: {
   imports = [
-    ./chromium
-    ./nautilus
     # ./android-studio
+    ./chromium
     ./command-not-found
     ./kde-connect
+    ./nautilus
   ];
 
   environment.systemPackages = with pkgs; [

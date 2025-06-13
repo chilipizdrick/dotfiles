@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  inputs',
+  scripts,
   ...
 }: {
   imports = [
@@ -56,7 +56,7 @@
       ];
 
       bind = [
-        "${mod} ALT,W,exec,${inputs'.scripts.packages.setup-workflow-aurora}/bin/setup-workflow-aurora"
+        "${mod} ALT,W,exec,${scripts.setup-workflow-aurora}/bin/setup-workflow-aurora"
       ];
     };
   };

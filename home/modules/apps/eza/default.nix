@@ -1,5 +1,5 @@
 {...}: {
-  programs.carapace = {
+  programs.eza = {
     enable = true;
   };
 }
