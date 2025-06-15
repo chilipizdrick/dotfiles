@@ -1,5 +1,4 @@
 {
-  inputs',
   pkgs,
   config,
   ...
@@ -23,16 +22,12 @@
 
   home.packages = with pkgs; let
     llvmPkgs = llvmPackages;
-    fenixPkgs = inputs'.fenix.packages;
   in [
-    (fenixPkgs.stable.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-      "rust-analyzer"
-    ])
+    cargo
+    clippy
+    rust-analyzer
+    rustc
+    rustfmt
 
     python3
     python3Packages.pip
@@ -67,8 +62,6 @@
 
     gnumake
     tree-sitter
-
-    chafa
   ];
 
   xdg.configFile."clippy/clippy.toml".text =

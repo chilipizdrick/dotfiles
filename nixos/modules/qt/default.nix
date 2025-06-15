@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    platformTheme = "kde6";
-    style = "breeze";
+    platformTheme = "gtk2";
+    style = "adwaita-dark";
   };
 
   environment.systemPackages = with pkgs; [

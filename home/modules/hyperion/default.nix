@@ -18,15 +18,14 @@ in {
             -x yuv420p \
             -F scale=512:288 \
             -r 30 -B 30 -D \
-            -f $(
-              ${pkgs.v4l-utils}/bin/v4l2-ctl --list-devices \
+            -f $(${pkgs.v4l-utils}/bin/v4l2-ctl --list-devices \
                 | grep -A1 'VirtualVideoDevice' \
                 | tail -n 1 \
-                | sed 's/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/'
+                | sed 's/^\s*\(.*[^ \t]\)\(\s\+\)*$/\1/' \
             )
         ''
         # Start hyperion daemon
-        "${pkgs.hyperion-ng}hyperiond --desktop"
+        "${pkgs.hyperion-ng}/bin/hyperiond --desktop"
       ];
     };
   };

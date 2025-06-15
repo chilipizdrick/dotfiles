@@ -68,6 +68,8 @@
     NVD_BACKEND = "direct";
   };
 
+  hyperion.enable = true;
+
   games = {
     enable = true;
     minecraft = true;
