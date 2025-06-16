@@ -9,7 +9,7 @@
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
   files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
-  telegram = "${pkgs.telegram-desktop}/bin/telegram-desktop";
+  telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   term = "${pkgs.ghostty}/bin/ghostty";
   browser = "${pkgs.xdg-utils}/bin/xdg-open \"http://\"";
   left = "H";
