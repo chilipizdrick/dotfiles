@@ -28,6 +28,9 @@
     #   shuffle
     # ];
 
+    theme = spicetifyPkgs.themes.sleek;
+    colorScheme = "UltraBlack";
+
     enabledCustomApps = with spicetifyPkgs.apps; [
       lyricsPlus
     ];

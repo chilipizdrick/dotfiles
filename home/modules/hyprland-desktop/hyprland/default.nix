@@ -10,7 +10,9 @@
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
   files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
-  term = "${pkgs.ghostty}/bin/ghostty";
+  spotify = "${pkgs.spotify}/bin/spotify";
+  # term = "${pkgs.ghostty}/bin/ghostty";
+  term = "${pkgs.alacritty}/bin/alacritty";
   browser = "${pkgs.xdg-utils}/bin/xdg-open \"http://\"";
   left = "H";
   down = "J";
@@ -44,7 +46,7 @@ in {
         "NIXOS_OZONE_WL,1"
         "MOZ_ENABLE_WAYLAND,1"
         "EDITOR,nvim"
-        "TERMINAL,ghostty"
+        "TERMINAL,alacritty"
         "BROWSER,zen"
       ];
 
@@ -173,7 +175,9 @@ in {
         "blur,logout_dialog"
         "blur,rofi"
         "blur,waybar"
+        "blurpopups,waybar"
         "blur,tranquility"
+        "blurpopups,tranquility"
         "blur,notifications"
         "ignorezero,waybar"
         "ignorezero,tranquility"
@@ -203,7 +207,7 @@ in {
         "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
         "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
+        # "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
       bind =
@@ -269,6 +273,7 @@ in {
           "${mod},E,exec,${guiFiles}"
           "${mod} SHIFT,E,exec,${files}"
           "${mod},T,exec,${telegram}"
+          "${mod},S,exec,${spotify}"
           "${mod} ALT,R,exec,${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
           "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
           "${mod} ALT,L,exec,${pkgs.hyprlock}/bin/hyprlock"
@@ -330,6 +335,7 @@ in {
     XDG_SESSION_TYPE = "wayland";
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
+    TERMINAL = "alacritty";
   };
 
   home.packages = with pkgs; [
@@ -339,6 +345,7 @@ in {
     wl-clipboard
     networkmanagerapplet
     copyq
+    pavucontrol
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;

@@ -45,7 +45,7 @@
     };
 
     sl1 = {
-      url = "github:chilipizdrick/sl1";
+      url = "github:chilipizdrick/sl1?dir=sl1-desktop";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";

@@ -37,10 +37,13 @@
     package = pkgs.lix;
     settings = {
       warn-dirty = false;
+      auto-optimise-store = true;
+      keep-outputs = true;
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
-      keep-outputs = true;
       trusted-users = ["alex"];
+      substituters = ["https://nix-community.cachix.org"];
+      trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;

@@ -101,7 +101,7 @@
     };
   };
 
-  home.sessionVariables.TERMINAL = "ghostty";
+  # home.sessionVariables.TERMINAL = "ghostty";
 
   # home.packages = with pkgs; [
   #   ghostty

@@ -15,14 +15,14 @@
 
     extraConfig = ''
       set -g focus-events on
+      set -g renumber-windows on
 
-      # Color config
-      set -g default-terminal "''${TERM}"
-      set -ga terminal-overrides ",*256col*:Tc"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
-      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
-      set-environment -g COLORTERM "truecolor"
+      set-option -ga terminal-overrides ",alacritty:Tc"
+      set -g default-terminal "alacritty"
+
+      set -ga terminal-overrides ",*:RGB"
+      set -ga terminal-overrides ",*:Tc"
+      set -ga terminal-features ",*:usstyle"
 
       # Mouse config
       set-option -g mouse on

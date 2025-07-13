@@ -20,6 +20,22 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 
+vim.g.rustaceanvim = {
+  server = {
+    default_settings = {
+      ["rust-analyzer"] = {
+        check = {
+          command = "clippy",
+        },
+      },
+    },
+  },
+}
+
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
 -- Spelling
 vim.opt.spelllang = "en_us,ru_ru"
 vim.opt.spell = true
@@ -45,5 +61,5 @@ vim.opt.langmap = vim.fn.join({
 if vim.g.neovide then
   vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
   vim.g.neovide_background_color = "#00000000"
-  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_transparency = 0.7
 end

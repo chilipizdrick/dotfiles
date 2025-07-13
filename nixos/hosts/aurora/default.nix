@@ -22,7 +22,7 @@
     minecraft = true;
   };
 
-  environment.systemPackages = [inputs'.sl1.packages.sl1-desktop];
+  environment.systemPackages = [inputs'.sl1.packages.default];
 
   hardware.bluetooth.settings.General.ControllerMode = lib.mkForce "bredr";
 

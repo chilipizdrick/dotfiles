@@ -131,7 +131,7 @@
           "tooltip": true
         },
         "custom/powermenu": {
-          "format": "⏻",
+          "format": "",
           "tooltip": true,
           "tooltip-format": "Power Menu",
           "on-click": "${pkgs.wlogout}/bin/wlogout -b 4"
@@ -142,20 +142,20 @@
           "player-icons": {
             "spotify": " ",
             "spotify_player": " ",
-            "default": "▶"
+            "default": ""
           },
           "dynamic-order": ["title", "artist"],
           "dynamic-len": 50,
           "interval": 1,
           "status-icons": {
-            "paused": "||"
+            "paused": ""
           }
         },
         "custom/vpn": {
           "exec": "${scripts.query-tailscale}/bin/query-tailscale",
           "interval": 1,
           "format": "VPN",
-          "on-click": "pkexec ${scripts.toggle-tailscale}/bin/toggle-tailscale",
+          "on-click": "${scripts.toggle-tailscale}/bin/toggle-tailscale",
         }
       }
     '';

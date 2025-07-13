@@ -4,9 +4,10 @@
   ...
 }: {
   imports = [
-    # ./alacritty
     # ./firefox
+    # ./ghostty
     # ./helix
+    ./alacritty
     ./carapace
     ./cava
     ./chromium
@@ -15,7 +16,6 @@
     ./discord
     ./eza
     ./fzf
-    ./ghostty
     ./git
     ./kdeconnect
     ./neovim
