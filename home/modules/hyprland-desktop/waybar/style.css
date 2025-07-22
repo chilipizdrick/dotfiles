@@ -1,44 +1,72 @@
 @import url("catppuccin-mocha.css");
 
-@define-color background rgba(0, 0, 0, 0.7);
-@define-color hover rgba(255, 255, 255, 0.2);
-@define-color hover-urgent rgba(249, 205, 178, 0.5);
+@define-color background alpha(black, 0.7);
+@define-color hover alpha(@text, 0.2);
+@define-color urgent @peach;
+@define-color hover-urgent mix(@urgent, @text, 0.3);
 
 * {
-  all: initial; min-height: 0; font-family: monospace;
+  all: initial;
+  font-family: monospace;
   font-size: 12px;
   font-weight: bold;
-  /* color: @white; */
   color: @text;
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 15px;
+  transition: all 0.1s ease-out;
+  padding: 0px;
+  margin: 0px;
+}
+
+button {
+  background: transparent;
+}
+
+button.hover {
+  background: @hover;
+}
+
+button.urgent {
+  background: @urgent;
+}
+
+button.urgent:hover {
+  background: @hover-urgent;
+}
+
+
+tooltip, menu {
+  min-height: 30px;
+  min-width: 30px;
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: @background;
+}
+
+menu menuitem {
+  margin: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-height: 20px;
+  min-width: 30px;
+}
+
+menu menuitem:hover {
+  background: @hover;
 }
 
 .modules-left {
   background: @background;
 }
+
 .modules-right {
   background: @background;
 }
+
 .modules-center {
   background: @background;
 }
 
-tooltip, menu {
-  background: @background;
-  padding: 3px;
-}
-
-menu label {
-  padding: 3px;
-}
-
-tooltip label {
-  padding: 0px;
-}
-
-menu menuitem:hover{
-  background: @hover;
-}
 
 #custom-launcher,
 #workspaces,
@@ -52,54 +80,49 @@ menu menuitem:hover{
 #cpu,
 #battery,
 #custom-powermenu {
+  min-height: 30px;
+  min-width: 30px;
   background-color: transparent;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-
 #custom-launcher {
-  margin-left: 0px;
-  padding-left: 8px;
-  padding-right: 13px;
+  padding: 0px;
+  padding-right: 4px;
 }
 
 #custom-launcher:hover {
-  background: @hover;
-  color: @blue;
+  background: @text;
+  color: black;
+  /* box-shadow:  15px 0px 10px -5px black; */
 }
-
 
 #workspaces {
   padding: 0px;
-  margin-left: 5px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
 #workspaces button {
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background: transparent;
+  min-width: 30px;
 }
 
-#workspaces button.focused label {
-  color: @blue;
+#workspaces button.active {
+  background: @text;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #workspaces button.active label {
-  color: @blue;
+  color: black;
+}
+
+#workspaces button.active:hover {
+  /* background: mix(@text, black, 0.5); */
+  background: @hover;
+}
+
+#workspaces button.active:hover label {
+  color: @text;
 }
 
 #workspaces button.urgent {
@@ -115,19 +138,43 @@ menu menuitem:hover{
 }
 
 #workspaces button.urgent:hover {
-  background: @hover-urgent;
+  background: @background;
 }
 
-#mpris {
-  padding-left: 8px;
-  padding-right: 5px;
-  margin-left: 10px;
-  margin-right: 0px;
+#workspaces button.urgent:hover label {
+  color: @text;
+}
+
+
+#mpris.spotify {
+  color: #191313;
+  background: #1ED760;
+  /* box-shadow:  -15px 0px 10px -5px black; */
 }
 
 #mpris:hover {
   background: @hover;
 }
+
+#mpris.spotify:hover {
+  color: #191313;
+  background: mix(#1ED760, @text, 0.5);
+}
+
+
+#tray > widget:hover {
+  background: @hover;
+  /* padding-left: 20px; */
+}
+
+#tray .needs-attention {
+  background: @urgent;
+}
+
+#tray .needs-attention:hover {
+  background: @urgent-hover;
+}
+
 
 #pulseaudio.bluetooth {
   color: @blue;
@@ -157,10 +204,6 @@ menu menuitem:hover{
 
 #network.disconnected {
   color: @red;
-}
-
-#network:hover {
-  /* background: @hover; */
 }
 
 
@@ -193,12 +236,12 @@ menu menuitem:hover{
 }
 
 #custom-powermenu {
-  margin-right: 0px;
-  padding-left: 9px;
-  padding-right: 12px;
+  padding: 0px;
+  padding-right: 2px;
 }
 
 #custom-powermenu:hover {
-  background: @hover;
-  color: @red;
+  background: @text;
+  color: black;
+  /* box-shadow:  -15px 0px 10px -5px black; */
 }

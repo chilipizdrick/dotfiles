@@ -15,7 +15,7 @@
         "margin-left": 5,
         "margin-right": 5,
         "height": 0,
-        "spacing": 0,
+        "spacing": 10,
         "modules-left": [
           "custom/launcher",
           "hyprland/workspaces",
@@ -38,11 +38,6 @@
           "format": "{icon} {percent}%",
           "format-icons": ["", "", "", "", "", "", "", "", ""]
         },
-        "memory": {
-          "interval": 5,
-          "format": "   {usage}% ",
-          "max-length": 10
-        },
         "cpu": {
           "interval": 5,
           "format": "   {usage}% ",
@@ -58,7 +53,7 @@
         },
         "network": {
           "format-wifi": "{icon} {essid}",
-          "format-disconnected": "Disconnected ⚠ ",
+          "format-disconnected": "󰤭  Disconnected",
           "format-icons": [
             "󰤯 ",
             "󰤟 ",
@@ -140,15 +135,15 @@
           "format": "{player_icon} {dynamic}",
           "format-paused": "{status_icon} {dynamic}",
           "player-icons": {
-            "spotify": " ",
-            "spotify_player": " ",
-            "default": ""
+            "spotify": "",
+            "spotify_player": "",
+            "default": ""
           },
           "dynamic-order": ["title", "artist"],
           "dynamic-len": 50,
           "interval": 1,
           "status-icons": {
-            "paused": ""
+            "paused": ""
           }
         },
         "custom/vpn": {

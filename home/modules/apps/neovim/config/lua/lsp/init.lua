@@ -9,7 +9,7 @@ vim.lsp.config("*", {
   },
 })
 
-vim.lsp.config["tinymist"] = {
+vim.lsp.config.tinymist = {
   settings = {
     exportPdf = "never",
     outputPath = "$root/target/$name",
@@ -17,7 +17,7 @@ vim.lsp.config["tinymist"] = {
   },
 }
 
-vim.lsp.config["nixd"] = {
+vim.lsp.config.nixd = {
   settings = {
     nixd = {
       nixpkgs = {

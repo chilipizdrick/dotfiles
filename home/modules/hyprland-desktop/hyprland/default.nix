@@ -276,6 +276,8 @@ in {
           "${mod},S,exec,${spotify}"
           "${mod} ALT,R,exec,${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
           "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
+          "${mod} CTRL SHIFT,L,exec,${pkgs.spotify-player}/bin/spotify_player like"
+          "${mod} CTRL SHIFT,U,exec,${pkgs.spotify-player}/bin/spotify_player like --unlike"
           "${mod} ALT,L,exec,${pkgs.hyprlock}/bin/hyprlock"
           "${mod} SHIFT,P,exec,${pkgs.procps}/bin/pidof wlogout || ${pkgs.wlogout}/bin/wlogout -b 4"
           "${mod} SHIFT,A,exec,${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"

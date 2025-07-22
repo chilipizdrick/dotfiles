@@ -5,3 +5,6 @@ result
 # Spell files
 *.spl
 *.sug
+
+**.envrc
+**.direnv
