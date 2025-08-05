@@ -8,6 +8,16 @@
     ../base-configuraion.nix
   ];
 
+  # working config for aurora
+  services.zapret = {
+    enable = true;
+    params = [
+      "--dpi-desync=fakedsplit"
+      "--dpi-desync-ttl=5"
+      "--dpi-desync-split-pos=method+2"
+    ];
+  };
+
   nvidiaVideoDrivers.enable = true;
 
   # Enable ambilight support

@@ -10,7 +10,7 @@
       "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
       "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube
       "jiaopdjbehhjgokpphdfgmapkobbnmjp" # Youtube-shorts block
-      "fdaphilojaklgkoocegabckfanjoacjg" # mtab
+      # "fdaphilojaklgkoocegabckfanjoacjg" # mtab
     ];
     extraOpts = {
       "RestoreOnStartup" = 1;
