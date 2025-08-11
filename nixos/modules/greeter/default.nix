@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   sessionCommand = "Hyprland";
   tuiTheme = "time=lightred;input=red";
 in {

@@ -29,6 +29,7 @@
           "backlight",
           "pulseaudio",
           "custom/vpn",
+          "custom/zapret",
           "network",
           "cpu",
           "battery",
@@ -151,6 +152,12 @@
           "interval": 1,
           "format": "VPN",
           "on-click": "${scripts.toggle-tailscale}/bin/toggle-tailscale",
+        },
+        "custom/zapret": {
+          "exec": "${scripts.query-zapret}/bin/query-zapret",
+          "interval": 1,
+          "format": "Z",
+          "on-click": "${scripts.toggle-zapret}/bin/toggle-zapret",
         }
       }
     '';

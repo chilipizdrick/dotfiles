@@ -76,6 +76,7 @@ menu menuitem:hover {
 #backlight,
 #pulseaudio,
 #custom-vpn,
+#custom-zapret,
 #network,
 #cpu,
 #battery,
@@ -198,6 +199,19 @@ menu menuitem:hover {
 }
 
 #custom-vpn:hover {
+  background: @hover;
+}
+
+
+#custom-zapret.on {
+  color: @green;
+}
+
+#custom-zapret.off {
+  color: @red;
+}
+
+#custom-zapret:hover {
   background: @hover;
 }
 
