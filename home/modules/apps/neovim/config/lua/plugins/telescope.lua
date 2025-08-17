@@ -166,5 +166,25 @@ return {
         end, "[T]oggle Inlay [H]ints")
       end,
     })
+
+    -- set telescope highlights to none
+    local hl_groups = {
+      -- "TelescopeMatching",
+      -- "TelescopeSelection",
+      "TelescopePromptTitle",
+      -- "TelescopePromptPrefix",
+      -- "TelescopePromptCounter",
+      "TelescopePromptNormal",
+      "TelescopePromptBorder",
+      "TelescopeResultsTitle",
+      "TelescopeResultsNormal",
+      "TelescopeResultsBorder",
+      "TelescopePreviewTitle",
+      "TelescopePreviewNormal",
+      "TelescopePreviewBorder",
+    }
+    for _, group in ipairs(hl_groups) do
+      vim.api.nvim_set_hl(0, group, { bg = "none" })
+    end
   end,
 }

@@ -28,8 +28,8 @@
           "tray",
           "backlight",
           "pulseaudio",
-          "custom/vpn",
-          "custom/zapret",
+          // "custom/tailscale",
+          // "custom/zapret",
           "network",
           "cpu",
           "battery",
@@ -147,7 +147,7 @@
             "paused": ""
           }
         },
-        "custom/vpn": {
+        "custom/tailscale": {
           "exec": "${scripts.query-tailscale}/bin/query-tailscale",
           "interval": 1,
           "format": "VPN",

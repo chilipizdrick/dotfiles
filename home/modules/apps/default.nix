@@ -38,6 +38,7 @@
     helvum
     imv
     gimp3
+    krita
     loupe
     mpv
     obsidian

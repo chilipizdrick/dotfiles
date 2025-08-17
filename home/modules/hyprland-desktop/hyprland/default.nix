@@ -8,7 +8,7 @@
 }: let
   mod = "SUPER";
   guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  files = "${pkgs.ghostty}/bin/ghostty -e \"${pkgs.yazi}/bin/yazi\"";
+  files = "${pkgs.alacritty}/bin/alacritty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   spotify = "${pkgs.spotify}/bin/spotify";
   # term = "${pkgs.ghostty}/bin/ghostty";
@@ -201,6 +201,8 @@ in {
         "float,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
         "center,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
         "size 50% 70%,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+
+        "animation popin,title:^(woomer)$"
       ];
 
       exec-once = [
@@ -262,7 +264,8 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
+          "${mod},W,exec,${pkgs.woomer}/bin/woomer"
+          "${mod} CTRL,W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -z -s --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -rzs | ${pkgs.swappy}/bin/swappy -f -"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"

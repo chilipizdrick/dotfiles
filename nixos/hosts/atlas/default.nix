@@ -12,7 +12,7 @@
 
   # working config for atlas
   services.zapret = {
-    enable = true;
+    enable = false;
     params = [
       "--dpi-desync=fakedsplit"
       "--dpi-desync-ttl=2"

@@ -1,5 +1,6 @@
 {
   inputs',
+  pkgs,
   lib,
   ...
 }: {
@@ -10,7 +11,7 @@
 
   # working config for aurora
   services.zapret = {
-    enable = true;
+    enable = false;
     params = [
       "--dpi-desync=fakedsplit"
       "--dpi-desync-ttl=5"
@@ -41,6 +42,15 @@
     title = "Windows 11";
     efiDeviceHandle = "FS0";
   };
+
+  services.udev.packages = [
+    (pkgs.writeTextFile
+      {
+        name = "probe-rs-udev-rules";
+        text = builtins.readFile ./69-probe-rs.rules;
+        destination = "/etc/udev/rules.d/69-probe-rs.rules";
+      })
+  ];
 
   networking.hostName = "aurora";
 }
