@@ -22,7 +22,7 @@
   nvidiaVideoDrivers.enable = true;
 
   # Enable ambilight support
-  hyperion.enable = true;
+  # hyperion.enable = true;
 
   # Printer and scanner config
   printerScanner.enable = true;
@@ -33,7 +33,7 @@
     minecraft = true;
   };
 
-  environment.systemPackages = [inputs'.sl1.packages.default];
+  # environment.systemPackages = [inputs'.sl1.packages.default];
 
   # hardware.bluetooth.settings.General.ControllerMode = lib.mkForce "bredr";
 

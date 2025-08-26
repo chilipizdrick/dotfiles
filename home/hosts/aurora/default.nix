@@ -68,7 +68,7 @@
     NVD_BACKEND = "direct";
   };
 
-  hyperion.enable = true;
+  # hyperion.enable = true;
 
   games = {
     enable = true;

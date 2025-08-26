@@ -30,7 +30,15 @@ vim.lsp.config.nixd = {
   },
 }
 
-local servers = { "pyright", "nixd", "lua_ls", "clangd", "tinymist", "ts_ls" }
+local servers = {
+  "pyright",
+  "nixd",
+  "lua_ls",
+  "clangd",
+  "tinymist",
+  "ts_ls",
+  "wgsl_analyzer",
+}
 
 for _, lsp in pairs(servers) do
   vim.lsp.enable(lsp)

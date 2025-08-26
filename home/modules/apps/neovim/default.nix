@@ -29,6 +29,8 @@
     rustfmt
     rust-analyzer
 
+    wgsl-analyzer
+
     python3
     python3Packages.pip
     pyright

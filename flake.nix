@@ -21,16 +21,6 @@
       };
     };
 
-    flint = {
-      url = "github:NotAShelf/flint";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    fenix = {
-      url = "github:nix-community/fenix/monthly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
@@ -39,26 +29,26 @@
       };
     };
 
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sl1 = {
-      url = "github:chilipizdrick/sl1?dir=sl1-desktop";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
-    hijacker = {
-      url = "github:chilipizdrick/hijacker";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
+    # sl1 = {
+    #   url = "github:chilipizdrick/sl1?dir=sl1-desktop";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     flake-parts.follows = "flake-parts";
+    #   };
+    # };
 
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";

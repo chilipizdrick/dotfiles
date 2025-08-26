@@ -38,8 +38,6 @@ tooltip, menu {
   min-height: 30px;
   min-width: 30px;
   padding: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
   background: @background;
 }
 
@@ -165,7 +163,6 @@ menu menuitem:hover {
 
 #tray > widget:hover {
   background: @hover;
-  /* padding-left: 20px; */
 }
 
 #tray .needs-attention {

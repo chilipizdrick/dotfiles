@@ -2,7 +2,6 @@
   pkgs,
   lib,
   inputs,
-  inputs',
   scripts,
   ...
 }: let
@@ -11,7 +10,6 @@
   files = "${pkgs.alacritty}/bin/alacritty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   spotify = "${pkgs.spotify}/bin/spotify";
-  # term = "${pkgs.ghostty}/bin/ghostty";
   term = "${pkgs.alacritty}/bin/alacritty";
   browser = "${pkgs.xdg-utils}/bin/xdg-open \"http://\"";
   left = "H";
@@ -176,16 +174,16 @@ in {
         "blur,rofi"
         "blur,waybar"
         "blurpopups,waybar"
-        "blur,tranquility"
-        "blurpopups,tranquility"
+        # "blur,tranquility"
+        # "blurpopups,tranquility"
         "blur,notifications"
         "ignorezero,waybar"
-        "ignorezero,tranquility"
+        # "ignorezero,tranquility"
         "ignorezero,notifications"
         "ignorealpha 0.5,waybar"
-        "ignorealpha 0.5,tranquility"
+        # "ignorealpha 0.5,tranquility"
         "animation slide,waybar"
-        "animation slide,tranquility"
+        # "animation slide,tranquility"
       ];
 
       windowrule = [
@@ -264,8 +262,9 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod},W,exec,${pkgs.woomer}/bin/woomer"
-          "${mod} CTRL,W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
+          "${mod},A,exec,${pkgs.amnezia-vpn}/bin/AmneziaVPN"
+          "${mod} CTRL,W,exec,${pkgs.woomer}/bin/woomer"
+          "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -z -s --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -rzs | ${pkgs.swappy}/bin/swappy -f -"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
@@ -277,6 +276,7 @@ in {
           "${mod} SHIFT,E,exec,${files}"
           "${mod},T,exec,${telegram}"
           "${mod},S,exec,${spotify}"
+          "${mod},D,exec,discord" # For use with nixcord
           "${mod} ALT,R,exec,${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
           "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
           "${mod} CTRL SHIFT,L,exec,${pkgs.spotify-player}/bin/spotify_player like"
@@ -292,10 +292,10 @@ in {
           "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
           # Soundpad configs
-          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker"
+          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker-lite"
         ]
         ++ (builtins.map
-          (num: "${mod} ALT,${builtins.toString num},exec,${inputs'.hijacker.packages.default}/bin/hijacker ~/Music/hijacker-presets/${builtins.toString num}.mp3")
+          (num: "${mod} ALT,${builtins.toString num},exec,${scripts.hijacker-lite}/bin/hijacker-lite ~/Music/hijacker-presets/${builtins.toString num}.mp3")
           (lib.range 1 9));
 
       bindm = [

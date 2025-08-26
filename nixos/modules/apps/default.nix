@@ -37,6 +37,5 @@
     bat
     television
     onlyoffice-bin
-    inputs'.flint.packages.default
   ];
 }

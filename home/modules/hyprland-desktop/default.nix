@@ -1,7 +1,5 @@
 {...}: {
   imports = [
-    # ./swayidle
-    # ./swaync
     ./copyq
     ./cursor
     ./gammastep

@@ -10,7 +10,7 @@
     ./greeter
     ./hyperion
     ./hyprland
-    ./kanata
+    # ./kanata
     ./locale
     ./misc
     ./nix-ld

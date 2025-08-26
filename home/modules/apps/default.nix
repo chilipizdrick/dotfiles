@@ -1,6 +1,6 @@
 {
-  inputs',
   pkgs,
+  scripts,
   ...
 }: {
   imports = [
@@ -44,6 +44,8 @@
     obsidian
     telegram-desktop
     thunderbird
-    inputs'.hijacker.packages.default
+    scripts.hijacker-lite
+    kdePackages.kolourpaint
+    audacity
   ];
 }

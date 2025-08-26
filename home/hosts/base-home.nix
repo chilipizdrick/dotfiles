@@ -23,6 +23,7 @@
           nix = nixPackage;
         };
       }))
+
       (final: prev: {
         rofi-wayland = prev.rofi-wayland.override {
           plugins = [

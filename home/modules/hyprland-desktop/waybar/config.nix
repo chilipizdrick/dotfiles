@@ -46,7 +46,8 @@
         },
         "tray": {
           "spacing": 10,
-          "show-passive-items": true
+          "show-passive-items": true,
+          "icon-size": 16
         },
         "clock": {
           "tooltip-format": "<tt>{calendar}</tt>",
@@ -72,7 +73,7 @@
           "format": "{icon}{volume}%",
           "format-bluetooth": "󰂰 {volume}%",
           "nospacing": 1,
-          "tooltip-format": "Volume : {volume}%",
+          "tooltip-format": "Volume: {volume}%",
           "format-muted": "󰝟 ",
           "format-icons": {
             "headphone": " ",
