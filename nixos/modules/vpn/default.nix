@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     # ./zerotier
-    # ./tailscale
+    ./tailscale
     ./zapret
     ./amnezia
   ];

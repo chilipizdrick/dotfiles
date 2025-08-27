@@ -25,7 +25,7 @@
     ./starship
     ./tmux
     ./udiskie
-    ./yazi
+    # ./yazi
     ./zathura
     ./zen
     ./zoxide
@@ -38,7 +38,6 @@
     helvum
     imv
     gimp3
-    krita
     loupe
     mpv
     obsidian
