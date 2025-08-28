@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.hyperion;
 in {
-  options.hyperion.enable = mkEnableOption "Hyperion ambilight daemon";
+  options.hyperion.enable = mkEnableOption "Hyperion related v4l2loopback settings";
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       ffmpeg

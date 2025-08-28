@@ -22,7 +22,7 @@
   nvidiaVideoDrivers.enable = true;
 
   # Enable ambilight support
-  # hyperion.enable = true;
+  hyperion.enable = true;
 
   # Printer and scanner config
   printerScanner.enable = true;
@@ -50,6 +50,10 @@
         text = builtins.readFile ./69-probe-rs.rules;
         destination = "/etc/udev/rules.d/69-probe-rs.rules";
       })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    hyperion-ng
   ];
 
   networking.hostName = "aurora";

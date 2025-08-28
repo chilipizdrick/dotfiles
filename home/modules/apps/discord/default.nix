@@ -14,9 +14,9 @@
         oneko.enable = true;
         youtubeAdblock.enable = true;
       };
-      enabledThemes = ["discord-mica.theme.css"];
+      enabledThemes = ["custom.theme.css"];
     };
   };
 
-  xdg.configFile."Vencord/themes/discord-mica.theme.css".source = ./discord-mica.theme.css;
+  xdg.configFile."Vencord/themes/custom.theme.css".source = ./custom.theme.css;
 }
