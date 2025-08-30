@@ -2,12 +2,12 @@
   imports = [
     # ./nushell
     ./fish
-    ./zsh
+    # ./zsh
   ];
 
   home.shell = {
     # enableNushellIntegration = true;
     enableFishIntegration = true;
-    enableZshIntegration = true;
+    # enableZshIntegration = true;
   };
 }

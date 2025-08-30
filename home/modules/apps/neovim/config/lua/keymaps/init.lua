@@ -79,4 +79,4 @@ vim.keymap.set(
 
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover({ border = "rounded" })
-end, { desc = "[G]oto [D]eclaration" })
+end, { desc = "Open Diagnostic info" })

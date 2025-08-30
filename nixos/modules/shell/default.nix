@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./zsh
+    # ./zsh
     # ./nushell
     ./fish
   ];

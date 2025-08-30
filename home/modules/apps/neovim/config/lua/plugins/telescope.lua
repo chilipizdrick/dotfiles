@@ -169,11 +169,7 @@ return {
 
     -- set telescope highlights to none
     local hl_groups = {
-      -- "TelescopeMatching",
-      -- "TelescopeSelection",
       "TelescopePromptTitle",
-      -- "TelescopePromptPrefix",
-      -- "TelescopePromptCounter",
       "TelescopePromptNormal",
       "TelescopePromptBorder",
       "TelescopeResultsTitle",

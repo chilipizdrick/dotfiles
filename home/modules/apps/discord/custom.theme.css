@@ -2,39 +2,43 @@
  * @name Discord Mica (modified)
  * @author Coolkie & chilipizdrick
  * @version 1.0
- * @description Discord with mica :) (now also looks fine in native video source picker)
+ * @description A modified version of Discord with mica (with some fixes and removed styles) :)
  */
 
-/* USER SETTINGS */
+:root {
+  /*Dark mode*/
+  --dark-bg: rgba(0, 0, 0, 0.7);
+  --dark-flyout: rgba(30,30,30);
+  --dark-button: rgb(45,45,45);
+  --dark-button-border: rgb(60, 60, 60);
+  --dark-button-font-color: white;
+  --dark-status-panel: rgba(30,30,30,0.4);
+  --dark-layer1: 255,255,255;
+  --dark-select: 255,255,255;
+  --dark-dm-about: rgba(0,0,0,0.4);
+
+  /*Light mode*/
+  --light-bg: rgba(255, 255, 255, 0.7);
+  --light-flyout: rgb(255, 255, 255);
+  --light-button: rgb(251,251,251);
+  --light-button-border: rgb(204, 204, 231);
+  --light-button-font-color: black;
+  --light-status-panel: rgba(255,255,255,0.4);
+  --light-layer1: 255,255,255;
+  --light-select: 0,0,0;
+  --light-dm-about: rgba(255,255,255,0.35);
+
+  /* Titlebar */
+  --custom-app-top-bar-height: calc(24px + var(--space-sm)); /* Set to 0 if you don't want to use Discord title-bar */
+  --title-bar-icon: flex; /* Set to none to remove icons */
+}
 
 :root {
- /*Dark mode*/
- --dark-bg: rgba(0, 0, 0, 0.7);
- --dark-flyout: rgba(30,30,30);
- --dark-accent: rgb(0, 166, 255);
- --dark-accent-hovered: rgb(0, 94, 150); /*also disabled button*/
- --dark-accent-font-color: black;
- --dark-button: rgb(45,45,45);
- --dark-button-border: rgb(60, 60, 60);
- --dark-button-font-color: white;
- --dark-background-accent: rgba(50,50,50,0.9);
- --dark-status-panel: rgba(30,30,30,0.4);
-
- /*Light mode*/
- --light-bg: rgba(255, 255, 255, 0.7);
- --light-flyout: rgb(255, 255, 255);
- --light-accent: rgb(0, 120, 212);
- --light-accent-hovered: rgb(0, 94, 167); /*also disabled button*/
- --light-accent-font-color: white;
- --light-button: rgb(251,251,251);
- --light-button-border: rgb(204, 204, 231);
- --light-button-font-color: black;
- --light-background-accent: rgba(160,160,160,0.9);
- --light-status-panel: rgba(255,255,255,0.4);
-
- /* Titlebar */
- --custom-app-top-bar-height: calc(24px + var(--space-sm)); /* Set to 0 if you don't want to use Discord title-bar */
- --title-bar-icon: flex; /* Set to none to remove icons */
+  --custom-channel-members-bg: transparent;
+  --bg-base-primary: transparent;
+  --home-background: transparent;
+  --scrollbar-auto-track: transparent;
+  --deprecated-store-bg: transparent;
 }
 
 .theme-dark {
@@ -61,14 +65,10 @@
   --background-modifier-hover: rgba(var(--dark-select),0.05);
 
   /*variables*/
-  --accent: var(--dark-accent);
-  --accent-hovered: var(--dark-accent-hovered);
-  --accent-font: var(--dark-accent-font-color);
   --button: var(--dark-button);
   --button-border: var(--dark-button-border);
   --button-font-color: var(--dark-button-font-color);
   --dm-about: var(--dark-dm-about);
-  --background-accent: var(--dark-background-accent);
   --status-panel: var(--dark-status-panel);
 }
 
@@ -97,14 +97,10 @@
   --background-modifier-hover: rgba(var(--light-select), 0.05);
 
   /* Variables */
-  --accent: var(--light-accent);
-  --accent-hovered: var(--light-accent-hovered);
-  --accent-font: var(--light-accent-font-color);
   --button: var(--light-button);
   --button-border: var(--light-button-border);
   --button-font-color: var(--light-button-font-color);
   --dm-about: var(--light-dm-about);
-  --background-accent: var(--light-background-accent);
   --status-panel: var(--light-status-panel);
 }
 
@@ -141,28 +137,10 @@
 }
 
 /*Buttons*/
-.lookFilled__201d5.colorBrand__201d5 {
-  background-color: var(--accent);
-  color: var(--accent-font);
-}
-.lookFilled__201d5.colorBrand__201d5:hover {
-  background-color: var(--accent-hovered);
-}
-.lookFilled__201d5.colorBrand__201d5:disabled {
-  background-color: var(--accent-hovered);
-}
 .lookFilled__201d5.colorPrimary__201d5, .lookFilled__201d5.colorPrimary__201d5:disabled {
   background-color: var(--button);
   color: var(--button-font-color);
   outline: solid var(--button-border) 1.5px;
-}
-
-/*Toggle*/
-.container__87bf1.checked__87bf1 {
-  background-color: var(--accent) !important;
-}
-.container__87bf1.checked__87bf1:hover {
-  background-color: var(--accent-hovered) !important;
 }
 
 /*Special Flyout*/
@@ -241,15 +219,6 @@
   background-color: var(--background-primary); 
 }
 
-/*meow*/
-:root {
-  --custom-channel-members-bg: transparent;
-  --bg-base-primary: transparent;
-  --home-background: transparent;
-  --scrollbar-auto-track: transparent;
-  --deprecated-store-bg: transparent;
-}
-
 body{
   background-color: var(--app-bg) !important;
 }
@@ -284,7 +253,6 @@ body{
 }
 .nativeSourceTypeButton__0b85a.selected__0b85a {
   background-color: rgba(var(--dark-select), 0.1) !important;
-  outline: solid 1px var(--dark-accent);
 }
 .pillContainer__9e06a.segmentedControl__7f727 {
   background-color: transparent;
@@ -305,16 +273,6 @@ body{
   background-color: var(--dark-status-panel);
   backdrop-filter: brightness(0.65) blur(16px) saturate(1.5);
 }
-.barFill_a562c8 {
-  background-color: var(--dark-accent) !important;
-}
-.botTag__5d473 {
-  background-color: var(--dark-accent);
-}
-.newMessagesBar__0f481 {
-  background-color: var(--dark-accent);
-}
 .picker__09f65 {
   background-color: var(--dark-flyout) !important;
 }
-
