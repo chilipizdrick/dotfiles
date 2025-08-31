@@ -184,6 +184,9 @@ in {
         # "ignorealpha 0.5,tranquility"
         "animation slide,waybar"
         # "animation slide,tranquility"
+        "noanim,hyprpicker"
+        "noanim,slurp"
+        "noanim,selection"
       ];
 
       windowrule = [
