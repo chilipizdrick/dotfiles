@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  pkgs,
   lib,
   ...
 }: {
@@ -9,32 +8,11 @@
     ../modules
   ];
 
-  nixpkgs = let
-    inherit (lib.trivial) const;
-    nixPackage = config.nix.package; # Lix
-  in {
-    overlays = [
-      (const (prev: {
-        nixos-rebuild = prev.nixos-rebuild.override {
-          nix = nixPackage;
-        };
-        nix-direnv = prev.nix-direnv.override {
-          nix = nixPackage;
-        };
-        nix-index = prev.nix-index.override {
-          nix = nixPackage;
-        };
-      }))
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
+  nixpkgs.config.allowUnfree = true;
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
-    package = pkgs.lix;
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;

@@ -12,7 +12,7 @@
     margin-left = 5;
     margin-right = 5;
     height = 0;
-    spacing = 10;
+    spacing = 2;
     modules-left = [
       "custom/launcher"
       "hyprland/workspaces"
@@ -25,7 +25,7 @@
       "tray"
       "backlight"
       "pulseaudio"
-      # "custom/tailscale"
+      "custom/tailscale"
       # "custom/zapret"
       "network"
       "cpu"
@@ -38,7 +38,7 @@
     };
     cpu = {
       interval = 5;
-      format = "   {usage}% ";
+      format = "  {usage}%";
       max-length = 10;
     };
     tray = {
@@ -62,14 +62,14 @@
       interval = 5;
     };
     pulseaudio = {
-      format = "{icon}{volume}%";
+      format = "{icon} {volume}%";
       format-bluetooth = "󰂰 {volume}%";
       nospacing = 1;
       tooltip-format = "Volume: {volume}%";
-      format-muted = "󰝟 ";
+      format-muted = "󰝟";
       format-icons = {
-        headphone = " ";
-        default = ["󰕿 " "󰖀 " "󰕾 "];
+        headphone = "";
+        default = ["󰕿" "󰖀" "󰕾"];
       };
       on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       scroll-step = 1;
@@ -78,7 +78,7 @@
       format = "";
       tooltip = true;
       tooltip-format = "App Launcher";
-      on-click = "${pkgs.rofi-wayland}/bin/rofi -show drun -modes drun";
+      on-click = "${pkgs.rofi}/bin/rofi -show drun -modes drun";
     };
     battery = {
       format = "{icon} {capacity}%";

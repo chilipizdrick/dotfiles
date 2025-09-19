@@ -7,7 +7,7 @@
     # ./android-studio
     ./chromium
     ./command-not-found
-    ./kde-connect
+    # ./kde-connect
     ./nautilus
   ];
 
@@ -25,6 +25,7 @@
     p7zip
     gzip
     neovim
+    socat
     tmux
     tmux-sessionizer
     btop

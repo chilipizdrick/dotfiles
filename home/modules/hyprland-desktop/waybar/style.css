@@ -98,7 +98,7 @@ menu menuitem:hover {
 #tray,
 #backlight,
 #pulseaudio,
-#custom-vpn,
+#custom-tailscale,
 #custom-zapret,
 #network,
 #cpu,
@@ -212,15 +212,15 @@ menu menuitem:hover {
 }
 
 
-#custom-vpn.on {
+#custom-tailscale.on {
   color: @green;
 }
 
-#custom-vpn.off {
+#custom-tailscale.off {
   color: @red;
 }
 
-#custom-vpn:hover {
+#custom-tailscale:hover {
   background: @hover;
 }
 

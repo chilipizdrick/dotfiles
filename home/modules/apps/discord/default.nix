@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -6,15 +10,21 @@
   programs.nixcord = {
     enable = true;
     config = {
-      transparent = true;
+      # transparent = true;
       plugins = {
         betterGifPicker.enable = true;
-        callTimer.enable = true;
+        # callTimer.enable = true;
         fakeNitro.enable = true;
-        oneko.enable = true;
         youtubeAdblock.enable = true;
+        alwaysTrust.enable = true;
+        clearURLs.enable = true;
+        copyFileContents.enable = true;
+        noF1.enable = true;
+        showMeYourName.enable = true;
+        unindent.enable = true;
+        voiceDownload.enable = true;
+        voiceMessages.enable = true;
       };
-      enabledThemes = ["custom.theme.css"];
     };
   };
 

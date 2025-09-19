@@ -80,3 +80,23 @@ vim.keymap.set(
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover({ border = "rounded" })
 end, { desc = "Open Diagnostic info" })
+
+-- vim.keymap.set({ "n", "v", "i" }, "<C-a>", function()
+--   if vim.o.keymap == "" then
+--     vim.o.keymap = "russian-jcukenwin"
+--     vim.notify("Switched to Russian")
+--   else
+--     vim.o.keymap = ""
+--     vim.notify("Switched to English")
+--   end
+-- end)
+
+-- vim.keymap.set({ "n", "v", "i" }, "<C-ф>", function()
+--   if vim.o.keymap == "" then
+--     vim.o.keymap = "russian-jcukenwin"
+--     vim.notify("Switched to Russian")
+--   else
+--     vim.o.keymap = ""
+--     vim.notify("Switched to English")
+--   end
+-- end)

@@ -17,7 +17,7 @@
     ./eza
     ./fzf
     ./git
-    ./kdeconnect
+    # ./kdeconnect
     ./neovim
     ./obs-studio
     ./shells

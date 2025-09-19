@@ -82,7 +82,7 @@ in {
         dim_strength = 0.1;
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 300;
           render_power = 5;
           color = "rgba(1a1a1aaf)";
@@ -125,8 +125,6 @@ in {
         };
       };
 
-      gestures.workspace_swipe = true;
-
       misc = {
         vfr = true;
         disable_hyprland_logo = true;
@@ -166,6 +164,7 @@ in {
           "windowsIn,on,2,easeOutCubic,slide,top"
           "windowsOut,on,2,easeOutCubic,slide,bottom"
           "workspaces,on,2,easeOutCubic"
+          "fadePopups,off"
         ];
       };
 
@@ -174,16 +173,16 @@ in {
         "blur,rofi"
         "blur,waybar"
         "blurpopups,waybar"
-        # "blur,tranquility"
-        # "blurpopups,tranquility"
+        "blur,tranquility"
+        "blurpopups,tranquility"
         "blur,notifications"
         "ignorezero,waybar"
-        # "ignorezero,tranquility"
+        "ignorezero,tranquility"
         "ignorezero,notifications"
         "ignorealpha 0.5,waybar"
-        # "ignorealpha 0.5,tranquility"
+        "ignorealpha 0.5,tranquility"
         "animation slide,waybar"
-        # "animation slide,tranquility"
+        "animation slide,tranquility"
         "noanim,hyprpicker"
         "noanim,slurp"
         "noanim,selection"
@@ -271,7 +270,7 @@ in {
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
-          "ALT,SPACE,exec,${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun,calc"
+          "ALT,SPACE,exec,${pkgs.rofi}/bin/rofi -show drun -modi drun,calc"
           "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"

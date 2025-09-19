@@ -43,6 +43,13 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.opt.spelllang = "en_us,ru_ru"
 vim.opt.spell = true
 
+-- Neovide config
+if vim.g.neovide then
+  vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
+  vim.g.neovide_background_color = "#00000000"
+  vim.g.neovide_opacity = 0.7
+end
+
 -- Russian langmap
 local function escape(str)
   local escape_chars = [[;,."|\]]
@@ -59,10 +66,3 @@ vim.opt.langmap = vim.fn.join({
   escape(ru_shift) .. ";" .. escape(en_shift),
   escape(ru) .. ";" .. escape(en),
 }, ",")
-
--- Neovide config
-if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
-  vim.g.neovide_background_color = "#00000000"
-  vim.g.neovide_opacity = 0.7
-end

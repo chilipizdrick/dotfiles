@@ -1,41 +1,19 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ../modules
   ];
 
-  nixpkgs = let
-    inherit (lib.trivial) const;
-    nixPackage = pkgs.lix;
-  in {
+  nixpkgs = {
+    config.allowUnfree = true;
     overlays = [
-      (const (prev: {
-        nixos-rebuild = prev.nixos-rebuild.override {
-          nix = nixPackage;
-        };
-        nix-direnv = prev.nix-direnv.override {
-          nix = nixPackage;
-        };
-        nix-index = prev.nix-index.override {
-          nix = nixPackage;
-        };
-      }))
-
       (final: prev: {
-        rofi-wayland = prev.rofi-wayland.override {
+        rofi = prev.rofi.override {
           plugins = [
-            (prev.rofi-calc.override {
-              rofi-unwrapped = prev.rofi-wayland-unwrapped;
-            })
+            prev.rofi-calc
           ];
         };
       })
     ];
-
-    config.allowUnfree = true;
   };
 
   home = {
