@@ -22,9 +22,20 @@
             automount-open = false;
             autorun-never = true;
           };
+          "org/gnome/desktop/default-applications/terminal" = {
+            exec = "alacritty";
+            exec-arg = "-e";
+          };
         };
       }
     ];
+  };
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = ["alacritty.desktop"];
+    };
   };
 
   # This garbage is killing my system boot time
