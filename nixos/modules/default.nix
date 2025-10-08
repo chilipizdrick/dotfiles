@@ -15,12 +15,12 @@
     ./misc
     ./nix-ld
     ./polkit
-    ./qt
     ./shell
     ./swap
     ./users
     ./virtualization
     ./vpn
     ./xdg-portals
+    # ./plasma
   ];
 }

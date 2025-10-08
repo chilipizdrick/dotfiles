@@ -12,5 +12,6 @@
     ./swww
     ./waybar
     ./wlogout
+    ./qt
   ];
 }

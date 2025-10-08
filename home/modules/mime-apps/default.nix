@@ -21,12 +21,12 @@
       "application/msword" = "onlyoffice-desktopeditors.desktop";
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
 
-      "image/png" = ["imv.desktop" "gimp.desktop"];
-      "image/jpg" = ["imv.desktop" "gimp.desktop"];
-      "image/jpeg" = ["imv.desktop" "gimp.desktop"];
-      "image/webp" = ["imv.desktop" "gimp.desktop"];
-      "image/gif" = ["imv.desktop" "gimp.desktop"];
-      "image/svg" = ["imv.desktop" "gimp.desktop"];
+      "image/png" = ["imv.desktop" "loupe.desktop"];
+      "image/jpg" = ["imv.desktop" "loupe.desktop"];
+      "image/jpeg" = ["imv.desktop" "loupe.desktop"];
+      "image/webp" = ["imv.desktop" "loupe.desktop"];
+      "image/gif" = ["imv.desktop" "loupe.desktop"];
+      "image/svg" = ["imv.desktop" "loupe.desktop"];
 
       "video/mp4" = "mpv.desktop";
       "video/mkv" = "mpv.desktop";

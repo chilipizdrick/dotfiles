@@ -13,7 +13,11 @@ return {
         light = "latte",
         dark = "mocha",
       },
-      term_colors = true,
+      float = {
+        transparent = true,
+        solid = false,
+      },
+      term_colors = false,
 
       styles = {
         comments = { "italic" },
@@ -25,7 +29,6 @@ return {
         cmp = true,
         markdown = true,
         gitsigns = true,
-        nvimtree = false,
         indent_blankline = {
           enabled = true,
         },
@@ -33,8 +36,7 @@ return {
           enabled = true,
           indentscope_color = "",
         },
-        neotree = true,
-        native_lsp = {
+        lsp_styles = {
           enabled = true,
           virtual_text = {
             errors = { "italic" },
@@ -47,8 +49,8 @@ return {
             errors = { "undercurl" },
             hints = { "undercurl" },
             warnings = { "undercurl" },
-            information = { "underline" },
-            ok = { "underline" },
+            information = { "undercurl" },
+            ok = { "undercurl" },
           },
           inlay_hints = {
             background = true,

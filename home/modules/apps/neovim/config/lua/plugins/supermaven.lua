@@ -12,4 +12,12 @@ return {
       },
     })
   end,
+
+  keys = {
+    {
+      "<leader>mt",
+      "<Cmd>SupermavenToggle<CR>",
+      desc = "Toggle Supermaven autocomplete",
+    },
+  },
 }

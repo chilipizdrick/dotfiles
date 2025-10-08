@@ -50,8 +50,6 @@
 
     go
 
-    julia
-
     nixd
 
     fixjson

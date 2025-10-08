@@ -35,10 +35,6 @@ vim.g.rustaceanvim = {
   },
 }
 
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
 -- Spelling
 vim.opt.spelllang = "en_us,ru_ru"
 vim.opt.spell = true

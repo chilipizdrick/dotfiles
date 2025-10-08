@@ -3,6 +3,6 @@
     # ./zerotier
     ./tailscale
     ./zapret
-    ./amnezia
+    # ./amnezia
   ];
 }

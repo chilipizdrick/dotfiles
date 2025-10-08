@@ -98,6 +98,7 @@ menu menuitem:hover {
 #tray,
 #backlight,
 #pulseaudio,
+#wireplumber,
 #custom-tailscale,
 #custom-zapret,
 #network,
@@ -186,17 +187,17 @@ menu menuitem:hover {
 }
 
 
-#tray > widget:hover {
-  background: @hover;
-}
-
-#tray .needs-attention {
-  background: @urgent;
-}
-
-#tray .needs-attention:hover {
-  background: @urgent-hover;
-}
+/* #tray > widget:hover { */
+/*   background: @hover; */
+/* } */
+/**/
+/* #tray .needs-attention { */
+/*   background: @urgent; */
+/* } */
+/**/
+/* #tray .needs-attention:hover { */
+/*   background: @urgent-hover; */
+/* } */
 
 
 #pulseaudio.bluetooth {
@@ -210,6 +211,20 @@ menu menuitem:hover {
 #pulseaudio:hover {
   background: @hover;
 }
+
+
+#wireplumber.bluetooth {
+  color: @blue;
+}
+
+#wireplumber.muted {
+  color: @red;
+}
+
+#wireplumber:hover {
+  background: @hover;
+}
+
 
 
 #custom-tailscale.on {

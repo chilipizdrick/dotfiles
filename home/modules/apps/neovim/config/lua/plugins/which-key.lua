@@ -1,6 +1,8 @@
 return {
   "folke/which-key.nvim",
 
+  enabled = false,
+
   event = "VimEnter",
 
   opts = {

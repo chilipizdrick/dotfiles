@@ -37,7 +37,8 @@
     decibels
     helvum
     imv
-    gimp3
+    # gimp3
+    # krita
     loupe
     mpv
     obsidian

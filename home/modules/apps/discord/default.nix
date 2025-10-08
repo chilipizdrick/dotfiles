@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
@@ -13,7 +9,6 @@
       # transparent = true;
       plugins = {
         betterGifPicker.enable = true;
-        # callTimer.enable = true;
         fakeNitro.enable = true;
         youtubeAdblock.enable = true;
         alwaysTrust.enable = true;
@@ -28,5 +23,5 @@
     };
   };
 
-  xdg.configFile."Vencord/themes/custom.theme.css".source = ./custom.theme.css;
+  # xdg.configFile."Vencord/themes/custom.theme.css".source = ./custom.theme.css;
 }

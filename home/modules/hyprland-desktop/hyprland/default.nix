@@ -193,9 +193,10 @@ in {
         "noborder,onworkspace:w[t1],floating:0" # Disable borders for single window workspaces
 
         # "Menu windows" configuration
-        "float,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
-        "center,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
-        "size 50% 70%,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol)$"
+        "float,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
+        "center,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
+
+        "size 50% 70%,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
 
         # "File dialogs" configuration
         "float,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
@@ -264,7 +265,6 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod},A,exec,${pkgs.amnezia-vpn}/bin/AmneziaVPN"
           "${mod} CTRL,W,exec,${pkgs.woomer}/bin/woomer"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
@@ -294,7 +294,7 @@ in {
           "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
 
           # Soundpad configs
-          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker-lite"
+          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill pw-play"
         ]
         ++ (builtins.map
           (num: "${mod} ALT,${builtins.toString num},exec,${scripts.hijacker-lite}/bin/hijacker-lite ~/Music/hijacker-presets/${builtins.toString num}.mp3")
@@ -316,9 +316,12 @@ in {
         "${mod} CTRL,${down},resizeactive,0 20"
       ];
       bindle = [
-        ",XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 5 --allow-boost --set-limit 200"
-        ",XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 5 --allow-boost --set-limit 200"
-        ",XF86AudioMute,exec,${pkgs.pamixer}/bin/pamixer -t"
+        ",XF86AudioRaiseVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ +5% --limit 200%"
+        ",XF86AudioLowerVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ -5% --limit 200%"
+        ",XF86AudioMute,exec,${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+        "${mod},M,exec,${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
         ",XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%-"
         "SHIFT,XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 0%"
         ",XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl -c backlight s 5%+"
@@ -343,6 +346,7 @@ in {
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
     TERMINAL = "alacritty";
+    BROWSER = "zen";
   };
 
   home.packages = with pkgs; [
@@ -352,7 +356,8 @@ in {
     wl-clipboard
     networkmanagerapplet
     copyq
-    pavucontrol
+    pwvucontrol
+    coppwr
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
