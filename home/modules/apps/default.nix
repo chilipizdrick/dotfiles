@@ -10,7 +10,7 @@
     ./alacritty
     ./carapace
     ./cava
-    ./chromium
+    # ./chromium
     ./command-not-found
     ./direnv
     ./discord
@@ -29,6 +29,7 @@
     ./zathura
     ./zen
     ./zoxide
+    ./helium
   ];
 
   home.packages = with pkgs; [

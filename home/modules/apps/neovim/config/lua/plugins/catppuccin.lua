@@ -25,6 +25,28 @@ return {
       },
 
       default_integrations = true,
+
+      lsp_styles = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+          ok = { "undercurl" },
+        },
+        virtual_text = {
+          errors = { "italic" },
+          hints = { "italic" },
+          warnings = { "italic" },
+          information = { "italic" },
+          ok = { "italic" },
+        },
+        inlay_hints = {
+          background = true,
+        },
+      },
+
       integrations = {
         cmp = true,
         markdown = true,
@@ -35,26 +57,6 @@ return {
         mini = {
           enabled = true,
           indentscope_color = "",
-        },
-        lsp_styles = {
-          enabled = true,
-          virtual_text = {
-            errors = { "italic" },
-            hints = { "italic" },
-            warnings = { "italic" },
-            information = { "italic" },
-            ok = { "italic" },
-          },
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-            ok = { "undercurl" },
-          },
-          inlay_hints = {
-            background = true,
-          },
         },
         snacks = {
           enabled = true,

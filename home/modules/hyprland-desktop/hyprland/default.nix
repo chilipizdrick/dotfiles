@@ -188,15 +188,23 @@ in {
         "noanim,selection"
       ];
 
-      windowrule = [
+      windowrule = let
+        specialWindows = [
+          "com.github.hluk.copyq"
+          "\\.blueman-manager-wrapped"
+          "org.pulseaudio.pavucontrol"
+          "com.saivert.pwvucontrol"
+          "io.github.kaii_lb.Overskride"
+        ];
+        specialWindowMatchRule = "class:^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
+      in [
         "idleinhibit fullscreen,fullscreen:1"
         "noborder,onworkspace:w[t1],floating:0" # Disable borders for single window workspaces
 
         # "Menu windows" configuration
-        "float,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
-        "center,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
-
-        "size 50% 70%,class:^(com.github.hluk.copyq|\\.blueman-manager-wrapped|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
+        "float,${specialWindowMatchRule}"
+        "center,${specialWindowMatchRule}"
+        "size 50% 70%,${specialWindowMatchRule}"
 
         # "File dialogs" configuration
         "float,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"

@@ -31,8 +31,9 @@
       "wireplumber#source"
       "custom/tailscale"
       # "custom/zapret"
-      "network"
-      # "cpu"
+      # "network"
+      "memory"
+      "cpu"
       "battery"
       "custom/powermenu"
     ];
@@ -40,6 +41,11 @@
     backlight = {
       format = "{icon} {percent}%";
       format-icons = ["" "" "" "" "" "" "" "" ""];
+    };
+
+    memory = {
+      interval = 5;
+      format = "  {percentage}%";
     };
 
     cpu = {
@@ -60,7 +66,7 @@
     };
 
     network = {
-      format-wifi = "{icon} {essid}";
+      format-wifi = "{icon}";
       format-disconnected = "󰤭  Disconnected";
       format-icons = ["󰤯 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
       tooltip-format-disconnected = "Disconnected";

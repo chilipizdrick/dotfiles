@@ -5,7 +5,7 @@
 }: {
   imports = [
     # ./android-studio
-    ./chromium
+    # ./chromium
     ./command-not-found
     # ./kde-connect
     ./nautilus
