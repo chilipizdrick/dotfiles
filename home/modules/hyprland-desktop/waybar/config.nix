@@ -46,6 +46,7 @@
     memory = {
       interval = 5;
       format = "  {percentage}%";
+      tooltip-format = "Using {used:0.1f}G/{total:0.1f}G";
     };
 
     cpu = {
