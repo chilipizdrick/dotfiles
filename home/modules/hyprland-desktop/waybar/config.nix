@@ -165,7 +165,7 @@
     "custom/zapret" = {
       exec = "${scripts.query-zapret}/bin/query-zapret";
       interval = 1;
-      format = "Z";
+      format = "GOIDA";
       on-click = "${scripts.toggle-zapret}/bin/toggle-zapret";
     };
   };

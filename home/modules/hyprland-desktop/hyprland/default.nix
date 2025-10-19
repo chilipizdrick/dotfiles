@@ -3,6 +3,7 @@
   lib,
   inputs,
   scripts,
+  inputs',
   ...
 }: let
   mod = "SUPER";
@@ -212,6 +213,13 @@ in {
         "size 50% 70%,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 
         "animation popin,title:^(woomer)$"
+        "animation popin,title:^(wroomer)$"
+      ];
+
+      gesture = [
+        "3,horizontal,workspace"
+        "4,down,close"
+        # "4,up,fullscreen"
       ];
 
       exec-once = [
@@ -273,7 +281,8 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${pkgs.woomer}/bin/woomer"
+          # "${mod} CTRL,W,exec,${pkgs.woomer}/bin/woomer"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.default}/bin/wroomer"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"

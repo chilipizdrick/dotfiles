@@ -121,49 +121,49 @@ return {
           "[G]oto [T]ype Definition"
         )
 
-        local highlight_augroup =
-          vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
-
-        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-          buffer = event.buf,
-          group = highlight_augroup,
-          callback = function()
-            if
-              vim.lsp.get_clients()[1].server_capabilities.documentHighlightProvider
-            then
-              vim.lsp.buf.document_highlight()
-            end
-          end,
-        })
-
-        vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-          buffer = event.buf,
-          group = highlight_augroup,
-          callback = function()
-            if
-              vim.lsp.get_clients()[1].server_capabilities.documentHighlightProvider
-            then
-              vim.lsp.buf.clear_references()
-            end
-          end,
-        })
-
-        vim.api.nvim_create_autocmd("LspDetach", {
-          group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
-          callback = function(event2)
-            vim.lsp.buf.clear_references()
-            vim.api.nvim_clear_autocmds({
-              group = "lsp-highlight",
-              buffer = event2.buf,
-            })
-          end,
-        })
-
         map("<leader>th", function()
           vim.lsp.inlay_hint.enable(
             not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
           )
         end, "[T]oggle Inlay [H]ints")
+
+        local lsp_client_id = event.data.client_id
+
+        local lsp_client = vim.lsp.get_client_by_id(lsp_client_id)
+
+        local client_supports_document_highlight = function(client)
+          return client
+            and client.capabilities.textDocument
+            and client.capabilities.textDocument.documentHighlight
+        end
+
+        if client_supports_document_highlight(lsp_client) then
+          local highlight_augroup =
+            vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+
+          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            buffer = event.buf,
+            group = highlight_augroup,
+            callback = vim.lsp.buf.document_highlight,
+          })
+
+          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+            buffer = event.buf,
+            group = highlight_augroup,
+            callback = vim.lsp.buf.clear_references,
+          })
+
+          vim.api.nvim_create_autocmd("LspDetach", {
+            group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+            callback = function(event2)
+              vim.lsp.buf.clear_references()
+              vim.api.nvim_clear_autocmds({
+                group = "lsp-highlight",
+                buffer = event2.buf,
+              })
+            end,
+          })
+        end
       end,
     })
   end,

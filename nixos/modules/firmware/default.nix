@@ -3,6 +3,7 @@
     ./audio
     ./bluetooth
     # ./graphical-tablet
+    # ./fprintd
     ./kernel
     ./networking
     ./power-management

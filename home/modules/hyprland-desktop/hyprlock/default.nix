@@ -29,8 +29,11 @@ in {
         general = {
           ignore_empty_input = true;
           hide_cursor = true;
-          no_fade_in = true;
+          # no_fade_in = true;
         };
+
+        # auth.fingerprint.enable = true;
+
         background = [
           {
             monitor = "";
@@ -44,6 +47,7 @@ in {
             vibrancy_darkness = 0.0;
           }
         ];
+
         input-field = [
           {
             monitor = "";
@@ -64,6 +68,7 @@ in {
             fail_color = "$red";
           }
         ];
+
         label = [
           {
             monitor = "";
@@ -138,6 +143,7 @@ in {
             valign = "bottom";
           }
         ];
+
         image = [
           {
             monitor = "";

@@ -50,6 +50,14 @@
     #   };
     # };
 
+    wroomer = {
+      url = "github:chilipizdrick/wroomer";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
       flake = false;
