@@ -212,8 +212,7 @@ in {
         "center,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
         "size 50% 70%,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 
-        "animation popin,title:^(woomer)$"
-        "animation popin,title:^(wroomer)$"
+        "animation popin,title:^(Wroomer)$"
       ];
 
       gesture = [
@@ -281,7 +280,6 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          # "${mod} CTRL,W,exec,${pkgs.woomer}/bin/woomer"
           "${mod} CTRL,W,exec,${inputs'.wroomer.packages.default}/bin/wroomer"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
