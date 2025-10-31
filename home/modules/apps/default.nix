@@ -44,7 +44,6 @@
     mpv
     obsidian
     telegram-desktop
-    thunderbird
     scripts.hijacker-lite
     kdePackages.kolourpaint
     audacity

@@ -37,6 +37,6 @@
     ffmpeg
     bat
     television
-    onlyoffice-bin
+    onlyoffice-desktopeditors
   ];
 }

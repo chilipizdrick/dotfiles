@@ -3,13 +3,14 @@
     fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      noto-fonts
       corefonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      liberation_ttf
+      inter
       jetbrains-mono
+      liberation_ttf
       nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
     ];
   };
 }

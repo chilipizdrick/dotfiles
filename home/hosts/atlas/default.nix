@@ -32,7 +32,7 @@ in {
     settings = {
       monitor = lib.mkForce [
         "eDP-1,highres,auto,${scale}"
-        ",preferred,auto,${scale},mirror,eDP-1"
+        # ",preferred,auto,${scale},mirror,eDP-1"
       ];
       bind = [
         "${mod} ALT,W,exec,${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"

@@ -11,14 +11,14 @@
   # ];
 
   # working config for atlas
-  services.zapret = {
-    enable = false;
-    params = [
-      "--dpi-desync=fakedsplit"
-      "--dpi-desync-ttl=2"
-      "--dpi-desync-split-pos=1"
-    ];
-  };
+  # services.zapret = {
+  #   enable = true;
+  #   params = [
+  #     "--dpi-desync=fakedsplit"
+  #     "--dpi-desync-ttl=2"
+  #     "--dpi-desync-split-pos=1"
+  #   ];
+  # };
 
   amdVideoDrivers.enable = true;
   games = {

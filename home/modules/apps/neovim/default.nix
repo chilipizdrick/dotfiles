@@ -23,11 +23,12 @@
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    cargo
-    clippy
-    rustc
-    rustfmt
-    rust-analyzer
+    rustup
+    # cargo
+    # clippy
+    # rustc
+    # rustfmt
+    # rust-analyzer
 
     wgsl-analyzer
 

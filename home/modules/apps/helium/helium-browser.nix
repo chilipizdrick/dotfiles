@@ -3,16 +3,15 @@
   lib,
   appimageTools,
   fetchurl,
-  makeDesktopItem,
   copyDesktopItems,
 }: let
   pname = "helium-browser";
-  version = "0.5.3.1";
+  version = "0.5.8.1";
 
   architectures = {
     "x86_64-linux" = {
       arch = "x86_64";
-      hash = "sha256-uPFO1xvL0Uc4eBWZ7yvWoKErUpbyrUDyOMIboOVlzxw=";
+      hash = "sha256-d8kwLEU6qgEgp7nlEwdfRevB1JrbEKHRe8+GhGpGUig=";
     };
   };
 
@@ -39,35 +38,6 @@ in
 
       cp -r ${appimageContents}/usr/share/icons $out/share
     '';
-
-    # desktopItems = [
-    #   (makeDesktopItem {
-    #     type = "Application";
-    #     name = "Helium";
-    #     desktopName = "Helium";
-    #     genericName = "Web Browser";
-    #     exec = "helium-browser %U";
-    #     terminal = false;
-    #     icon = "helium";
-    #     categories = ["Network" "WebBrowser"];
-    #     mimeType = [
-    #       "application/pdf"
-    #       "application/rdf+xml"
-    #       "application/rss+xml"
-    #       "application/xhtml+xml"
-    #       "application/xhtml_xml"
-    #       "application/xml"
-    #       "image/gif"
-    #       "image/jpeg"
-    #       "image/png"
-    #       "image/webp"
-    #       "text/html"
-    #       "text/xml"
-    #       "x-scheme-handler/http"
-    #       "x-scheme-handler/https"
-    #     ];
-    #   })
-    # ];
 
     meta = {
       platforms = lib.attrNames architectures;

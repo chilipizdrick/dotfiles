@@ -1,6 +1,7 @@
 {
   pkgs,
   scripts,
+  inputs',
   ...
 }: {
   mainBar = {
@@ -64,6 +65,7 @@
     clock = {
       tooltip-format = "<tt>{calendar}</tt>";
       format = "{:%H:%M  %a %d %b}";
+      locale = "ru_RU.UTF-8";
     };
 
     network = {
@@ -97,6 +99,7 @@
       format = "{icon} {volume}%";
       format-muted = "󰝟";
       format-icons = ["󰕿" "󰖀" "󰕾"];
+      max-volume = 200;
       on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
       on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       scroll-step = 1;
@@ -106,6 +109,7 @@
       node-type = "Audio/Source";
       format = "󰍬 {volume}%";
       format-muted = "󰍭";
+      max-volume = 200;
       on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
       on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
       scroll-step = 1;
@@ -115,7 +119,8 @@
       format = "";
       tooltip = true;
       tooltip-format = "App Launcher";
-      on-click = "${pkgs.rofi}/bin/rofi -show drun -modes drun";
+      # on-click = "${pkgs.rofi}/bin/rofi -show drun -modes drun";
+      on-click = "${inputs'.walker.packages.walker}/bin/walker";
     };
 
     battery = {

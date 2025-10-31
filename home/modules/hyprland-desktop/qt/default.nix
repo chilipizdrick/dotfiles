@@ -4,8 +4,8 @@
     platformTheme.name = "gtk";
     # style.name = "breeze-dark";
     style = {
-      name = "breeze";
-      package = pkgs.kdePackages.breeze;
+      name = "adwaita-dark";
+      # package = pkgs.kdePackages.breeze;
     };
   };
 }

@@ -170,23 +170,29 @@ in {
       };
 
       layerrule = [
-        "blur,logout_dialog"
-        "blur,rofi"
-        "blur,waybar"
-        "blurpopups,waybar"
-        "blur,tranquility"
-        "blurpopups,tranquility"
-        "blur,notifications"
-        "ignorezero,waybar"
-        "ignorezero,tranquility"
-        "ignorezero,notifications"
-        "ignorealpha 0.5,waybar"
-        "ignorealpha 0.5,tranquility"
-        "animation slide,waybar"
         "animation slide,tranquility"
+        "animation slide,waybar"
+        "blur,launcher"
+        "blur,logout_dialog"
+        "blur,notifications"
+        "blur,rofi"
+        "blur,tranquility"
+        "blur,walker"
+        "blur,waybar"
+        "blurpopups,tranquility"
+        "blurpopups,waybar"
+        "ignorealpha 0.5,launcher"
+        "ignorealpha 0.5,tranquility"
+        "ignorealpha 0.5,walker"
+        "ignorealpha 0.5,waybar"
+        "ignorezero,launcher"
+        "ignorezero,notifications"
+        "ignorezero,tranquility"
+        "ignorezero,walker"
+        "ignorezero,waybar"
         "noanim,hyprpicker"
-        "noanim,slurp"
         "noanim,selection"
+        "noanim,slurp"
       ];
 
       windowrule = let
@@ -285,8 +291,10 @@ in {
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
-          "ALT,SPACE,exec,${pkgs.rofi}/bin/rofi -show drun -modi drun,calc"
-          "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
+          # "ALT,SPACE,exec,${pkgs.rofi}/bin/rofi -show drun -modi drun,calc"
+          "ALT,SPACE,exec,${inputs'.walker.packages.walker}/bin/walker"
+          # "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
+          "${mod},V,exec,${inputs'.walker.packages.walker}/bin/walker --provider clipboard"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
           "${mod},E,exec,${guiFiles}"
@@ -331,8 +339,8 @@ in {
         "${mod} CTRL,${down},resizeactive,0 20"
       ];
       bindle = [
-        ",XF86AudioRaiseVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ +5% --limit 200%"
-        ",XF86AudioLowerVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ -5% --limit 200%"
+        ",XF86AudioRaiseVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 2.0"
+        ",XF86AudioLowerVolume,exec,${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 2.0"
         ",XF86AudioMute,exec,${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         "${mod},M,exec,${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
@@ -370,7 +378,7 @@ in {
     killall
     wl-clipboard
     networkmanagerapplet
-    copyq
+    # copyq
     pwvucontrol
     coppwr
   ];

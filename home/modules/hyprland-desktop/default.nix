@@ -1,7 +1,8 @@
 {...}: {
   imports = [
-    ./copyq
+    # ./copyq
     ./cursor
+    ./walker
     ./gammastep
     ./gtk
     ./hypridle
@@ -12,6 +13,6 @@
     ./swww
     ./waybar
     ./wlogout
-    ./qt
+    # ./qt
   ];
 }

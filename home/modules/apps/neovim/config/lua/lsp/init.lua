@@ -31,13 +31,13 @@ vim.lsp.config.nixd = {
 }
 
 local servers = {
-  "pyright",
+  -- "pyright",
   "nixd",
   "lua_ls",
   "clangd",
   "tinymist",
   "ts_ls",
-  "wgsl_analyzer",
+  -- "wgsl_analyzer",
 }
 
 for _, lsp in pairs(servers) do
