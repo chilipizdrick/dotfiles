@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761924520,
-        "narHash": "sha256-qu2mIwUlJcZ8BAV+r8e8qxdRSPuiRIOQwI0y2c6fp7U=",
+        "lastModified": 1761930611,
+        "narHash": "sha256-kDxYtClX8rn/sIHm69VBdU8CcZ2v7FJ4IXZB2LTjMeg=",
         "owner": "abenz1267",
         "repo": "elephant",
-        "rev": "0f261028bb003c1affa9447d71623a9e14220904",
+        "rev": "b3dd348e5b3befba5f3e93ca738192616ebda777",
         "type": "github"
       },
       "original": {
