@@ -6,7 +6,7 @@
   imports = [
     # ./android-studio
     # ./chromium
-    ./command-not-found
+    ./disable-command-not-found
     # ./kde-connect
     ./nautilus
   ];
@@ -20,6 +20,7 @@
     curl
     jq
     git
+    jujutsu
     zip
     unzip
     p7zip
@@ -28,7 +29,6 @@
     socat
     tmux
     tmux-sessionizer
-    btop
     microfetch
     alejandra
     sops

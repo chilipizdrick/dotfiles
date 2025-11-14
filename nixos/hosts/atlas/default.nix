@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../base-configuraion.nix
@@ -32,6 +32,10 @@
     enable = true;
     size = 16;
   };
+
+  environment.systemPackages = with pkgs; [
+    (btop.override {rocmSupport = true;})
+  ];
 
   networking.hostName = "atlas";
 }

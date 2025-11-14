@@ -13,7 +13,7 @@
       theme = "catppuccin-mocha";
       background = "#000000";
       foreground = "#cdd6f4";
-      background-opacity = 0.7;
+      background-opacity = 0.8;
 
       keybind = [
         "ctrl+comma=open_config"

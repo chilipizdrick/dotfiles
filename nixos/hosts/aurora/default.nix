@@ -1,5 +1,4 @@
 {
-  inputs',
   pkgs,
   lib,
   ...
@@ -54,6 +53,7 @@
 
   environment.systemPackages = with pkgs; [
     hyperion-ng
+    (btop.override {cudaSupport = true;})
   ];
 
   networking.hostName = "aurora";

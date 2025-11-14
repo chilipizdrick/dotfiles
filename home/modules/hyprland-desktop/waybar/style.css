@@ -25,7 +25,7 @@
 @define-color mantle #181825;
 @define-color crust #11111b;
 
-@define-color background alpha(black, 0.7);
+@define-color background alpha(black, 0.8);
 @define-color hover alpha(@text, 0.2);
 @define-color urgent @peach;
 @define-color hover-urgent mix(@urgent, @text, 0.3);

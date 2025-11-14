@@ -43,7 +43,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>do", function()
-  vim.diagnostic.open_float({ border = "rounded" })
+  -- vim.diagnostic.open_float({ border = "rounded" })
+  vim.diagnostic.open_float()
 end, { desc = "Floating [d]iagnostic [o]pen" })
 
 vim.keymap.set("n", "[d", function()
@@ -78,7 +79,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "K", function()
-  vim.lsp.buf.hover({ border = "rounded" })
+  -- vim.lsp.buf.hover({ border = "rounded" })
+  vim.lsp.buf.hover()
 end, { desc = "Open Diagnostic info" })
 
 -- vim.keymap.set({ "n", "v", "i" }, "<C-a>", function()

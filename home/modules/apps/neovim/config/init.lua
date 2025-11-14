@@ -25,9 +25,9 @@ require("lazy").setup({
   defaults = {
     lazy = true,
   },
-  ui = {
-    border = "rounded",
-  },
+  -- ui = {
+  --   border = "rounded",
+  -- },
   spec = {
     import = "plugins",
   },

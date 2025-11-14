@@ -7,9 +7,9 @@ return {
 
   opts = {
     preset = "helix",
-    win = {
-      border = "rounded",
-    },
+    -- win = {
+    --   border = "rounded",
+    -- },
     icons = {
       mappings = vim.g.have_nerd_font,
       keys = vim.g.have_nerd_font and {} or {

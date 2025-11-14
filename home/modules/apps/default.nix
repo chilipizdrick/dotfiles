@@ -6,11 +6,11 @@
   imports = [
     # ./firefox
     # ./ghostty
-    # ./helix
+    ./helix
     ./alacritty
     ./carapace
     ./cava
-    # ./chromium
+    ./chromium
     ./command-not-found
     ./direnv
     ./discord
@@ -33,13 +33,12 @@
   ];
 
   home.packages = with pkgs; [
+    ripdrag
     ani-cli
     baobab
     decibels
     helvum
     imv
-    # gimp3
-    # krita
     loupe
     mpv
     obsidian

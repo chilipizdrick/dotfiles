@@ -11,6 +11,7 @@
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.catppuccin
+      # tmuxPlugins.kanagawa
     ];
 
     extraConfig = ''
@@ -27,15 +28,24 @@
       # Mouse config
       set-option -g mouse on
 
+      # Kanagawa theme confifg
+      # set -g @kanagawa-theme 'dragon'
+      # set -g @kanagawa-ignore-window-colors true
+      # set -g @kanagawa-show-location false
+      # set -g @kanagawa-show-location false
+      # set -g @kanagawa-show-timezone false
+      # set -g @kanagawa-show-timezone false
+
       # Catppuccin theme config
       set -g @catppuccin_flavor "mocha"
-      set -g @catppuccin_window_status_style "rounded"
-      set -g status-right-length 100
-      set -g status-left-length 100
       set -g status-left ""
-      set -g status-right "#{E:@catppuccin_status_application}"
-      set -ag status-right "#{E:@catppuccin_status_session}"
-      set -ag status-right "#{E:@catppuccin_status_uptime}"
+      set -g status-right ""
+      # set -g @catppuccin_window_status_style "rounded"
+      # set -g status-right-length 100
+      # set -g status-left-length 100
+      # set -g status-right "#{E:@catppuccin_status_application}"
+      # set -ag status-right "#{E:@catppuccin_status_session}"
+      # set -ag status-right "#{E:@catppuccin_status_uptime}"
 
     '';
   };

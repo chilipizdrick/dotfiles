@@ -43,7 +43,7 @@ vim.opt.spell = true
 if vim.g.neovide then
   vim.o.guifont = "JetBrainsMonoNL Nerd Font:h12"
   vim.g.neovide_background_color = "#00000000"
-  vim.g.neovide_opacity = 0.7
+  vim.g.neovide_opacity = 0.8
 end
 
 -- Russian langmap

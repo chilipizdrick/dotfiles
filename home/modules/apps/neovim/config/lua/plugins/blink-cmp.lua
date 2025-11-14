@@ -1,6 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
+
     dependencies = {
       "rafamadriz/friendly-snippets",
       "xzbdmw/colorful-menu.nvim",
@@ -21,10 +22,10 @@ return {
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 500,
-          window = { border = "rounded" },
+          -- window = { border = "rounded" },
         },
         menu = {
-          border = "rounded",
+          -- border = "rounded",
           draw = {
             columns = { { "kind_icon" }, { "label", gap = 1 } },
             components = {
@@ -43,7 +44,7 @@ return {
         },
       },
 
-      signature = { window = { border = "rounded" } },
+      -- signature = { window = { border = "rounded" } },
 
       sources = {
         default = {
