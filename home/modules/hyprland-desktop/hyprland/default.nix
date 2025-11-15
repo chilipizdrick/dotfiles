@@ -160,48 +160,46 @@ in {
       animations = {
         enabled = true;
         animation = [
+          "fadePopups,off"
           "windows,on,2,easeOutCubic"
-          "windowsMove,on,2,default"
           "windowsIn,on,2,easeOutCubic,slide,top"
+          "windowsMove,on,2,default"
           "windowsOut,on,2,easeOutCubic,slide,bottom"
           "workspaces,on,2,easeOutCubic"
-          "fadePopups,off"
         ];
       };
 
       layerrule = [
-        "animation slide,tranquility"
         "animation slide,waybar"
+
         "blur,launcher"
         "blur,logout_dialog"
         "blur,notifications"
         "blur,rofi"
-        "blur,tranquility"
-        "blur,walker"
+        "blur,vicinae"
         "blur,waybar"
-        "blurpopups,tranquility"
+
+        "blurpopups,vicinae"
         "blurpopups,waybar"
+
         "ignorealpha 0.5,launcher"
-        "ignorealpha 0.5,tranquility"
-        "ignorealpha 0.5,walker"
+        "ignorealpha 0.5,notifications"
+        "ignorealpha 0.5,vicinae"
         "ignorealpha 0.5,waybar"
-        "ignorezero,launcher"
-        "ignorezero,notifications"
-        "ignorezero,tranquility"
-        "ignorezero,walker"
-        "ignorezero,waybar"
+
         "noanim,hyprpicker"
         "noanim,selection"
         "noanim,slurp"
+        "noanim,vicinae"
       ];
 
       windowrule = let
         specialWindows = [
-          "com.github.hluk.copyq"
           "\\.blueman-manager-wrapped"
-          "org.pulseaudio.pavucontrol"
+          "com.github.hluk.copyq"
           "com.saivert.pwvucontrol"
           "io.github.kaii_lb.Overskride"
+          "org.pulseaudio.pavucontrol"
         ];
         specialWindowMatchRule = "class:^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
       in [
@@ -231,6 +229,7 @@ in {
         "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
         "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
+        # "${pkgs.vicinae}/bin/vicinae server"
         # "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
@@ -292,9 +291,9 @@ in {
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
           # "ALT,SPACE,exec,${pkgs.rofi}/bin/rofi -show drun -modi drun,calc"
-          "ALT,SPACE,exec,${inputs'.walker.packages.walker}/bin/walker"
+          "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
           # "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
-          "${mod},V,exec,${inputs'.walker.packages.walker}/bin/walker --provider clipboard"
+          "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
           "${mod},E,exec,${guiFiles}"

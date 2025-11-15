@@ -2,7 +2,8 @@
   imports = [
     # ./copyq
     ./cursor
-    ./walker
+    # ./walker
+    ./vicinae
     ./gammastep
     ./gtk
     ./hypridle

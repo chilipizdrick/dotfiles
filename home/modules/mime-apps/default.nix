@@ -5,6 +5,8 @@
     defaultApplications = {
       "text" = "nvim.desktop";
 
+      "x-scheme-handler/terminal" = "Alacritty.dekstop";
+
       "x-scheme-handler/http" = "zen-beta.desktop";
       "x-scheme-handler/https" = "zen-beta.desktop";
       "x-scheme-handler/about" = "zen-beta.desktop";

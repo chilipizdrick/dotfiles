@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "elephant": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762962320,
-        "narHash": "sha256-4Bhteu6s5gMGcNSgniKH4ynmN5WcdDA58Vy2vFlHPdg=",
-        "owner": "abenz1267",
-        "repo": "elephant",
-        "rev": "b7acc4fe8a1b6552b071b6b6f2d3a93c8ddec823",
-        "type": "github"
-      },
-      "original": {
-        "owner": "abenz1267",
-        "repo": "elephant",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1733328505,
@@ -132,7 +109,6 @@
     },
     "root": {
       "inputs": {
-        "elephant": "elephant",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixcord": "nixcord",
@@ -140,7 +116,6 @@
         "scripts": "scripts",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems",
-        "walker": "walker",
         "wallpapers": "wallpapers",
         "wroomer": "wroomer",
         "zen-browser": "zen-browser"
@@ -201,32 +176,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "walker": {
-      "inputs": {
-        "elephant": [
-          "elephant"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762788361,
-        "narHash": "sha256-72+WE0RGSW8TgzPijHU6TtLWfMb0G7ojraM5UifTLVg=",
-        "owner": "abenz1267",
-        "repo": "walker",
-        "rev": "e87c8c36468bcf2042a21c6aa878e7f0cdadc8f0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "abenz1267",
-        "repo": "walker",
         "type": "github"
       }
     },

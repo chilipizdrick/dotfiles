@@ -6,7 +6,7 @@
   imports = [
     # ./firefox
     # ./ghostty
-    ./helix
+    # ./helix
     ./alacritty
     ./carapace
     ./cava

@@ -120,7 +120,8 @@
       tooltip = true;
       tooltip-format = "App Launcher";
       # on-click = "${pkgs.rofi}/bin/rofi -show drun -modes drun";
-      on-click = "${inputs'.walker.packages.walker}/bin/walker";
+      # on-click = "${inputs'.walker.packages.walker}/bin/walker";
+      on-click = "${pkgs.vicinae}/bin/vicinae toggle";
     };
 
     battery = {

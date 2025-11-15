@@ -20,7 +20,7 @@
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
       trusted-users = ["alex"];
-      substituters = ["https://nix-community.cachix.org" "https://walker.cachix.org" "https://walker-git.cachix.org"];
+      substituters = ["https://nix-community.cachix.org"];
       trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
     };
     channel.enable = false;
