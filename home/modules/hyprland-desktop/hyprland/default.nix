@@ -200,6 +200,7 @@ in {
           "com.saivert.pwvucontrol"
           "io.github.kaii_lb.Overskride"
           "org.pulseaudio.pavucontrol"
+          "xdg-desktop-portal-gtk"
         ];
         specialWindowMatchRule = "class:^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
       in [
