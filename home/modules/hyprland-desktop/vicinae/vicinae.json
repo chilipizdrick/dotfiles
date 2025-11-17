@@ -2,11 +2,10 @@
     "closeOnFocusLoss": true,
     "faviconService": "twenty",
     "font": {
-        "size": 12
+        "size": 11
     },
     "keybinding": "default",
-    "keybinds": {
-    },
+    "keybinds": {},
     "popToRootOnClose": true,
     "rootSearch": {
         "searchFiles": false

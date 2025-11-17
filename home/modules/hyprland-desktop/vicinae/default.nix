@@ -13,9 +13,5 @@
     };
   };
 
-  xdg.configFile."vicinae/vicinae.json" = {
-    source = ./vicinae.json;
-    force = true;
-  };
   home.file.".local/share/vicinae/themes/catppuccin-mocha-modified.toml".source = ./catppuccin-mocha-modified.toml;
 }
