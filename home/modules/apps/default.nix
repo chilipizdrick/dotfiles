@@ -4,9 +4,6 @@
   ...
 }: {
   imports = [
-    # ./firefox
-    # ./ghostty
-    # ./helix
     ./alacritty
     ./carapace
     ./cava
@@ -17,7 +14,7 @@
     ./eza
     ./fzf
     ./git
-    # ./kdeconnect
+    ./helium
     ./neovim
     ./obs-studio
     ./shells
@@ -25,26 +22,24 @@
     ./starship
     ./tmux
     ./udiskie
-    # ./yazi
     ./zathura
     ./zen
     ./zoxide
-    ./helium
   ];
 
   home.packages = with pkgs; [
-    ripdrag
     ani-cli
+    audacity
     baobab
     decibels
     helvum
     imv
+    kdePackages.kolourpaint
     loupe
     mpv
     obsidian
-    telegram-desktop
+    ripdrag
     scripts.hijacker-lite
-    kdePackages.kolourpaint
-    audacity
+    telegram-desktop
   ];
 }

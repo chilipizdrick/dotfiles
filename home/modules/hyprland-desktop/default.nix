@@ -1,9 +1,6 @@
 {...}: {
   imports = [
-    # ./copyq
     ./cursor
-    # ./walker
-    ./vicinae
     ./gammastep
     ./gtk
     ./hypridle
@@ -12,8 +9,8 @@
     ./mako
     ./rofi
     ./swww
+    ./vicinae
     ./waybar
     ./wlogout
-    # ./qt
   ];
 }

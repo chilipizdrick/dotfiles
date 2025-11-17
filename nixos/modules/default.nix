@@ -1,16 +1,15 @@
 {...}: {
   imports = [
-    ./firewall
     ./appimage
     ./apps
     ./boot
+    ./firewall
     ./firmware
     ./fonts
     ./games
     ./greeter
     ./hyperion
     ./hyprland
-    # ./kanata
     ./locale
     ./misc
     ./nix-ld
@@ -21,6 +20,5 @@
     ./virtualization
     ./vpn
     ./xdg-portals
-    # ./plasma
   ];
 }

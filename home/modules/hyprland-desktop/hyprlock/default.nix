@@ -29,10 +29,7 @@ in {
         general = {
           ignore_empty_input = true;
           hide_cursor = true;
-          # no_fade_in = true;
         };
-
-        # auth.fingerprint.enable = true;
 
         background = [
           {

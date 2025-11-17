@@ -1,9 +1,8 @@
 {...}: {
   imports = [
+    ./graphical-tablet
     ./audio
     ./bluetooth
-    # ./graphical-tablet
-    # ./fprintd
     ./kernel
     ./networking
     ./power-management
@@ -12,4 +11,7 @@
     ./touchpad
     ./video-drives
   ];
+
+  hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
 }

@@ -32,21 +32,21 @@ in {
       ];
 
       env = [
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "BROWSER,zen"
         "CLUTTER_BACKEND,wayland"
+        "EDITOR,nvim"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "GDK_BACKEND,wayland,x11"
+        "MOZ_ENABLE_WAYLAND,1"
+        "NIXOS_OZONE_WL,1"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM,wayland"
         "QT_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "TERMINAL,alacritty"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
-        "NIXOS_OZONE_WL,1"
-        "MOZ_ENABLE_WAYLAND,1"
-        "EDITOR,nvim"
-        "TERMINAL,alacritty"
-        "BROWSER,zen"
       ];
 
       monitor = [
@@ -106,7 +106,9 @@ in {
         kb_layout = "us,ru";
         kb_variant = "";
         kb_model = "";
-        kb_options = "grp:alt_shift_toggle";
+        kb_options = ''
+          grp:alt_shift_toggle
+        '';
         kb_rules = "";
         repeat_rate = 50;
         repeat_delay = 300;
@@ -230,8 +232,6 @@ in {
         "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
         "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
-        # "${pkgs.vicinae}/bin/vicinae server"
-        # "${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
       ];
 
       bind =
@@ -291,9 +291,7 @@ in {
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
-          # "ALT,SPACE,exec,${pkgs.rofi}/bin/rofi -show drun -modi drun,calc"
           "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
-          # "${mod},V,exec,${pkgs.copyq}/bin/copyq toggle"
           "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
@@ -301,7 +299,7 @@ in {
           "${mod} SHIFT,E,exec,${files}"
           "${mod},T,exec,${telegram}"
           "${mod},S,exec,${spotify}"
-          "${mod},D,exec,discord" # For use with nixcord
+          "${mod},D,exec,discord" # For use with nixcord, thus no direct execution
           "${mod} ALT,R,exec,${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
           "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
           "${mod} CTRL SHIFT,L,exec,${pkgs.spotify-player}/bin/spotify_player like"
@@ -356,38 +354,31 @@ in {
   services.hyprpolkitagent.enable = true;
 
   home.sessionVariables = {
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    BROWSER = "zen";
     CLUTTER_BACKEND = "wayland";
+    EDITOR = "nvim";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     GDK_BACKEND = "wayland,x11";
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland";
     QT_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    TERMINAL = "alacritty";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    TERMINAL = "alacritty";
-    BROWSER = "zen";
   };
 
   home.packages = with pkgs; [
-    hyprlock
     hypridle
+    hyprlock
     killall
-    wl-clipboard
     networkmanagerapplet
-    # copyq
     pwvucontrol
-    coppwr
+    wl-clipboard
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
-
-  xdg.configFile."swappy/config".text = ''
-    [Default]
-    show_panel=true
-    text_font=monospace
-  '';
 }

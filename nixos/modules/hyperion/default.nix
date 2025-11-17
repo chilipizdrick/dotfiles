@@ -11,9 +11,9 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       ffmpeg
+      hyperion-ng
       v4l-utils
       wf-recorder
-      hyperion-ng
     ];
 
     boot = {

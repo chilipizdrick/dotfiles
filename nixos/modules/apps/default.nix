@@ -1,42 +1,34 @@
-{
-  pkgs,
-  inputs',
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    # ./android-studio
-    # ./chromium
     ./disable-command-not-found
-    # ./kde-connect
     ./nautilus
   ];
 
   environment.systemPackages = with pkgs; [
-    home-manager
-    ripgrep
-    fd
-    fzf
-    wget
-    curl
-    jq
-    git
-    jujutsu
-    zip
-    unzip
-    p7zip
-    gzip
-    neovim
-    socat
-    tmux
-    tmux-sessionizer
-    microfetch
     alejandra
+    bat
+    curl
+    fd
+    ffmpeg
+    fzf
+    git
+    gzip
+    home-manager
+    imagemagick
+    jq
+    jujutsu
+    microfetch
+    neovim
+    onlyoffice-desktopeditors
+    p7zip
+    ripgrep
+    socat
     sops
     tealdeer
-    imagemagick
-    ffmpeg
-    bat
-    television
-    onlyoffice-desktopeditors
+    tmux
+    tmux-sessionizer
+    unzip
+    wget
+    zip
   ];
 }

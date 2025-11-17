@@ -3,18 +3,7 @@
     ../modules
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        rofi = prev.rofi.override {
-          plugins = [
-            prev.rofi-calc
-          ];
-        };
-      })
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "alex";

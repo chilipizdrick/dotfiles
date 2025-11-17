@@ -1,7 +1,6 @@
 {
   pkgs,
   scripts,
-  inputs',
   ...
 }: {
   mainBar = {
@@ -31,8 +30,6 @@
       "wireplumber#sink"
       "wireplumber#source"
       "custom/tailscale"
-      # "custom/zapret"
-      # "network"
       "memory"
       "cpu"
       "battery"
@@ -81,20 +78,6 @@
       max-length = 20;
     };
 
-    # wireplumber = {
-    #   format = "{icon} {volume}%";
-    #   format-bluetooth = "󰂰 {volume}%";
-    #   nospacing = 1;
-    #   tooltip-format = "Volume: {volume}%";
-    #   format-muted = "󰝟";
-    #   format-icons = {
-    #     headphone = "";
-    #     default = ["󰕿" "󰖀" "󰕾"];
-    #   };
-    #   on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
-    #   scroll-step = 1;
-    # };
-
     "wireplumber#sink" = {
       format = "{icon} {volume}%";
       format-muted = "󰝟";
@@ -119,8 +102,6 @@
       format = "";
       tooltip = true;
       tooltip-format = "App Launcher";
-      # on-click = "${pkgs.rofi}/bin/rofi -show drun -modes drun";
-      # on-click = "${inputs'.walker.packages.walker}/bin/walker";
       on-click = "${pkgs.vicinae}/bin/vicinae toggle";
     };
 

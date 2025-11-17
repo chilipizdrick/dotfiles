@@ -22,6 +22,4 @@
       };
     };
   };
-
-  # xdg.configFile."Vencord/themes/custom.theme.css".source = ./custom.theme.css;
 }

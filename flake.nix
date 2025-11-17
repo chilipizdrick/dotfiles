@@ -54,31 +54,6 @@
       url = "github:chilipizdrick/wallpapers";
       flake = false;
     };
-
-    # elephant = {
-    #   url = "github:abenz1267/elephant";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     systems.follows = "systems";
-    #   };
-    # };
-    #
-    # walker = {
-    #   url = "github:abenz1267/walker";
-    #   inputs = {
-    #     elephant.follows = "elephant";
-    #     nixpkgs.follows = "nixpkgs";
-    #     systems.follows = "systems";
-    #   };
-    # };
-
-    # sl1 = {
-    #   url = "github:chilipizdrick/sl1?dir=sl1-desktop";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     flake-parts.follows = "flake-parts";
-    #   };
-    # };
   };
 
   outputs = inputs:

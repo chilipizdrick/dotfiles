@@ -16,19 +16,10 @@
     withNodeJs = true;
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
     rustup
-    # cargo
-    # clippy
-    # rustc
-    # rustfmt
-    # rust-analyzer
 
     wgsl-analyzer
 
