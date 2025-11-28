@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./graphical-tablet
+    # ./graphical-tablet
     ./audio
     ./bluetooth
     ./kernel

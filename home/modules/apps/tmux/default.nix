@@ -40,7 +40,11 @@
     # toml
     ''
       [[search_dirs]]
-      path = "$HOME/Projects"
+      path = "$HOME/projects"
       depth = 2
+
+      [[search_dirs]]
+      path = "$HOME/dotfiles"
+      depth = 1
     '';
 }

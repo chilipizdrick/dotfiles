@@ -34,7 +34,7 @@
   all: initial;
   font-family: monospace;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   color: @text;
   border-radius: 15px;
   transition: all 0.1s ease-out;

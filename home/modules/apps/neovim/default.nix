@@ -19,7 +19,12 @@
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    rustup
+    # rustup
+    cargo
+    rustc
+    clippy
+    rustfmt
+    rust-analyzer
 
     wgsl-analyzer
 
@@ -60,5 +65,5 @@
 
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/Projects/nix/dotfiles/home/modules/apps/neovim/config";
+    "${config.home.homeDirectory}/dotfiles/home/modules/apps/neovim/config";
 }

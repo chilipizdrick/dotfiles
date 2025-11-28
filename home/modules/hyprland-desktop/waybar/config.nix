@@ -83,7 +83,8 @@
       format-muted = "󰝟";
       format-icons = ["󰕿" "󰖀" "󰕾"];
       max-volume = 200;
-      on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
+      # on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
+      on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       scroll-step = 1;
     };
@@ -93,7 +94,8 @@
       format = "󰍬 {volume}%";
       format-muted = "󰍭";
       max-volume = 200;
-      on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
+      # on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
+      on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
       scroll-step = 1;
     };

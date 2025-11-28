@@ -37,7 +37,7 @@ local servers = {
   "clangd",
   "tinymist",
   "ts_ls",
-  -- "wgsl_analyzer",
+  "wgsl_analyzer",
 }
 
 for _, lsp in pairs(servers) do

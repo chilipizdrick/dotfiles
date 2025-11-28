@@ -12,7 +12,7 @@
         fakeNitro.enable = true;
         youtubeAdblock.enable = true;
         alwaysTrust.enable = true;
-        clearURLs.enable = true;
+        clearUrLs.enable = true;
         copyFileContents.enable = true;
         noF1.enable = true;
         showMeYourName.enable = true;

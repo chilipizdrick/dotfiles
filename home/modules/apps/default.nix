@@ -11,10 +11,12 @@
     ./command-not-found
     ./direnv
     ./discord
+    ./dolphin
     ./eza
     ./fzf
     ./git
     ./helium
+    ./jujutsu
     ./neovim
     ./obs-studio
     ./shells
@@ -28,12 +30,12 @@
   ];
 
   home.packages = with pkgs; [
+    baobab
+    imv
     ani-cli
     audacity
-    baobab
     decibels
     helvum
-    imv
     kdePackages.kolourpaint
     loupe
     mpv

@@ -7,8 +7,9 @@
   ...
 }: let
   mod = "SUPER";
-  guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  files = "${pkgs.alacritty}/bin/alacritty -e \"${pkgs.yazi}/bin/yazi\"";
+  guiFiles = "${pkgs.kdePackages.dolphin}/bin/dolphin";
+  # guiFiles = "${pkgs.nautilus}/bin/nautilus";
+  # files = "${pkgs.alacritty}/bin/alacritty -e \"${pkgs.yazi}/bin/yazi\"";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   spotify = "${pkgs.spotify}/bin/spotify";
   term = "${pkgs.alacritty}/bin/alacritty";
@@ -198,9 +199,7 @@ in {
       windowrule = let
         specialWindows = [
           "\\.blueman-manager-wrapped"
-          "com.github.hluk.copyq"
-          "com.saivert.pwvucontrol"
-          "io.github.kaii_lb.Overskride"
+          # "com.saivert.pwvucontrol"
           "org.pulseaudio.pavucontrol"
           "xdg-desktop-portal-gtk"
         ];
@@ -286,7 +285,7 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer --dvd-logo"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
@@ -296,7 +295,7 @@ in {
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
           "${mod},E,exec,${guiFiles}"
-          "${mod} SHIFT,E,exec,${files}"
+          # "${mod} SHIFT,E,exec,${files}"
           "${mod},T,exec,${telegram}"
           "${mod},S,exec,${spotify}"
           "${mod},D,exec,discord" # For use with nixcord, thus no direct execution
@@ -376,9 +375,17 @@ in {
     hyprlock
     killall
     networkmanagerapplet
-    pwvucontrol
+    # pwvucontrol
+    pavucontrol
     wl-clipboard
+    inputs'.wroomer.packages.wroomer-wayland
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
+
+  xdg.configFile."hypr/xdph.conf".text = ''
+    screencopy {
+      allow_token_by_default = true
+    }
+  '';
 }

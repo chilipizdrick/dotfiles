@@ -20,6 +20,7 @@
         "users"
         "video"
         "wheel"
+        "wireshark"
       ];
     };
   };

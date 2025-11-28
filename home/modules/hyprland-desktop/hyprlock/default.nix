@@ -72,7 +72,7 @@ in {
             text = "cmd[update:1000] echo \"<b><big> $(date +\"%H\") </big></b>\"";
             color = "$text";
             font_size = builtins.floor (112 * cfg.scale);
-            font_family = "Geist Mono 10";
+            font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 4;
             position = "0, ${builtins.toString (-100 * cfg.scale)}";
@@ -84,7 +84,7 @@ in {
             text = "cmd[update:1000] echo \"<b><big> $(date +\"%M\") </big></b>\"";
             color = "$text";
             font_size = builtins.floor (112 * cfg.scale);
-            font_family = "Geist Mono 10";
+            font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 4;
             position = "0, ${builtins.toString (-240 * cfg.scale)}";
@@ -117,7 +117,7 @@ in {
           }
           {
             monitor = "";
-            text = ''cmd[update:250] echo "$(hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap')"'';
+            text = "$LAYOUT";
             color = "$text";
             font_size = builtins.floor (15 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
