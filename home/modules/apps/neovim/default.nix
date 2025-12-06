@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   programs.neovim = {
@@ -16,15 +17,18 @@
     withNodeJs = true;
   };
 
+  nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
+
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    # rustup
-    cargo
-    rustc
-    clippy
-    rustfmt
+    (rust-bin.stable.latest.default.override
+      {
+        extensions = ["rust-src" "rust-std"];
+        targets = ["x86_64-pc-windows-msvc"];
+      })
     rust-analyzer
+    cargo-xwin
 
     wgsl-analyzer
 
@@ -56,6 +60,8 @@
     typstyle
 
     shfmt
+
+    yamlfmt
 
     mdformat
 

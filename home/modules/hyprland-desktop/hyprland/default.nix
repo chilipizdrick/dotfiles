@@ -7,9 +7,7 @@
   ...
 }: let
   mod = "SUPER";
-  guiFiles = "${pkgs.kdePackages.dolphin}/bin/dolphin";
-  # guiFiles = "${pkgs.nautilus}/bin/nautilus";
-  # files = "${pkgs.alacritty}/bin/alacritty -e \"${pkgs.yazi}/bin/yazi\"";
+  guiFiles = "${pkgs.nautilus}/bin/nautilus";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   spotify = "${pkgs.spotify}/bin/spotify";
   term = "${pkgs.alacritty}/bin/alacritty";
@@ -285,7 +283,7 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer --dvd-logo"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -f -c"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"

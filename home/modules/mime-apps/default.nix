@@ -17,8 +17,7 @@
 
       "x-scheme-handler/spotify" = "spotify.desktop";
 
-      # "inode/directory" = "org.gnome.Nautilus.desktop";
-      "inode/directory" = "org.kde.dolphin.desktop";
+      "inode/directory" = "org.gnome.Nautilus.desktop";
 
       "application/pdf" = ["org.pwmt.zathura.desktop" "zen-beta.desktop"];
       "application/doc" = "onlyoffice-desktopeditors.desktop";

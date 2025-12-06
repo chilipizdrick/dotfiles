@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./disable-command-not-found
-    # ./nautilus
+    ./nautilus
     ./wireshark
   ];
 

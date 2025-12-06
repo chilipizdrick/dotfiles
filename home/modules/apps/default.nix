@@ -11,7 +11,7 @@
     ./command-not-found
     ./direnv
     ./discord
-    ./dolphin
+    # ./dolphin
     ./eza
     ./fzf
     ./git

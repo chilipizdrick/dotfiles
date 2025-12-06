@@ -37,18 +37,17 @@
       };
     };
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wroomer = {
-      url = "github:chilipizdrick/wroomer";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
-    };
+    wroomer.url = "github:chilipizdrick/wroomer";
 
     wallpapers = {
       url = "github:chilipizdrick/wallpapers";
