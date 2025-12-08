@@ -26,6 +26,9 @@
             exec = "alacritty";
             exec-arg = "-e";
           };
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
         };
       }
     ];
