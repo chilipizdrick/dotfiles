@@ -31,5 +31,6 @@
     unzip
     wget
     zip
+    hyperfine
   ];
 }

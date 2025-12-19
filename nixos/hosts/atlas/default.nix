@@ -18,6 +18,12 @@
     size = 16;
   };
 
+  # services.tailscaleNetns = {
+  #   enable = true;
+  #   exitNode = "100.64.0.4";
+  #   extraUpFlags = ["--accept-dns=false"];
+  # };
+
   environment.systemPackages = with pkgs; [
     (btop.override {rocmSupport = true;})
   ];

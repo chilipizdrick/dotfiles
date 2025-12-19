@@ -3,7 +3,7 @@
   services.thermald.enable = true;
 
   services.auto-cpufreq = {
-    enable = false;
+    enable = true;
     settings = {
       battery = {
         governor = "powersave";
@@ -17,7 +17,7 @@
   };
 
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       AMDGPU_ABM_LEVEL_ON_BAT = 1;
       USB_AUTOSUSPEND = 0;

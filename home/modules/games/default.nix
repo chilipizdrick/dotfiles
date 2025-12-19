@@ -16,6 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.file."lib/glfw".source = pkgs.glfw;
     home.packages = with pkgs; let
       minecraftPkgs = [
         prismlauncher

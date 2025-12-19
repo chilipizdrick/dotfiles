@@ -106,7 +106,7 @@ in {
         kb_variant = "";
         kb_model = "";
         kb_options = ''
-          grp:alt_shift_toggle
+          grp:alt_shift_toggle,caps:escape
         '';
         kb_rules = "";
         repeat_rate = 50;
@@ -377,13 +377,8 @@ in {
     pavucontrol
     wl-clipboard
     inputs'.wroomer.packages.wroomer-wayland
+    xorg.xrdb
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
-
-  xdg.configFile."hypr/xdph.conf".text = ''
-    screencopy {
-      allow_token_by_default = true
-    }
-  '';
 }

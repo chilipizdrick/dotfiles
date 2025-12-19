@@ -31,7 +31,7 @@ vim.lsp.config.nixd = {
 }
 
 local servers = {
-  -- "pyright",
+  "pyright",
   "nixd",
   "lua_ls",
   "clangd",

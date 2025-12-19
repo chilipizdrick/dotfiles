@@ -37,11 +37,25 @@ in {
       bind = [
         "${mod} ALT,W,exec,${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
-      env = [
-        "GDK_SCALE,${scale}"
+      exec-once = [
+        "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"
       ];
     };
   };
+
+  # Force scaling for x11 apps
+  home.file.".Xresources".text = ''
+    Xft.dpi: 160
+    Xft.autohint: 0
+    Xft.lcdfilter: lcddefault
+    Xft.hintstyle: hintfull
+    Xft.hinting: 1
+    Xft.antialias: 1
+    Xft.rgba: rgb
+
+    Xcursor.size: 20
+    Xcursor.theme: Bibata-Modern-Classic
+  '';
 
   games = {
     enable = true;
