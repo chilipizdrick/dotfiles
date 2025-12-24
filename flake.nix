@@ -42,8 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
-
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -310,6 +310,7 @@ in {
           "${mod} ALT,P,exec,${scripts.spread-propaganda}/bin/spread-propaganda"
           "${mod} ALT,S,exec,${scripts.showcase}/bin/showcase"
           "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
+          "${mod} CTRL,B,exec, ${scripts.toggle-systemd-user-service}/bin/toggle-systemd-user-service waybar.service"
 
           # Soundpad configs
           "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill pw-play"

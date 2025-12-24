@@ -1,7 +1,6 @@
 {...}: {
   imports = [
-    ./tailscale
-    # ./netns-shenanigans
-    # ./amnezia
+    # ./tailscale
+    ./amnezia
   ];
 }
