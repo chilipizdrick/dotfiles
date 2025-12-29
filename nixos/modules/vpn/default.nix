@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./tailscale
+    ./tailscale
     ./amnezia
   ];
 }

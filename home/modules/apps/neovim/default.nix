@@ -24,8 +24,8 @@
   in [
     (rust-bin.stable.latest.default.override
       {
-        extensions = ["rust-src" "rust-std"];
-        targets = ["x86_64-pc-windows-msvc"];
+        extensions = ["rust-src"];
+        targets = ["riscv32imc-unknown-none-elf"];
       })
     rust-analyzer
     cargo-xwin

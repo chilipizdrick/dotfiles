@@ -29,7 +29,7 @@
       "backlight"
       "wireplumber#sink"
       "wireplumber#source"
-      # "custom/tailscale"
+      "custom/tailscale"
       "memory"
       "cpu"
       "battery"
