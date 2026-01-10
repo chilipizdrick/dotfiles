@@ -43,5 +43,6 @@
     ripdrag
     scripts.hijacker-lite
     telegram-desktop
+    bitwarden-desktop
   ];
 }

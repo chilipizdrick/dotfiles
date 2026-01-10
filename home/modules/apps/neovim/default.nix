@@ -28,7 +28,6 @@
         targets = ["riscv32imc-unknown-none-elf"];
       })
     rust-analyzer
-    cargo-xwin
 
     wgsl-analyzer
 

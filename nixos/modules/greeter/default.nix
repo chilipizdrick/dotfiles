@@ -4,7 +4,7 @@
   ...
 }: let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  sessionCommand = "Hyprland";
+  sessionCommand = "start-hyprland";
   tuiTheme = "time=lightred;input=red";
 in {
   security.pam.services = {

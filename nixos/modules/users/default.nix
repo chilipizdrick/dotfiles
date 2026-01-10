@@ -4,6 +4,7 @@
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = [
+        "plugdev"
         "adbusers"
         "adm"
         "admin"
@@ -24,4 +25,6 @@
       ];
     };
   };
+
+  users.groups.plugdev = {};
 }

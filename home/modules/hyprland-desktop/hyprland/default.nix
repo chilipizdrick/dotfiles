@@ -22,9 +22,13 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
+    # xwayland.enable = true;
+
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+    };
+
     settings = {
       source = [
         "${colorsConfig}"
@@ -171,27 +175,11 @@ in {
       };
 
       layerrule = [
-        "animation slide,waybar"
-
-        "blur,launcher"
-        "blur,logout_dialog"
-        "blur,notifications"
-        "blur,rofi"
-        "blur,vicinae"
-        "blur,waybar"
-
-        "blurpopups,vicinae"
-        "blurpopups,waybar"
-
-        "ignorealpha 0.5,launcher"
-        "ignorealpha 0.5,notifications"
-        "ignorealpha 0.5,vicinae"
-        "ignorealpha 0.5,waybar"
-
-        "noanim,hyprpicker"
-        "noanim,selection"
-        "noanim,slurp"
-        "noanim,vicinae"
+        "animation slide,match:namespace waybar"
+        "blur on,match:namespace ^(waybar|vicinae|notifications|logout_dialog|rofi)$"
+        "ignore_alpha 0.5,match:namespace ^(waybar|vicinae|notifications)$"
+        "blur_popups on,match:namespace ^(waybar|vicinae)$"
+        "no_anim on,match:namespace ^(hyprpicker|selection|slurp|vicinae)$"
       ];
 
       windowrule = let
@@ -201,22 +189,22 @@ in {
           "org.pulseaudio.pavucontrol"
           "xdg-desktop-portal-gtk"
         ];
-        specialWindowMatchRule = "class:^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
+        specialWindowMatchRule = "match:class ^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
       in [
-        "idleinhibit fullscreen,fullscreen:1"
-        "noborder,onworkspace:w[t1],floating:0" # Disable borders for single window workspaces
+        "idle_inhibit fullscreen,match:fullscreen 1"
+        "border_size 0,match:workspace w[t1],match:float 0" # Disable borders for single window workspaces
 
         # "Menu windows" configuration
-        "float,${specialWindowMatchRule}"
-        "center,${specialWindowMatchRule}"
+        "float on,${specialWindowMatchRule}"
+        "center on,${specialWindowMatchRule}"
         "size 50% 70%,${specialWindowMatchRule}"
 
         # "File dialogs" configuration
-        "float,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
-        "center,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
-        "size 50% 70%,title:^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+        "float on ,match:title ^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+        "center on,match:title ^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+        "size 50% 70%,match:title ^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 
-        "animation popin,title:^(Wroomer)$"
+        "animation popin,match:title ^(Wroomer)$"
       ];
 
       gesture = [
@@ -286,7 +274,7 @@ in {
           "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -f -c"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
-          "${mod} CTRL,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
+          "${mod} CTRL,S,exec,mkdir ~/Pictures/screenshots -p && ${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
           "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
           "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
@@ -315,8 +303,8 @@ in {
           # Soundpad configs
           "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill pw-play"
         ]
-        ++ (builtins.map
-          (num: "${mod} ALT,${builtins.toString num},exec,${scripts.hijacker-lite}/bin/hijacker-lite ~/Music/hijacker-presets/${builtins.toString num}.mp3")
+        ++ (map
+          (num: let num_str = toString num; in "${mod} ALT,${num_str},exec,${scripts.hijacker-lite}/bin/hijacker-lite ~/Music/hijacker-presets/${num_str}.mp3")
           (lib.range 1 9));
 
       bindm = [
