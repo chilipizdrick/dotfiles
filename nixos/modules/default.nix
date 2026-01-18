@@ -20,5 +20,6 @@
     ./virtualization
     ./vpn
     ./xdg-portals
+    ./probe-rs
   ];
 }
