@@ -9,7 +9,10 @@
   ];
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      android_sdk.accept_license = true;
+    };
   };
 
   nix = let
@@ -22,7 +25,11 @@
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
       trusted-users = ["alex"];
-      substituters = ["https://nix-community.cachix.org" "https://chilipizdrick.cachix.org" "https://attic.xuyh0120.win/lantian"];
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://chilipizdrick.cachix.org"
+        "https://attic.xuyh0120.win/lantian"
+      ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "chilipizdrick.cachix.org-1:xVL2Q4Rbpc6EpDJ8lNHg7BMRhPfT26jw7l+jk4taUI8="

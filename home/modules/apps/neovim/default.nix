@@ -25,8 +25,13 @@
     (rust-bin.nightly.latest.default.override
       {
         extensions = ["rust-src"];
-        targets = ["riscv32imc-unknown-none-elf"];
+        targets = [
+          "riscv32imc-unknown-none-elf"
+          "armv7-linux-androideabi"
+          "aarch64-linux-android"
+        ];
       })
+    cargo-apk
     rust-analyzer
 
     wgsl-analyzer
