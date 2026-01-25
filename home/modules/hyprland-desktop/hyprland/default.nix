@@ -35,21 +35,21 @@ in {
       ];
 
       env = [
-        "BROWSER,zen"
-        "CLUTTER_BACKEND,wayland"
-        "EDITOR,nvim"
+        # "BROWSER,zen"
+        # "CLUTTER_BACKEND,wayland"
+        # "EDITOR,nvim"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "GDK_BACKEND,wayland,x11"
-        "MOZ_ENABLE_WAYLAND,1"
+        # "GDK_BACKEND,wayland,x11"
+        # "MOZ_ENABLE_WAYLAND,1"
         "NIXOS_OZONE_WL,1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland"
-        "QT_SCALE_FACTOR,1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "TERMINAL,alacritty"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
+        # "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        # "QT_QPA_PLATFORM,wayland"
+        # "QT_SCALE_FACTOR,1"
+        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        # "TERMINAL,alacritty"
+        # "XDG_CURRENT_DESKTOP,Hyprland"
+        # "XDG_SESSION_DESKTOP,Hyprland"
+        # "XDG_SESSION_TYPE,wayland"
       ];
 
       monitor = [
@@ -185,8 +185,8 @@ in {
       windowrule = let
         specialWindows = [
           "\\.blueman-manager-wrapped"
-          # "com.saivert.pwvucontrol"
-          "org.pulseaudio.pavucontrol"
+          "com.saivert.pwvucontrol"
+          # "org.pulseaudio.pavucontrol"
           "xdg-desktop-portal-gtk"
         ];
         specialWindowMatchRule = "match:class ^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
@@ -340,21 +340,21 @@ in {
   services.hyprpolkitagent.enable = true;
 
   home.sessionVariables = {
-    BROWSER = "zen";
-    CLUTTER_BACKEND = "wayland";
-    EDITOR = "nvim";
+    # BROWSER = "zen";
+    # CLUTTER_BACKEND = "wayland";
+    # EDITOR = "nvim";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    GDK_BACKEND = "wayland,x11";
-    MOZ_ENABLE_WAYLAND = "1";
+    # GDK_BACKEND = "wayland,x11";
+    # MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland";
-    QT_SCALE_FACTOR = "1";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    TERMINAL = "alacritty";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
+    # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    # QT_QPA_PLATFORM = "wayland";
+    # QT_SCALE_FACTOR = "1";
+    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # TERMINAL = "alacritty";
+    # XDG_CURRENT_DESKTOP = "Hyprland";
+    # XDG_SESSION_DESKTOP = "Hyprland";
+    # XDG_SESSION_TYPE = "wayland";
   };
 
   home.packages = with pkgs; [
@@ -362,8 +362,7 @@ in {
     hyprlock
     killall
     networkmanagerapplet
-    # pwvucontrol
-    pavucontrol
+    pwvucontrol
     wl-clipboard
     inputs'.wroomer.packages.wroomer-wayland
     xorg.xrdb

@@ -3,7 +3,7 @@
     ./cursor
     ./gammastep
     ./gtk
-    ./qt
+    # ./qt
     ./hypridle
     ./hyprland
     ./hyprlock

@@ -44,5 +44,7 @@
     scripts.hijacker-lite
     telegram-desktop
     bitwarden-desktop
+    qbittorrent
+    opencode
   ];
 }
