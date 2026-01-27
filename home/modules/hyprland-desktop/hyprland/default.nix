@@ -7,7 +7,7 @@
   ...
 }: let
   mod = "SUPER";
-  guiFiles = "${pkgs.nautilus}/bin/nautilus";
+  files = "${pkgs.nautilus}/bin/nautilus";
   telegram = "${pkgs.telegram-desktop}/bin/Telegram";
   spotify = "${pkgs.spotify}/bin/spotify";
   term = "${pkgs.alacritty}/bin/alacritty";
@@ -22,7 +22,6 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # xwayland.enable = true;
 
     systemd = {
       enable = true;
@@ -35,13 +34,13 @@ in {
       ];
 
       env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "NIXOS_OZONE_WL,1"
         # "BROWSER,zen"
         # "CLUTTER_BACKEND,wayland"
         # "EDITOR,nvim"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         # "GDK_BACKEND,wayland,x11"
         # "MOZ_ENABLE_WAYLAND,1"
-        "NIXOS_OZONE_WL,1"
         # "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         # "QT_QPA_PLATFORM,wayland"
         # "QT_SCALE_FACTOR,1"
@@ -186,8 +185,8 @@ in {
         specialWindows = [
           "\\.blueman-manager-wrapped"
           "com.saivert.pwvucontrol"
-          # "org.pulseaudio.pavucontrol"
           "xdg-desktop-portal-gtk"
+          # "org.pulseaudio.pavucontrol"
         ];
         specialWindowMatchRule = "match:class ^(" + (lib.strings.concatStringsSep "|" specialWindows) + ")$";
       in [
@@ -280,8 +279,7 @@ in {
           "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
-          "${mod},E,exec,${guiFiles}"
-          # "${mod} SHIFT,E,exec,${files}"
+          "${mod},E,exec,${files}"
           "${mod},T,exec,${telegram}"
           "${mod},S,exec,${spotify}"
           "${mod},D,exec,discord" # For use with nixcord, thus no direct execution
@@ -343,10 +341,8 @@ in {
     # BROWSER = "zen";
     # CLUTTER_BACKEND = "wayland";
     # EDITOR = "nvim";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     # GDK_BACKEND = "wayland,x11";
     # MOZ_ENABLE_WAYLAND = "1";
-    NIXOS_OZONE_WL = "1";
     # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     # QT_QPA_PLATFORM = "wayland";
     # QT_SCALE_FACTOR = "1";
@@ -355,16 +351,18 @@ in {
     # XDG_CURRENT_DESKTOP = "Hyprland";
     # XDG_SESSION_DESKTOP = "Hyprland";
     # XDG_SESSION_TYPE = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    NIXOS_OZONE_WL = "1";
   };
 
   home.packages = with pkgs; [
     hypridle
     hyprlock
+    inputs'.wroomer.packages.wroomer-wayland
     killall
     networkmanagerapplet
     pwvucontrol
     wl-clipboard
-    inputs'.wroomer.packages.wroomer-wayland
     xorg.xrdb
   ];
 

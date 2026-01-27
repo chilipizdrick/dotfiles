@@ -375,11 +375,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1764794899,
-        "narHash": "sha256-RkqyF+8Ckw+0mrQjZNUi5hzUNB4TXJvGAX4goDBxQlE=",
+        "lastModified": 1769434671,
+        "narHash": "sha256-GWmFrSVhvX18TKr1H8oe6NYP/mU2cERSdwnNesDtC8c=",
         "owner": "chilipizdrick",
         "repo": "wroomer",
-        "rev": "0ea86ce022296a8783e95b4c30c7f9516d442ca8",
+        "rev": "b5d0a09f1fcc85865edd9050fadd3a4abfde0114",
         "type": "github"
       },
       "original": {
