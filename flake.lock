@@ -339,11 +339,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766481478,
-        "narHash": "sha256-cPQKcSsHeP0kplx0gDmRSMN9m2zDWmTdwQ3pq9JnGmY=",
+        "lastModified": 1769506310,
+        "narHash": "sha256-AvVqYgwY70YJsd7wNvMFFoToHrI3ecjCtS8Gw7aDzWs=",
         "owner": "chilipizdrick",
         "repo": "nix-scripts",
-        "rev": "4b8366f805913595ffa353fbd0392e68089fcf65",
+        "rev": "9d6a80441931963da6a3a2eceab079708d03ac46",
         "type": "github"
       },
       "original": {

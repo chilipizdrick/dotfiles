@@ -275,6 +275,7 @@ in {
           "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
           "${mod} CTRL,S,exec,mkdir ~/Pictures/screenshots -p && ${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
+          "${mod},R,exec,${scripts.record-screen}/bin/record-screen"
           "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
           "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
           "${mod},RETURN,exec,${term}"
