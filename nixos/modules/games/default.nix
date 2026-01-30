@@ -36,8 +36,8 @@ in {
     ];
 
     environment.shellAliases = mkIf cfg.minecraft {
-      # java8 = lib.getExe pkgs.temurin-bin-8;
-      # java17 = lib.getExe pkgs.temurin-bin-17;
+      java8 = lib.getExe pkgs.temurin-bin-8;
+      java17 = lib.getExe pkgs.temurin-bin-17;
       java21 = lib.getExe pkgs.temurin-bin-21;
     };
 

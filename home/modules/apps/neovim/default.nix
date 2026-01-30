@@ -67,7 +67,7 @@
 
     yamlfmt
 
-    mdformat
+    # mdformat
 
     gnumake
     tree-sitter

@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    # ./dolphin
     ./alacritty
     ./carapace
     ./cava
@@ -11,12 +12,12 @@
     ./command-not-found
     ./direnv
     ./discord
-    # ./dolphin
     ./eza
     ./fzf
     ./git
     ./helium
     ./jujutsu
+    ./mpv
     ./neovim
     ./obs-studio
     ./shells
@@ -38,7 +39,6 @@
     helvum
     kdePackages.kolourpaint
     loupe
-    mpv
     obsidian
     ripdrag
     scripts.hijacker-lite

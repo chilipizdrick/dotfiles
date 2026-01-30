@@ -36,6 +36,10 @@
       "video/mkv" = "mpv.desktop";
       "video/webm" = "mpv.desktop";
       "video/avi" = "mpv.desktop";
+      # "video/mp4" = "vlc.desktop";
+      # "video/mkv" = "vlc.desktop";
+      # "video/webm" = "vlc.desktop";
+      # "video/avi" = "vlc.desktop";
 
       "audio/aac" = "org.gnome.Decibels.desktop";
       "audio/mpeg" = "org.gnome.Decibels.desktop";

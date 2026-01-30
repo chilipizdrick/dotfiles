@@ -1,9 +1,9 @@
 {...}: {
   imports = [
+    # ./qt
     ./cursor
     ./gammastep
     ./gtk
-    # ./qt
     ./hypridle
     ./hyprland
     ./hyprlock
