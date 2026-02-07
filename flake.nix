@@ -41,6 +41,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sl2.url = "github:chilipizdrick/sl2";
+
     wroomer.url = "github:chilipizdrick/wroomer";
 
     wallpapers = {

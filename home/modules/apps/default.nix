@@ -46,5 +46,6 @@
     bitwarden-desktop
     qbittorrent
     opencode
+    vlc
   ];
 }

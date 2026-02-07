@@ -2,7 +2,7 @@
   imports = [
     ./tailscale
     ./amnezia
-    ./zapret
+    # ./zapret
     # ./byedpi
     # ./zapret-discord-youtube
   ];

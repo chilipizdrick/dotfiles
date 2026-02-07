@@ -366,6 +366,7 @@ in {
     pavucontrol
     wl-clipboard
     xorg.xrdb
+    inputs'.sl2.packages.sl2-desktop
   ];
 
   home.file."Pictures/wallpapers".source = inputs.wallpapers;
