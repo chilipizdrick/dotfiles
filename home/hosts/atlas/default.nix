@@ -38,7 +38,7 @@ in {
         "${mod} ALT,W,exec,${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
       ];
       exec-once = [
-        "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"
+        "${pkgs.xrdb}/bin/xrdb ~/.Xresources"
       ];
     };
   };

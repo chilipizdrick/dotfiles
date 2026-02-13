@@ -34,8 +34,6 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    # zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
-
     scripts = {
       url = "github:chilipizdrick/nix-scripts";
       inputs.nixpkgs.follows = "nixpkgs";

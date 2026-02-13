@@ -16,13 +16,13 @@
     };
   };
 
-  services.tlp = {
-    enable = false;
-    settings = {
-      AMDGPU_ABM_LEVEL_ON_BAT = 1;
-      USB_AUTOSUSPEND = 0;
-    };
-  };
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     AMDGPU_ABM_LEVEL_ON_BAT = 1;
+  #     USB_AUTOSUSPEND = 0;
+  #   };
+  # };
 
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes

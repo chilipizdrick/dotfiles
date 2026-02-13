@@ -365,7 +365,7 @@ in {
     # pwvucontrol
     pavucontrol
     wl-clipboard
-    xorg.xrdb
+    xrdb
     inputs'.sl2.packages.sl2-desktop
   ];
 
