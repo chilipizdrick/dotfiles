@@ -74,6 +74,6 @@
     enable = true;
     minecraft = true;
     r2modman = true;
-    heroic = false;
+    heroic = true;
   };
 }

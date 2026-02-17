@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./tailscale
-    # ./amnezia
+    ./amnezia
     # ./zapret
     # ./byedpi
     # ./zapret-discord-youtube

@@ -34,6 +34,7 @@
     baobab
     imv
     ani-cli
+    syncplay
     audacity
     decibels
     helvum
