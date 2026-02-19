@@ -48,7 +48,7 @@ in {
     };
   };
 
-  home.packages = [
-    krisp-patcher
-  ];
+  # home.packages = [
+  #   krisp-patcher
+  # ];
 }
