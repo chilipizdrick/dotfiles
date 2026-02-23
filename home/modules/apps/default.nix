@@ -37,7 +37,8 @@
     syncplay
     audacity
     decibels
-    helvum
+    # helvum
+    coppwr
     kdePackages.kolourpaint
     loupe
     obsidian
