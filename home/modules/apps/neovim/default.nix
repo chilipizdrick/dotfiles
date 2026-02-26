@@ -22,14 +22,14 @@
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    (rust-bin.stable.latest.default.override
+    (rust-bin.nightly.latest.default.override
       {
-        extensions = ["rust-src"];
-        targets = [
-          "riscv32imc-unknown-none-elf"
-          "armv7-linux-androideabi"
-          "aarch64-linux-android"
-        ];
+        # extensions = ["rust-src"];
+        # targets = [
+        #   "riscv32imc-unknown-none-elf"
+        #   "armv7-linux-androideabi"
+        #   "aarch64-linux-android"
+        # ];
       })
     cargo-apk
     rust-analyzer

@@ -1,6 +1,6 @@
 {
   pkgs,
-  scripts,
+  inputs',
   ...
 }: {
   imports = [
@@ -43,7 +43,8 @@
     loupe
     obsidian
     ripdrag
-    scripts.hijacker-lite
+    # scripts.hijacker-lite
+    inputs'.hijacker2.packages.hijacker2
     telegram-desktop
     bitwarden-desktop
     qbittorrent

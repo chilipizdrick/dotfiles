@@ -300,10 +300,10 @@ in {
           "${mod} CTRL,B,exec, ${scripts.toggle-systemd-user-service}/bin/toggle-systemd-user-service waybar.service"
 
           # Soundpad configs
-          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill pw-play"
+          "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker2"
         ]
         ++ (map
-          (num: let num_str = toString num; in "${mod} ALT,${num_str},exec,${scripts.hijacker-lite}/bin/hijacker-lite ~/Music/hijacker-presets/${num_str}.mp3")
+          (num: let num_str = toString num; in "${mod} ALT,${num_str},exec,${inputs'.hijacker2.packages.hijacker2}/bin/hijacker2 ~/Music/hijacker-presets/${num_str}.mp3")
           (lib.range 1 9));
 
       bindm = [
