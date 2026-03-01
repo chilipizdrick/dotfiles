@@ -4,17 +4,18 @@
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = [
-        "plugdev"
         "adbusers"
         "adm"
         "admin"
         "audio"
         "dialout"
         "docker"
+        "gamemode"
         "input"
         "kvm"
         "lp"
         "networkmanager"
+        "plugdev"
         "scanner"
         "systemd-journal"
         "uinput"

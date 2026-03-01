@@ -20,7 +20,7 @@
 
   environment.systemPackages = with pkgs; [
     (btop.override {rocmSupport = true;})
-    androidenv.androidPkgs.androidsdk
+    # androidenv.androidPkgs.androidsdk
   ];
 
   networking.hostName = "atlas";

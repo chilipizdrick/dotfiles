@@ -36,19 +36,6 @@ in {
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "NIXOS_OZONE_WL,1"
-        # "BROWSER,zen"
-        # "CLUTTER_BACKEND,wayland"
-        # "EDITOR,nvim"
-        # "GDK_BACKEND,wayland,x11"
-        # "MOZ_ENABLE_WAYLAND,1"
-        # "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        # "QT_QPA_PLATFORM,wayland"
-        # "QT_SCALE_FACTOR,1"
-        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        # "TERMINAL,alacritty"
-        # "XDG_CURRENT_DESKTOP,Hyprland"
-        # "XDG_SESSION_DESKTOP,Hyprland"
-        # "XDG_SESSION_TYPE,wayland"
       ];
 
       monitor = [
@@ -299,6 +286,10 @@ in {
           "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
           "${mod} CTRL,B,exec, ${scripts.toggle-systemd-user-service}/bin/toggle-systemd-user-service waybar.service"
 
+          # Pass deafen keybind to discord
+          # "${mod} SHIFT,D,sendshortcut,CTRL SHIFT,D,class:^(discord)$"
+          "CTRL SHIFT,D,pass,class:^(discord)$"
+
           # Soundpad configs
           "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker2"
         ]
@@ -339,19 +330,6 @@ in {
   services.hyprpolkitagent.enable = true;
 
   home.sessionVariables = {
-    # BROWSER = "zen";
-    # CLUTTER_BACKEND = "wayland";
-    # EDITOR = "nvim";
-    # GDK_BACKEND = "wayland,x11";
-    # MOZ_ENABLE_WAYLAND = "1";
-    # QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    # QT_QPA_PLATFORM = "wayland";
-    # QT_SCALE_FACTOR = "1";
-    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    # TERMINAL = "alacritty";
-    # XDG_CURRENT_DESKTOP = "Hyprland";
-    # XDG_SESSION_DESKTOP = "Hyprland";
-    # XDG_SESSION_TYPE = "wayland";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     NIXOS_OZONE_WL = "1";
   };
