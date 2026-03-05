@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./nushell
     ./fish
@@ -8,4 +8,8 @@
     enableNushellIntegration = true;
     enableFishIntegration = true;
   };
+
+  home.packages = with pkgs; [
+    powershell
+  ];
 }

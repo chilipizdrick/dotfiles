@@ -28,6 +28,7 @@
     ./zathura
     ./zen
     ./zoxide
+    ./kdeconnect
   ];
 
   home.packages = with pkgs; [
@@ -35,6 +36,7 @@
     imv
     ani-cli
     syncplay
+    yt-dlp
     audacity
     decibels
     # helvum

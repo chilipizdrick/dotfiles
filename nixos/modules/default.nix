@@ -21,5 +21,6 @@
     ./vpn
     ./xdg-portals
     ./probe-rs
+    ./kdeconnect
   ];
 }
