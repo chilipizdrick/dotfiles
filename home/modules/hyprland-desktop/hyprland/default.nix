@@ -349,5 +349,10 @@ in {
     inputs'.sl2.packages.sl2-desktop
   ];
 
-  home.file."Pictures/wallpapers".source = inputs.wallpapers;
+  home.file."Pictures/wallpapers".source = pkgs.fetchFromGitHub {
+    owner = "chilipizdrick";
+    repo = "wallpapers";
+    rev = "98d548626bd6e1cad29567dbbb01fc8b74d81c46";
+    sha256 = "sha256-W6MD35Pj3FgQNWY4nNqVtF8RFijMdmxWAe+BBe5MvvA=";
+  };
 }

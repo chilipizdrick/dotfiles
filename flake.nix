@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
@@ -19,36 +18,14 @@
       };
     };
 
-    # nixcord = {
-    #   url = "github:kaylorben/nixcord";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     flake-parts.follows = "flake-parts";
-    #   };
-    # };
-
     rust-overlay = {
       url = "github:oxalica/rust-overlay?ref=stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
-    scripts = {
-      url = "github:chilipizdrick/nix-scripts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sl2.url = "github:chilipizdrick/sl2";
-
     wroomer.url = "github:chilipizdrick/wroomer";
-
     hijacker2.url = "github:chilipizdrick/hijacker2";
-
-    wallpapers = {
-      url = "github:chilipizdrick/wallpapers";
-      flake = false;
-    };
   };
 
   outputs = inputs:
@@ -57,6 +34,7 @@
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
+        packages = import ./pkgs pkgs;
       };
     };
 }

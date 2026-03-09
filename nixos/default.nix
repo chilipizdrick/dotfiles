@@ -7,10 +7,14 @@
     system ? "x86_64-linux",
     modules ? [],
   }:
-    withSystem system ({inputs', ...}: let
+    withSystem system ({
+      inputs',
+      pkgs,
+      ...
+    }: let
       specialArgs = {
         inherit inputs inputs';
-        scripts = inputs'.scripts.packages;
+        scripts = import ../pkgs/scripts pkgs;
       };
     in
       inputs.nixpkgs.lib.nixosSystem {inherit modules specialArgs;});

@@ -14,7 +14,7 @@
     }: let
       extraSpecialArgs = {
         inherit inputs inputs';
-        scripts = inputs'.scripts.packages;
+        scripts = import ../pkgs/scripts pkgs;
       };
     in
       inputs.home-manager.lib.homeManagerConfiguration {
