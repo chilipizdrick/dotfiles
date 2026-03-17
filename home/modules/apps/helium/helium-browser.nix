@@ -34,7 +34,7 @@ in
       install -D -m 644 ${appimageContents}/helium.desktop $out/share/applications/helium.desktop
 
       substituteInPlace $out/share/applications/helium.desktop \
-        --replace 'Exec=AppRun' "Exec=$out/bin/${pname}"
+        --replace 'Exec=helium %U' "Exec=$out/bin/${pname} %U"
 
       cp -r ${appimageContents}/usr/share/icons $out/share
     '';
