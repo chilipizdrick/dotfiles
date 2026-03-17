@@ -60,7 +60,6 @@ in {
   games = {
     enable = true;
     minecraft = true;
-    heroic = true;
-    r2modman = true;
+    # heroic = true;
   };
 }

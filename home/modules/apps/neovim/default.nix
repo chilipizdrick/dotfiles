@@ -8,7 +8,7 @@
     enable = true;
 
     defaultEditor = true;
-    viAlias = true;
+    # viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
@@ -22,7 +22,7 @@
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    (rust-bin.nightly.latest.default.override
+    (rust-bin.stable.latest.default.override
       {
         # extensions = ["rust-src"];
         # targets = [

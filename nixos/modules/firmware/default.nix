@@ -3,7 +3,7 @@
     # ./graphical-tablet
     ./audio
     ./bluetooth
-    ./kernel
+    # ./kernel
     ./networking
     ./power-management
     ./printing

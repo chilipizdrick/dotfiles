@@ -73,7 +73,6 @@
   games = {
     enable = true;
     minecraft = true;
-    r2modman = true;
-    heroic = true;
+    # heroic = true;
   };
 }
