@@ -23,5 +23,11 @@
     # androidenv.androidPkgs.androidsdk
   ];
 
+  # services.splitTunneling = {
+  #   enable = true;
+  #   user = "novpn";
+  #   tableId = 200;
+  # };
+
   networking.hostName = "atlas";
 }

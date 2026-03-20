@@ -38,6 +38,11 @@
 
     python3
     python3Packages.pip
+    python3Packages.matplotlib
+    python3Packages.numpy
+    python3Packages.pandas
+    python3Packages.notebook
+    python3Packages.scipy
     pyright
 
     nodejs
