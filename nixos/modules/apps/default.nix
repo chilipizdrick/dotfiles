@@ -23,6 +23,7 @@
     onlyoffice-desktopeditors
     p7zip
     ripgrep
+    dust
     socat
     sops
     tealdeer

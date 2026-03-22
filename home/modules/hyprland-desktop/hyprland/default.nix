@@ -191,6 +191,8 @@ in {
         "size 50% 70%,match:title ^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 
         "animation popin,match:title ^(Wroomer)$"
+
+        "render_unfocused on,match:class ^(factorio)$"
       ];
 
       gesture = [

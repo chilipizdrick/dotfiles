@@ -51,7 +51,7 @@
     # bitwarden-desktop
     qbittorrent
     opencode
-    vscode
+    # vscode
     vlc
   ];
 }

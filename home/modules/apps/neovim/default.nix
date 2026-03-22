@@ -8,7 +8,6 @@
     enable = true;
 
     defaultEditor = true;
-    # viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
@@ -37,12 +36,6 @@
     wgsl-analyzer
 
     python3
-    python3Packages.pip
-    python3Packages.matplotlib
-    python3Packages.numpy
-    python3Packages.pandas
-    python3Packages.notebook
-    python3Packages.scipy
     pyright
 
     nodejs
@@ -52,11 +45,10 @@
     llvmPkgs.clang-tools
 
     lua51Packages.lua
-    luajitPackages.luarocks
     lua-language-server
     stylua
 
-    typescript-language-server
+    # typescript-language-server
 
     go
 
@@ -68,9 +60,9 @@
     tinymist
     typstyle
 
-    shfmt
+    # shfmt
 
-    yamlfmt
+    # yamlfmt
 
     # mdformat
 
