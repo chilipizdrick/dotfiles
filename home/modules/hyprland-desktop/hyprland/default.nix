@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   scripts,
   inputs',
   ...
@@ -64,7 +63,7 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 15;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         fullscreen_opacity = 1.0;
@@ -108,7 +107,7 @@ in {
 
         touchpad = {
           scroll_factor = 0.5;
-          disable_while_typing = true;
+          disable_while_typing = false;
           natural_scroll = true;
           clickfinger_behavior = false;
           middle_button_emulation = true;
