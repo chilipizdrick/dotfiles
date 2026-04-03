@@ -1,7 +1,7 @@
 {
   writeShellScriptBin,
   rofi,
-  swww,
+  awww,
   ...
 }:
 writeShellScriptBin "select-wallpaper" ''
@@ -20,7 +20,7 @@ writeShellScriptBin "select-wallpaper" ''
   rofiCommand="${rofi}/bin/rofi -show -dmenu -theme ${./theme.rasi}"
 
   executeCommand() {
-    ${swww}/bin/swww img "$1" ''${SWWW_PARAMS}
+    ${awww}/bin/awww img "$1" ''${SWWW_PARAMS}
     ln -sf "$1" "$HOME/.current_wallpaper"
   }
 
@@ -35,7 +35,7 @@ writeShellScriptBin "select-wallpaper" ''
     done
   }
 
-  swww query || ${swww}/bin/swww-daemon &
+  ${awww}/bin/awww query || ${awww}/bin/awww-daemon &
 
   main() {
     choice=$(menu | ''${rofiCommand})

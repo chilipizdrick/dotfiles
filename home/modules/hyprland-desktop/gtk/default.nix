@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   gtk = {
     enable = true;
 
@@ -12,4 +16,6 @@
       package = pkgs.kora-icon-theme;
     };
   };
+
+  gtk.gtk4.theme = config.gtk.theme;
 }

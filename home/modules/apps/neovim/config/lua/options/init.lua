@@ -62,3 +62,17 @@ vim.opt.langmap = vim.fn.join({
   escape(ru_shift) .. ";" .. escape(en_shift),
   escape(ru) .. ";" .. escape(en),
 }, ",")
+
+local function set_transparent_bg()
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+  vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+end
+
+set_transparent_bg()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = set_transparent_bg,
+})

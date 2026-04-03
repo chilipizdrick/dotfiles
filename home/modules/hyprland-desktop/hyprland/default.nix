@@ -107,7 +107,7 @@ in {
 
         touchpad = {
           scroll_factor = 0.5;
-          disable_while_typing = false;
+          disable_while_typing = true;
           natural_scroll = true;
           clickfinger_behavior = false;
           middle_button_emulation = true;
@@ -258,12 +258,11 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -f -c"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -cf"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
-          "${mod} SHIFT,S,exec,${pkgs.hyprshot}/bin/hyprshot -m region -zs --clipboard-only"
-          "${mod} CTRL,S,exec,mkdir ~/Pictures/screenshots -p && ${pkgs.hyprshot}/bin/hyprshot -m region -s --raw | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
+          "${mod} SHIFT,S,exec,${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
+          "${mod} CTRL,S,exec,mkdir -p ~/Pictures/screenshots && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
-          "${mod} SHIFT,R,exec,${scripts.record-screen}/bin/record-screen &"
           "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
           "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
           "${mod},RETURN,exec,${term}"
@@ -288,7 +287,6 @@ in {
           "${mod} CTRL,B,exec, ${scripts.toggle-systemd-user-service}/bin/toggle-systemd-user-service waybar.service"
 
           # Pass deafen keybind to discord
-          # "${mod} SHIFT,D,sendshortcut,CTRL SHIFT,D,class:^(discord)$"
           "CTRL SHIFT,D,pass,class:^(discord)$"
           ",F9,pass,class:^(com.obsproject.Studio)$"
           ",F10,pass,class:^(com.obsproject.Studio)$"
@@ -338,12 +336,13 @@ in {
   };
 
   home.packages = with pkgs; [
+    grim
+    slurp
     hypridle
     hyprlock
     inputs'.wroomer.packages.wroomer-wayland
     killall
     networkmanagerapplet
-    # pwvucontrol
     pavucontrol
     wl-clipboard
     xrdb

@@ -56,7 +56,7 @@
     };
 
     settings = {
-      close_on_focus_loss = true;
+      close_on_focus_loss = false;
       # theme.dark.name = "catppuccin-mocha-modified";
       theme.dark.name = "vicinae-dark";
       # theme.dark.icon_theme = "Kora";

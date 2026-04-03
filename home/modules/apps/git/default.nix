@@ -1,6 +1,7 @@
 {config, ...}: {
   programs.git = {
     enable = true;
+    signing.format = "openpgp";
     settings = {
       user = {
         email = "alexa3mail@gmail.com";

@@ -1,3 +1,6 @@
-{...}: {
-  services.swww.enable = true;
+{pkgs, ...}: {
+  services.swww = {
+    enable = true;
+    package = pkgs.awww;
+  };
 }
