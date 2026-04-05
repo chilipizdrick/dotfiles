@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./tailscale
-    # ./amnezia
+    ./amnezia
     # ./zerotier
     # ./split-tunneling
     # ./split-tunneling2
