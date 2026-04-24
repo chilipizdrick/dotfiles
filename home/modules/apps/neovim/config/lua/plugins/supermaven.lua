@@ -17,9 +17,9 @@ return {
 
   keys = {
     {
-      "<leader>mt",
+      "<leader>tm",
       "<Cmd>SupermavenToggle<CR>",
-      desc = "Toggle Supermaven autocomplete",
+      desc = "[T]oggle Super[m]aven autocomplete",
     },
   },
 }

@@ -36,7 +36,6 @@ local servers = {
   "lua_ls",
   "clangd",
   "tinymist",
-  "ts_ls",
   "wgsl_analyzer",
 }
 

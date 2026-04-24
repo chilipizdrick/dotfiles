@@ -1,37 +1,30 @@
 {
   pkgs,
-  config,
   inputs,
+  config,
   ...
 }: {
-  programs.neovim = {
-    enable = true;
-
-    defaultEditor = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    withRuby = true;
-    withPython3 = true;
-    withNodeJs = true;
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   vimAlias = true;
+  #   vimdiffAlias = true;
+  #
+  #   withPython3 = false;
+  #   withNodeJs = false;
+  #   withRuby = false;
+  # };
 
   nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
 
   home.packages = with pkgs; let
     llvmPkgs = pkgs.llvmPackages;
   in [
-    (rust-bin.stable.latest.default.override
-      {
-        # extensions = ["rust-src"];
-        # targets = [
-        #   "riscv32imc-unknown-none-elf"
-        #   "armv7-linux-androideabi"
-        #   "aarch64-linux-android"
-        # ];
-      })
-    cargo-apk
+    neovim
+
+    rust-bin.stable.latest.default
     rust-analyzer
+    bacon
 
     wgsl-analyzer
 
@@ -41,14 +34,11 @@
     nodejs
 
     llvmPkgs.clang
-    llvmPkgs.lldb
     llvmPkgs.clang-tools
 
     lua51Packages.lua
     lua-language-server
     stylua
-
-    # typescript-language-server
 
     go
 
@@ -60,15 +50,14 @@
     tinymist
     typstyle
 
-    # shfmt
-
-    # yamlfmt
-
-    # mdformat
-
     gnumake
     tree-sitter
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink

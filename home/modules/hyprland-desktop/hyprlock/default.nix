@@ -31,6 +31,12 @@ in {
           hide_cursor = true;
         };
 
+        animations = {
+          enabled = true;
+           fade_in.duration = 150;
+           fade_out.duration = 150;
+        };
+
         background = [
           {
             monitor = "";
@@ -48,10 +54,10 @@ in {
         input-field = [
           {
             monitor = "";
-            size = "${builtins.toString (250 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+            size = "${toString (250 * cfg.scale)}, ${toString (50 * cfg.scale)}";
             halign = "center";
             valign = "bottom";
-            position = "0, ${builtins.toString (50 * cfg.scale)}";
+            position = "0, ${toString (50 * cfg.scale)}";
             outline_thickness = 0;
             dots_size = 0.26;
             dots_spacing = 0.64;
@@ -75,7 +81,7 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 4;
-            position = "0, ${builtins.toString (-100 * cfg.scale)}";
+            position = "0, ${toString (-100 * cfg.scale)}";
             halign = "center";
             valign = "top";
           }
@@ -87,7 +93,7 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 4;
-            position = "0, ${builtins.toString (-240 * cfg.scale)}";
+            position = "0, ${toString (-240 * cfg.scale)}";
             halign = "center";
             valign = "top";
           }
@@ -97,7 +103,7 @@ in {
             color = "$text";
             font_size = builtins.floor (22 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
-            position = "0, ${builtins.toString (-450 * cfg.scale)}";
+            position = "0, ${toString (-450 * cfg.scale)}";
             shadow_passes = 3;
             shadow_size = 1;
             halign = "center";
@@ -111,7 +117,7 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 1;
-            position = "0, ${builtins.toString (-490 * cfg.scale)}";
+            position = "0, ${toString (-490 * cfg.scale)}";
             halign = "center";
             valign = "top";
           }
@@ -123,7 +129,7 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 1;
-            position = "0, ${builtins.toString (110 * cfg.scale)}";
+            position = "0, ${toString (110 * cfg.scale)}";
             halign = "center";
             valign = "bottom";
           }
@@ -135,7 +141,7 @@ in {
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
             shadow_size = 1;
-            position = "${builtins.toString (160 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+            position = "${toString (160 * cfg.scale)}, ${toString (50 * cfg.scale)}";
             halign = "left";
             valign = "bottom";
           }
@@ -149,7 +155,7 @@ in {
             border_size = 0;
             reload_time = 1;
             reload_cmd = "${scripts.load-album-cover}/bin/load-album-cover";
-            position = "${builtins.toString (50 * cfg.scale)}, ${builtins.toString (50 * cfg.scale)}";
+            position = "${toString (50 * cfg.scale)}, ${toString (50 * cfg.scale)}";
             halign = "left";
             valign = "bottom";
           }

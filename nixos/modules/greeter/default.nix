@@ -1,10 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  sessionCommand = "start-hyprland";
+  sessionCommand = "${pkgs.hyprland}/bin/start-hyprland";
   tuiTheme = "time=lightred;input=red";
 in {
   security.pam.services = {
@@ -20,10 +16,10 @@ in {
         command = ''${tuigreet} --asterisks --asterisks-char "*" --theme '${tuiTheme}' --time --remember --remember-session --cmd ${sessionCommand}'';
         user = "greeter";
       };
-      initial_session = {
-        command = sessionCommand;
-        user = config.users.users.alex.name;
-      };
+      # initial_session = {
+      #   command = sessionCommand;
+      #   user = config.users.users.alex.name;
+      # };
     };
   };
 }

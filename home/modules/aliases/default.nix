@@ -15,5 +15,8 @@
     nau = "export NIXPKGS_ALLOW_UNFREE=1";
     # Open file explorer
     oe = "nautilus . &";
+    vi = "nvim";
+    vim = "nvim";
+    vimdiff = "nvim -d";
   };
 }

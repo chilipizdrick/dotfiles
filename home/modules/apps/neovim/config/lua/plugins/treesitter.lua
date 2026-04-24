@@ -1,19 +1,48 @@
 return {
   "nvim-treesitter/nvim-treesitter",
 
+  lazy = false,
+
+  main = "nvim-treesitter",
+
   build = ":TSUpdate",
 
-  opts = {
-    auto_install = true,
-    ensure_installed = { "typst", "gitcommit" },
-    highlight = {
-      enable = true,
-    },
-  },
+  init = function()
+    local ensure_installed = {
+      "gitcommit",
+      "go",
+      "json",
+      "lua",
+      "nix",
+      "python",
+      "rust",
+      "toml",
+      "typst",
+      "yaml",
+      "markdown",
+      "c",
+      "cpp",
+      "bash",
+    }
+    local already_installed = require("nvim-treesitter.config").get_installed()
+    local parsers_to_install = vim
+      .iter(ensure_installed)
+      :filter(function(parser)
+        return not vim.tbl_contains(already_installed, parser)
+      end)
+      :totable()
 
-  config = function(_, opts)
-    require("nvim-treesitter.install").prefer_git = true
-    ---@diagnostic disable-next-line: missing-fields
-    require("nvim-treesitter.configs").setup(opts)
+    require("nvim-treesitter").install(parsers_to_install)
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        -- vim.wo[0][0].foldmethod = "expr"
+        -- vim.o.foldlevel = 99
+      end,
+    })
   end,
 }

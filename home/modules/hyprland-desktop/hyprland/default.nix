@@ -35,6 +35,8 @@ in {
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "NIXOS_OZONE_WL,1"
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,20"
       ];
 
       monitor = [
@@ -42,11 +44,13 @@ in {
       ];
 
       general = {
+        border_size = 1;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
-        border_size = 2;
-        "col.active_border" = "$text";
-        "col.inactive_border" = "$base";
+        # col.active_border = "$text";
+        "col.active_border" = "rgba(ffffff88)";
+        # "col.inactive_border" = "$base";
+        "col.inactive_border" = "rgba(55555555)";
         resize_on_border = false;
         layout = "dwindle";
       };
@@ -201,7 +205,7 @@ in {
       ];
 
       exec-once = [
-        "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
+        # "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
         "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
       ];
@@ -272,7 +276,7 @@ in {
           "${mod},S,exec,${spotify}"
           "${mod},D,exec,discord" # For use with nixcord, thus no direct execution
           "${mod} ALT,R,exec,${scripts.reload-graphical-interface}/bin/reload-graphical-interface"
-          "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
+          # "${mod} ALT,E,exec,${pkgs.hyprland}/bin/hyprctl dispatch exit"
           "${mod} CTRL SHIFT,L,exec,${pkgs.spotify-player}/bin/spotify_player like"
           "${mod} CTRL SHIFT,U,exec,${pkgs.spotify-player}/bin/spotify_player like --unlike"
           "${mod} ALT,L,exec,${pkgs.hyprlock}/bin/hyprlock"
@@ -303,7 +307,7 @@ in {
         "${mod},mouse:273,resizewindow"
       ];
       bindl = [
-        "${mod},SPACE,exec,${pkgs.playerctl}/bin/playerctl play-pause"
+        "${mod},Z,exec,${pkgs.playerctl}/bin/playerctl play-pause"
         "${mod},C,exec,${pkgs.playerctl}/bin/playerctl next"
         "${mod},X,exec,${pkgs.playerctl}/bin/playerctl previous"
       ];
@@ -352,7 +356,7 @@ in {
   home.file."Pictures/wallpapers".source = pkgs.fetchFromGitHub {
     owner = "chilipizdrick";
     repo = "wallpapers";
-    rev = "98d548626bd6e1cad29567dbbb01fc8b74d81c46";
-    sha256 = "sha256-W6MD35Pj3FgQNWY4nNqVtF8RFijMdmxWAe+BBe5MvvA=";
+    rev = "d4e123767481965c62a8deef90115db8756fe4f3";
+    sha256 = "sha256-rr4Zhp+o9MQGq56vL1k97+cA10UGP4w55ty87T/FJiE=";
   };
 }

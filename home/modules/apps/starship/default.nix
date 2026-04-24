@@ -9,6 +9,7 @@
         "$git_branch"
         "$git_status"
         "$nix_shell"
+        "$rust"
         "\n"
         "$character"
       ];
@@ -49,6 +50,10 @@
       cmd_duration = {
         format = "[$duration](bold yellow)";
         min_time = 5000;
+      };
+
+      rust = {
+        format = "[$symbol($version )]($style)";
       };
     };
   };

@@ -60,9 +60,6 @@ return {
           enabled = true,
           indentscope_color = "",
         },
-        snacks = {
-          enabled = true,
-        },
         telescope = {
           enabled = true,
         },
@@ -71,6 +68,6 @@ return {
   end,
 
   init = function()
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("catppuccin-nvim")
   end,
 }

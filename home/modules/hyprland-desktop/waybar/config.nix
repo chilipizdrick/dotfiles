@@ -26,6 +26,7 @@
 
     modules-right = [
       "tray"
+      "hyprland/language"
       "backlight"
       "wireplumber#sink"
       "wireplumber#source"
@@ -35,6 +36,12 @@
       "battery"
       "custom/powermenu"
     ];
+
+    "hyprland/language" = {
+      format = "{}";
+      format-en = "EN";
+      format-ru = "RU";
+    };
 
     backlight = {
       format = "{icon} {percent}%";

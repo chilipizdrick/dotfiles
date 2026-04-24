@@ -1,104 +1,28 @@
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+local map = function(mode, lhs, rhs, opts)
+  opts = opts or {}
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 
-vim.keymap.set(
-  "n",
-  "<C-h>",
-  "<C-w><C-h>",
-  { desc = "Move focus to the left window" }
-)
-
-vim.keymap.set(
-  "n",
-  "<C-l>",
-  "<C-w><C-l>",
-  { desc = "Move focus to the right window" }
-)
-
-vim.keymap.set(
-  "n",
-  "<C-j>",
-  "<C-w><C-j>",
-  { desc = "Move focus to the lower window" }
-)
-
-vim.keymap.set(
-  "n",
-  "<C-k>",
-  "<C-w><C-k>",
-  { desc = "Move focus to the upper window" }
-)
-
-vim.keymap.set(
-  "v",
-  "<leader>y",
-  '"+y',
-  { desc = "Yank selection to system clipboard" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>yy",
-  '"+yy',
-  { desc = "Yank lilne to system clipboard" }
-)
-
-vim.keymap.set("n", "<leader>do", function()
-  -- vim.diagnostic.open_float({ border = "rounded" })
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+map("v", "<leader>y", '"+y', { desc = "Yank selection to system clipboard" })
+map("n", "<leader>yy", '"+yy', { desc = "Yank lilne to system clipboard" })
+map("n", "<leader>do", function()
   vim.diagnostic.open_float()
-end, { desc = "Floating [d]iagnostic [o]pen" })
-
-vim.keymap.set("n", "[d", function()
+end, { desc = "Floating [D]iagnostic [O]pen" })
+map("n", "[d", function()
   vim.diagnostic.jump({ count = -1, float = false })
 end, { desc = "Go to previous [D]iagnostic message" })
-
-vim.keymap.set("n", "]d", function()
+map("n", "]d", function()
   vim.diagnostic.jump({ count = 1, float = false })
 end, { desc = "Go to next [D]iagnostic message" })
-
-vim.keymap.set(
-  "n",
-  "<leader>q",
-  vim.diagnostic.setloclist,
-  { desc = "Open diagnostic [Q]uickfix list" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>Q",
-  vim.lsp.buf.code_action,
-  { desc = "Apply [Q]uickfix" }
-)
-
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-
-vim.keymap.set(
-  "n",
-  "gD",
-  vim.lsp.buf.declaration,
-  { desc = "[G]oto [D]eclaration" }
-)
-
-vim.keymap.set("n", "K", function()
-  -- vim.lsp.buf.hover({ border = "rounded" })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+map("n", "<leader>Q", vim.lsp.buf.code_action, { desc = "Apply [Q]uickfix" })
+map("n", "<leader>rn", vim.lsp.buf.rename)
+map("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
+map("n", "K", function()
   vim.lsp.buf.hover()
-end, { desc = "Open Diagnostic info" })
-
--- vim.keymap.set({ "n", "v", "i" }, "<C-a>", function()
---   if vim.o.keymap == "" then
---     vim.o.keymap = "russian-jcukenwin"
---     vim.notify("Switched to Russian")
---   else
---     vim.o.keymap = ""
---     vim.notify("Switched to English")
---   end
--- end)
-
--- vim.keymap.set({ "n", "v", "i" }, "<C-ф>", function()
---   if vim.o.keymap == "" then
---     vim.o.keymap = "russian-jcukenwin"
---     vim.notify("Switched to Russian")
---   else
---     vim.o.keymap = ""
---     vim.notify("Switched to English")
---   end
--- end)
+end, { desc = "Open diagnostic info" })

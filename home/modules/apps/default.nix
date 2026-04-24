@@ -29,29 +29,32 @@
     ./zen
     ./zoxide
     ./kdeconnect
+    # ./helix
   ];
 
   home.packages = with pkgs; [
-    baobab
-    imv
-    ani-cli
-    syncplay
-    yt-dlp
-    audacity
-    decibels
+    # bitwarden-desktop
     # helvum
+    # scripts.hijacker-lite
+    # vscode
+    ani-cli
+    audacity
+    baobab
     coppwr
+    decibels
+    easyeffects
+    gdbgui
+    imv
+    inputs'.hijacker2.packages.hijacker2
     kdePackages.kolourpaint
     loupe
     obsidian
-    ripdrag
-    # scripts.hijacker-lite
-    inputs'.hijacker2.packages.hijacker2
-    telegram-desktop
-    # bitwarden-desktop
-    qbittorrent
     opencode
-    # vscode
+    qbittorrent
+    ripdrag
+    syncplay
+    telegram-desktop
     vlc
+    yt-dlp
   ];
 }
