@@ -41,7 +41,7 @@ vim.g.rustaceanvim = {
 
 -- Spelling
 vim.opt.spelllang = "en_us,ru_ru"
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- Neovide config
 if vim.g.neovide then

@@ -1,8 +1,12 @@
-{writeShellScriptBin, ...}:
+{
+  writeShellScriptBin,
+  hyprland,
+  ...
+}:
 writeShellScriptBin "setup-workflow-atlas" ''
-  hyprctl dispatch exec "[workspace 1 silent] ghostty"
-  hyprctl dispatch exec "[workspace 2 silent] zen"
-  hyprctl dispatch exec "[workspace 3 silent] vesktop"
-  hyprctl dispatch exec "[workspace 3 silent] telegram-desktop"
-  hyprctl dispatch exec "[workspace 4 silent] spotify"
+  ${hyprland}/bin/hyprctl dispatch exec "[workspace 1 silent] ghostty"
+  ${hyprland}/bin/hyprctl dispatch exec "[workspace 2 silent] zen"
+  ${hyprland}/bin/hyprctl dispatch exec "[workspace 3 silent] vesktop"
+  ${hyprland}/bin/hyprctl dispatch exec "[workspace 3 silent] telegram-desktop"
+  ${hyprland}/bin/hyprctl dispatch exec "[workspace 4 silent] spotify"
 ''

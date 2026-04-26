@@ -1,7 +1,7 @@
 return {
   "Darazaki/indent-o-matic",
 
-  enabled = false,
+  enabled = true,
 
   event = "BufEnter",
 

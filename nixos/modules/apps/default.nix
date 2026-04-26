@@ -2,7 +2,7 @@
   imports = [
     ./disable-command-not-found
     ./nautilus
-    ./wireshark
+    # ./wireshark
   ];
 
   environment.systemPackages = with pkgs; [

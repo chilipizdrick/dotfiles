@@ -28,14 +28,17 @@
     ./zathura
     ./zen
     ./zoxide
-    ./kdeconnect
+    # ./kdeconnect
     # ./helix
   ];
 
   home.packages = with pkgs; [
     # bitwarden-desktop
+    # gdbgui
     # helvum
+    # opencode
     # scripts.hijacker-lite
+    # syncplay
     # vscode
     ani-cli
     audacity
@@ -43,16 +46,13 @@
     coppwr
     decibels
     easyeffects
-    gdbgui
     imv
     inputs'.hijacker2.packages.hijacker2
     kdePackages.kolourpaint
     loupe
     obsidian
-    opencode
     qbittorrent
     ripdrag
-    syncplay
     telegram-desktop
     vlc
     yt-dlp

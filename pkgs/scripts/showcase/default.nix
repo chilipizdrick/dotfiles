@@ -5,10 +5,11 @@
   pipes-rs,
   tty-clock,
   asciiquarium-transparent,
+  hyprland,
   ...
 }:
 writeShellScriptBin "showcase" ''
-  hyprctl dispatch movecursor 50 50
+  ${hyprland}/bin/hyprctl dispatch movecursor 50 50
   sleep 0.1
   ${ghostty}/bin/ghostty -e "sleep 0.6 && ${asciiquarium-transparent}/bin/asciiquarium --transparent" &
   sleep 0.1

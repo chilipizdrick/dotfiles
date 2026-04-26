@@ -26,17 +26,15 @@ in {
     scale = 1.5;
   };
 
-  wayland.windowManager.hyprland = let
-    mod = "SUPER";
-  in {
+  wayland.windowManager.hyprland = {
     settings = {
       monitor = lib.mkForce [
         "eDP-1,highres,auto,${scale}"
         ",preferred,auto,${scale},mirror,eDP-1"
       ];
-      bind = [
-        "${mod} ALT,W,exec,${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
-      ];
+      # bind = [
+      #   "${mod} ALT,W,exec,${scripts.setup-workflow-atlas}/bin/setup-workflow-atlas"
+      # ];
       exec-once = [
         "${pkgs.xrdb}/bin/xrdb ~/.Xresources"
       ];

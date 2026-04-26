@@ -24,9 +24,7 @@
     scale = 1.0;
   };
 
-  wayland.windowManager.hyprland = let
-    mod = "SUPER";
-  in {
+  wayland.windowManager.hyprland = {
     settings = {
       monitor = lib.mkForce [
         ",preferred,auto,auto"
@@ -36,7 +34,8 @@
       ];
 
       workspace = [
-        "10,monitor:DP-3,border:false"
+        # "10,monitor:DP-3,border:false"
+        "10,monitor:DP-3"
         "1,monitor:HDMI-A-1"
         "2,monitor:HDMI-A-1"
         "3,monitor:HDMI-A-1"
@@ -55,9 +54,9 @@
         "NVD_BACKEND,direct"
       ];
 
-      bind = [
-        "${mod} ALT,W,exec,${scripts.setup-workflow-aurora}/bin/setup-workflow-aurora"
-      ];
+      # bind = [
+      #   "${mod} ALT,W,exec,${scripts.setup-workflow-aurora}/bin/setup-workflow-aurora"
+      # ];
     };
   };
 
