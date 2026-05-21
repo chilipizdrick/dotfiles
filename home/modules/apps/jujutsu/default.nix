@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -8,4 +8,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    jj-fzf
+  ];
 }

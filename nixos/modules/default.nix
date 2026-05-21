@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./qt
     ./appimage
     ./apps
     ./boot
@@ -21,6 +22,7 @@
     ./vpn
     ./xdg-portals
     ./probe-rs
-    ./kdeconnect
+    # ./kdeconnect
+    ./cron
   ];
 }

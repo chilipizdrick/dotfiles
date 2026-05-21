@@ -1,1 +1,3 @@
-pkgs: {scripts = import ./scripts pkgs;}
+pkgs: {
+  scripts = import ./scripts pkgs;
+}

@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sl2.url = "github:chilipizdrick/sl2";
+    # sl2.url = "github:chilipizdrick/sl2";
     wroomer.url = "github:chilipizdrick/wroomer";
     hijacker2.url = "github:chilipizdrick/hijacker2";
   };

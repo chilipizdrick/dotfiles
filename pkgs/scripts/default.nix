@@ -2,6 +2,7 @@ pkgs: {
   clipboard = pkgs.callPackage ./clipboard {};
   get-player-metadata = pkgs.callPackage ./get-player-metadata.nix {};
   hijacker-lite = pkgs.callPackage ./hijacker-lite.nix {};
+  clever-hijacker = pkgs.callPackage ./clever-hijacker.nix {};
   load-album-cover = pkgs.callPackage ./load-album-cover.nix {};
   ocr = pkgs.callPackage ./ocr.nix {};
   query-tailscale = pkgs.callPackage ./query-tailscale.nix {};

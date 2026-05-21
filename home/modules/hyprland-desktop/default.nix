@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./qt
+    ./qt
     ./cursor
     ./gammastep
     ./gtk

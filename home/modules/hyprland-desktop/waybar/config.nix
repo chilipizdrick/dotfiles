@@ -26,7 +26,7 @@
 
     modules-right = [
       "tray"
-      "hyprland/language"
+      # "hyprland/language"
       "backlight"
       "wireplumber#sink"
       "wireplumber#source"

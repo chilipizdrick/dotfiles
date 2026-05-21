@@ -4,7 +4,7 @@
     settings = {
       default-timeout = "5000";
       anchor = "top-right";
-      border-size = "2";
+      border-size = "1";
       border-radius = "10";
       text-color = "#cdd6f4";
       background-color = "#000000B3";

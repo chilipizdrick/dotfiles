@@ -9,11 +9,12 @@
   }:
     withSystem system ({
       inputs',
+      self',
       pkgs,
       ...
     }: let
       extraSpecialArgs = {
-        inherit inputs inputs';
+        inherit inputs inputs' self';
         scripts = import ../pkgs/scripts pkgs;
       };
     in

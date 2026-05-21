@@ -56,7 +56,7 @@ in {
       };
 
       dwindle = {
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
         special_scale_factor = 0.8;
       };
@@ -121,7 +121,7 @@ in {
       };
 
       misc = {
-        vfr = true;
+        # vfr = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
@@ -194,7 +194,6 @@ in {
         "size 50% 70%,match:title ^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 
         "animation popin,match:title ^(Wroomer)$"
-
         "render_unfocused on,match:class ^(factorio)$"
       ];
 
@@ -205,7 +204,7 @@ in {
       ];
 
       exec-once = [
-        # "${pkgs.hyprlock}/bin/hyprlock --immediate --immediate-render &" # Lock on login
+        "${pkgs.hyprlock}/bin/hyprlock -g 0 --immediate-render --no-fade-in &" # Lock on login
         "${pkgs.hyprland}/bin/hyprctl setcursor Bibata-Modern-Classic 20"
         "${pkgs.networkmanagerapplet}/bin/nm-applet &"
       ];
@@ -262,7 +261,7 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -cf"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer}/bin/wroomer -cf"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
           "${mod} CTRL,S,exec,mkdir -p ~/Pictures/screenshots && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
@@ -300,7 +299,7 @@ in {
           "${mod} ALT,0,exec,${pkgs.procps}/bin/pkill hijacker2"
         ]
         ++ (map
-          (num: let num_str = toString num; in "${mod} ALT,${num_str},exec,${inputs'.hijacker2.packages.hijacker2}/bin/hijacker2 ~/Music/hijacker-presets/${num_str}.mp3")
+          (num: let num_str = toString num; in "${mod} ALT,${num_str},exec,${scripts.clever-hijacker}/bin/clever-hijacker ee_sie_rnnoise ~/Music/hijacker-presets/${num_str}.mp3")
           (lib.range 1 9));
 
       bindm = [
@@ -308,7 +307,7 @@ in {
         "${mod},mouse:273,resizewindow"
       ];
       bindl = [
-        "${mod},Z,exec,${pkgs.playerctl}/bin/playerctl play-pause"
+        "${mod},SPACE,exec,${pkgs.playerctl}/bin/playerctl play-pause"
         "${mod},C,exec,${pkgs.playerctl}/bin/playerctl next"
         "${mod},X,exec,${pkgs.playerctl}/bin/playerctl previous"
       ];
@@ -345,13 +344,13 @@ in {
     slurp
     hypridle
     hyprlock
-    inputs'.wroomer.packages.wroomer-wayland
+    inputs'.wroomer.packages.wroomer
     killall
     networkmanagerapplet
     pavucontrol
     wl-clipboard
     xrdb
-    inputs'.sl2.packages.sl2-desktop
+    # inputs'.sl2.packages.sl2-desktop
   ];
 
   home.file."Pictures/wallpapers".source = pkgs.fetchFromGitHub {
