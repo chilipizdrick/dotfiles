@@ -21,6 +21,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
 
     systemd = {
       enable = true;
@@ -99,7 +100,7 @@ in {
         kb_variant = "";
         kb_model = "";
         kb_options = ''
-          grp:alt_shift_toggle,caps:escape
+          grp:alt_shift_toggle
         '';
         kb_rules = "";
         repeat_rate = 50;
@@ -267,7 +268,7 @@ in {
           "${mod} CTRL,S,exec,mkdir -p ~/Pictures/screenshots && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
           # "${mod} CTRL SHIFT,S,exec,${scripts.ocr}/bin/ocr"
           "ALT,SPACE,exec,${pkgs.vicinae}/bin/vicinae toggle"
-          "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"
+          "${mod},V,exec,${pkgs.vicinae}/bin/vicinae vicinae://launch/clipboard/history"
           "${mod},RETURN,exec,${term}"
           "${mod},B,exec,${browser}"
           "${mod},E,exec,${files}"
