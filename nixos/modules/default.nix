@@ -22,7 +22,7 @@
     ./vpn
     ./xdg-portals
     ./probe-rs
-    # ./kdeconnect
+    ./kdeconnect
     ./cron
   ];
 }

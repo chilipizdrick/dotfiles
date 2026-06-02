@@ -28,7 +28,7 @@
     ./zathura
     ./zen
     ./zoxide
-    # ./kdeconnect
+    ./kdeconnect
     # ./helix
   ];
 
