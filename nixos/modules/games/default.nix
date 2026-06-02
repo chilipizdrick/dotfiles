@@ -44,12 +44,11 @@ in {
     programs = {
       steam = {
         enable = mkIf cfg.steam true;
-        gamescopeSession.enable = mkIf cfg.gamescope true;
+        # gamescopeSession.enable = mkIf cfg.gamescope true;
       };
 
       gamescope = {
         enable = mkIf cfg.gamescope true;
-        capSysNice = true;
         args =
           [
             "--rt"
