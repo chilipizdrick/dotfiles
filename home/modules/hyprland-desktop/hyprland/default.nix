@@ -262,7 +262,7 @@ in {
           "${mod} SHIFT,U,movetoworkspace,special"
           "${mod},U,togglespecialworkspace,"
 
-          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer}/bin/wroomer -cf"
+          "${mod} CTRL,W,exec,${inputs'.wroomer.packages.wroomer-wayland}/bin/wroomer -cf"
           "${mod},W,exec,${scripts.select-wallpaper}/bin/select-wallpaper"
           "${mod} SHIFT,S,exec,${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"
           "${mod} CTRL,S,exec,mkdir -p ~/Pictures/screenshots && ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.satty}/bin/satty -f - -o \"$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png\" --early-exit --save-after-copy --actions-on-enter save-to-clipboard --copy-command 'wl-copy' --initial-tool brush --no-window-decoration"
