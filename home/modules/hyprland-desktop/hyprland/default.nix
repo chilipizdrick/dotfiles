@@ -48,16 +48,13 @@ in {
         border_size = 1;
         gaps_in = "5,5,0,0";
         gaps_out = 5;
-        # col.active_border = "$text";
         "col.active_border" = "rgba(ffffff88)";
-        # "col.inactive_border" = "$base";
         "col.inactive_border" = "rgba(55555555)";
         resize_on_border = false;
         layout = "dwindle";
       };
 
       dwindle = {
-        # pseudotile = true;
         preserve_split = true;
         special_scale_factor = 0.8;
       };
@@ -122,7 +119,6 @@ in {
       };
 
       misc = {
-        # vfr = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
@@ -175,7 +171,6 @@ in {
       windowrule = let
         specialWindows = [
           "\\.blueman-manager-wrapped"
-          # "com.saivert.pwvucontrol"
           "xdg-desktop-portal-gtk"
           "org.pulseaudio.pavucontrol"
         ];
@@ -285,9 +280,7 @@ in {
           "${mod} SHIFT,A,exec,${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings animations"
           "${mod} SHIFT,B,exec,${scripts.toggle-hyprland-settings}/bin/toggle-hyprland-settings blur"
           "${mod} SHIFT,C,exec,${scripts.toggle-caffeine-mode}/bin/toggle-caffeine-mode"
-          # "${mod} SHIFT,M,exec,${scripts.toggle-hyprland-layout}/bin/toggle-hyprland-layout"
           "${mod} ALT,P,exec,${scripts.spread-propaganda}/bin/spread-propaganda"
-          # "${mod} ALT,S,exec,${scripts.showcase}/bin/showcase"
           "${mod} ALT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker | ${pkgs.wl-clipboard}/bin/wl-copy"
           "${mod} CTRL,B,exec, ${scripts.toggle-systemd-user-service}/bin/toggle-systemd-user-service waybar.service"
 
