@@ -4,17 +4,6 @@
   config,
   ...
 }: {
-  # programs.neovim = {
-  #   enable = true;
-  #   defaultEditor = true;
-  #   vimAlias = true;
-  #   vimdiffAlias = true;
-  #
-  #   withPython3 = false;
-  #   withNodeJs = false;
-  #   withRuby = false;
-  # };
-
   nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
 
   home.packages = with pkgs; let

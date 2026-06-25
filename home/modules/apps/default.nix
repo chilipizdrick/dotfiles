@@ -1,45 +1,34 @@
 {
   pkgs,
   inputs',
+  self',
   ...
 }: {
   imports = [
-    # ./dolphin
     ./alacritty
-    ./carapace
-    ./cava
-    ./chromium
-    ./command-not-found
     ./direnv
     ./discord
-    ./eza
-    ./fzf
     ./git
-    ./helium
+    ./hyperion
     ./jujutsu
+    ./kdeconnect
     ./mpv
     ./neovim
     ./obs-studio
     ./shells
-    ./spotify
     ./starship
     ./tmux
     ./udiskie
     ./zathura
-    ./zen
     ./zoxide
-    ./kdeconnect
-    # ./helix
   ];
 
+  programs.carapace.enable = true;
+  programs.command-not-found.enable = false;
+  programs.eza.enable = true;
+  programs.fzf.enable = true;
+
   home.packages = with pkgs; [
-    # bitwarden-desktop
-    # gdbgui
-    # helvum
-    # opencode
-    # scripts.hijacker-lite
-    # syncplay
-    # vscode
     ani-cli
     audacity
     baobab
@@ -48,11 +37,15 @@
     easyeffects
     imv
     inputs'.hijacker2.packages.hijacker2
+    inputs'.zen-browser.packages.beta
     kdePackages.kolourpaint
     loupe
     obsidian
+    opencode
     qbittorrent
     ripdrag
+    self'.packages.helium-browser
+    spotify
     telegram-desktop
     vlc
     yt-dlp

@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../base-configuraion.nix
   ];
 
   nvidiaVideoDrivers.enable = true;

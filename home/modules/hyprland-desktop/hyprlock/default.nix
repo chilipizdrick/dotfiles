@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  scripts,
+  self',
   ...
 }:
 with lib; let
   cfg = config.hyprlock;
-  colorsConfig = "$HOME/.config/hypr/themes/catppuccin-mocha.hypr";
 in {
   options.hyprlock = {
     enable = mkEnableOption "Hyprlock locker";
@@ -23,19 +22,12 @@ in {
       enable = true;
       package = pkgs.hyprlock;
       settings = {
-        source = [
-          "${colorsConfig}"
-        ];
         general = {
           ignore_empty_input = true;
           hide_cursor = true;
         };
 
-        animations = {
-          enabled = true;
-           fade_in.duration = 150;
-           fade_out.duration = 150;
-        };
+        animations.enabled = true;
 
         background = [
           {
@@ -63,12 +55,12 @@ in {
             dots_spacing = 0.64;
             dots_center = true;
             rounding = builtins.floor (22 * cfg.scale);
-            font_color = "$text";
+            font_color = "rgb(cdd6f4)";
             placeholder_text = "";
             outer_color = "rgba(0, 0, 0, 0.7)";
             inner_color = "rgba(0, 0, 0, 0.7)";
-            check_color = "$blue";
-            fail_color = "$red";
+            check_color = "rgb(89b4fa)";
+            fail_color = "rgb(f38ba8)";
           }
         ];
 
@@ -76,7 +68,7 @@ in {
           {
             monitor = "";
             text = "cmd[update:1000] echo \"<b><big> $(date +\"%H\") </big></b>\"";
-            color = "$text";
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (112 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
@@ -88,7 +80,7 @@ in {
           {
             monitor = "";
             text = "cmd[update:1000] echo \"<b><big> $(date +\"%M\") </big></b>\"";
-            color = "$text";
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (112 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
@@ -100,7 +92,7 @@ in {
           {
             monitor = "";
             text = "cmd[update:18000000] echo \"<b><big> $(date +\"%A\") </big></b>\"";
-            color = "$text";
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (22 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             position = "0, ${toString (-450 * cfg.scale)}";
@@ -112,7 +104,7 @@ in {
           {
             monitor = "";
             text = "cmd[update:18000000] echo \"<b> $(date +\"%d %b\") </b>\"";
-            color = "$text";
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
@@ -124,7 +116,7 @@ in {
           {
             monitor = "";
             text = "$LAYOUT";
-            color = "$text";
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (15 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
@@ -135,8 +127,8 @@ in {
           }
           {
             monitor = "";
-            text = ''cmd[update:1000] ${scripts.get-player-metadata}/bin/get-player-metadata'';
-            color = "$text";
+            text = ''cmd[update:1000] ${self'.packages.get-player-metadata}/bin/get-player-metadata'';
+            color = "rgb(cdd6f4)";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
             shadow_passes = 3;
@@ -154,7 +146,7 @@ in {
             rounding = 10;
             border_size = 0;
             reload_time = 1;
-            reload_cmd = "${scripts.load-album-cover}/bin/load-album-cover";
+            reload_cmd = "${self'.packages.load-album-cover}/bin/load-album-cover";
             position = "${toString (50 * cfg.scale)}, ${toString (50 * cfg.scale)}";
             halign = "left";
             valign = "bottom";

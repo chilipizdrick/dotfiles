@@ -1,16 +1,18 @@
 {...}: {
   imports = [
-    # ./graphical-tablet
+    ./graphical-tablet
     ./audio
     ./bluetooth
-    ./kernel
-    ./networking
     ./power-management
     ./printing
-    ./time
-    ./touchpad
     ./video-drives
   ];
+
+  services.libinput.enable = true;
+
+  time.timeZone = "Europe/Moscow";
+
+  networking.networkmanager.enable = true;
 
   hardware.enableRedistributableFirmware = true;
   hardware.enableAllFirmware = true;

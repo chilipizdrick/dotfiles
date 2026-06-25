@@ -1,6 +1,6 @@
 {
   pkgs,
-  scripts,
+  self',
   ...
 }: {
   mainBar = {
@@ -16,7 +16,8 @@
 
     modules-left = [
       "custom/launcher"
-      "hyprland/workspaces"
+      # "hyprland/workspaces"
+      "ext/workspaces"
       "mpris"
     ];
 
@@ -152,17 +153,15 @@
     };
 
     "custom/tailscale" = {
-      exec = "${scripts.query-tailscale}/bin/query-tailscale";
+      exec = "${self'.packages.query-tailscale}/bin/query-tailscale";
       interval = 1;
       format = "VPN";
-      on-click = "${scripts.toggle-tailscale}/bin/toggle-tailscale";
+      on-click = "${self'.packages.toggle-tailscale}/bin/toggle-tailscale";
     };
 
-    "custom/zapret" = {
-      exec = "${scripts.query-zapret}/bin/query-zapret";
-      interval = 1;
-      format = "GOIDA";
-      on-click = "${scripts.toggle-zapret}/bin/toggle-zapret";
+    "ext/workspaces" = {
+      # format = "{icon}";
+      on-click = "activate";
     };
   };
 }

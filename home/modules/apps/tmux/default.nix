@@ -19,6 +19,7 @@
 
       set-option -ga terminal-overrides ",alacritty:Tc"
       set -g default-terminal "alacritty"
+      set-option -g default-shell ${pkgs.fish}/bin/fish
 
       set -ga terminal-overrides ",*:RGB"
       set -ga terminal-overrides ",*:Tc"

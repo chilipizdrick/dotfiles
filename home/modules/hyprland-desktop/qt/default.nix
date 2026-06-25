@@ -3,10 +3,6 @@
     enable = true;
     platformTheme.name = "kde";
     style.name = "breeze";
-    # iconTheme = {
-    #   name = "breeze-dark";
-    #
-    # };
   };
 
   xdg.configFile."kdeglobals".text = ''

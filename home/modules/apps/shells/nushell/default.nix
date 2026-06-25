@@ -6,7 +6,7 @@
 }: {
   programs.nushell = {
     enable = true;
-    shellAliases = lib.mkForce (builtins.removeAttrs config.home.shellAliases ["nau" "nsn"]);
+    shellAliases = lib.mkForce (removeAttrs config.home.shellAliases ["nau" "nsn"]);
 
     extraEnv =
       # nu

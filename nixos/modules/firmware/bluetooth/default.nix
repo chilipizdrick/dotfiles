@@ -21,6 +21,4 @@
       "bluez5.roles" = ["hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag"];
     };
   };
-
-  # services.blueman.enable = true;
 }

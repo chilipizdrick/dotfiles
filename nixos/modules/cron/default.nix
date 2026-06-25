@@ -1,3 +1,0 @@
-{...}: {
-  services.cron.enable = true;
-}

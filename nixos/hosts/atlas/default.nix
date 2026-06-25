@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../base-configuraion.nix
   ];
 
   amdVideoDrivers.enable = true;
@@ -20,14 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     (btop.override {rocmSupport = true;})
-    # androidenv.androidPkgs.androidsdk
   ];
-
-  # services.splitTunneling = {
-  #   enable = true;
-  #   user = "novpn";
-  #   tableId = 200;
-  # };
 
   networking.hostName = "atlas";
 }

@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ./disable-command-not-found
     ./nautilus
-    # ./wireshark
+    ./wireshark
+    ./hyperion
   ];
+
+  programs.command-not-found.enable = false;
 
   environment.systemPackages = with pkgs; [
     alejandra

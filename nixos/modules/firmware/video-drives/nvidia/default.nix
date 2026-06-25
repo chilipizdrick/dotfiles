@@ -16,7 +16,6 @@ in {
       open = true;
       powerManagement.enable = true;
       powerManagement.finegrained = false;
-      nvidiaSettings = true;
       package = (pkgs.linuxPackagesFor config.boot.kernelPackages.kernel).nvidiaPackages.stable;
     };
     boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"]; # For correct suspention and hibernation

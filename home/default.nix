@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  homeConfiguration = {
+  homeManagerConfiguration = {
     system ? "x86_64-linux",
     modules ? [],
   }:
@@ -12,22 +12,19 @@
       self',
       pkgs,
       ...
-    }: let
-      extraSpecialArgs = {
-        inherit inputs inputs' self';
-        scripts = import ../pkgs/scripts pkgs;
-      };
-    in
+    }:
       inputs.home-manager.lib.homeManagerConfiguration {
-        inherit modules pkgs extraSpecialArgs;
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs inputs' self';};
+        modules = [./modules] ++ modules;
       });
 in {
   flake.homeConfigurations = {
-    "alex@atlas" = homeConfiguration {
-      modules = [./hosts/atlas];
+    "alex@atlas" = homeManagerConfiguration {
+      modules = [./hosts/atlas.nix];
     };
-    "alex@aurora" = homeConfiguration {
-      modules = [./hosts/aurora];
+    "alex@aurora" = homeManagerConfiguration {
+      modules = [./hosts/aurora.nix];
     };
   };
 }

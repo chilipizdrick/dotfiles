@@ -4,7 +4,6 @@
     ll = "ls -l";
     la = "ls -a";
     lla = "ls -la";
-    ns = "xdg-open https://mynixos.com/";
     ga = "git add .";
     gc = "git commit -S";
     gpl = "git pull";
@@ -12,8 +11,6 @@
     gs = "git status";
     nrs = "sudo nixos-rebuild switch --flake .";
     hms = "home-manager switch --flake . -b backup";
-    nau = "export NIXPKGS_ALLOW_UNFREE=1";
-    # Open file explorer
     oe = "nautilus . &";
     vi = "nvim";
     vim = "nvim";

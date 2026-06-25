@@ -99,7 +99,6 @@ menu menuitem:hover {
 #pulseaudio,
 #wireplumber,
 #custom-tailscale,
-#custom-zapret,
 #network,
 #memory,
 #cpu,
@@ -221,19 +220,6 @@ menu menuitem:hover {
 }
 
 #custom-tailscale:hover {
-  background: @hover;
-}
-
-
-#custom-zapret.on {
-  color: @green;
-}
-
-#custom-zapret.off {
-  color: @red;
-}
-
-#custom-zapret:hover {
   background: @hover;
 }
 

@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./qt
+    # ./probe-rs
     ./appimage
     ./apps
     ./boot
@@ -8,21 +8,23 @@
     ./firmware
     ./fonts
     ./games
-    ./greeter
-    ./hyperion
     ./hyprland
+    ./kdeconnect
     ./locale
     ./misc
-    ./nix-ld
-    ./polkit
+    ./nix
+    ./qt
     ./shell
     ./swap
     ./users
     ./virtualization
     ./vpn
     ./xdg-portals
-    ./probe-rs
-    ./kdeconnect
-    ./cron
   ];
+
+  programs.kdeconnect.enable = true;
+  programs.nix-ld.enable = true;
+  security.polkit.enable = true;
+
+  system.stateVersion = "24.05";
 }

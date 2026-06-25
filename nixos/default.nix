@@ -9,15 +9,17 @@
   }:
     withSystem system ({
       inputs',
-      pkgs,
+      self',
       ...
     }: let
       specialArgs = {
-        inherit inputs inputs';
-        scripts = import ../pkgs/scripts pkgs;
+        inherit inputs inputs' self';
       };
     in
-      inputs.nixpkgs.lib.nixosSystem {inherit modules specialArgs;});
+      inputs.nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [./modules] ++ modules;
+      });
 in {
   flake.nixosConfigurations = {
     atlas = nixosConfiguration {modules = [./hosts/atlas];};

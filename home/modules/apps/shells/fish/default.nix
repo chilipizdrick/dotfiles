@@ -3,7 +3,6 @@
     enable = true;
     shellAbbrs = {
       nsn = "nix shell nixpkgs#";
-      rd = "ripdrag ./*";
     };
     shellInit = ''
       set fish_greeting

@@ -2,13 +2,7 @@
   imports = [
     ./tailscale
     ./amnezia
-    ./throne
-    # ./xray
+    # ./throne
     # ./zerotier
-    # ./split-tunneling
-    # ./split-tunneling2
-    # ./zapret
-    # ./byedpi
-    # ./zapret-discord-youtube
   ];
 }

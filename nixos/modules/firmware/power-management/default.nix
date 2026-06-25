@@ -16,24 +16,10 @@
     };
   };
 
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     AMDGPU_ABM_LEVEL_ON_BAT = 1;
-  #     USB_AUTOSUSPEND = 0;
-  #   };
-  # };
-
   systemd.sleep.settings.Sleep = {
     AutoSuspend = true;
     AllowHibernation = false;
     AllowHybridSleep = false;
     AllowSuspendThenHibernate = false;
   };
-  # } = ''
-  #   AllowSuspend=yes
-  #   AllowHibernation=no
-  #   AllowHybridSleep=no
-  #   AllowSuspendThenHibernate=no
-  # '';
 }
