@@ -40,7 +40,6 @@
     wireplumber
     wl-clipboard
     wlogout
-    xrdb
 
     inputs'.wroomer.packages.wroomer-wayland
 

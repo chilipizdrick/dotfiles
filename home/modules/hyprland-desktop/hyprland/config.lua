@@ -21,8 +21,8 @@ hl.config({
     ["col.active_border"] = "rgba(ffffff88)",
     ["col.inactive_border"] = "rgba(55555555)",
     resize_on_border = false,
-    -- layout = "dwindle",
-    layout = "scrolling",
+    layout = "dwindle",
+    -- layout = "scrolling",
   },
 
   dwindle = {
@@ -95,7 +95,7 @@ hl.config({
     animate_mouse_windowdragging = true,
     key_press_enables_dpms = true,
     vrr = 1,
-    initial_workspace_tracking = 1,
+    initial_workspace_tracking = 2,
     font_family = "monospace",
     enable_anr_dialog = false,
   },
@@ -123,8 +123,8 @@ hl.animation({ leaf = "global", enabled = true, speed = 2, bezier = "easeOutCubi
 hl.animation({ leaf = "fadePopups", enabled = false })
 hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "easeOutCubic" })
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide top" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "default" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide bottom" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slidevert" })
 
 -- Layer Rules
@@ -146,6 +146,13 @@ hl.window_rule({
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
 })
 
+hl.window_rule({
+  match = { title = "Select what to share" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.5", "monitor_h * 0.7" },
+})
+
 local fileDialogsRegex = "^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 hl.window_rule({
   match = { title = fileDialogsRegex },
@@ -158,8 +165,8 @@ hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
 -- Gestures
-hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
-hl.gesture({ fingers = 4, direction = "down", action = "close" })
+hl.gesture({ fingers = 3, direction = "vertical", action = "workspace" })
+-- hl.gesture({ fingers = 4, direction = "down", action = "close" })
 
 -- Autostart
 hl.on("hyprland.start", function()
@@ -194,8 +201,16 @@ hl.bind("SUPER + CTRL + 0", hl.dsp.window.move({ workspace = 10, follow = false 
 hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind("SUPER + SHIFT + TAB", hl.dsp.focus({ workspace = "m-1" }))
 
+hl.bind("SUPER + mouse_down", hl.dsp.layout("move +col"))
+hl.bind("SUPER + mouse_up", hl.dsp.layout("move -col"))
+hl.bind("SUPER + PERIOD", hl.dsp.layout("move +col"))
+hl.bind("SUPER + COMMA", hl.dsp.layout("move -col"))
+hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.layout("swapcol r"))
+hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.layout("swapcol l"))
 hl.bind("SUPER + SHIFT + PERIOD", hl.dsp.layout("swapcol r"))
 hl.bind("SUPER + SHIFT + COMMA", hl.dsp.layout("swapcol l"))
+hl.bind("SUPER + CTRL + PERIOD", hl.dsp.layout("colresize +conf"))
+hl.bind("SUPER + CTRL + COMMA", hl.dsp.layout("colresize -conf"))
 
 hl.bind("SUPER + SHIFT + U", hl.dsp.window.move({ workspace = "special" }))
 hl.bind("SUPER + U", hl.dsp.workspace.toggle_special())
