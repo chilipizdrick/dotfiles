@@ -16,8 +16,8 @@
 
     modules-left = [
       "custom/launcher"
-      # "hyprland/workspaces"
-      "ext/workspaces"
+      "hyprland/workspaces"
+      # "ext/workspaces"
       "mpris"
     ];
 

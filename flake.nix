@@ -11,7 +11,6 @@
     };
 
     hijacker2.url = "github:chilipizdrick/hijacker2";
-    nixcord.url = "github:FlameFlag/nixcord";
     rust-overlay.url = "github:oxalica/rust-overlay?ref=stable";
     wroomer.url = "github:chilipizdrick/wroomer";
     zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";

@@ -7,7 +7,6 @@
   imports = [
     ./alacritty
     ./direnv
-    ./discord
     ./git
     ./hyperion
     ./jujutsu
@@ -29,6 +28,7 @@
   programs.fzf.enable = true;
 
   home.packages = with pkgs; [
+    discord
     ani-cli
     audacity
     baobab
