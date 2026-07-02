@@ -8,7 +8,6 @@
     ./alacritty
     ./direnv
     ./git
-    ./hyperion
     ./jujutsu
     ./kdeconnect
     ./mpv
@@ -28,6 +27,7 @@
   programs.fzf.enable = true;
 
   home.packages = with pkgs; [
+    zed-editor-fhs
     discord
     ani-cli
     audacity

@@ -49,6 +49,7 @@
     self'.packages.select-wallpaper
     self'.packages.toggle-caffeine-mode
     self'.packages.toggle-systemd-user-service
+    self'.packages.pw-connect
   ];
 
   systemd.user.services.nm-applet = {

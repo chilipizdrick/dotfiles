@@ -22,7 +22,6 @@ hl.config({
     ["col.inactive_border"] = "rgba(55555555)",
     resize_on_border = false,
     layout = "dwindle",
-    -- layout = "scrolling",
   },
 
   dwindle = {
@@ -44,12 +43,10 @@ hl.config({
     dim_strength = 0.1,
 
     shadow = {
-      enabled = false,
-      range = 300,
-      render_power = 5,
-      color = "rgba(1a1a1aaf)",
-      offset = { 20, 20 },
-      scale = 0.9,
+      enabled = true,
+      range = 14,
+      render_power = 3,
+      color = "rgba(00000045)",
     },
 
     blur = {
@@ -248,6 +245,7 @@ end)
 
 hl.bind("SUPER + S", hl.dsp.exec_cmd("spotify"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
+hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine'"))
 hl.bind("SUPER + ALT + R", hl.dsp.exec_cmd("reload-graphical-interface"))
 
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("hyprlock"))
