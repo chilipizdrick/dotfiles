@@ -11,6 +11,7 @@
     };
 
     hijacker2.url = "github:chilipizdrick/hijacker2";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia.url = "github:noctalia-dev/noctalia";
     rust-overlay.url = "github:oxalica/rust-overlay?ref=stable";
     wroomer.url = "github:chilipizdrick/wroomer";

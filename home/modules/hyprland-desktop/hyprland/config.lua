@@ -126,11 +126,11 @@ hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "defaul
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide" })
 
 -- Layer Rules
-hl.layer_rule({ match = { namespace = "waybar" }, animation = "slide" })
-hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications|logout_dialog|rofi)$" }, blur = true })
-hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications)$" }, ignore_alpha = 0.5 })
-hl.layer_rule({ match = { namespace = "^(waybar|vicinae)$" }, blur_popups = true })
-hl.layer_rule({ match = { namespace = "^(hyprpicker|selection|slurp|vicinae)$" }, no_anim = true })
+-- hl.layer_rule({ match = { namespace = "waybar" }, animation = "slide" })
+-- hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications|logout_dialog|rofi)$" }, blur = true })
+-- hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications)$" }, ignore_alpha = 0.5 })
+-- hl.layer_rule({ match = { namespace = "^(waybar|vicinae)$" }, blur_popups = true })
+-- hl.layer_rule({ match = { namespace = "^(hyprpicker|selection|slurp|vicinae)$" }, no_anim = true })
 
 hl.layer_rule({
   name = "noctalia",

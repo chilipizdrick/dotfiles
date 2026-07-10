@@ -2,6 +2,7 @@
   imports = [
     # ./probe-rs
     ./appimage
+    ./greeter
     ./apps
     ./boot
     ./firewall

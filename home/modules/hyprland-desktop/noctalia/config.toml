@@ -1,6 +1,6 @@
 [audio]
 enable_overdrive = true
-enable_sounds = true
+enable_sounds = false
 
 [bar]
 order = [ "default" ]
@@ -48,7 +48,7 @@ widget_order = []
     [desktop_widgets.widget]
 
 [hooks]
-started = "noctalia msg session lock"
+started = ""
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -69,7 +69,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     timeout = 660.0
 
 [location]
-address = "Moscow, Russia"
+address = ""
 
 [lockscreen]
 tint_intensity = 0.0
@@ -78,19 +78,13 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@DP-3",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
     "lockscreen-widget-0000000000000002",
     "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000007",
-    "lockscreen-widget-0000000000000008",
-    "lockscreen-widget-0000000000000009",
-    "lockscreen-widget-0000000000000010"
+    "lockscreen-widget-0000000000000005"
 ]
 
     [lockscreen_widgets.grid]
@@ -102,7 +96,8 @@ widget_order = [
     box_height = 70.0
     box_width = 400.0
     cx = 960.0
-    cy = 961.0
+    cy = 1017.0
+    enabled = false
     output = "DP-3"
     rotation = 0.0
     type = "login_box"
@@ -350,6 +345,9 @@ font_family = "Inter"
 polkit_agent = true
 screen_time_enabled = true
 
+    [shell.greeter_sync]
+    auto_sync = true
+
     [shell.panel]
     control_center_placement = "floating"
     session_placement = "floating"
@@ -412,16 +410,16 @@ directory = "/home/alex/Pictures/wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
 [widget.audio_visualizer]
 bands = 32

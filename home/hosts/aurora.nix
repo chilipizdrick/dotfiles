@@ -1,20 +1,4 @@
-{...}: {
-  # services.hypridle.settings.listener = lib.mkForce [
-  #   {
-  #     timeout = 3600;
-  #     on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
-  #   }
-  #   {
-  #     timeout = 7200;
-  #     on-timeout = "systemctl suspend";
-  #   }
-  # ];
-  #
-  # hyprlock = {
-  #   enable = true;
-  #   scale = 1.0;
-  # };
-
+{inputs', ...}: {
   wayland.windowManager.hyprland.extraConfig =
     # lua
     ''
@@ -39,6 +23,8 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
   };
+
+  programs.noctalia.package = inputs'.noctalia.packages.cuda;
 
   games = {
     enable = true;
