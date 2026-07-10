@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # ./nautilus
-    # ./wireshark
+    ./nautilus
     ./hyperion
   ];
 
@@ -11,12 +10,14 @@
     alejandra
     bat
     curl
+    dust
     fd
     ffmpeg
     fzf
     git
     gzip
     home-manager
+    hyperfine
     imagemagick
     jq
     jujutsu
@@ -25,7 +26,6 @@
     onlyoffice-desktopeditors
     p7zip
     ripgrep
-    dust
     socat
     sops
     tealdeer
@@ -34,6 +34,5 @@
     unzip
     wget
     zip
-    hyperfine
   ];
 }

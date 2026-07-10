@@ -67,28 +67,9 @@ in {
         ExecStart = "${captureScript}";
         Restart = "on-failure";
         RestartSec = "5s";
+        # Hack for a neverending script
         TimeoutStopSec = "1s";
       };
     };
   };
 }
-# {pkgs, ...}: {
-#   environment.systemPackages = with pkgs; [
-#     hyperhdr
-#   ];
-#
-#   # Define as a user service so it can communicate with PipeWire and Wayland portals
-#   systemd.user.services.hyperhdr = {
-#     description = "HyperHDR Ambient Lighting";
-#     wantedBy = ["graphical-session.target"];
-#     partOf = ["graphical-session.target"];
-#     after = ["graphical-session.target"];
-#
-#     serviceConfig = {
-#       ExecStart = "${pkgs.hyperhdr}/bin/hyperhdr";
-#       Restart = "on-failure";
-#       RestartSec = "5s";
-#     };
-#   };
-# }
-

@@ -27,13 +27,12 @@
   programs.fzf.enable = true;
 
   home.packages = with pkgs; [
-    zed-editor-fhs
-    discord
     ani-cli
     audacity
     baobab
     coppwr
     decibels
+    discord
     easyeffects
     imv
     inputs'.hijacker2.packages.hijacker2
@@ -41,7 +40,6 @@
     kdePackages.kolourpaint
     loupe
     obsidian
-    opencode
     qbittorrent
     ripdrag
     self'.packages.helium-browser
@@ -49,14 +47,6 @@
     telegram-desktop
     vlc
     yt-dlp
+    zed-editor-fhs
   ];
-
-  xdg.desktopEntries.spotify = {
-    name = "Spotify";
-    genericName = "Music Player";
-    exec = "spotify --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
-    icon = "spotify-client";
-    type = "Application";
-    categories = ["Audio" "Music" "Player" "AudioVideo"];
-  };
 }

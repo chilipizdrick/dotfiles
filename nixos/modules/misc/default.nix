@@ -5,10 +5,6 @@
   # Thumbnail support for images
   services.tumbler.enable = true;
 
-  # Configure PAM to enable hyprock to perform authentication
-  # programs.hyprlock.enable = true;
-  # security.pam.services.hyprlock = {};
-
   # Allow discovery of connected monitors
   hardware.i2c.enable = true;
 

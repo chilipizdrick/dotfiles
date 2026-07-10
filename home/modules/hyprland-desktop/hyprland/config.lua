@@ -146,10 +146,12 @@ hl.layer_rule({
 -- Window Rules
 hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
 hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0 })
+hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
+hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
-local specialWindowsRegex = "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
+local special_windows_regex = "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
 hl.window_rule({
-  match = { class = specialWindowsRegex },
+  match = { class = special_windows_regex },
   float = true,
   center = true,
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
@@ -162,27 +164,22 @@ hl.window_rule({
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
 })
 
-local fileDialogsRegex = "^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
+local file_dialogs_regex = "^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
 hl.window_rule({
-  match = { title = fileDialogsRegex },
+  match = { title = file_dialogs_regex },
   float = true,
   center = true,
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
 })
 
-hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
-hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
+-- Startup
+hl.on("hyprland.start", function()
+  hl.exec_cmd("noctalia")
+end)
 
 -- Gestures
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 hl.gesture({ fingers = 4, direction = "down", action = "close" })
-
--- Autostart
-hl.on("hyprland.start", function()
-  -- hl.exec_cmd("hyprlock -g 0 --immediate-render --no-fade-in || hyprctl dispatch 'hl.dsp.exit()'")
-  -- hl.exec_cmd("noctalia")
-  -- hl.exec_cmd("noctalia msg session lock")
-end)
 
 -- Binds
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
@@ -212,62 +209,15 @@ hl.bind("SUPER + CTRL + 0", hl.dsp.window.move({ workspace = 10, follow = false 
 hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind("SUPER + SHIFT + TAB", hl.dsp.focus({ workspace = "m-1" }))
 
--- hl.bind("SUPER + mouse_down", hl.dsp.layout("move +col"))
--- hl.bind("SUPER + mouse_up", hl.dsp.layout("move -col"))
--- hl.bind("SUPER + PERIOD", hl.dsp.layout("move +col"))
--- hl.bind("SUPER + COMMA", hl.dsp.layout("move -col"))
--- hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.layout("swapcol r"))
--- hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.layout("swapcol l"))
--- hl.bind("SUPER + SHIFT + PERIOD", hl.dsp.layout("swapcol r"))
--- hl.bind("SUPER + SHIFT + COMMA", hl.dsp.layout("swapcol l"))
--- hl.bind("SUPER + CTRL + PERIOD", hl.dsp.layout("colresize +conf"))
--- hl.bind("SUPER + CTRL + COMMA", hl.dsp.layout("colresize -conf"))
-
--- hl.bind("SUPER + SHIFT + M", function()
---   local layouts = { "scrolling", "dwindle" }
---   local workspace = hl.get_active_workspace()
---   if hl.get_active_special_workspace() then
---     workspace = hl.get_active_special_workspace()
---   end
---
---   local next_layout = "dwindle"
---
---   if not workspace then
---     return
---   end
---
---   for i = 1, #layouts do
---     if layouts[i] == workspace.tiled_layout then
---       local next_layout_idx = (i % #layouts) + 1
---       next_layout = layouts[next_layout_idx]
---       break
---     end
---   end
---
---   if workspace.special then
---     hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
---   else
---     hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
---   end
---
---   hl.dispatch(
---     hl.dsp.exec_cmd("hyprctl notify 0 2000 'rgb(ffaa00)' 'Changed workspace layout to: " .. next_layout .. "'")
---   )
--- end)
-
 hl.bind("SUPER + SHIFT + U", hl.dsp.window.move({ workspace = "special" }))
 hl.bind("SUPER + U", hl.dsp.workspace.toggle_special())
 
 hl.bind("SUPER + CTRL + W", hl.dsp.exec_cmd("wroomer -cf"))
--- hl.bind("SUPER + W", hl.dsp.exec_cmd("select-wallpaper"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
--- hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("satty-screenshot"))
 
--- hl.bind("ALT + SPACE", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
--- hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("alacritty"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd('xdg-open "http://"'))
@@ -296,24 +246,13 @@ end)
 hl.bind("SUPER + S", hl.dsp.exec_cmd("spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
 hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine'"))
--- hl.bind("SUPER + ALT + R", hl.dsp.exec_cmd("reload-graphical-interface"))
-
--- hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
--- hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("pidof wlogout || wlogout -b 4"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
-
--- hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("toggle-caffeine-mode"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
-
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
-
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
-
 hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
--- hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("toggle-systemd-user-service waybar.service"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("noctalia msg bar-toggle default"))
-
 hl.bind("CTRL + SHIFT + D", hl.dsp.pass({ window = "class:^(discord)$" }))
 hl.bind("F9", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }))
 hl.bind("F10", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }))
@@ -335,66 +274,25 @@ end
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
--- hl.bind("SUPER + C", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })
--- hl.bind("SUPER + X", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("SUPER + X", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
-
 hl.bind("SUPER + CTRL + " .. left, hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
 hl.bind("SUPER + CTRL + " .. right, hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
 hl.bind("SUPER + CTRL + " .. up, hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
 hl.bind("SUPER + CTRL + " .. down, hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
 
--- hl.bind(
---   "XF86AudioRaiseVolume",
---   hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 2.0"),
---   { repeating = true, locked = true }
--- )
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up 5"), { repeating = true, locked = true })
--- hl.bind(
---   "XF86AudioLowerVolume",
---   hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 2.0"),
---   { repeating = true, locked = true }
--- )
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 5"), { repeating = true, locked = true })
--- hl.bind(
---   "XF86AudioMute",
---   hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
---   { repeating = true, locked = true }
--- )
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { repeating = true, locked = true })
 
--- hl.bind(
---   "SUPER + M",
---   hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
---   { repeating = true, locked = true }
--- )
 hl.bind("SUPER + M", hl.dsp.exec_cmd("noctalia msg mic-mute"), { repeating = true, locked = true })
 
--- hl.bind(
---   "XF86MonBrightnessDown",
---   hl.dsp.exec_cmd("brightnessctl -c backlight s 5%-"),
---   { repeating = true, locked = true }
--- )
 hl.bind(
   "XF86MonBrightnessDown",
   hl.dsp.exec_cmd("noctalia msg brightness-down all 5"),
   { repeating = true, locked = true }
 )
--- hl.bind(
---   "SHIFT + XF86MonBrightnessDown",
---   hl.dsp.exec_cmd("brightnessctl -c backlight s 0%"),
---   { repeating = true, locked = true }
--- )
 hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-set all 0"), { locked = true })
--- hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -c backlight s 5%+"), { repeating = true, locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up all 5"), { repeating = true, locked = true })
--- hl.bind(
---   "SHIFT + XF86MonBrightnessUp",
---   hl.dsp.exec_cmd("brightnessctl -c backlight s 100%"),
---   { repeating = true, locked = true }
--- )
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-set all 100"), { locked = true })

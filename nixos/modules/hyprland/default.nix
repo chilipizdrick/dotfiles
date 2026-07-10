@@ -22,10 +22,6 @@
     };
   };
 
-  # Automatically login on startup
-  # services.getty.autologinUser = config.users.users.alex.name;
-  # services.getty.autologinOnce = true;
-
   environment.systemPackages = with pkgs; [
     hyprland-qtutils
   ];

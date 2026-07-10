@@ -1,0 +1,347 @@
+[audio]
+enable_overdrive = true
+enable_sounds = true
+
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    background_opacity = 0.79999998211860657
+    capsule = true
+    capsule_fill = "tertiary"
+    capsule_opacity = 0.099999997764825821
+    capsule_thickness = 0.74999998696148396
+    center = [ "workspaces" ]
+    contact_shadow = true
+    end = [ "recorder", "tray", "brightness", "group:g2", "network", "group:g1", "battery", "notifications", "session" ]
+    font_weight = 600
+    margin_ends = 10
+    radius = 15
+    start = [ "launcher", "clock", "media" ]
+
+        [[bar.default.capsule_group]]
+        enabled = true
+        fill = "tertiary"
+        id = "g2"
+        members = [ "volume", "input_volume" ]
+        opacity = 0.099999994039535522
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        enabled = true
+        fill = "tertiary"
+        id = "g1"
+        members = [ "ram", "cpu" ]
+        opacity = 0.099999994039535522
+        padding = 6.0
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[hooks]
+started = "noctalia msg session lock"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[location]
+address = "Kaluga, Russia"
+
+[lockscreen]
+tint_intensity = 0.0
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@DP-3",
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004",
+    "lockscreen-widget-0000000000000005"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 32
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "DP-3"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 1020.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.84999999999999998
+        background_radius = 15.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 288.0
+    box_width = 192.0
+    cx = 960.0
+    cy = 284.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = true
+        background_color = "surface"
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 12
+        center_text = true
+        circle = true
+        clock_style = "digital"
+        color = "on_surface"
+        font_family = ""
+        format = "{:%H\\n%M}"
+        shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 227.0
+    cy = 985.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "media_player"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background_radius = 15
+        hide_when_no_media = true
+        layout = "horizontal"
+        shadow = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 160.0
+    box_width = 224.0
+    cx = 1744.0
+    cy = 975.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background_radius = 15
+        shadow = true
+        show_forecast = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 32.0
+    box_width = 192.0
+    cx = 960.0
+    cy = 444.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 0
+        center_text = true
+        format = "{:%A}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+    box_height = 32.0
+    box_width = 192.0
+    cx = 960.0
+    cy = 476.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 0
+        center_text = true
+        format = "{:%d %b}"
+
+[nightlight]
+enabled = true
+
+[notification]
+background_opacity = 0.79999998211860657
+
+[osd]
+background_opacity = 0.79999998211860657
+
+    [osd.kinds]
+    media = false
+
+[plugin_settings."noctalia/screen_recorder"]
+video_source = "portal"
+
+[plugins]
+enabled = [ "noctalia/screen_recorder" ]
+
+[shell]
+clipboard_history_max_entries = 1000
+font_family = "Inter"
+polkit_agent = true
+screen_time_enabled = true
+
+    [shell.panel]
+    control_center_placement = "floating"
+    session_placement = "floating"
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+
+    [shell.screenshot]
+    directory = "~/Pictures/Screenshots"
+    pipe_command = "satty -f -"
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "l"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "g"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "p"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "r"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "s"
+    variant = "destructive"
+
+[system.monitor]
+gpu_poll_seconds = 5
+
+[theme]
+builtin = "Noctalia"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
+
+[wallpaper]
+directory = "/home/alex/Pictures/wallpapers"
+transition = [ "fade" ]
+
+    [wallpaper.default]
+    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+
+    [wallpaper.last]
+    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/alex/Pictures/wallpapers/landscapes/flower_catppuccin.jpg"
+
+[widget.audio_visualizer]
+bands = 32
+mirrored = false
+width = 201
+
+[widget.clock]
+format = "{:%H:%M %a %d %b}"
+
+[widget.cpu]
+enabled = true
+
+[widget.input_volume]
+enabled = false
+
+[widget.media]
+art_size = 30
+hide_when_no_media = true
+max_length = 260
+
+[widget.network]
+show_label = false
+
+[widget.ram]
+enabled = true
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.tray]
+drawer = true
+pinned = [ "AmneziaVPN" ]
+
