@@ -8,7 +8,7 @@
 
     gtk.enable = true;
     hyprcursor.enable = true;
-    x11.enable = true;
-    dotIcons.enable = true;
+    # x11.enable = true;
+    # dotIcons.enable = true;
   };
 }

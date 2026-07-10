@@ -12,7 +12,6 @@
     ./locale
     ./misc
     ./nix
-    # ./qt
     ./shell
     ./swap
     ./users

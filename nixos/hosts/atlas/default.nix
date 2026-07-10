@@ -21,5 +21,7 @@
     (btop.override {rocmSupport = true;})
   ];
 
+  services.upower.enable = true;
+
   networking.hostName = "atlas";
 }

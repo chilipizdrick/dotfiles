@@ -1,0 +1,107 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // --- Escape (Clear Search Highlights / Cancel) ---
+      "escape": "editor::Cancel",
+
+      // --- Pane Navigation (C-h, C-j, C-k, C-l) ---
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // --- Diagnostics ---
+      "space d o": "editor::Hover",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] d": "editor::GoToDiagnostic",
+      "space q": "diagnostics::Deploy",
+      "space shift-q": "editor::ToggleCodeActions",
+
+      // --- LSP ---
+      "space r n": "editor::Rename",
+      "g D": "editor::GoToDeclaration",
+      "K": "editor::Hover",
+
+      // --- Telescope (Search / Finder / Buffers) ---
+      "space s f": "file_finder::Toggle",
+      "space s w": "pane::DeploySearch",
+      "space s g": "pane::DeploySearch",
+      "space s d": "diagnostics::Deploy",
+      "space s r": "pane::DeploySearch",
+      "space space": "tab_switcher::Toggle",
+      "space s .": "file_finder::Toggle",
+      "g r": "editor::FindAllReferences",
+      "g I": "editor::GoToImplementation",
+      "g d": "editor::GoToDefinition",
+      "g T": "editor::GoToTypeDefinition",
+      "space t h": "editor::ToggleInlayHints",
+
+      // --- Trouble ---
+      "space x x": "diagnostics::Deploy",
+      "space x shift-x": "diagnostics::DeployCurrentFile",
+      "space c s": "outline::Toggle",
+      "space c l": "diagnostics::Deploy",
+      "space x l": "diagnostics::Deploy",
+      "space x q": "diagnostics::Deploy",
+
+      // --- Oil (File Explorer) ---
+      "space o": "project_panel::Toggle",
+
+      // --- Conform (Formatting) ---
+      "space f": "editor::Format",
+
+      // --- Gitsigns ---
+      "] c": "editor::GoToHunk",
+      "[ c": "editor::GoToPreviousHunk",
+      "space h s": "git::ToggleStaged",
+      "space h r": "git::Restore",
+      "space h shift-s": "git::StageFile",
+      "space h shift-r": "git::RestoreFile",
+      "space h p": "editor::ToggleSelectedDiffHunks",
+      "space h b": "editor::BlameHover",
+      "space t b": "editor::ToggleGitBlameInline",
+      "space h d": "editor::ToggleSelectedDiffHunks",
+      "space h shift-d": "editor::ToggleSelectedDiffHunks",
+
+      // --- Mini Surround ---
+      "s a": "vim::PushAddSurrounds",
+      "s d": "vim::PushDeleteSurrounds",
+      "s r": "vim::PushChangeSurrounds"
+    }
+  },
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      // --- Yank selection to system clipboard ---
+      "space y": ["workspace::SendKeystrokes", "\"+y"],
+
+      // --- Visual Gitsigns ---
+      "space h s": "git::ToggleStaged",
+      "space h r": "git::Restore",
+
+      // --- Visual Mini Surround ---
+      "s a": "vim::PushAddSurrounds",
+      "shift-s": "vim::PushAddSurrounds",
+
+      // --- Visual Exchange ---
+      "shift-x": "vim::Exchange"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // --- Yank line to system clipboard ---
+      "space y y": ["workspace::SendKeystrokes", "\"+y y"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // --- Supermaven autocomplete suggestions ---
+      "ctrl-y": "editor::AcceptInlineCompletion",
+      "ctrl-j": "editor::AcceptPartialInlineCompletion",
+      "ctrl-]": "editor::Cancel"
+    }
+  }
+]
