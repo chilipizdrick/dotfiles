@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./nautilus
-    ./wireshark
+    # ./nautilus
+    # ./wireshark
     ./hyperion
   ];
 

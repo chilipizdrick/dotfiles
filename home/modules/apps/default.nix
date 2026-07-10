@@ -50,4 +50,13 @@
     vlc
     yt-dlp
   ];
+
+  xdg.desktopEntries.spotify = {
+    name = "Spotify";
+    genericName = "Music Player";
+    exec = "spotify --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
+    icon = "spotify-client";
+    type = "Application";
+    categories = ["Audio" "Music" "Player" "AudioVideo"];
+  };
 }

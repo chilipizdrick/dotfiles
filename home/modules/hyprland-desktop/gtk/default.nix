@@ -2,11 +2,11 @@
   gtk = {
     enable = true;
 
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
-
+    # theme = {
+    #   name = "Adwaita-dark";
+    #   package = pkgs.gnome-themes-extra;
+    # };
+    #
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
@@ -22,8 +22,15 @@
   };
 
   dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
+    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    "org/gnome/desktop/media-handling" = {
+      automount = false;
+      automount-open = false;
+      autorun-never = true;
+    };
+    "org/gnome/desktop/default-applications/terminal" = {
+      exec = "alacritty";
+      exec-arg = "-e";
     };
   };
 }

@@ -11,7 +11,7 @@ writeShellScriptBin "select-wallpaper" ''
   TYPE="simple"
   DURATION=3
   BEZIER="0.4,0.2,0.4,1.0"
-  SWWW_PARAMS="--transition-fps ''${FPS} --transition-type ''${TYPE} --transition-duration ''${DURATION} --transition-bezier ''${BEZIER}"
+  AWWW_PARAMS="--transition-fps ''${FPS} --transition-type ''${TYPE} --transition-duration ''${DURATION} --transition-bezier ''${BEZIER}"
   PICS=($(find $(realpath "''${wallpaperDir}") -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) | sort ))
 
   randomNumber=$(( ($(date +%s) + RANDOM) + $$ ))
@@ -20,7 +20,7 @@ writeShellScriptBin "select-wallpaper" ''
   rofiCommand="${rofi}/bin/rofi -show -dmenu -theme ${./theme.rasi}"
 
   executeCommand() {
-    ${awww}/bin/awww img "$1" ''${SWWW_PARAMS}
+    ${awww}/bin/awww img "$1" ''${AWWW_PARAMS}
     ln -sf "$1" "$HOME/.current_wallpaper"
   }
 

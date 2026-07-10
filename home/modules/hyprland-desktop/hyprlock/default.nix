@@ -33,6 +33,7 @@ in {
           {
             monitor = "";
             path = "$HOME/.current_wallpaper";
+            # path = "screenshot";
             blur_size = 4;
             blur_passes = 3;
             noise = 0;
@@ -91,7 +92,7 @@ in {
           }
           {
             monitor = "";
-            text = "cmd[update:18000000] echo \"<b><big> $(date +\"%A\") </big></b>\"";
+            text = "cmd[update:1000] echo \"<b><big> $(date +\"%A\") </big></b>\"";
             color = "rgb(cdd6f4)";
             font_size = builtins.floor (22 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
@@ -103,7 +104,7 @@ in {
           }
           {
             monitor = "";
-            text = "cmd[update:18000000] echo \"<b> $(date +\"%d %b\") </b>\"";
+            text = "cmd[update:1000] echo \"<b> $(date +\"%d %b\") </b>\"";
             color = "rgb(cdd6f4)";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";
@@ -127,7 +128,7 @@ in {
           }
           {
             monitor = "";
-            text = ''cmd[update:1000] ${self'.packages.get-player-metadata}/bin/get-player-metadata'';
+            text = "cmd[update:1000] ${self'.packages.get-player-metadata}/bin/get-player-metadata";
             color = "rgb(cdd6f4)";
             font_size = builtins.floor (18 * cfg.scale);
             font_family = "JetBrainsMono Nerd Font 10";

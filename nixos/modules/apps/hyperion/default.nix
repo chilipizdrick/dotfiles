@@ -9,6 +9,7 @@ with lib; let
   captureScript = pkgs.writeShellScript "hyperion-wayland-capture" ''
     set -euo pipefail
 
+    OUTPUT='HDMI-A-1'
     DEVICE=$(${pkgs.v4l-utils}/bin/v4l2-ctl --list-devices | ${pkgs.gawk}/bin/awk '/VirtualVideoDevice/ {getline; print $1; exit}')
 
     if [ -z "$DEVICE" ]; then
@@ -16,13 +17,14 @@ with lib; let
       exit 1
     fi
 
-    echo 1 | ${pkgs.wf-recorder}/bin/wf-recorder \
+    exec ${pkgs.wf-recorder}/bin/wf-recorder \
       -c rawvideo \
       -m v4l2 \
       -x yuv420p \
       -F scale=512:288 \
       -r 30 -B 30 -D \
-      -f "$DEVICE"
+      -f "$DEVICE" \
+      -o "$OUTPUT"
   '';
 in {
   options.hyperion.enable = mkEnableOption "Hyperion related v4l2loopback settings";
@@ -65,7 +67,28 @@ in {
         ExecStart = "${captureScript}";
         Restart = "on-failure";
         RestartSec = "5s";
+        TimeoutStopSec = "1s";
       };
     };
   };
 }
+# {pkgs, ...}: {
+#   environment.systemPackages = with pkgs; [
+#     hyperhdr
+#   ];
+#
+#   # Define as a user service so it can communicate with PipeWire and Wayland portals
+#   systemd.user.services.hyperhdr = {
+#     description = "HyperHDR Ambient Lighting";
+#     wantedBy = ["graphical-session.target"];
+#     partOf = ["graphical-session.target"];
+#     after = ["graphical-session.target"];
+#
+#     serviceConfig = {
+#       ExecStart = "${pkgs.hyperhdr}/bin/hyperhdr";
+#       Restart = "on-failure";
+#       RestartSec = "5s";
+#     };
+#   };
+# }
+

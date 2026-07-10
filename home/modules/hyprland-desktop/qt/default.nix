@@ -5,14 +5,19 @@
     style.name = "breeze";
   };
 
-  xdg.configFile."kdeglobals".text = ''
-    [General]
-    ColorScheme=BreezeDark
-    Name=Breeze Dark
+  home.packages = with pkgs; [
+    kdePackages.breeze
+    kdePackages.breeze-icons
+  ];
 
-    [Icons]
-    Theme=breeze-dark
-
-    ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
-  '';
+  # xdg.configFile."kdeglobals".text = ''
+  #     [General]
+  #     ColorScheme=BreezeDark
+  #     Name=Breeze Dark
+  #
+  #     [Icons]
+  #     Theme=breeze-dark
+  #
+  #     ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
+  #   # '';
 }

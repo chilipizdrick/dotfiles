@@ -1,23 +1,19 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  services.hypridle.settings.listener = lib.mkForce [
-    {
-      timeout = 3600;
-      on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
-    }
-    {
-      timeout = 7200;
-      on-timeout = "systemctl suspend";
-    }
-  ];
-
-  hyprlock = {
-    enable = true;
-    scale = 1.0;
-  };
+{...}: {
+  # services.hypridle.settings.listener = lib.mkForce [
+  #   {
+  #     timeout = 3600;
+  #     on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+  #   }
+  #   {
+  #     timeout = 7200;
+  #     on-timeout = "systemctl suspend";
+  #   }
+  # ];
+  #
+  # hyprlock = {
+  #   enable = true;
+  #   scale = 1.0;
+  # };
 
   wayland.windowManager.hyprland.extraConfig =
     # lua

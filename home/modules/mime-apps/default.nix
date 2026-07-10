@@ -48,4 +48,11 @@
       "audio/webm" = "org.gnome.Decibels.desktop";
     };
   };
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = ["alacritty.desktop"];
+    };
+  };
 }

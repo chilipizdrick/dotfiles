@@ -10,13 +10,13 @@
 
     systemd = {
       enable = true;
-      variables = ["--all"];
+      # variables = ["--all"];
     };
 
     extraConfig = builtins.readFile ./config.lua;
   };
 
-  services.hyprpolkitagent.enable = true;
+  # services.hyprpolkitagent.enable = true;
 
   home.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
@@ -24,51 +24,53 @@
   };
 
   home.packages = with pkgs; [
-    brightnessctl
+    # brightnessctl
+    # hypridle
+    # hyprlock
+    # libnotify
+    # networkmanagerapplet
+    # pavucontrol
+    # playerctl
+    # vicinae
+    # wireplumber
+    # wlogout
     grim
-    hypridle
-    hyprlock
     hyprpicker
     killall
-    networkmanagerapplet
-    pavucontrol
-    playerctl
+    nautilus
     procps
     satty
     slurp
-    vicinae
-    wireplumber
     wl-clipboard
-    wlogout
 
     inputs'.wroomer.packages.wroomer-wayland
 
+    # self'.packages.reload-graphical-interface
+    # self'.packages.select-wallpaper
+    # self'.packages.toggle-caffeine-mode
+    # self'.packages.toggle-systemd-user-service
     self'.packages.clever-hijacker
-    self'.packages.reload-graphical-interface
-    self'.packages.satty-screenshot
-    self'.packages.select-wallpaper
-    self'.packages.toggle-caffeine-mode
-    self'.packages.toggle-systemd-user-service
     self'.packages.pw-connect
+    self'.packages.satty-screenshot
   ];
 
-  systemd.user.services.nm-applet = {
-    Unit = {
-      Description = "Network Manager Applet";
-      PartOf = ["graphical-session.target"];
-      After = ["graphical-session.target"];
-    };
-
-    Service = {
-      ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-      Restart = "on-failure";
-      RestartSec = 3;
-    };
-
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-  };
+  # systemd.user.services.nm-applet = {
+  #   Unit = {
+  #     Description = "Network Manager Applet";
+  #     PartOf = ["graphical-session.target"];
+  #     After = ["graphical-session.target"];
+  #   };
+  #
+  #   Service = {
+  #     ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+  #     Restart = "on-failure";
+  #     RestartSec = 3;
+  #   };
+  #
+  #   Install = {
+  #     WantedBy = ["graphical-session.target"];
+  #   };
+  # };
 
   home.file."Pictures/wallpapers".source = pkgs.fetchFromGitHub {
     owner = "chilipizdrick";

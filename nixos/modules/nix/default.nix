@@ -24,12 +24,10 @@
       substituters = [
         # "https://chilipizdrick.cachix.org"
         # "https://nix-community.cachix.org"
-        # "https://attic.xuyh0120.win/lantian"
       ];
       trusted-public-keys = [
         # "chilipizdrick.cachix.org-1:xVL2Q4Rbpc6EpDJ8lNHg7BMRhPfT26jw7l+jk4taUI8="
         # "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        # "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       ];
     };
     channel.enable = false;

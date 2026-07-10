@@ -1,27 +1,28 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
-    ./qt
+    # ./awww
+    # ./gammastep
+    # ./hypridle
+    # ./hyprlock
+    # ./mako
+    # ./vicinae
+    # ./waybar
+    # ./wlogout
     ./cursor
-    ./gammastep
     ./gtk
-    ./hypridle
     ./hyprland
-    ./hyprlock
-    ./mako
-    ./swww
-    ./vicinae
-    ./waybar
-    ./wlogout
+    ./noctalia
+    ./qt
   ];
 
-  programs.fish = {
-    enable = true;
-    loginShellInit =
-      # fish
-      ''
-        if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"
-          exec ${pkgs.hyprland}/bin/start-hyprland
-        end
-      '';
-  };
+  # programs.fish = {
+  #   enable = true;
+  #   loginShellInit =
+  #     # fish
+  #     ''
+  #       if test (tty) = "/dev/tty1"; and test -z "$WAYLAND_DISPLAY"
+  #         exec ${pkgs.hyprland}/bin/start-hyprland
+  #       end
+  #     '';
+  # };
 }

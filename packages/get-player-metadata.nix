@@ -4,13 +4,22 @@
   ...
 }:
 writeShellScriptBin "get-player-metadata" ''
-  if [[ -z $(playerctl metadata) ]]; then
-      printf ""
-      exit 0
-  elif [[ "$(${playerctl}/bin/playerctl metadata | head -1 | awk '{print $1}')" != "firefox" ]]; then
-      printf "<b>$([ "$(${playerctl}/bin/playerctl status)" != "Paused" ] && [ "$(${playerctl}/bin/playerctl metadata | head -1 | awk '{print $1}')" = "spotify" ] && echo ' ')$([ "$(${playerctl}/bin/playerctl status)" = "Paused" ] && echo ' ')$(${playerctl}/bin/playerctl metadata title | sed 's/\(.\{30\}\).*/\1.../')</b>\n$(${playerctl}/bin/playerctl metadata artist | sed 's/\(.\{30\}\).*/\1.../')"
-      exit 0
-  else
-      printf ""
+  metadata="$(${playerctl}/bin/playerctl metadata -f '{{playerName}}|{{status}}|{{title}}|{{artist}}' 2>/dev/null)"
+  if [[ -z "$metadata" ]]; then
+    exit 0
   fi
+
+  IFS='|' read -r player status title artist <<< "$metadata"
+
+  [[ ''${#title} -gt 30 ]] && title="''${title:0:30}..."
+  [[ ''${#artist} -gt 30 ]] && artist="''${artist:0:30}..."
+
+  icon=" "
+  if [[ "$status" == "Paused" ]]; then
+    icon=" "
+  elif [[ "$player" == *"spotify"* ]]; then
+    icon=" "
+  fi
+
+  printf "<b>%s%s</b>\n%s" "$icon" "$title" "$artist"
 ''

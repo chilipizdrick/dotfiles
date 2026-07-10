@@ -1,6 +1,6 @@
 {writeShellScriptBin, ...}:
 writeShellScriptBin "reload-graphical-interface" ''
-  services=(waybar.service swww.service gammastep.service)
+  services=(waybar.service awww.service gammastep.service vicinae.service)
 
   for service in "''${services[@]}"; do
     if systemctl --user is-active "''${service}" > /dev/null; then
@@ -13,6 +13,4 @@ writeShellScriptBin "reload-graphical-interface" ''
   done
 
   hyprctl reload
-
-  exit 0
 ''

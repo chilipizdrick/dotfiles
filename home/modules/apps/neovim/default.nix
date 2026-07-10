@@ -32,6 +32,7 @@
     go
 
     nixd
+    nil
 
     fixjson
 

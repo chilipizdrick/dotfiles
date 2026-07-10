@@ -18,7 +18,7 @@ def find_node(dump, name_query, role):
     role: "source" (app outputting audio) or "sink" (app receiving audio)
     """
     valid_classes = (
-        ["Stream/Output/Audio", "Audio/Source"] if role == "source" 
+        ["Stream/Output/Audio", "Audio/Source"] if role == "source"
         else ["Stream/Input/Audio", "Audio/Sink"]
     )
 
@@ -26,19 +26,19 @@ def find_node(dump, name_query, role):
         if obj.get('type') == 'PipeWire:Interface:Node':
             props = obj.get('info', {}).get('props', {})
             media_class = props.get('media.class', '')
-            
+
             names = [
                 props.get('application.name', ''),
                 props.get('node.name', ''),
                 props.get('node.description', ''),
                 props.get('media.name', '')
             ]
-            
+
             if any(name_query.lower() in str(n).lower() for n in names if n):
                 if media_class in valid_classes:
                     display_name = props.get('application.name') or props.get('node.description') or name_query
                     return str(obj['id']), display_name
-                    
+
     return None, None
 
 def get_ports(dump, node_id, direction):
@@ -48,10 +48,10 @@ def get_ports(dump, node_id, direction):
         if obj.get('type') == 'PipeWire:Interface:Port':
             info = obj.get('info', {})
             props = info.get('props', {})
-            
+
             if str(props.get('node.id')) == node_id:
                 port_dir = str(info.get('direction') or props.get('port.direction') or '').lower()
-                
+
                 if direction in port_dir or not port_dir:
                     channel = props.get('audio.channel') or props.get('port.name') or f"unmapped_{obj['id']}"
                     ports[channel] = obj['id']
@@ -64,11 +64,11 @@ def get_existing_links(dump):
         if obj.get('type') == 'PipeWire:Interface:Link':
             info = obj.get('info', {})
             props = info.get('props', {})
-            
+
             # Extract port IDs (can be nested in props or root info depending on version)
             out_port = props.get('link.output.port') or info.get('output-port-id') or info.get('output_port_id')
             in_port = props.get('link.input.port') or info.get('input-port-id') or info.get('input_port_id')
-            
+
             if out_port is not None and in_port is not None:
                 try:
                     links.add((int(out_port), int(in_port)))
@@ -84,7 +84,7 @@ def main():
 
     out_query = sys.argv[1]
     in_query = sys.argv[2]
-    
+
     print("Fetching PipeWire state...")
     dump = get_pipewire_dump()
 
@@ -119,7 +119,7 @@ def main():
     # 4. Map the target port pairs based on Audio Channel / Fallback logic
     target_pairs = []
     in_channels = list(in_ports.keys())
-    
+
     for i, (out_chan, out_port_id) in enumerate(out_ports.items()):
         if out_chan in in_ports:
             in_port_id = in_ports[out_chan]
@@ -131,10 +131,10 @@ def main():
 
     # 5. Determine whether to Connect or Disconnect (Toggle Logic)
     existing_links = get_existing_links(dump)
-    
+
     # If ANY of our target connections already exist, we switch to disconnect mode
     disconnect_mode = any((out_id, in_id) in existing_links for out_id, in_id, _ in target_pairs)
-    
+
     print("-" * 30)
     if disconnect_mode:
         print("Existing connections detected. Mode: DISCONNECT")
@@ -149,7 +149,7 @@ def main():
         for out_id, in_id, label in target_pairs:
             print(f"Linking {label}: Port {out_id} -> Port {in_id}")
             subprocess.run(['pw-link', str(out_id), str(in_id)])
-        
+
     print("Done!")
 
 if __name__ == '__main__':

@@ -6,41 +6,11 @@
   services.tumbler.enable = true;
 
   # Configure PAM to enable hyprock to perform authentication
-  programs.hyprlock.enable = true;
-  security.pam.services.hyprlock = {};
+  # programs.hyprlock.enable = true;
+  # security.pam.services.hyprlock = {};
 
   # Allow discovery of connected monitors
   hardware.i2c.enable = true;
-
-  programs.dconf = {
-    enable = true;
-    profiles.user.databases = [
-      {
-        lockAll = true;
-        settings = {
-          "org/gnome/desktop/media-handling" = {
-            automount = false;
-            automount-open = false;
-            autorun-never = true;
-          };
-          "org/gnome/desktop/default-applications/terminal" = {
-            exec = "alacritty";
-            exec-arg = "-e";
-          };
-          # "org/gnome/desktop/interface" = {
-          #   color-scheme = "prefer-dark";
-          # };
-        };
-      }
-    ];
-  };
-
-  xdg.terminal-exec = {
-    enable = true;
-    settings = {
-      default = ["alacritty.desktop"];
-    };
-  };
 
   # This garbage is killing my system boot time
   systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];

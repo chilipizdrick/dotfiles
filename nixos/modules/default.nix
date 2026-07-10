@@ -9,11 +9,10 @@
     ./fonts
     ./games
     ./hyprland
-    ./kdeconnect
     ./locale
     ./misc
     ./nix
-    ./qt
+    # ./qt
     ./shell
     ./swap
     ./users
