@@ -16,6 +16,8 @@
 
   services.speechd.enable = lib.mkForce false;
 
+  programs.dconf.enable = true;
+
   # Disable NixOS manual and such
   documentation = {
     enable = true;

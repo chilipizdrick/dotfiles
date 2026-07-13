@@ -403,7 +403,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
+    builtin_ids = [ "gtk3", "gtk4" ]
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"

@@ -21,7 +21,10 @@
     (btop.override {rocmSupport = true;})
   ];
 
-  programs.noctalia-greeter.settings.output.scale = 1.666667;
+  noctalia-greeter = {
+    enable = true;
+    output.scale = 1.666667;
+  };
 
   services.upower.enable = true;
 

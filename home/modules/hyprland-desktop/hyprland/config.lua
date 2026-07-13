@@ -4,14 +4,8 @@ local up = "K"
 local right = "L"
 local hijacker_enabled = false
 
--- Environment Variables
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-hl.env("NIXOS_OZONE_WL", "1")
-hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
-hl.env("HYPRCURSOR_SIZE", "20")
-
 -- Monitors
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
+-- hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
 
 -- General Configuration
 hl.config({
@@ -124,13 +118,6 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, bezier = "easeOutC
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide bottom" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide" })
-
--- Layer Rules
--- hl.layer_rule({ match = { namespace = "waybar" }, animation = "slide" })
--- hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications|logout_dialog|rofi)$" }, blur = true })
--- hl.layer_rule({ match = { namespace = "^(waybar|vicinae|notifications)$" }, ignore_alpha = 0.5 })
--- hl.layer_rule({ match = { namespace = "^(waybar|vicinae)$" }, blur_popups = true })
--- hl.layer_rule({ match = { namespace = "^(hyprpicker|selection|slurp|vicinae)$" }, no_anim = true })
 
 hl.layer_rule({
   name = "noctalia",

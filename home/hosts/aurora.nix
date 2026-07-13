@@ -10,11 +10,6 @@
         hl.workspace_rule({workspace = i, monitor = "HDMI-A-1"})
       end
       hl.workspace_rule({workspace = "10", monitor = "DP-3"})
-
-      hl.env("LIBVA_DRIVER_NAME", "nvidia")
-      hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-      hl.env("GBM_BACKEND", "nvidia-drm")
-      hl.env("NVD_BACKEND", "direct")
     '';
 
   home.sessionVariables = {

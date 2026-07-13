@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    # ./probe-rs
     ./appimage
     ./greeter
     ./apps

@@ -21,7 +21,10 @@
     minecraft = true;
   };
 
-  programs.noctalia-greeter.settings.output.name = "HDMI-A-1";
+  noctalia-greeter = {
+    enable = true;
+    output.name = "HDMI-A-1";
+  };
 
   boot.loader.timeout = lib.mkForce null;
   boot.loader.systemd-boot.windows.windows-11 = {
