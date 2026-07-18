@@ -90,14 +90,20 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000011",
+    "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@DP-3",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
     "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005"
+    "lockscreen-widget-0000000000000005",
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-0000000000000007",
+    "lockscreen-widget-0000000000000008",
+    "lockscreen-widget-0000000000000009",
+    "lockscreen-widget-0000000000000010"
 ]
 
     [lockscreen_widgets.grid]
@@ -109,7 +115,7 @@ widget_order = [
     box_height = 70.0
     box_width = 400.0
     cx = 960.0
-    cy = 1017.0
+    cy = 961.0
     enabled = false
     output = "DP-3"
     rotation = 0.0
@@ -161,6 +167,7 @@ widget_order = [
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -253,16 +260,16 @@ widget_order = [
         format = "{:%d %b}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
-    box_height = 128.0
-    box_width = 320.0
-    cx = 224.0
-    cy = 991.0
-    output = "HDMI-A-1"
+    box_height = 288.0
+    box_width = 192.0
+    cx = 768.0
+    cy = 272.0
+    output = "eDP-1"
     rotation = 0.0
-    type = "audio_visualizer"
+    type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
-        background = false
+        background = true
         background_color = "surface"
         background_opacity = 0.0
         background_padding = 0
@@ -339,6 +346,22 @@ widget_order = [
         background_radius = 0
         center_text = true
         format = "{:%d %b}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
+    box_height = 128.0
+    box_width = 288.0
+    cx = 192.0
+    cy = 864.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
+        background = false
+        bands = 32
+        centered = false
+        mirrored = false
+        show_when_idle = false
 
 [nightlight]
 enabled = true
@@ -429,16 +452,19 @@ directory = "/home/alex/Pictures/wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.DP-3]
     path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
 [widget.audio_visualizer]
 bands = 32
