@@ -11,7 +11,7 @@ local hijacker_enabled = false
 hl.config({
   general = {
     border_size = 2,
-    gaps_in = { top = 10, bottom = 10, left = 10, right = 0 },
+    gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
     gaps_out = 10,
     ["col.active_border"] = "rgba(ffffff88)",
     ["col.inactive_border"] = "rgba(55555555)",
@@ -131,7 +131,7 @@ hl.layer_rule({
 })
 
 -- Window Rules
-hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
+-- hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
 hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0 })
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })

@@ -12,9 +12,11 @@ order = [ "default" ]
     capsule_opacity = 0.099999997764825821
     capsule_thickness = 0.74999998696148396
     center = [ "workspaces" ]
+    concave_edge_corners = false
     contact_shadow = true
     end = [ "tray", "recorder", "brightness", "group:g2", "network", "group:g1", "battery", "notifications", "session" ]
     font_weight = 600
+    margin_edge = 10
     margin_ends = 10
     radius = 15
     start = [ "launcher", "clock", "media" ]
@@ -49,6 +51,7 @@ widget_order = []
 
 [hooks]
 started = ""
+wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -61,12 +64,21 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
     enabled = true
+    resume_command = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'"
     timeout = 900.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
     enabled = true
     timeout = 660.0
+
+[keybinds]
+down = [ "Down", "Ctrl+j" ]
+left = [ "Left", "Ctrl+h" ]
+right = [ "Right", "Ctrl+l" ]
+tab_next = [ "Tab", "Ctrl+n" ]
+tab_previous = [ "Shift+ISO_Left_Tab", "Ctrl+p" ]
+up = [ "Up", "Ctrl+k" ]
 
 [location]
 address = ""
@@ -78,10 +90,11 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-0000000000000002",
     "lockscreen-login-box@DP-3",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002",
     "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
     "lockscreen-widget-0000000000000005"
@@ -106,6 +119,7 @@ widget_order = [
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -126,6 +140,7 @@ widget_order = [
         background_color = "surface_variant"
         background_opacity = 0.84999999999999998
         background_radius = 15.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -238,27 +253,31 @@ widget_order = [
         format = "{:%d %b}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
-    box_height = 288.0
-    box_width = 192.0
-    cx = 768.0
-    cy = 272.0
-    output = "eDP-1"
+    box_height = 128.0
+    box_width = 320.0
+    cx = 224.0
+    cy = 991.0
+    output = "HDMI-A-1"
     rotation = 0.0
-    type = "clock"
+    type = "audio_visualizer"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
-        background = true
+        background = false
         background_color = "surface"
         background_opacity = 0.0
         background_padding = 0
         background_radius = 12
+        bands = 32
         center_text = true
+        centered = false
         circle = true
         clock_style = "digital"
         color = "on_surface"
         font_family = ""
         format = "{:%H\\n%M}"
+        mirrored = false
         shadow = true
+        show_when_idle = false
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
     box_height = 0.0
@@ -346,7 +365,7 @@ polkit_agent = true
 screen_time_enabled = true
 
     [shell.greeter_sync]
-    auto_sync = true
+    auto_sync = false
 
     [shell.panel]
     control_center_placement = "floating"
@@ -410,16 +429,16 @@ directory = "/home/alex/Pictures/wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
 
 [widget.audio_visualizer]
 bands = 32
@@ -442,6 +461,7 @@ enabled = false
 art_size = 30
 hide_when_no_media = true
 max_length = 260
+title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
