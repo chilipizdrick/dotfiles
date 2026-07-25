@@ -7,10 +7,15 @@
 
       "x-scheme-handler/terminal" = "Alacritty.dekstop";
 
-      "x-scheme-handler/http" = "zen-beta.desktop";
-      "x-scheme-handler/https" = "zen-beta.desktop";
-      "x-scheme-handler/about" = "zen-beta.desktop";
-      "x-scheme-handler/unknown" = "zen-beta.desktop";
+      # "x-scheme-handler/http" = "zen-beta.desktop";
+      # "x-scheme-handler/https" = "zen-beta.desktop";
+      # "x-scheme-handler/about" = "zen-beta.desktop";
+      # "x-scheme-handler/unknown" = "zen-beta.desktop";
+
+      "x-scheme-handler/http" = "helium.desktop";
+      "x-scheme-handler/https" = "helium.desktop";
+      "x-scheme-handler/about" = "helium.desktop";
+      "x-scheme-handler/unknown" = "helium.desktop";
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
@@ -19,7 +24,7 @@
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "zen-beta.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop" "helium.desktop"];
       "application/doc" = "onlyoffice-desktopeditors.desktop";
       "application/docx" = "onlyoffice-desktopeditors.desktop";
       "application/msword" = "onlyoffice-desktopeditors.desktop";
