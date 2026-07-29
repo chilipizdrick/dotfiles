@@ -53,7 +53,7 @@ in {
 
           [appearance]
           scheme = "Synced"
-          password_style = "default"
+          password_style = "random"
           hide_logo = true
         '';
     };

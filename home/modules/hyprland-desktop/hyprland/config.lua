@@ -4,9 +4,6 @@ local up = "K"
 local right = "L"
 local hijacker_enabled = false
 
--- Monitors
--- hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
-
 -- General Configuration
 hl.config({
   general = {

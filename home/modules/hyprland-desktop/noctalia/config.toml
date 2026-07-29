@@ -64,7 +64,6 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
     enabled = true
-    resume_command = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'"
     timeout = 900.0
 
     [idle.behavior.screen-off]
@@ -90,20 +89,12 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-widget-0000000000000011",
-    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000006",
     "lockscreen-login-box@DP-3",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002",
-    "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000007",
-    "lockscreen-widget-0000000000000008",
-    "lockscreen-widget-0000000000000009",
-    "lockscreen-widget-0000000000000010"
+    "lockscreen-widget-0000000000000005"
 ]
 
     [lockscreen_widgets.grid]
@@ -112,10 +103,10 @@ widget_order = [
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
-    box_height = 70.0
-    box_width = 400.0
-    cx = 960.0
-    cy = 961.0
+    box_height = 229.0
+    box_width = 720.0
+    cx = 928.0
+    cy = 846.5
     enabled = false
     output = "DP-3"
     rotation = 0.0
@@ -128,16 +119,19 @@ widget_order = [
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 229.0
+    box_width = 810.0
     cx = 960.0
-    cy = 1020.0
+    cy = 937.5
     output = "HDMI-A-1"
     rotation = 0.0
     type = "login_box"
@@ -149,10 +143,13 @@ widget_order = [
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
@@ -173,7 +170,6 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 288.0
@@ -185,7 +181,7 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = true
+        background = false
         background_color = "surface"
         background_opacity = 0.0
         background_padding = 0
@@ -237,11 +233,14 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background = false
         background_opacity = 0.0
         background_padding = 0
         background_radius = 0
         center_text = true
+        font_family = ""
         format = "{:%A}"
+        shadow = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
     box_height = 32.0
@@ -253,6 +252,7 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+        background = false
         background_opacity = 0.0
         background_padding = 0
         background_radius = 0
@@ -260,30 +260,21 @@ widget_order = [
         format = "{:%d %b}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
-    box_height = 288.0
-    box_width = 192.0
-    cx = 768.0
-    cy = 272.0
-    output = "eDP-1"
+    box_height = 224.0
+    box_width = 800.0
+    cx = 960.0
+    cy = 940.0
+    output = "HDMI-A-1"
     rotation = 0.0
-    type = "clock"
+    type = "audio_visualizer"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
-        background = true
-        background_color = "surface"
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 12
-        bands = 32
-        center_text = true
+        background = false
+        bands = 64
         centered = false
-        circle = true
-        clock_style = "digital"
-        color = "on_surface"
-        font_family = ""
-        format = "{:%H\\n%M}"
+        color_1 = "primary"
+        color_2 = "primary"
         mirrored = false
-        shadow = true
         show_when_idle = false
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
@@ -384,6 +375,7 @@ enabled = [ "noctalia/screen_recorder" ]
 [shell]
 clipboard_history_max_entries = 1000
 font_family = "Inter"
+password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
 
@@ -452,19 +444,22 @@ directory = "/home/alex/Pictures/wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.default]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
 
     [wallpaper.last]
-    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/alex/Pictures/wallpapers/landscapes/lush_sea_view.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
+
+[weather]
+refresh_minutes = 10
 
 [widget.audio_visualizer]
 bands = 32
@@ -500,5 +495,4 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.tray]
 drawer = true
-pinned = [ "AmneziaVPN" ]
-
+pinned = [ "AmneziaVPN", "systray_34401", "TelegramDesktop" ]

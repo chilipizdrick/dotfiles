@@ -1,4 +1,4 @@
-{inputs', ...}: {
+{...}: {
   wayland.windowManager.hyprland.extraConfig =
     # lua
     ''
@@ -9,7 +9,7 @@
       for i = 1,9 do
         hl.workspace_rule({workspace = i, monitor = "HDMI-A-1"})
       end
-      hl.workspace_rule({workspace = "10", monitor = "DP-3"})
+      hl.workspace_rule({workspace = 10, monitor = "DP-3"})
     '';
 
   home.sessionVariables = {
@@ -19,11 +19,8 @@
     NVD_BACKEND = "direct";
   };
 
-  programs.noctalia.package = inputs'.noctalia.packages.cuda;
-
   games = {
     enable = true;
-    osu = true;
     minecraft = true;
   };
 }

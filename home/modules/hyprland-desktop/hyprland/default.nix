@@ -25,6 +25,7 @@
     satty
     slurp
     wl-clipboard
+    libnotify
 
     inputs'.wroomer.packages.wroomer-wayland
 
