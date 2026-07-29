@@ -3,9 +3,12 @@
     # lua
     ''
       hl.monitor({ output = "eDP-1", mode = "highres", position = "auto", scale = 1.666667 })
+
       hl.on("hyprland.start", function()
         hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ~/.Xresources")
       end)
+
+      hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("loginctl lock-session"))
     '';
 
   # Force scaling for x11 apps
