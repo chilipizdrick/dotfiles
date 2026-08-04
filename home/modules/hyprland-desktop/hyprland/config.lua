@@ -4,6 +4,10 @@ local up = "K"
 local right = "L"
 local hijacker_enabled = false
 
+-- For some reason only by setting XCURSOR_SIZE to the desired amount I can get
+-- hyprland to set this cursor size on startup without using `hyprctl setcursor ...`
+hl.env("XCURSOR_SIZE", "20")
+
 -- General Configuration
 hl.config({
   general = {
@@ -116,6 +120,13 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "easeOut
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide" })
 
+hl.bind("SUPER + SHIFT + A", function()
+  local animations_enabled = not hl.get_config("animations.enabled")
+  local msg = animations_enabled and "Enabled" or "Disabled"
+  hl.exec_cmd("noctalia msg notification-show 'Animations' '" .. msg .. "'")
+  hl.config({ animations = { enabled = animations_enabled } })
+end)
+
 hl.layer_rule({
   name = "noctalia",
   match = {
@@ -159,7 +170,6 @@ hl.window_rule({
 -- Startup
 hl.on("hyprland.start", function()
   hl.exec_cmd("noctalia")
-  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 20")
 end)
 
 -- Gestures
@@ -230,7 +240,7 @@ end)
 
 hl.bind("SUPER + S", hl.dsp.exec_cmd("spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine'"))
+hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine' | notify-send -a 'pw-connect'"))
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))

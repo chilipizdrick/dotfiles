@@ -10,7 +10,7 @@
   nvidiaVideoDrivers.enable = true;
 
   # Enable ambilight support
-  hyperion.enable = true;
+  # hyperion.enable = true;
 
   # Printer and scanner config
   printerScanner.enable = true;

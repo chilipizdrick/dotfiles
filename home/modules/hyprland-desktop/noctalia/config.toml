@@ -89,17 +89,11 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-widget-0000000000000012",
-    "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@DP-3",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002",
-    "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000009",
-    "lockscreen-widget-0000000000000010",
+    "lockscreen-widget-0000000000000005"
 ]
 
     [lockscreen_widgets.grid]
@@ -110,8 +104,8 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
     box_height = 196.0
     box_width = 720.0
-    cx = 960.0
-    cy = 961.0
+    cx = 928.0
+    cy = 846.5
     enabled = false
     output = "DP-3"
     rotation = 0.0
@@ -135,9 +129,9 @@ widget_order = [
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
     box_height = 196.0
-    box_width = 720.0
+    box_width = 810.0
     cx = 960.0
-    cy = 1020.0
+    cy = 954.0
     output = "HDMI-A-1"
     rotation = 0.0
     type = "login_box"
@@ -193,7 +187,7 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = true
+        background = false
         background_color = "surface"
         background_opacity = 0.0
         background_padding = 0
@@ -444,10 +438,10 @@ transition = [ "fade" ]
     path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/alex/Pictures/wallpapers/landscapes/mountains_river_walley.jpg"
+    path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/alex/Pictures/wallpapers/landscapes/flowers_stones.jpg"
@@ -489,5 +483,5 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.tray]
 drawer = true
-pinned = [ "AmneziaVPN", "systray_34401", "TelegramDesktop" ]
+pinned = [ "AmneziaVPN", "systray_34401", "TelegramDesktop", "tailscale" ]
 

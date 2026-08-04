@@ -39,7 +39,7 @@ in {
           ${
             if cfg.output.name == null
             then ""
-            else "name = ${toString cfg.output.name}"
+            else "name = \"${toString cfg.output.name}\""
           }
           scale = ${toString cfg.output.scale}
 

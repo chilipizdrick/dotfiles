@@ -10,12 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hijacker2.url = "github:chilipizdrick/hijacker2";
+    rust-overlay.url = "github:oxalica/rust-overlay?ref=stable";
+
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia.url = "github:noctalia-dev/noctalia";
-    rust-overlay.url = "github:oxalica/rust-overlay?ref=stable";
+
+    hijacker2.url = "github:chilipizdrick/hijacker2";
     wroomer.url = "github:chilipizdrick/wroomer";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
   };
 
   outputs = inputs:

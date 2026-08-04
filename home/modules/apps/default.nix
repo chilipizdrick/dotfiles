@@ -9,7 +9,7 @@
     ./direnv
     ./git
     ./jujutsu
-    ./kdeconnect
+    # ./kdeconnect
     ./mpv
     ./neovim
     ./obs-studio
@@ -38,17 +38,17 @@
     easyeffects
     imv
     inputs'.hijacker2.packages.hijacker2
-    inputs'.zen-browser.packages.beta
     kdePackages.kolourpaint
     loupe
     obsidian
+    onlyoffice-desktopeditors
     qbittorrent
+    reaper
     ripdrag
     self'.packages.helium-browser
     spotify
     telegram-desktop
     vlc
     yt-dlp
-    zed-editor-fhs
   ];
 }

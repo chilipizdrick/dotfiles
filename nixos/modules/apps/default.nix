@@ -23,7 +23,6 @@
     jujutsu
     microfetch
     neovim
-    onlyoffice-desktopeditors
     p7zip
     ripgrep
     socat
