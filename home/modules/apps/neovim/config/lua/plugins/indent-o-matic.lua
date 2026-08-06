@@ -1,8 +1,6 @@
 return {
   "Darazaki/indent-o-matic",
 
-  enabled = true,
-
   event = "BufEnter",
 
   opts = {

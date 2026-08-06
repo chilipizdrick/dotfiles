@@ -1,8 +1,6 @@
 return {
   "catppuccin/nvim",
 
-  enabled = true,
-
   name = "catppuccin",
 
   priority = 1000,
@@ -15,10 +13,10 @@ return {
         light = "latte",
         dark = "mocha",
       },
-      float = {
-        transparent = true,
-        solid = false,
-      },
+      -- float = {
+      --   -- transparent = true,
+      --   -- solid = true,
+      -- },
       term_colors = false,
 
       styles = {
@@ -69,5 +67,14 @@ return {
 
   init = function()
     vim.cmd.colorscheme("catppuccin-nvim")
+
+    -- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none", fg = "#89B4FA" })
+    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "none" })
   end,
 }

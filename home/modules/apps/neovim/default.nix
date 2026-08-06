@@ -13,26 +13,27 @@
 
     rust-bin.stable.latest.default
     rust-analyzer
-    bacon
+    # bacon
 
     wgsl-analyzer
 
     python3
     pyright
 
-    nodejs
+    # nodejs
 
     llvmPkgs.clang
     llvmPkgs.clang-tools
 
-    lua51Packages.lua
+    # lua51Packages.lua
     lua-language-server
     stylua
 
-    go
+    # go
+    # gopls
 
     nixd
-    nil
+    # nil
 
     fixjson
 
