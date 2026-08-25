@@ -4,7 +4,6 @@ import json
 import subprocess
 
 def get_pipewire_dump():
-    """Fetches the current PipeWire state as JSON."""
     result = subprocess.run(['pw-dump'], capture_output=True, text=True)
     try:
         return json.loads(result.stdout)
@@ -13,10 +12,6 @@ def get_pipewire_dump():
         sys.exit(1)
 
 def find_node(dump, name_query, role):
-    """
-    Finds a node by name and its explicit media class role.
-    role: "source" (app outputting audio) or "sink" (app receiving audio)
-    """
     valid_classes = (
         ["Stream/Output/Audio", "Audio/Source"] if role == "source"
         else ["Stream/Input/Audio", "Audio/Sink"]
@@ -42,7 +37,6 @@ def find_node(dump, name_query, role):
     return None, None
 
 def get_ports(dump, node_id, direction):
-    """Gets ports for a node. Falls back to port ID if channel is unmapped."""
     ports = {}
     for obj in dump:
         if obj.get('type') == 'PipeWire:Interface:Port':
@@ -58,14 +52,12 @@ def get_ports(dump, node_id, direction):
     return ports
 
 def get_existing_links(dump):
-    """Returns a set of (out_port_id, in_port_id) tuples representing active links."""
     links = set()
     for obj in dump:
         if obj.get('type') == 'PipeWire:Interface:Link':
             info = obj.get('info', {})
             props = info.get('props', {})
 
-            # Extract port IDs (can be nested in props or root info depending on version)
             out_port = props.get('link.output.port') or info.get('output-port-id') or info.get('output_port_id')
             in_port = props.get('link.input.port') or info.get('input-port-id') or info.get('input_port_id')
 
@@ -76,10 +68,16 @@ def get_existing_links(dump):
                     continue
     return links
 
+def send_notification(summary, body):
+    try:
+        subprocess.run(["notify-send", "-a", "Pipewire Connect", summary, body])
+    except:
+        print("Error: Could not send notification to user.")
+
 def main():
     if len(sys.argv) != 3:
-        print("Usage: ./pw-connect.py <output_app_name> <input_app_name>")
-        print("Example: ./pw-connect.py spotify 'webrtc voiceengine'")
+        print("Usage: pw-connect <output_app_name> <input_app_name>")
+        print("Example: pw-connect spotify 'webrtc voiceengine'")
         sys.exit(1)
 
     out_query = sys.argv[1]
@@ -88,7 +86,6 @@ def main():
     print("Fetching PipeWire state...")
     dump = get_pipewire_dump()
 
-    # 1. Find the Nodes using Media Class
     out_node_id, out_name = find_node(dump, out_query, "source")
     if not out_node_id:
         print(f"Error: Could not find playback node for '{out_query}'. Is the app running?")
@@ -102,11 +99,9 @@ def main():
     print(f"Found Source: {out_name} (Node ID: {out_node_id})")
     print(f"Found Sink:   {in_name} (Node ID: {in_node_id})")
 
-    # 2. Get the Ports
     out_ports = get_ports(dump, out_node_id, "out")
     in_ports = get_ports(dump, in_node_id, "in")
 
-    # 3. Check for Paused/Suspended States
     if not out_ports or not in_ports:
         print("\n[!] ERROR: Node found, but missing audio ports.")
         if not out_ports:
@@ -116,7 +111,6 @@ def main():
         print("\nFix: Make sure both applications are actively playing/recording audio right now.")
         sys.exit(1)
 
-    # 4. Map the target port pairs based on Audio Channel / Fallback logic
     target_pairs = []
     in_channels = list(in_ports.keys())
 
@@ -129,10 +123,8 @@ def main():
             in_port_id = in_ports[fallback_chan]
             target_pairs.append((int(out_port_id), int(in_port_id), f"[Fallback: {out_chan} -> {fallback_chan}]"))
 
-    # 5. Determine whether to Connect or Disconnect (Toggle Logic)
     existing_links = get_existing_links(dump)
 
-    # If ANY of our target connections already exist, we switch to disconnect mode
     disconnect_mode = any((out_id, in_id) in existing_links for out_id, in_id, _ in target_pairs)
 
     print("-" * 30)
@@ -144,11 +136,13 @@ def main():
                 subprocess.run(['pw-link', '-d', str(out_id), str(in_id)])
             else:
                 print(f"Skipping {label}: Port {out_id} and Port {in_id} are already unlinked.")
+        send_notification("Destroyed pipewire link", f"Disconnected '{out_query}' node from '{in_query}' node")
     else:
         print("No existing connections detected. Mode: CONNECT")
         for out_id, in_id, label in target_pairs:
             print(f"Linking {label}: Port {out_id} -> Port {in_id}")
             subprocess.run(['pw-link', str(out_id), str(in_id)])
+        send_notification("Created pipewire link", f"Connected '{out_query}' node to '{in_query}' node")
 
     print("Done!")
 

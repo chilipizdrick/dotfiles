@@ -6,7 +6,7 @@
       corefonts
       inter
       open-sans
-      jetbrains-mono
+      # jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
       noto-fonts

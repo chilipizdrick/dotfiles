@@ -1,15 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-
+{pkgs, ...}: {
   programs.noctalia = {
     enable = true;
     settings = ./config.toml;
+    systemd.enable = true;
   };
 
   home.packages = with pkgs; [

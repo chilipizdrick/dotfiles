@@ -13,10 +13,10 @@ return {
         light = "latte",
         dark = "mocha",
       },
-      -- float = {
-      --   -- transparent = true,
-      --   -- solid = true,
-      -- },
+      float = {
+        transparent = true,
+        solid = true,
+      },
       term_colors = false,
 
       styles = {

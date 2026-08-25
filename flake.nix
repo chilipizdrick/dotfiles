@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay.url = "github:oxalica/rust-overlay?ref=stable";
-
-    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
-    noctalia.url = "github:noctalia-dev/noctalia";
-
     hijacker2.url = "github:chilipizdrick/hijacker2";
     wroomer.url = "github:chilipizdrick/wroomer";
   };

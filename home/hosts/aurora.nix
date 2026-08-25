@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland.extraConfig =
     # lua
     ''
@@ -10,6 +10,12 @@
         hl.workspace_rule({workspace = i, monitor = "HDMI-A-1"})
       end
       hl.workspace_rule({workspace = 10, monitor = "DP-3"})
+
+      hl.on("hyprland.start", function()
+        hl.timer(function()
+          hl.exec_cmd("${pkgs.hyperhdr}/bin/hyperhdr")
+        end, {timeout = 6000, type = "oneshot"})
+      end)
     '';
 
   home.sessionVariables = {
@@ -23,4 +29,8 @@
     enable = true;
     minecraft = true;
   };
+
+  home.packages = with pkgs; [
+    hyperhdr
+  ];
 }

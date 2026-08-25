@@ -21,12 +21,10 @@
     (btop.override {rocmSupport = true;})
   ];
 
-  noctalia-greeter = {
-    enable = true;
-    output.scale = 1.666667;
-  };
+  services.displayManager.noctalia-greeter.settings.output.scale = 1.666667;
 
   services.upower.enable = true;
+  services.thermald.enable = true;
 
   networking.hostName = "atlas";
 }

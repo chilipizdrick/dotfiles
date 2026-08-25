@@ -19,18 +19,25 @@
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop" "helium.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
       "application/doc" = "onlyoffice-desktopeditors.desktop";
       "application/docx" = "onlyoffice-desktopeditors.desktop";
       "application/msword" = "onlyoffice-desktopeditors.desktop";
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
 
-      "image/png" = ["org.gnome.Loupe.desktop"];
-      "image/jpg" = ["org.gnome.Loupe.desktop"];
-      "image/jpeg" = ["org.gnome.Loupe.desktop"];
-      "image/webp" = ["org.gnome.Loupe.desktop"];
-      "image/gif" = ["org.gnome.Loupe.desktop"];
-      "image/svg" = ["org.gnome.Loupe.desktop"];
+      # "image/png" = ["org.gnome.Loupe.desktop"];
+      # "image/jpg" = ["org.gnome.Loupe.desktop"];
+      # "image/jpeg" = ["org.gnome.Loupe.desktop"];
+      # "image/webp" = ["org.gnome.Loupe.desktop"];
+      # "image/gif" = ["org.gnome.Loupe.desktop"];
+      # "image/svg" = ["org.gnome.Loupe.desktop"];
+
+      "image/png" = ["imv.desktop"];
+      "image/jpg" = ["imv.desktop"];
+      "image/jpeg" = ["imv.desktop"];
+      "image/webp" = ["imv.desktop"];
+      "image/gif" = ["imv.desktop"];
+      "image/svg" = ["imv.desktop"];
 
       "video/mp4" = "mpv.desktop";
       "video/mkv" = "mpv.desktop";

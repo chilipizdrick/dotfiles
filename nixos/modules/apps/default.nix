@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./nautilus
-    ./hyperion
   ];
 
   programs.command-not-found.enable = false;

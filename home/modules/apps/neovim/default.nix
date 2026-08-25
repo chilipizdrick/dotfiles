@@ -1,39 +1,29 @@
 {
   pkgs,
-  inputs,
   config,
   ...
 }: {
-  nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
-
-  home.packages = with pkgs; let
-    llvmPkgs = pkgs.llvmPackages;
-  in [
+  home.packages = with pkgs; [
     neovim
 
-    rust-bin.stable.latest.default
+    rustc
+    cargo
+    clippy
+    rustfmt
     rust-analyzer
-    # bacon
 
     wgsl-analyzer
 
     python3
     pyright
 
-    # nodejs
+    llvmPackages.clang
+    llvmPackages.clang-tools
 
-    llvmPkgs.clang
-    llvmPkgs.clang-tools
-
-    # lua51Packages.lua
     lua-language-server
     stylua
 
-    # go
-    # gopls
-
     nixd
-    # nil
 
     fixjson
 

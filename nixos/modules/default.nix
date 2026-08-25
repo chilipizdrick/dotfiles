@@ -18,6 +18,7 @@
     ./virtualization
     ./vpn
     ./xdg-portals
+    ./probe-rs
   ];
 
   # programs.kdeconnect.enable = true;

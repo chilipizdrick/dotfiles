@@ -1,9 +1,10 @@
 {
-  stdenv,
   lib,
+  libnotify,
   makeWrapper,
-  python3,
   pipewire,
+  python3,
+  stdenv,
 }:
 stdenv.mkDerivation {
   pname = "pw-connect";
@@ -19,6 +20,6 @@ stdenv.mkDerivation {
     cp pw-connect.py $out/bin/pw-connect
     chmod +x $out/bin/pw-connect
     wrapProgram $out/bin/pw-connect \
-      --prefix PATH : ${lib.makeBinPath [pipewire]}
+      --prefix PATH : ${lib.makeBinPath [pipewire libnotify]}
   '';
 }

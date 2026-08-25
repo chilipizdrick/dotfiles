@@ -144,6 +144,10 @@ hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
+-- hl.window_rule({ match = { class = "^(spotify)$" }, focus_on_activate = true })
+-- hl.window_rule({ match = { class = "^(discord)$" }, focus_on_activate = true })
+-- hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, focus_on_activate = true })
+
 local special_windows_regex = "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
 hl.window_rule({
   match = { class = special_windows_regex },
@@ -166,11 +170,6 @@ hl.window_rule({
   center = true,
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
 })
-
--- Startup
-hl.on("hyprland.start", function()
-  hl.exec_cmd("noctalia")
-end)
 
 -- Gestures
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
@@ -262,7 +261,7 @@ hl.bind("SUPER + ALT + 0", hl.dsp.exec_cmd("pkill hijacker2"))
 for i = 1, 9 do
   hl.bind("SUPER + ALT + " .. i, function()
     if hijacker_enabled then
-      hl.exec_cmd("clever-hijacker ee_sie_rnnoise ~/Music/hijacker-presets/" .. i .. ".mp3")
+      hl.exec_cmd("clever-hijacker 'easyeffects_source' ~/Music/hijacker-presets/" .. i .. ".mp3")
     end
   end)
 end

@@ -42,10 +42,10 @@
     ''
       [[search_dirs]]
       path = "$HOME/projects"
-      depth = 2
+      depth = 1
 
       [[search_dirs]]
       path = "$HOME/dotfiles"
-      depth = 1
+      depth = 0
     '';
 }

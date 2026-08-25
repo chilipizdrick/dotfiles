@@ -1,5 +1,5 @@
-{mkDerivation, ...}:
-mkDerivation {
+{stdenv, ...}:
+stdenv.mkDerivation {
   name = "probe-rs-rules";
   src = ./.;
   installPhase = ''
