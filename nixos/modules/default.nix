@@ -19,6 +19,7 @@
     ./vpn
     ./xdg-portals
     ./probe-rs
+    ./earlyoom
   ];
 
   # programs.kdeconnect.enable = true;

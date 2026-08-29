@@ -13,6 +13,7 @@
       session.default = "Hyprland (uwsm-managed)";
       user.default = config.users.users.alex.name;
       keyboard.layout = "us";
+      cursor.size = 20;
       appearance = {
         scheme = "Synced";
         password_style = "random";

@@ -11,7 +11,8 @@ hl.env("XCURSOR_SIZE", "20")
 -- General Configuration
 hl.config({
   general = {
-    border_size = 2,
+    border_size = 1,
+    -- border_size = 0,
     gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
     gaps_out = 10,
     ["col.active_border"] = "rgba(ffffff88)",
@@ -40,9 +41,9 @@ hl.config({
 
     shadow = {
       enabled = true,
-      range = 14,
-      render_power = 3,
-      color = "rgba(00000045)",
+      range = 20,
+      render_power = 4,
+      color = "rgba(00000066)",
     },
 
     blur = {
@@ -127,6 +128,13 @@ hl.bind("SUPER + SHIFT + A", function()
   hl.config({ animations = { enabled = animations_enabled } })
 end)
 
+hl.bind("SUPER + SHIFT + B", function()
+  local blur_enabled = not hl.get_config("decoration.blur.enabled")
+  local msg = blur_enabled and "Enabled" or "Disabled"
+  hl.exec_cmd("noctalia msg notification-show 'Blur' '" .. msg .. "'")
+  hl.config({ decoration = { blur = { enabled = blur_enabled } } })
+end)
+
 hl.layer_rule({
   name = "noctalia",
   match = {
@@ -139,14 +147,11 @@ hl.layer_rule({
 })
 
 -- Window Rules
--- hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
+hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
+hl.window_rule({ match = { class = "negative:^(Alacritty|dev\\.noctalia\\.Noctalia)$" }, no_blur = true })
 hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0 })
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
-
--- hl.window_rule({ match = { class = "^(spotify)$" }, focus_on_activate = true })
--- hl.window_rule({ match = { class = "^(discord)$" }, focus_on_activate = true })
--- hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, focus_on_activate = true })
 
 local special_windows_regex = "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
 hl.window_rule({

@@ -6,12 +6,12 @@
   copyDesktopItems,
 }: let
   pname = "helium-browser";
-  version = "0.15.5.1";
+  version = "0.16.1.1";
 
   architectures = {
     "x86_64-linux" = {
       arch = "x86_64";
-      hash = "sha256-UC2LpmlRl7V+LRhojqg5VlS7VpMpE99m4/7yiH1KAM4=";
+      hash = "sha256-KZFPd7RdwbDQ/hDXgV4bZKytO+4dtyig7ctDzIj20ng=";
     };
   };
 
@@ -34,7 +34,7 @@ in
       install -D -m 644 ${appimageContents}/helium.desktop $out/share/applications/helium.desktop
 
       substituteInPlace $out/share/applications/helium.desktop \
-        --replace 'Exec=helium %U' "Exec=$out/bin/${pname} %U"
+        --replace 'Exec=helium %U' "Exec=$out/bin/${pname} --hide-crash-restore-bubble %U"
 
       cp -r ${appimageContents}/usr/share/icons $out/share
     '';

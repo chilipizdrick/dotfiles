@@ -67,9 +67,9 @@ return {
             import_dot_hl = "@comment",
             preserve_type_when_truncate = true,
           },
-          basedpyright = {
-            extra_info_hl = "@comment",
-          },
+          -- basedpyright = {
+          --   extra_info_hl = "@comment",
+          -- },
           fallback = true,
           fallback_extra_info_hl = "@comment",
           fallback_align_type_to_right = true,

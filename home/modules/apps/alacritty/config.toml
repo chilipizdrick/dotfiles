@@ -1,5 +1,5 @@
 [window]
-padding = { x = 5, y = 5 }
+padding = { x = 10, y = 10 }
 decorations = "none"
 opacity = 0.8
 

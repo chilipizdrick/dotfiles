@@ -5,4 +5,5 @@ pkgs: {
   helium-browser = pkgs.callPackage ./helium-browser.nix {};
   probe-rs-udev-rules = pkgs.callPackage ./probe-rs-udev-rules {};
   pw-connect = pkgs.callPackage ./pw-connect {};
+  daemonologist = pkgs.callPackage ./daemonologist {};
 }

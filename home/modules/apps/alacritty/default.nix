@@ -1,6 +1,6 @@
 {...}: {
   programs.alacritty.enable = true;
 
-  xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
+  xdg.configFile."alacritty/alacritty.toml".source = ./config.toml;
   home.sessionVariables.TERMINAL = "alacritty";
 }

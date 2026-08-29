@@ -18,7 +18,7 @@ return {
       cpp = { "clang-format" },
       cc = { "clang-format" },
       h = { "clang-format" },
-      python = { "pyright" },
+      -- python = { "pyright" },
       nix = { "alejandra" },
       go = { "gofmt" },
       typst = { "typstyle" },

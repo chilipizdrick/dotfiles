@@ -17,7 +17,7 @@
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
-      keep-outputs = true;
+      keep-outputs = false;
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
       trusted-users = ["alex"];

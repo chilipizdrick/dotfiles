@@ -29,7 +29,6 @@
   programs.fzf.enable = true;
 
   home.packages = with pkgs; [
-    ani-cli
     audacity
     baobab
     coppwr
@@ -49,6 +48,6 @@
     spotify
     telegram-desktop
     vlc
-    yt-dlp
+    # yt-dlp
   ];
 }

@@ -15,7 +15,6 @@
     wgsl-analyzer
 
     python3
-    pyright
 
     llvmPackages.clang
     llvmPackages.clang-tools
@@ -24,8 +23,6 @@
     stylua
 
     nixd
-
-    fixjson
 
     typst
     tinymist
