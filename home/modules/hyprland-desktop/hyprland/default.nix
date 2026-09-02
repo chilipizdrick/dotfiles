@@ -20,18 +20,21 @@
     grim
     hyprpicker
     killall
+    libnotify
     nautilus
     procps
     satty
     slurp
+    sway-audio-idle-inhibit
+    uwsm
     wl-clipboard
-    libnotify
 
     inputs'.wroomer.packages.wroomer-wayland
 
     self'.packages.clever-hijacker
     self'.packages.pw-connect
     self'.packages.satty-screenshot
+    self'.packages.daemonologist
   ];
 
   home.file."Pictures/wallpapers".source = pkgs.fetchFromGitHub {

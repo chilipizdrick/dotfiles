@@ -5,18 +5,18 @@
   ...
 }: {
   imports = [
+    # ./kdeconnect
+    # ./udiskie
     ./alacritty
     ./direnv
     ./git
     ./jujutsu
-    # ./kdeconnect
     ./mpv
     ./neovim
     ./obs-studio
     ./shells
     ./starship
     ./tmux
-    ./udiskie
     ./zathura
     ./zoxide
   ];
@@ -42,12 +42,10 @@
     obsidian
     onlyoffice-desktopeditors
     qbittorrent
-    reaper
     ripdrag
     self'.packages.helium-browser
     spotify
     telegram-desktop
     vlc
-    # yt-dlp
   ];
 }

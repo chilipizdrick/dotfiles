@@ -8,8 +8,8 @@
   # Allow discovery of connected monitors
   hardware.i2c.enable = true;
 
-  # This garbage is killing my system boot time
-  systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
+  # systemd.services.NetworkManager-wait-online.enable = false;
+  # systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
 
   # Limit max size of systemd journal
   services.journald.extraConfig = "SystemMaxUse=50M";

@@ -8,11 +8,9 @@ local hijacker_enabled = false
 -- hyprland to set this cursor size on startup without using `hyprctl setcursor ...`
 hl.env("XCURSOR_SIZE", "20")
 
--- General Configuration
 hl.config({
   general = {
     border_size = 1,
-    -- border_size = 0,
     gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
     gaps_out = 10,
     ["col.active_border"] = "rgba(ffffff88)",
@@ -110,7 +108,6 @@ hl.config({
   },
 })
 
--- Animations
 hl.curve("easeOutCubic", { type = "bezier", points = { { 0.215, 0.61 }, { 0.355, 1 } } })
 
 hl.animation({ leaf = "global", enabled = true, speed = 2, bezier = "easeOutCubic" })
@@ -146,9 +143,7 @@ hl.layer_rule({
   blur_popups = true,
 })
 
--- Window Rules
 hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
-hl.window_rule({ match = { class = "negative:^(Alacritty|dev\\.noctalia\\.Noctalia)$" }, no_blur = true })
 hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0 })
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
@@ -176,11 +171,9 @@ hl.window_rule({
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
 })
 
--- Gestures
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 hl.gesture({ fingers = 4, direction = "down", action = "close" })
 
--- Binds
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 hl.bind("SUPER + SHIFT + W", hl.dsp.window.kill())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
@@ -295,3 +288,8 @@ hl.bind(
 hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-set all 0"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up all 5"), { repeating = true, locked = true })
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-set all 100"), { locked = true })
+
+hl.on("hyprland.start", function()
+  hl.exec_cmd("uwsm app -- daemonologist")
+  hl.exec_cmd("uwsm app -- sway-audio-idle-inhibit")
+end)

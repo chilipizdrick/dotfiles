@@ -21,4 +21,9 @@
       };
     };
   };
+
+  services.greetd.settings.initial_session = {
+    user = config.users.users.alex.name;
+    command = "${pkgs.coreutils}/bin/env INITIAL_HYPRLAND_SESSION=1 ${pkgs.uwsm}/bin/uwsm start hyprland.desktop";
+  };
 }

@@ -25,13 +25,15 @@ fn main() -> AnyErrResult<()> {
         let msg = str::from_utf8(&buf[..size])?;
         let events = msg.lines().filter_map(parse_event);
         for event in events {
-            println!("Recieved event: {event:?}");
+            eprintln!("Recieved event: {event:?}");
+
             if let Event::OpenWindow {
                 window_class: "discord",
                 ..
             } = event
+                && let Err(err) = start_easyeffects_if_not_running()
             {
-                let _ = start_easyeffects_if_not_running();
+                eprintln!("ERROR: {err}")
             }
         }
     }
@@ -58,7 +60,7 @@ fn is_program_running(executable_name: &str) -> AnyErrResult<bool> {
 fn start_easyeffects_if_not_running() -> AnyErrResult<Option<Child>> {
     if !is_program_running(".easyeffects-wrapped")? {
         let child = Command::new("easyeffects").arg("--hide-window").spawn()?;
-        println!("Started Easy Effects");
+        eprintln!("Started Easy Effects");
         return Ok(Some(child));
     }
     Ok(None)
@@ -76,6 +78,7 @@ fn parse_event<'a>(event_str: &'a str) -> Option<Event<'a>> {
             let workspace_name = data.next()?;
             let window_class = data.next()?;
             let window_title = data.next()?;
+
             Event::OpenWindow {
                 address,
                 workspace_name,
