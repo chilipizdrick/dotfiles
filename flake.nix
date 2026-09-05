@@ -1,9 +1,8 @@
 {
-  description = "Personal NixOS & home-manager config";
+  description = "chilipizdrick's dotfiles";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,13 +13,16 @@
     wroomer.url = "github:chilipizdrick/wroomer";
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [./nixos ./home];
-      systems = ["x86_64-linux"];
-      perSystem = {pkgs, ...}: {
-        formatter = pkgs.alejandra;
-        packages = import ./packages pkgs;
-      };
-    };
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    lib = import ./lib.nix nixpkgs.lib;
+  in
+    {
+      inherit lib;
+      packages = lib.forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
+    }
+    // (lib.importHostsConfig ./hosts inputs);
 }
