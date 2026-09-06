@@ -1,8 +1,8 @@
 {self, ...} @ inputs: let
   nixosModule = {pkgs, ...}: {
     imports = [
-      # inputs.disko.nixosModules.disko
-      # ./_disko.nix
+      inputs.disko.nixosModules.disko
+      ./_disko.nix
       ./_hardware-configuration.nix
     ];
 
