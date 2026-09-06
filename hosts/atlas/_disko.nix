@@ -38,7 +38,7 @@
                 format = "btrfs";
                 mountpoint = "/";
                 # Sensible Btrfs defaults for SSDs
-                mountOptions = ["compress=zstd" "noatime"];
+                mountOptions = ["noatime"];
               };
             };
           };

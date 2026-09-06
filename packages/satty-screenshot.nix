@@ -10,7 +10,7 @@
 writeShellScriptBin "satty-screenshot" ''
   set -e
 
-  SCREENSHOT_DIR=~/Pictures/screenshots
+  SCREENSHOT_DIR=~/Pictures/Screenshots
 
   ${coreutils}/bin/mkdir -p "$SCREENSHOT_DIR"
   ${grim}/bin/grim -g "$(${slurp}/bin/slurp)" - | ${satty}/bin/satty -f - \
