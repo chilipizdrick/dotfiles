@@ -5,7 +5,7 @@
 
   programs.nix-ld.enable = true;
   security.polkit.enable = true;
-  programs.mango.enable = true;
+  # programs.mango.enable = true;
 
   system.stateVersion = "26.05";
 }

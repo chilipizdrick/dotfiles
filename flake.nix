@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hijacker2.url = "github:chilipizdrick/hijacker2";
     wroomer.url = "github:chilipizdrick/wroomer";
   };

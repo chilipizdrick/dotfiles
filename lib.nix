@@ -41,34 +41,34 @@ in rec {
 
   nixosSystem = {
     inputs,
-    extraModules,
     system ? "x86_64-linux",
-  }: let
+  }: extraNixosModules: let
     primes = getPrimes system inputs;
+
+    homeManagerModules = [
+      inputs.home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit (primes) inputs' self';
+          };
+          users.alex.imports = listModulesRecursive ./modules/home;
+        };
+      }
+    ];
   in
     lib.nixosSystem {
       specialArgs = {
         inherit inputs;
         inherit (primes) inputs' self';
       };
-      modules = (listModulesRecursive ./modules/nixos) ++ extraModules;
-    };
-
-  homeManagerConfiguration = {
-    inputs,
-    extraModules,
-    system ? "x86_64-linux",
-  }: let
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-    primes = getPrimes system inputs;
-  in
-    inputs.home-manager.lib.homeManagerConfiguration {
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit (primes) inputs' self';
-      };
-      inherit pkgs;
-      modules = (listModulesRecursive ./modules/home) ++ extraModules;
+      modules =
+        (listModulesRecursive ./modules/nixos)
+        ++ homeManagerModules
+        ++ extraNixosModules;
     };
 
   importHostsConfig = hostsPath: inputs: let
