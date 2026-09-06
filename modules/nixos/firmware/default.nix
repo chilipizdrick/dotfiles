@@ -1,4 +1,4 @@
-{...}: {
+{
   services.libinput.enable = true;
 
   networking.networkmanager.enable = true;

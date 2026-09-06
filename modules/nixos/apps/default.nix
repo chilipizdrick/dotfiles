@@ -11,7 +11,7 @@
     fzf
     git
     gzip
-    home-manager
+    # home-manager
     hyperfine
     imagemagick
     jq
