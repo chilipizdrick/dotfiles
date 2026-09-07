@@ -34,7 +34,7 @@
             hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ~/.Xresources")
           end)
 
-          hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("loginctl lock-session"))
+          -- hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("loginctl lock-session"))
         '';
 
       # Force scaling for x11 apps
@@ -54,7 +54,6 @@
       games = {
         enable = true;
         minecraft = true;
-        heroic = true;
       };
     };
   };

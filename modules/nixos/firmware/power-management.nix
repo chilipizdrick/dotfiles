@@ -42,9 +42,14 @@
   };
 
   systemd.sleep.settings.Sleep = {
-    AutoSuspend = true;
-    AllowHibernation = false;
+    AllowSuspend = true;
+    AllowHibernation = true;
+    AllowSuspendThenHibernate = true;
     AllowHybridSleep = false;
-    AllowSuspendThenHibernate = false;
+
+    HibernateDelaySec = "30min";
+    HibernateOnACPower = false;
   };
+
+  services.logind.settings.Login.LidSwitch = "suspend-then-hibernate";
 }

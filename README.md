@@ -20,7 +20,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 nix run nixpkgs#git -- clone --depth=1 https://github.com/chilipizdrick/dotfiles.git
 cd dotfiles
 sudo nix run github:nix-community/disko -- --mode disko ./hosts/<host>/_disko.nix
-sudo nixos-generate-config --no-filesystems --root /mnt --show-hardware-config > ./hosts/<host>/_hardware_configuration.nix
+sudo nixos-generate-config --no-filesystems --root /mnt --show-hardware-config > ./hosts/<host>/_hardware-configuration.nix
 sudo nixos-install --flake .#<host>
 ```
 

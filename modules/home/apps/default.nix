@@ -29,6 +29,6 @@
     self'.packages.helium-browser
     spotify
     telegram-desktop
-    vlc
+    # vlc
   ];
 }

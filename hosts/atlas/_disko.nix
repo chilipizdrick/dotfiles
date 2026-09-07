@@ -28,7 +28,7 @@
             };
 
             root = {
-              size = "100%FREE";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "btrfs";
