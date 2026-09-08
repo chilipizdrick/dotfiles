@@ -78,4 +78,29 @@ in rec {
     (mod: acc: lib.recursiveUpdate (import mod inputs) acc)
     {}
     hosts;
+
+  withVpnDesktop = pkgs: package:
+    pkgs.runCommand "${package.pname or package.name}-vpn-desktop" {
+      nativeBuildInputs = [
+        pkgs.gnused
+        pkgs.coreutils
+      ];
+    } ''
+      mkdir -p "$out/share/applications"
+
+      for desktop in ${package}/share/applications/*.desktop; do
+        [ -e "$desktop" ] || continue
+
+        name="$(basename "$desktop" .desktop)"
+
+        cp "$desktop" \
+          "$out/share/applications/$name.desktop"
+
+        sed \
+          -e 's/^Name=\(.*\)$/Name=\1 (VPN)/' \
+          -e 's|^Exec=|Exec=/run/wrappers/bin/vpn-launch |' \
+          "$desktop" \
+          > "$out/share/applications/$name-vpn.desktop"
+      done
+    '';
 }
