@@ -1,4 +1,5 @@
 {
+  inputs',
   pkgs,
   config,
   lib,
@@ -19,6 +20,7 @@ in {
     home.packages = with pkgs; let
       minecraftPkgs = [
         prismlauncher
+        # inputs'.freesm-launcher.packages.default
         fabric-installer
       ];
       r2modmanPkgs = [r2modman];

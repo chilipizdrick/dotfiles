@@ -35,7 +35,7 @@
     (withVpnDesktop spotify)
     telegram-desktop
     (withVpnDesktop telegram-desktop)
-    self'.packages.helium-browser
-    (withVpnDesktop self'.packages.helium-browser)
+    (self'.packages.helium-browser.override {withVpnDesktopFile = true;})
+    # (withVpnDesktop self'.packages.helium-browser)
   ];
 }

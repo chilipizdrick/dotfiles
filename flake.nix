@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    freesm-launcher.url = "github:FreesmTeam/FreesmLauncher/refs/tags/2.2.2";
+
     hijacker2.url = "github:chilipizdrick/hijacker2";
     wroomer.url = "github:chilipizdrick/wroomer";
   };

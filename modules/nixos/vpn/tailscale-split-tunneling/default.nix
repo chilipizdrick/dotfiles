@@ -52,6 +52,9 @@
       "$@"
   '';
 in {
+  # Prevent NetworkManager from probing or breaking the virtual interfaces.
+  networking.networkmanager.unmanaged = [hostVeth nsVeth];
+
   # The host must route packets originating from the namespace.
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
@@ -78,6 +81,12 @@ in {
 
     preStart = ''
       set -euo pipefail
+
+      # Isolate DNS for the namespace
+      # This strictly prevents tailscaled from modifying the host's /etc/resolv.conf
+      mkdir -p /etc/netns/${nsName}
+      echo "nameserver 1.1.1.1" > /etc/netns/${nsName}/resolv.conf
+      echo "nameserver 8.8.8.8" >> /etc/netns/${nsName}/resolv.conf
 
       # Remove leftovers from a previous crash.
       ${pkgs.iproute2}/bin/ip netns del ${nsName} 2>/dev/null || true
@@ -119,9 +128,9 @@ in {
         ${pkgs.iproute2}/bin/ip \
           netns exec ${nsName} \
           ${pkgs.tailscale}/bin/tailscaled \
-            --tun=tailscale0 \
-            --socket=${socketDir}/tailscaled.sock \
-            --state=${stateDir}/tailscaled.state
+          --tun=tailscale0 \
+          --socket=${socketDir}/tailscaled.sock \
+          --state=${stateDir}/tailscaled.state
       '';
 
       ExecStopPost = ''
@@ -146,6 +155,5 @@ in {
     setuid = true;
   };
 
-  # User-facing commands.
   environment.systemPackages = [tsVpnCli];
 }
