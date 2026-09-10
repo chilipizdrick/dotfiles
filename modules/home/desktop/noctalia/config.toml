@@ -55,7 +55,14 @@ started = "sh -c 'if [[ -v INITIAL_HYPRLAND_SESSION ]]; then noctalia msg sessio
 wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
 
 [idle]
-behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+behavior_order = [ "lock", "screen-off", "Lock & Suspend then Hibernate", "lock-and-suspend" ]
+
+    [idle.behavior."Lock & Suspend then Hibernate"]
+    action = "command"
+    command = "systemctl suspend-then-hibernate"
+    enabled = true
+    resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
+    timeout = 900.0
 
     [idle.behavior.lock]
     action = "lock"
@@ -64,7 +71,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
-    enabled = true
+    enabled = false
     resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
     timeout = 900.0
 
@@ -195,11 +202,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 720.0
-    cx = 768.0
-    cy = 830.0
+    cx = 800.00006103515625
+    cy = 864.58331298828125
     output = "eDP-1"
-    placement_height = 960.0
-    placement_width = 1536.0
+    placement_height = 1000.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "login_box"
 
@@ -349,11 +356,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
     box_height = 32.0
     box_width = 192.0
-    cx = 768.0
-    cy = 432.00006103515625
+    cx = 800.00006103515625
+    cy = 450.00009155273438
     output = "eDP-1"
-    placement_height = 960.0
-    placement_width = 1536.0
+    placement_height = 1000.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "clock"
 
@@ -367,11 +374,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000010]
     box_height = 32.0
     box_width = 192.0
-    cx = 768.0
-    cy = 464.0
+    cx = 800.00006103515625
+    cy = 483.33331298828125
     output = "eDP-1"
-    placement_height = 960.0
-    placement_width = 1536.0
+    placement_height = 1000.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "clock"
 
@@ -385,11 +392,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
     box_height = 288.0
     box_width = 160.0
-    cx = 768.0
-    cy = 272.0
+    cx = 800.00006103515625
+    cy = 283.33331298828125
     output = "eDP-1"
-    placement_height = 960.0
-    placement_width = 1536.0
+    placement_height = 1000.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "clock"
 
@@ -571,4 +578,3 @@ type = "noctalia/screen_recorder:recorder"
 [widget.tray]
 drawer = true
 pinned = [ "AmneziaVPN", "systray_34401", "TelegramDesktop", "tailscale" ]
-
