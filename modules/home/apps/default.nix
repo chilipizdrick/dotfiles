@@ -4,8 +4,6 @@
   self',
   ...
 }: {
-  # services.tailscale-systray.enable = true;
-
   programs.carapace.enable = true;
   programs.command-not-found.enable = false;
   programs.eza.enable = true;
@@ -26,7 +24,6 @@
     kdePackages.kolourpaint
     loupe
     obsidian
-    (withVpnDesktop obsidian)
     onlyoffice-desktopeditors
     qbittorrent
     (withVpnDesktop qbittorrent)
@@ -36,6 +33,5 @@
     telegram-desktop
     (withVpnDesktop telegram-desktop)
     (self'.packages.helium-browser.override {withVpnDesktopFile = true;})
-    # (withVpnDesktop self'.packages.helium-browser)
   ];
 }
