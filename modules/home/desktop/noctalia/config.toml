@@ -3,90 +3,104 @@ enable_overdrive = true
 enable_sounds = false
 
 [bar]
-order = [ "default" ]
+order = ["default"]
 
-    [bar.default]
-    background_opacity = 0.79999998211860657
-    capsule = true
-    capsule_fill = "tertiary"
-    capsule_opacity = 0.099999997764825821
-    capsule_thickness = 0.74999998696148396
-    center = [ "workspaces" ]
-    concave_edge_corners = false
-    contact_shadow = true
-    end = [ "tray", "brightness", "group:g2", "network", "group:g1", "battery", "notifications", "session" ]
-    font_weight = 600
-    margin_edge = 10
-    margin_ends = 10
-    padding = 6
-    radius = 15
-    start = [ "launcher", "clock", "media" ]
+[bar.default]
+background_opacity = 0.79999998211860657
+capsule = true
+capsule_fill = "tertiary"
+capsule_opacity = 0.099999997764825821
+capsule_thickness = 0.74999998696148396
+center = ["workspaces"]
+concave_edge_corners = false
+contact_shadow = true
+end = [
+  "tray",
+  "brightness",
+  "group:g2",
+  "network",
+  "group:g1",
+  "battery",
+  "notifications",
+  "session",
+]
+font_weight = 600
+margin_edge = 10
+margin_ends = 10
+padding = 6
+radius = 15
+start = ["launcher", "clock", "media"]
 
-        [[bar.default.capsule_group]]
-        enabled = true
-        fill = "tertiary"
-        id = "g2"
-        members = [ "volume", "input_volume" ]
-        opacity = 0.099999994039535522
-        padding = 6.0
+[[bar.default.capsule_group]]
+enabled = true
+fill = "tertiary"
+id = "g2"
+members = ["volume", "input_volume"]
+opacity = 0.099999994039535522
+padding = 6.0
 
-        [[bar.default.capsule_group]]
-        enabled = true
-        fill = "tertiary"
-        id = "g1"
-        members = [ "ram", "cpu" ]
-        opacity = 0.099999994039535522
-        padding = 6.0
+[[bar.default.capsule_group]]
+enabled = true
+fill = "tertiary"
+id = "g1"
+members = ["ram", "cpu"]
+opacity = 0.099999994039535522
+padding = 6.0
 
 [desktop_widgets]
 enabled = false
 schema_version = 2
 widget_order = []
 
-    [desktop_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
+[desktop_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
 
-    [desktop_widgets.widget]
+[desktop_widgets.widget]
 
 [hooks]
 started = "sh -c 'if [[ -v INITIAL_HYPRLAND_SESSION ]]; then noctalia msg session lock; fi'"
 wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
 
 [idle]
-behavior_order = [ "lock", "screen-off", "Lock & Suspend then Hibernate", "lock-and-suspend" ]
+behavior_order = [
+  "lock",
+  "screen-off",
+  "Lock & Suspend then Hibernate",
+  "lock-and-suspend",
+]
 
-    [idle.behavior."Lock & Suspend then Hibernate"]
-    action = "command"
-    command = "systemctl suspend-then-hibernate"
-    enabled = true
-    resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
-    timeout = 900.0
+[idle.behavior."Lock & Suspend then Hibernate"]
+action = "command"
+command = "systemctl suspend-then-hibernate"
+enabled = false
+resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
+timeout = 900.0
 
-    [idle.behavior.lock]
-    action = "lock"
-    enabled = true
-    timeout = 600.0
+[idle.behavior.lock]
+action = "lock"
+enabled = true
+timeout = 600.0
 
-    [idle.behavior.lock-and-suspend]
-    action = "lock_and_suspend"
-    enabled = false
-    resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
-    timeout = 900.0
+[idle.behavior.lock-and-suspend]
+action = "lock_and_suspend"
+enabled = true
+resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
+timeout = 900.0
 
-    [idle.behavior.screen-off]
-    action = "screen_off"
-    enabled = false
-    timeout = 660.0
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = false
+timeout = 660.0
 
 [keybinds]
-down = [ "Down", "Ctrl+j" ]
-left = [ "Left", "Ctrl+h" ]
-right = [ "Right", "Ctrl+l" ]
-tab_next = [ "Tab", "Ctrl+n" ]
-tab_previous = [ "Shift+ISO_Left_Tab", "Ctrl+p" ]
-up = [ "Up", "Ctrl+k" ]
+down = ["Down", "Ctrl+j"]
+left = ["Left", "Ctrl+h"]
+right = ["Right", "Ctrl+l"]
+tab_next = ["Tab", "Ctrl+n"]
+tab_previous = ["Shift+ISO_Left_Tab", "Ctrl+p"]
+up = ["Up", "Ctrl+k"]
 
 [location]
 address = ""
@@ -98,332 +112,332 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-login-box@WAYLAND-1",
-    "lockscreen-login-box@eDP-1",
-    "lockscreen-login-box@DP-3",
-    "lockscreen-login-box@HDMI-A-1",
-    "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002",
-    "lockscreen-widget-0000000000000003",
-    "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000009",
-    "lockscreen-widget-0000000000000010",
-    "lockscreen-widget-0000000000000011"
+  "lockscreen-login-box@WAYLAND-1",
+  "lockscreen-login-box@eDP-1",
+  "lockscreen-login-box@DP-3",
+  "lockscreen-login-box@HDMI-A-1",
+  "lockscreen-widget-0000000000000001",
+  "lockscreen-widget-0000000000000002",
+  "lockscreen-widget-0000000000000003",
+  "lockscreen-widget-0000000000000004",
+  "lockscreen-widget-0000000000000005",
+  "lockscreen-widget-0000000000000009",
+  "lockscreen-widget-0000000000000010",
+  "lockscreen-widget-0000000000000011",
 ]
 
-    [lockscreen_widgets.grid]
-    cell_size = 32
-    major_interval = 4
-    visible = true
+[lockscreen_widgets.grid]
+cell_size = 32
+major_interval = 4
+visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
-    box_height = 196.0
-    box_width = 720.0
-    cx = 960.0
-    cy = 961.0
-    enabled = false
-    output = "DP-3"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+box_height = 196.0
+box_width = 720.0
+cx = 960.0
+cy = 961.0
+enabled = false
+output = "DP-3"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 196.0
-    box_width = 720.0
-    cx = 960.0
-    cy = 1020.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height = 196.0
+box_width = 720.0
+cx = 960.0
+cy = 1020.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.84999999999999998
-        background_radius = 15.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.84999999999999998
+background_radius = 15.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
-    box_height = 196.0
-    box_width = 720.0
-    cx = 320.0
-    cy = 178.0
-    output = "WAYLAND-1"
-    placement_height = 360.0
-    placement_width = 640.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1"]
+box_height = 196.0
+box_width = 720.0
+cx = 320.0
+cy = 178.0
+output = "WAYLAND-1"
+placement_height = 360.0
+placement_width = 640.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@WAYLAND-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 720.0
-    cx = 800.00006103515625
-    cy = 864.58331298828125
-    output = "eDP-1"
-    placement_height = 1000.0
-    placement_width = 1600.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 196.0
+box_width = 720.0
+cx = 800.00006103515625
+cy = 864.58331298828125
+output = "eDP-1"
+placement_height = 1000.0
+placement_width = 1600.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 288.0
-    box_width = 192.0
-    cx = 960.0
-    cy = 284.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+box_height = 288.0
+box_width = 192.0
+cx = 960.0
+cy = 284.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = true
-        background_color = "surface"
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 12
-        center_text = true
-        circle = true
-        clock_style = "digital"
-        color = "on_surface"
-        font_family = ""
-        format = "{:%H\\n%M}"
-        shadow = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+background = true
+background_color = "surface"
+background_opacity = 0.0
+background_padding = 0
+background_radius = 12
+center_text = true
+circle = true
+clock_style = "digital"
+color = "on_surface"
+font_family = ""
+format = "{:%H\\n%M}"
+shadow = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 227.0
-    cy = 985.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "media_player"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height = 0.0
+box_width = 0.0
+cx = 227.0
+cy = 985.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "media_player"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
-        background_radius = 15
-        hide_when_no_media = true
-        layout = "horizontal"
-        shadow = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background_radius = 15
+hide_when_no_media = true
+layout = "horizontal"
+shadow = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 160.0
-    box_width = 224.0
-    cx = 1744.0
-    cy = 975.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "weather"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height = 160.0
+box_width = 224.0
+cx = 1744.0
+cy = 975.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "weather"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
-        background_radius = 15
-        shadow = true
-        show_forecast = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+background_radius = 15
+shadow = true
+show_forecast = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
-    box_height = 32.0
-    box_width = 192.0
-    cx = 960.0
-    cy = 444.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+box_height = 32.0
+box_width = 192.0
+cx = 960.0
+cy = 444.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
-        background = false
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 0
-        center_text = true
-        font_family = ""
-        format = "{:%A}"
-        shadow = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+background = false
+background_opacity = 0.0
+background_padding = 0
+background_radius = 0
+center_text = true
+font_family = ""
+format = "{:%A}"
+shadow = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
-    box_height = 32.0
-    box_width = 192.0
-    cx = 960.0
-    cy = 476.0
-    output = "HDMI-A-1"
-    placement_height = 0.0
-    placement_width = 0.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+box_height = 32.0
+box_width = 192.0
+cx = 960.0
+cy = 476.0
+output = "HDMI-A-1"
+placement_height = 0.0
+placement_width = 0.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
-        background = false
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 0
-        center_text = true
-        format = "{:%d %b}"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+background = false
+background_opacity = 0.0
+background_padding = 0
+background_radius = 0
+center_text = true
+format = "{:%d %b}"
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 195.0
-    cy = 858.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "media_player"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
+box_height = 0.0
+box_width = 0.0
+cx = 195.0
+cy = 858.0
+output = "eDP-1"
+rotation = 0.0
+type = "media_player"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
-        background_radius = 15
-        hide_when_no_media = true
-        layout = "horizontal"
-        shadow = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
+background_radius = 15
+hide_when_no_media = true
+layout = "horizontal"
+shadow = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
-    box_height = 160.0
-    box_width = 224.0
-    cx = 1392.0
-    cy = 848.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "weather"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
+box_height = 160.0
+box_width = 224.0
+cx = 1392.0
+cy = 848.0
+output = "eDP-1"
+rotation = 0.0
+type = "weather"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
-        background_radius = 15
-        shadow = true
-        show_forecast = true
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
+background_radius = 15
+shadow = true
+show_forecast = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
-    box_height = 32.0
-    box_width = 192.0
-    cx = 800.00006103515625
-    cy = 450.00009155273438
-    output = "eDP-1"
-    placement_height = 1000.0
-    placement_width = 1600.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
+box_height = 32.0
+box_width = 192.0
+cx = 800.00006103515625
+cy = 450.00009155273438
+output = "eDP-1"
+placement_height = 1000.0
+placement_width = 1600.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 0
-        center_text = true
-        format = "{:%A}"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
+background_opacity = 0.0
+background_padding = 0
+background_radius = 0
+center_text = true
+format = "{:%A}"
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000010]
-    box_height = 32.0
-    box_width = 192.0
-    cx = 800.00006103515625
-    cy = 483.33331298828125
-    output = "eDP-1"
-    placement_height = 1000.0
-    placement_width = 1600.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000010]
+box_height = 32.0
+box_width = 192.0
+cx = 800.00006103515625
+cy = 483.33331298828125
+output = "eDP-1"
+placement_height = 1000.0
+placement_width = 1600.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000010.settings]
-        background_opacity = 0.0
-        background_padding = 0
-        background_radius = 0
-        center_text = true
-        format = "{:%d %b}"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000010.settings]
+background_opacity = 0.0
+background_padding = 0
+background_radius = 0
+center_text = true
+format = "{:%d %b}"
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
-    box_height = 288.0
-    box_width = 160.0
-    cx = 800.00006103515625
-    cy = 283.33331298828125
-    output = "eDP-1"
-    placement_height = 1000.0
-    placement_width = 1600.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
+box_height = 288.0
+box_width = 160.0
+cx = 800.00006103515625
+cy = 283.33331298828125
+output = "eDP-1"
+placement_height = 1000.0
+placement_width = 1600.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
-        background = false
-        bands = 64
-        center_text = true
-        centered = false
-        format = "{:%H\\n%M}"
-        mirrored = false
-        show_when_idle = false
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
+background = false
+bands = 64
+center_text = true
+centered = false
+format = "{:%H\\n%M}"
+mirrored = false
+show_when_idle = false
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000012]
-    box_height = 192.0
-    box_width = 704.0
-    cx = 768.0
-    cy = 832.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "audio_visualizer"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000012]
+box_height = 192.0
+box_width = 704.0
+cx = 768.0
+cy = 832.0
+output = "eDP-1"
+rotation = 0.0
+type = "audio_visualizer"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000012.settings]
-        background = false
-        bands = 64
-        centered = false
-        mirrored = false
-        show_when_idle = false
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000012.settings]
+background = false
+bands = 64
+centered = false
+mirrored = false
+show_when_idle = false
 
 [nightlight]
 enabled = true
@@ -437,8 +451,8 @@ offset_y = 15
 background_opacity = 0.79999998211860657
 offset_y = 10
 
-    [osd.kinds]
-    media = false
+[osd.kinds]
+media = false
 
 [plugin_settings."noctalia/screen_recorder"]
 video_source = "portal"
@@ -457,57 +471,57 @@ polkit_agent = true
 screen_time_enabled = true
 settings_window_translucent = true
 
-    [shell.greeter_sync]
-    auto_sync = false
+[shell.greeter_sync]
+auto_sync = false
 
-    [shell.launcher.providers.emoji]
-    prefix = ""
+[shell.launcher.providers.emoji]
+prefix = ""
 
-    [shell.panel]
-    control_center_placement = "floating"
-    floating_offset = 10
-    session_placement = "floating"
-    transparency_mode = "glass"
-    wallpaper_placement = "floating"
+[shell.panel]
+control_center_placement = "floating"
+floating_offset = 10
+session_placement = "floating"
+transparency_mode = "glass"
+wallpaper_placement = "floating"
 
-    [shell.screenshot]
-    directory = "~/Pictures/Screenshots"
-    pipe_command = "satty -f -"
+[shell.screenshot]
+directory = "~/Pictures/Screenshots"
+pipe_command = "satty -f -"
 
-    [[shell.session.actions]]
-    action = "lock"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "l"
-    variant = "default"
+[[shell.session.actions]]
+action = "lock"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "l"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "logout"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "g"
-    variant = "default"
+[[shell.session.actions]]
+action = "logout"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "g"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "lock_and_suspend"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "p"
-    variant = "default"
+[[shell.session.actions]]
+action = "lock_and_suspend"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "p"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "reboot"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "r"
-    variant = "default"
+[[shell.session.actions]]
+action = "reboot"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "r"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "shutdown"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "s"
-    variant = "destructive"
+[[shell.session.actions]]
+action = "shutdown"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "s"
+variant = "destructive"
 
 [system.monitor]
 gpu_poll_seconds = 5
@@ -518,27 +532,27 @@ mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
-    [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4" ]
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4"]
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"
-transition = [ "fade" ]
+transition = ["fade"]
 
-    [wallpaper.default]
-    path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+[wallpaper.default]
+path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
-    [wallpaper.last]
-    path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+[wallpaper.last]
+path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
-    [wallpaper.monitors.DP-3]
-    path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+[wallpaper.monitors.DP-3]
+path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+[wallpaper.monitors.HDMI-A-1]
+path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
-    [wallpaper.monitors.eDP-1]
-    path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+[wallpaper.monitors.eDP-1]
+path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
 [weather]
 refresh_minutes = 10
@@ -577,4 +591,4 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.tray]
 drawer = true
-pinned = [ "AmneziaVPN", "systray_34401", "TelegramDesktop", "tailscale" ]
+pinned = ["AmneziaVPN", "systray_34401", "TelegramDesktop", "tailscale"]

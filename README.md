@@ -7,7 +7,7 @@
 
 ## Prerequisites
 
-- Installation of NixOS
+- Live USB with nixos image
 
 ## Installation
 
@@ -16,12 +16,20 @@
 
 ```sh
 # This section is executed from live usb
-export NIX_CONFIG="experimental-features = nix-command flakes"
 nix run nixpkgs#git -- clone --depth=1 https://github.com/chilipizdrick/dotfiles.git
 cd dotfiles
-sudo nix run github:nix-community/disko -- --mode disko ./hosts/<host>/_disko.nix
+sudo nix run --option experimental-features 'nix-command flakes' github:nix-community/disko -- --mode disko ./hosts/<host>/_disko.nix
 sudo nixos-generate-config --no-filesystems --root /mnt --show-hardware-config > ./hosts/<host>/_hardware-configuration.nix
 sudo nixos-install --flake .#<host>
+```
+
+## Post install setup
+
+During dedicated netns tailscale vpn setup don't forget to set `--accept-dns=false`,
+or else all of the system trafic will be routed through inaccessible DNS:
+
+```sh
+sudo tailscale-vpn up --accept-dns=false --login-server=<login-server> --exit-node=<exit-node>
 ```
 
 ## Thanks to

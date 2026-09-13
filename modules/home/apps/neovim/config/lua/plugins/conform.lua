@@ -15,6 +15,7 @@ return {
 
     formatters_by_ft = {
       lua = { "stylua" },
+      toml = { "taplo" },
       cpp = { "clang-format" },
       cc = { "clang-format" },
       h = { "clang-format" },

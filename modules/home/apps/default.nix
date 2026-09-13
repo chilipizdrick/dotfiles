@@ -4,6 +4,8 @@
   self',
   ...
 }: {
+  # services.tailscale-systray.enable = true;
+
   programs.carapace.enable = true;
   programs.command-not-found.enable = false;
   programs.eza.enable = true;

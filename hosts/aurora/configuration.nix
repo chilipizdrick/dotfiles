@@ -4,7 +4,10 @@
     lib,
     ...
   }: {
-    imports = [./_hardware-configuration.nix];
+    imports = [
+      ./_hardware-configuration.nix
+      ./_hyperhdr.nix
+    ];
 
     nvidiaVideoDrivers.enable = true;
 
@@ -40,13 +43,12 @@
             hl.workspace_rule({workspace = i, monitor = "HDMI-A-1"})
           end
           hl.workspace_rule({workspace = 10, monitor = "DP-3"})
-
-          hl.on("hyprland.start", function()
-            hl.timer(function()
-              hl.exec_cmd("${pkgs.hyperhdr}/bin/hyperhdr")
-            end, {timeout = 6000, type = "oneshot"})
-          end)
         '';
+
+      programs.noctalia.settings = {
+        idle.behavior."Lock & Suspend then Hibernate".enabled = false;
+        idle.behavior.lock-and-suspend.enabled = true;
+      };
 
       home.sessionVariables = {
         LIBVA_DRIVER_NAME = "nvidia";

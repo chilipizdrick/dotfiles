@@ -49,6 +49,11 @@
         Xcursor.theme: Bibata-Modern-Classic
       '';
 
+      programs.noctalia.settings = {
+        idle.behavior."Lock & Suspend then Hibernate".enabled = true;
+        idle.behavior.lock-and-suspend.enabled = false;
+      };
+
       games = {
         enable = true;
         minecraft = true;

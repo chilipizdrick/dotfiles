@@ -12,6 +12,8 @@
     rustfmt
     rust-analyzer
 
+    taplo
+
     wgsl-analyzer
 
     python3
