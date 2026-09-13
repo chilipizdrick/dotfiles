@@ -59,9 +59,9 @@ visible = true
 
 [desktop_widgets.widget]
 
-[hooks]
-started = "sh -c 'if [[ -v INITIAL_HYPRLAND_SESSION ]]; then noctalia msg session lock; fi'"
-wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
+# [hooks]
+# started = ""
+# wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
 
 [idle]
 behavior_order = [
@@ -103,7 +103,8 @@ tab_previous = ["Shift+ISO_Left_Tab", "Ctrl+p"]
 up = ["Up", "Ctrl+k"]
 
 [location]
-address = ""
+# address = ""
+auto_locate = true
 
 [lockscreen]
 tint_intensity = 0.0

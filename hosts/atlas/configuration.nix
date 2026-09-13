@@ -1,5 +1,9 @@
 {self, ...} @ inputs: let
-  nixosModule = {pkgs, ...}: {
+  nixosModule = {
+    pkgs,
+    lib,
+    ...
+  }: {
     imports = [
       inputs.disko.nixosModules.disko
       ./_disko.nix
@@ -7,6 +11,8 @@
     ];
 
     amdVideoDrivers.enable = true;
+    # # Fix for a compositor not starting up
+    # environment.sessionVariables.AMD_DEBUG = "nodcc";
 
     games = {
       enable = true;
@@ -50,8 +56,8 @@
       '';
 
       programs.noctalia.settings = {
-        idle.behavior."Lock & Suspend then Hibernate".enabled = true;
-        idle.behavior.lock-and-suspend.enabled = false;
+        idle.behavior."Lock & Suspend then Hibernate".enabled = lib.mkForce true;
+        idle.behavior.lock-and-suspend.enabled = lib.mkForce false;
       };
 
       games = {

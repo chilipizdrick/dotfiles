@@ -22,8 +22,17 @@
     };
   };
 
-  services.greetd.settings.initial_session = {
-    user = config.users.users.alex.name;
-    command = "${pkgs.coreutils}/bin/env INITIAL_HYPRLAND_SESSION=1 ${pkgs.uwsm}/bin/uwsm start hyprland.desktop";
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       user = "greeter";
+  #       command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd 'uwsm start hyprland.desktop'";
+  #     };
+  #     initial_session = {
+  #       user = config.users.users.alex.name;
+  #       command = "${pkgs.coreutils}/bin/env INITIAL_HYPRLAND_SESSION=1 ${pkgs.uwsm}/bin/uwsm start hyprland.desktop";
+  #     };
+  #   };
+  # };
 }

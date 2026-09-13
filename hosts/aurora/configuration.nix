@@ -46,8 +46,8 @@
         '';
 
       programs.noctalia.settings = {
-        idle.behavior."Lock & Suspend then Hibernate".enabled = false;
-        idle.behavior.lock-and-suspend.enabled = true;
+        idle.behavior."Lock & Suspend then Hibernate".enabled = lib.mkForce false;
+        idle.behavior.lock-and-suspend.enabled = lib.mkForce true;
       };
 
       home.sessionVariables = {
