@@ -59,10 +59,6 @@ visible = true
 
 [desktop_widgets.widget]
 
-# [hooks]
-# started = ""
-# wallpaper_changed = "ln -sf \"$NOCTALIA_WALLPAPER_PATH\" \"$HOME/.current_wallpaper\""
-
 [idle]
 behavior_order = [
   "lock",
@@ -417,12 +413,12 @@ type = "clock"
 
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
 background = false
-bands = 64
+# bands = 64
 center_text = true
-centered = false
+# centered = false
 format = "{:%H\\n%M}"
-mirrored = false
-show_when_idle = false
+# mirrored = false
+# show_when_idle = false
 
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000012]
 box_height = 192.0
@@ -457,9 +453,6 @@ media = false
 
 [plugin_settings."noctalia/screen_recorder"]
 video_source = "portal"
-
-[plugin_settings."nzlov/daily-wallpaper"]
-source = "nasa"
 
 [plugins]
 enabled = []
@@ -535,6 +528,10 @@ wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
 builtin_ids = ["gtk3", "gtk4"]
+
+[theme.templates.user.kdeglobals]
+input_path = "templates/kdeglobals.mustache"
+output_path = "~/.config/kdeglobals"
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"

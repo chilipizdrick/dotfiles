@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     grim
+    gtk3
     hyprpicker
     killall
     libnotify

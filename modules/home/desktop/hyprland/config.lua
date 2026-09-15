@@ -11,8 +11,8 @@ hl.env("XCURSOR_SIZE", "20")
 hl.config({
   general = {
     border_size = 1,
-    gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
-    gaps_out = 10,
+    gaps_in = { top = 5, bottom = 0, left = 5, right = 0 },
+    gaps_out = 5,
     ["col.active_border"] = "rgba(ffffff88)",
     ["col.inactive_border"] = "rgba(55555555)",
     resize_on_border = false,
@@ -213,7 +213,7 @@ hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("satty-screenshot"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("alacritty"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd('xdg-open "http://"'))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("gtk-launch helium-vpn.desktop"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("vpn-launch Telegram"))
 

@@ -19,18 +19,18 @@
 
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      "application/pdf" = ["org.pwmt.zathura.desktop"];
+      "application/pdf" = "org.pwmt.zathura.desktop";
       "application/doc" = "onlyoffice-desktopeditors.desktop";
       "application/docx" = "onlyoffice-desktopeditors.desktop";
       "application/msword" = "onlyoffice-desktopeditors.desktop";
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
 
-      "image/png" = ["imv.desktop"];
-      "image/jpg" = ["imv.desktop"];
-      "image/jpeg" = ["imv.desktop"];
-      "image/webp" = ["imv.desktop"];
-      "image/gif" = ["imv.desktop"];
-      "image/svg" = ["imv.desktop"];
+      "image/png" = "imv.desktop";
+      "image/jpg" = "imv.desktop";
+      "image/jpeg" = "imv.desktop";
+      "image/webp" = "imv.desktop";
+      "image/gif" = "imv.desktop";
+      "image/svg" = "imv.desktop";
 
       "video/mp4" = "mpv.desktop";
       "video/mkv" = "mpv.desktop";

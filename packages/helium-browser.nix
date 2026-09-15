@@ -31,29 +31,30 @@ in
 
     nativeBuildInputs = [copyDesktopItems];
 
-    extraInstallCommands =
-      ''
-        install -D -m 644 ${appimageContents}/helium.desktop $out/share/applications/helium.desktop
+    extraInstallCommands = ''
+      install -D -m 644 ${appimageContents}/helium.desktop $out/share/applications/helium.desktop
 
-        substituteInPlace $out/share/applications/helium.desktop \
-          --replace 'Exec=helium %U' "Exec=$out/bin/${pname} --hide-crash-restore-bubble %U"
+      substituteInPlace $out/share/applications/helium.desktop \
+        --replace 'Exec=helium %U' "Exec=$out/bin/${pname} --hide-crash-restore-bubble %U"
 
-          cp -r ${appimageContents}/usr/share/icons $out/share
-      ''
-      + (
-        if withVpnDesktopFile
-        then ''
-          cp $out/share/applications/helium.desktop $out/share/applications/helium-vpn.desktop
+        cp -r ${appimageContents}/usr/share/icons $out/share
+    '';
+    # + (
+    #   if withVpnDesktopFile
+    #   then ''
+    #     cp $out/share/applications/helium.desktop $out/share/applications/helium-vpn.desktop
+    #
+    #     substituteInPlace $out/share/applications/helium-vpn.desktop \
+    #       --replace 'Name=Helium' 'Name=Helium (VPN)' \
+    #       --replace "Exec=$out/bin/${pname} --hide-crash-restore-bubble %U" \
+    #                 "Exec=sh -c 'exec vpn-launch $out/bin/${pname} --hide-crash-restore-bubble --user-data-dir="$HOME/.config/helium-vpn" --class=helium-vpn "$@"' -- %U"
+    #
+    #     echo "StartupWMClass=helium-vpn" >> $out/share/applications/helium-vpn.desktop
+    #   ''
+    #   else ""
+    # );
 
-          substituteInPlace $out/share/applications/helium-vpn.desktop \
-            --replace 'Name=Helium' 'Name=Helium (VPN)' \
-            --replace "Exec=$out/bin/${pname} --hide-crash-restore-bubble %U" \
-                      "Exec=vpn-launch $out/bin/${pname} --hide-crash-restore-bubble --user-data-dir=.config/helium-vpn --class=helium-vpn %U"
-
-          echo "StartupWMClass=helium-vpn" >> $out/share/applications/helium-vpn.desktop
-        ''
-        else ""
-      );
+    # "Exec=vpn-launch $out/bin/${pname} --hide-crash-restore-bubble --user-data-dir=%h/.config/helium-vpn --class=helium-vpn %U"
 
     meta = {
       platforms = lib.attrNames architectures;

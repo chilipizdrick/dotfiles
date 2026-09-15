@@ -11,8 +11,6 @@
     ];
 
     amdVideoDrivers.enable = true;
-    # # Fix for a compositor not starting up
-    # environment.sessionVariables.AMD_DEBUG = "nodcc";
 
     games = {
       enable = true;
@@ -31,29 +29,19 @@
     networking.hostName = "atlas";
 
     home-manager.users.alex = {
-      wayland.windowManager.hyprland.extraConfig =
+      wayland.windowManager.hyprland.extraConfig = let
+        xrdbConfig = pkgs.writeText "xrdb-config" ''
+          Xft.dpi: 154
+        '';
+      in
         # lua
         ''
           hl.monitor({ output = "eDP-1", mode = "highres", position = "auto", scale = 1.6 })
 
           hl.on("hyprland.start", function()
-            hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ~/.Xresources")
+            hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ${xrdbConfig}")
           end)
         '';
-
-      # Force scaling for x11 apps
-      home.file.".Xresources".text = ''
-        Xft.dpi: 154
-        Xft.autohint: 0
-        Xft.lcdfilter: lcddefault
-        Xft.hintstyle: hintfull
-        Xft.hinting: 1
-        Xft.antialias: 1
-        Xft.rgba: rgb
-
-        Xcursor.size: 20
-        Xcursor.theme: Bibata-Modern-Classic
-      '';
 
       programs.noctalia.settings = {
         idle.behavior."Lock & Suspend then Hibernate".enabled = lib.mkForce true;
