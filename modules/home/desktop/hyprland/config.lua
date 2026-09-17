@@ -24,6 +24,10 @@ hl.config({
     special_scale_factor = 0.8,
   },
 
+  scrolling = {
+    column_width = 0.75,
+  },
+
   master = {
     new_on_top = 1,
     mfact = 0.5,

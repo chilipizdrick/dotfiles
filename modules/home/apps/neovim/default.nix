@@ -17,6 +17,7 @@
     wgsl-analyzer
 
     python3
+    basedpyright
 
     llvmPackages.clang
     llvmPackages.clang-tools
