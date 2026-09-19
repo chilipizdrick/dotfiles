@@ -8,5 +8,3 @@ result
 
 **.envrc
 **.direnv
-
-/packages/**/target/

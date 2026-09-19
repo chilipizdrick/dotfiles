@@ -17,7 +17,7 @@
   # permanently drops privileges back to the calling user, and then executes
   # the requested command.
   vpnLauncher = pkgs.stdenv.mkDerivation {
-    pname = "vpn-launch";
+    pname = "vpn";
     version = "1.0";
 
     dontUnpack = true;
@@ -30,12 +30,12 @@
         -Wall \
         -Wextra \
         -Werror \
-        -o vpn-launch \
+        -o vpn \
         ${./vpn-launch.c}
     '';
 
     installPhase = ''
-      install -Dm755 vpn-launch $out/bin/vpn-launch
+      install -Dm755 vpn $out/bin/vpn
     '';
   };
 
@@ -144,8 +144,8 @@ in {
   };
 
   # Install the privileged launcher as a setuid-root wrapper.
-  security.wrappers.vpn-launch = {
-    source = "${vpnLauncher}/bin/vpn-launch";
+  security.wrappers.vpn = {
+    source = "${vpnLauncher}/bin/vpn";
 
     owner = "root";
     group = "root";

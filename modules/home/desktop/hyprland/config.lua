@@ -118,10 +118,28 @@ hl.curve("easeOutCubic", { type = "bezier", points = { { 0.215, 0.61 }, { 0.355,
 hl.animation({ leaf = "global", enabled = true, speed = 2, bezier = "easeOutCubic" })
 hl.animation({ leaf = "fadePopups", enabled = false })
 hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "easeOutCubic" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide top" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide bottom" })
+hl.animation({
+  leaf = "windowsIn",
+  enabled = true,
+  speed = 2,
+  bezier = "easeOutCubic",
+  style = "slide top",
+})
+hl.animation({
+  leaf = "windowsOut",
+  enabled = true,
+  speed = 2,
+  bezier = "easeOutCubic",
+  style = "slide bottom",
+})
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCubic", style = "slide" })
+hl.animation({
+  leaf = "workspaces",
+  enabled = true,
+  speed = 2,
+  bezier = "easeOutCubic",
+  style = "slide",
+})
 
 hl.bind("SUPER + SHIFT + A", function()
   local animations_enabled = not hl.get_config("animations.enabled")
@@ -136,6 +154,8 @@ hl.bind("SUPER + SHIFT + B", function()
   hl.exec_cmd("noctalia msg notification-show 'Blur' '" .. msg .. "'")
   hl.config({ decoration = { blur = { enabled = blur_enabled } } })
 end)
+
+-- hl.workspace_rule({ workspace = 1, layout = "scrolling" })
 
 hl.layer_rule({
   name = "noctalia",
@@ -153,7 +173,8 @@ hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
-local special_windows_regex = "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
+local special_windows_regex =
+  "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
 hl.window_rule({
   match = { class = special_windows_regex },
   float = true,
@@ -219,7 +240,7 @@ hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("alacritty"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("gtk-launch helium-vpn.desktop"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"))
-hl.bind("SUPER + T", hl.dsp.exec_cmd("vpn-launch Telegram"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("vpn Telegram"))
 
 hl.bind("SUPER + ALT + T", function()
   local border_size = hl.get_config("general.border_size")
@@ -240,9 +261,15 @@ hl.bind("SUPER + ALT + T", function()
   end
 end)
 
-hl.bind("SUPER + S", hl.dsp.exec_cmd("vpn-launch spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"))
-hl.bind("SUPER + D", hl.dsp.exec_cmd("vpn-launch discord"))
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine' | notify-send -a 'pw-connect'"))
+hl.bind(
+  "SUPER + S",
+  hl.dsp.exec_cmd("vpn spotify --enable-features=UseOzonePlatform --ozone-platform=wayland")
+)
+hl.bind("SUPER + D", hl.dsp.exec_cmd("vpn discord"))
+hl.bind(
+  "SUPER + CTRL + C",
+  hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine' | notify-send -a 'pw-connect'")
+)
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
@@ -274,14 +301,42 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })
 hl.bind("SUPER + X", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
-hl.bind("SUPER + CTRL + " .. left, hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + " .. right, hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + " .. up, hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + " .. down, hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+hl.bind(
+  "SUPER + CTRL + " .. left,
+  hl.dsp.window.resize({ x = -20, y = 0, relative = true }),
+  { repeating = true }
+)
+hl.bind(
+  "SUPER + CTRL + " .. right,
+  hl.dsp.window.resize({ x = 20, y = 0, relative = true }),
+  { repeating = true }
+)
+hl.bind(
+  "SUPER + CTRL + " .. up,
+  hl.dsp.window.resize({ x = 0, y = -20, relative = true }),
+  { repeating = true }
+)
+hl.bind(
+  "SUPER + CTRL + " .. down,
+  hl.dsp.window.resize({ x = 0, y = 20, relative = true }),
+  { repeating = true }
+)
 
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up 5"), { repeating = true, locked = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 5"), { repeating = true, locked = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { repeating = true, locked = true })
+hl.bind(
+  "XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd("noctalia msg volume-up 5"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  "XF86AudioLowerVolume",
+  hl.dsp.exec_cmd("noctalia msg volume-down 5"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  "XF86AudioMute",
+  hl.dsp.exec_cmd("noctalia msg volume-mute"),
+  { repeating = true, locked = true }
+)
 
 hl.bind("SUPER + M", hl.dsp.exec_cmd("noctalia msg mic-mute"), { repeating = true, locked = true })
 
@@ -290,9 +345,21 @@ hl.bind(
   hl.dsp.exec_cmd("noctalia msg brightness-down all 5"),
   { repeating = true, locked = true }
 )
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-set all 0"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up all 5"), { repeating = true, locked = true })
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-set all 100"), { locked = true })
+hl.bind(
+  "SHIFT + XF86MonBrightnessDown",
+  hl.dsp.exec_cmd("noctalia msg brightness-set all 0"),
+  { locked = true }
+)
+hl.bind(
+  "XF86MonBrightnessUp",
+  hl.dsp.exec_cmd("noctalia msg brightness-up all 5"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  "SHIFT + XF86MonBrightnessUp",
+  hl.dsp.exec_cmd("noctalia msg brightness-set all 100"),
+  { locked = true }
+)
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("uwsm app -- daemonologist")

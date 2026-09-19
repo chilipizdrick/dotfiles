@@ -2,6 +2,7 @@
   programs.command-not-found.enable = false;
 
   environment.systemPackages = with pkgs; [
+    # home-manager
     alejandra
     bat
     curl
@@ -9,9 +10,9 @@
     fd
     ffmpeg
     fzf
+    gdu
     git
     gzip
-    # home-manager
     hyperfine
     imagemagick
     jq

@@ -98,7 +98,7 @@ in rec {
 
         sed \
           -e 's/^Name=\(.*\)$/Name=\1 (VPN)/' \
-          -e 's|^Exec=|Exec=/run/wrappers/bin/vpn-launch |' \
+          -e 's|^Exec=|Exec=/run/wrappers/bin/vpn |' \
           "$desktop" \
           > "$out/share/applications/$name-vpn.desktop"
       done

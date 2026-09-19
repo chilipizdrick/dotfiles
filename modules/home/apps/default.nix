@@ -4,8 +4,6 @@
   self',
   ...
 }: {
-  # services.tailscale-systray.enable = true;
-
   programs.carapace.enable = true;
   programs.command-not-found.enable = false;
   programs.eza.enable = true;
@@ -14,8 +12,8 @@
   home.packages = with pkgs; let
     withVpnDesktop = self'.lib.withVpnDesktop pkgs;
   in [
+    syncthing
     audacity
-    baobab
     coppwr
     decibels
     discord
@@ -36,6 +34,5 @@
     (withVpnDesktop telegram-desktop)
     self'.packages.helium-browser
     (withVpnDesktop self'.packages.helium-browser)
-    # (self'.packages.helium-browser.override {withVpnDesktopFile = true;})
   ];
 }

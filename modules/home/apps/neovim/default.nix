@@ -12,12 +12,15 @@
     rustfmt
     rust-analyzer
 
+    vscode-langservers-extracted
+
     taplo
 
-    wgsl-analyzer
+    # wgsl-analyzer
 
     python3
-    basedpyright
+    ruff
+    ty
 
     llvmPackages.clang
     llvmPackages.clang-tools
