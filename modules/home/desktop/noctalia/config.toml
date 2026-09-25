@@ -3,48 +3,46 @@ enable_overdrive = true
 enable_sounds = false
 
 [bar]
-order = ["default"]
+order = [ "default" ]
 
 [bar.default]
-background_opacity = 0.79999998211860657
+background_opacity = 0.8
 capsule = true
 capsule_fill = "tertiary"
-capsule_opacity = 0.099999997764825821
-capsule_thickness = 0.74999998696148396
-center = ["workspaces"]
+capsule_opacity = 0.1
+capsule_thickness = 0.75
+center = [ "workspaces" ]
 concave_edge_corners = false
 contact_shadow = true
-end = [
-  "tray",
-  "brightness",
-  "group:g2",
-  "network",
-  "group:g1",
-  "battery",
-  "notifications",
-  "session",
-]
+end = [ "tray", "brightness", "group:g2", "network", "group:g1", "battery", "notifications", "session" ]
 font_weight = 600
-margin_edge = 10
-margin_ends = 10
+margin_edge = 0
+margin_ends = 0
 padding = 6
-radius = 15
-start = ["launcher", "clock", "media"]
+radius = 0
+shadow = false
+start = [ "launcher", "clock", "media" ]
+thickness = 30
 
 [[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
 enabled = true
 fill = "tertiary"
 id = "g2"
-members = ["volume", "input_volume"]
-opacity = 0.099999994039535522
+
+members = [ "volume", "input_volume" ]
+opacity = 0.1
 padding = 6.0
 
 [[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
 enabled = true
 fill = "tertiary"
 id = "g1"
-members = ["ram", "cpu"]
-opacity = 0.099999994039535522
+members = [ "ram", "cpu" ]
+opacity = 0.1
 padding = 6.0
 
 [desktop_widgets]
@@ -59,18 +57,16 @@ visible = true
 
 [desktop_widgets.widget]
 
+[hooks]
+started = ""
+
 [idle]
-behavior_order = [
-  "lock",
-  "screen-off",
-  "Lock & Suspend then Hibernate",
-  "lock-and-suspend",
-]
+behavior_order = [ "lock", "screen-off", "Lock & Suspend then Hibernate", "lock-and-suspend" ]
 
 [idle.behavior."Lock & Suspend then Hibernate"]
 action = "command"
 command = "systemctl suspend-then-hibernate"
-enabled = false
+enabled = true
 resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
 timeout = 900.0
 
@@ -81,7 +77,7 @@ timeout = 600.0
 
 [idle.behavior.lock-and-suspend]
 action = "lock_and_suspend"
-enabled = true
+enabled = false
 resume_command = "hyprctl dispatch 'hl.dsp.dpms({action = \"enable\"})'"
 timeout = 900.0
 
@@ -91,15 +87,14 @@ enabled = false
 timeout = 660.0
 
 [keybinds]
-down = ["Down", "Ctrl+j"]
-left = ["Left", "Ctrl+h"]
-right = ["Right", "Ctrl+l"]
-tab_next = ["Tab", "Ctrl+n"]
-tab_previous = ["Shift+ISO_Left_Tab", "Ctrl+p"]
-up = ["Up", "Ctrl+k"]
+down = [ "Down", "Ctrl+j" ]
+left = [ "Left", "Ctrl+h" ]
+right = [ "Right", "Ctrl+l" ]
+tab_next = [ "Tab", "Ctrl+n" ]
+tab_previous = [ "Shift+ISO_Left_Tab", "Ctrl+p" ]
+up = [ "Up", "Ctrl+k" ]
 
 [location]
-# address = ""
 auto_locate = true
 
 [lockscreen]
@@ -109,18 +104,19 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-  "lockscreen-login-box@WAYLAND-1",
-  "lockscreen-login-box@eDP-1",
-  "lockscreen-login-box@DP-3",
-  "lockscreen-login-box@HDMI-A-1",
-  "lockscreen-widget-0000000000000001",
-  "lockscreen-widget-0000000000000002",
-  "lockscreen-widget-0000000000000003",
-  "lockscreen-widget-0000000000000004",
-  "lockscreen-widget-0000000000000005",
-  "lockscreen-widget-0000000000000009",
-  "lockscreen-widget-0000000000000010",
-  "lockscreen-widget-0000000000000011",
+"lockscreen-login-box@Unknown-1",
+"lockscreen-login-box@WAYLAND-1",
+"lockscreen-login-box@eDP-1",
+"lockscreen-login-box@DP-3",
+"lockscreen-login-box@HDMI-A-1",
+"lockscreen-widget-0000000000000001",
+"lockscreen-widget-0000000000000002",
+"lockscreen-widget-0000000000000003",
+"lockscreen-widget-0000000000000004",
+"lockscreen-widget-0000000000000005",
+"lockscreen-widget-0000000000000009",
+"lockscreen-widget-0000000000000010",
+"lockscreen-widget-0000000000000011"
 ]
 
 [lockscreen_widgets.grid]
@@ -169,8 +165,35 @@ type = "login_box"
 
 [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
 background_color = "surface_variant"
-background_opacity = 0.84999999999999998
+background_opacity = 0.85
 background_radius = 15.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@Unknown-1"]
+box_height = 196.0
+box_width = 768.0
+cx = 400.0
+cy = 418.0
+output = "Unknown-1"
+placement_height = 600.0
+placement_width = 800.0
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@Unknown-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
 center_password_text = false
 input_opacity = 1.0
 input_radius = 6.0
@@ -367,8 +390,8 @@ show_forecast = true
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
 box_height = 32.0
 box_width = 192.0
-cx = 800.00006103515625
-cy = 450.00009155273438
+cx = 800.0
+cy = 450.0
 output = "eDP-1"
 placement_height = 1000.0
 placement_width = 1600.0
@@ -385,8 +408,8 @@ format = "{:%A}"
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000010]
 box_height = 32.0
 box_width = 192.0
-cx = 800.00006103515625
-cy = 483.33331298828125
+cx = 800.0
+cy = 483.33333333333333
 output = "eDP-1"
 placement_height = 1000.0
 placement_width = 1600.0
@@ -401,10 +424,10 @@ center_text = true
 format = "{:%d %b}"
 
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
-box_height = 288.0
+box_height = 256.0
 box_width = 160.0
-cx = 800.00006103515625
-cy = 283.33331298828125
+cx = 800.0
+cy = 306.0
 output = "eDP-1"
 placement_height = 1000.0
 placement_width = 1600.0
@@ -413,12 +436,8 @@ type = "clock"
 
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
 background = false
-# bands = 64
 center_text = true
-# centered = false
 format = "{:%H\\n%M}"
-# mirrored = false
-# show_when_idle = false
 
 [lockscreen_widgets.widget.lockscreen-widget-0000000000000012]
 box_height = 192.0
@@ -440,19 +459,16 @@ show_when_idle = false
 enabled = true
 
 [notification]
-background_opacity = 0.79999998211860657
-offset_x = 15
-offset_y = 15
+background_opacity = 0.8
+offset_x = 10
+offset_y = 10
 
 [osd]
-background_opacity = 0.79999998211860657
-offset_y = 10
+background_opacity = 0.8
+offset_y = 5
 
 [osd.kinds]
 media = false
-
-[plugin_settings."noctalia/screen_recorder"]
-video_source = "portal"
 
 [plugins]
 enabled = []
@@ -473,7 +489,7 @@ prefix = ""
 
 [shell.panel]
 control_center_placement = "floating"
-floating_offset = 10
+floating_offset = 5
 session_placement = "floating"
 transparency_mode = "glass"
 wallpaper_placement = "floating"
@@ -527,7 +543,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
-builtin_ids = ["gtk3", "gtk4"]
+builtin_ids = [ "gtk3", "gtk4", "qt" ]
 
 [theme.templates.user.kdeglobals]
 input_path = "templates/kdeglobals.mustache"
@@ -535,13 +551,13 @@ output_path = "~/.config/kdeglobals"
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"
-transition = ["fade"]
+transition = [ "fade" ]
 
 [wallpaper.default]
-path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+path = "/home/alex/Pictures/wallpapers/landscapes/red_forest.jpg"
 
 [wallpaper.last]
-path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+path = "/home/alex/Pictures/wallpapers/landscapes/red_forest.jpg"
 
 [wallpaper.monitors.DP-3]
 path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
@@ -550,7 +566,7 @@ path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/alex/Pictures/wallpapers/interiors/warm_orange_sofa_room.jpg"
+path = "/home/alex/Pictures/wallpapers/landscapes/red_forest.jpg"
 
 [weather]
 refresh_minutes = 10
@@ -584,9 +600,5 @@ show_label = false
 [widget.ram]
 enabled = true
 
-[widget.recorder]
-type = "noctalia/screen_recorder:recorder"
-
 [widget.tray]
 drawer = true
-pinned = ["AmneziaVPN", "systray_34401", "TelegramDesktop", "tailscale"]

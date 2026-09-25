@@ -9,6 +9,7 @@
       jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
+      monocraft
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
