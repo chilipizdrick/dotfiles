@@ -35,6 +35,11 @@
       wayland.windowManager.hyprland.extraConfig =
         # lua
         ''
+          hl.config({ general = {
+            gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
+            gaps_out = 10,
+          }})
+
           hl.monitor({ output = "Unknown-1", disabled = true })
           hl.monitor({ output = "DP-3", mode = "1920x1080@75", position = "0x0", scale = 1 })
           hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60", position = "1920x0", scale = 1 })
