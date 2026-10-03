@@ -12,7 +12,6 @@
   stateDir = "/var/lib/tailscale-netns";
 
   # Privileged launcher.
-  #
   # This binary starts setuid-root, enters exactly one network namespace,
   # permanently drops privileges back to the calling user, and then executes
   # the requested command.
@@ -40,9 +39,7 @@
   };
 
   # Unprivileged helper for controlling the Tailscale daemon.
-  #
   # We deliberately do NOT make this setuid.
-  #
   # Tailscale authentication/configuration is an administrative operation.
   tsVpnCli = pkgs.writeShellScriptBin "tailscale-vpn" ''
     set -euo pipefail

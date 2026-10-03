@@ -31,8 +31,6 @@
 
     inputs'.wroomer.packages.wroomer-wayland
 
-    self'.packages.clever-hijacker
-    self'.packages.pw-connect
     self'.packages.satty-screenshot
     self'.packages.daemonologist
   ];

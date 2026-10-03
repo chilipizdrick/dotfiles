@@ -2,7 +2,7 @@ use std::{
     env,
     error::Error,
     fs,
-    io::Read,
+    io::{BufRead, BufReader},
     os::unix::net::UnixStream,
     process::{Child, Command},
 };
@@ -10,39 +10,74 @@ use std::{
 type AnyError = Box<dyn Error>;
 type AnyErrResult<T> = Result<T, AnyError>;
 
+const HYPRLAND_INSTANCE_SIGNATURE: &str = "HYPRLAND_INSTANCE_SIGNATURE";
+const XDG_RUNTIME_DIR: &str = "XDG_RUNTIME_DIR";
+
 fn main() -> AnyErrResult<()> {
-    let hyprland_instance_signature = env::var("HYPRLAND_INSTANCE_SIGNATURE")?;
-    let xdg_runtime_dir = env::var("XDG_RUNTIME_DIR")?;
+    let hyprland_instance_signature = env::var(HYPRLAND_INSTANCE_SIGNATURE).map_err(|err| {
+        format!("Error reading {HYPRLAND_INSTANCE_SIGNATURE} environment variable: {err}")
+    })?;
+    let xdg_runtime_dir = env::var(XDG_RUNTIME_DIR)
+        .map_err(|err| format!("Error reading {XDG_RUNTIME_DIR} environment variable: {err}"))?;
+
     let hyprland_socket2_path = format!(
         "{}/hypr/{}/.socket2.sock",
         xdg_runtime_dir, hyprland_instance_signature
     );
-    let mut stream = UnixStream::connect(hyprland_socket2_path)?;
-    let mut buf = [0u8; 4096];
+
+    let stream = UnixStream::connect(&hyprland_socket2_path)
+        .map_err(|err| format!("Error connecting to {hyprland_socket2_path} unix socket: {err}"))?;
+
+    run(stream)
+}
+
+fn run(stream: UnixStream) -> ! {
+    let mut reader = BufReader::new(stream);
+    let mut message = String::new();
 
     loop {
-        let size = stream.read(&mut buf)?;
-        let msg = str::from_utf8(&buf[..size])?;
-        let events = msg.lines().filter_map(parse_event);
-        for event in events {
-            eprintln!("Recieved event: {event:?}");
+        message.clear();
 
-            if let Event::OpenWindow {
+        if let Err(err) = reader.read_line(&mut message) {
+            eprintln!("[ERROR] Error reading stream: {err}");
+            continue;
+        }
+
+        let Some(event) = parse_event(&message) else {
+            // The event is eiter malformed, or we are not interested in it, thus we skip it
+            continue;
+        };
+
+        match event {
+            Event::OpenWindow {
                 window_class: "discord",
                 ..
-            } = event
-                && let Err(err) = start_easyeffects_if_not_running()
-            {
-                eprintln!("ERROR: {err}")
+            } => {
+                if let Err(err) = start_easyeffects_if_not_running() {
+                    eprintln!("[ERROR] {err}")
+                }
             }
+
+            _ => {}
         }
     }
+}
+
+fn start_easyeffects_if_not_running() -> AnyErrResult<Option<Child>> {
+    if !is_program_running(".easyeffects-wrapped")? {
+        let child = Command::new("easyeffects").arg("--hide-window").spawn()?;
+        eprintln!("Started Easy Effects");
+        return Ok(Some(child));
+    }
+    Ok(None)
 }
 
 fn is_program_running(executable_name: &str) -> AnyErrResult<bool> {
     for entry in fs::read_dir("/proc")?.flatten() {
         let name = entry.file_name();
-        let name = name.to_str().ok_or("String contains non UTF8 characters")?;
+        let name = name
+            .to_str()
+            .ok_or("String contains non UTF-8 characters")?;
 
         if name.chars().all(char::is_numeric) {
             let exe_path = entry.path().join("exe");
@@ -55,15 +90,6 @@ fn is_program_running(executable_name: &str) -> AnyErrResult<bool> {
     }
 
     Ok(false)
-}
-
-fn start_easyeffects_if_not_running() -> AnyErrResult<Option<Child>> {
-    if !is_program_running(".easyeffects-wrapped")? {
-        let child = Command::new("easyeffects").arg("--hide-window").spawn()?;
-        eprintln!("Started Easy Effects");
-        return Ok(Some(child));
-    }
-    Ok(None)
 }
 
 fn parse_event<'a>(event_str: &'a str) -> Option<Event<'a>> {

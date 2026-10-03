@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   inputs,
   ...
@@ -19,7 +18,7 @@
       auto-optimise-store = true;
       keep-outputs = false;
       experimental-features = ["nix-command" "flakes"];
-      nix-path = config.nix.nixPath;
+      nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       trusted-users = ["alex"];
       substituters = [
         # "https://chilipizdrick.cachix.org"
@@ -32,6 +31,5 @@
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 }

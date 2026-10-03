@@ -20,7 +20,7 @@
     (withVpnDesktop discord)
     easyeffects
     imv
-    inputs'.hijacker2.packages.hijacker2
+    inputs'.hijacker.packages.hijacker
     kdePackages.kolourpaint
     loupe
     obsidian

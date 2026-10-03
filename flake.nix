@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hijacker2.url = "github:chilipizdrick/hijacker2";
+    hijacker.url = "github:chilipizdrick/hijacker";
     wroomer.url = "github:chilipizdrick/wroomer";
   };
 

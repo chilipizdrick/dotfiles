@@ -39,20 +39,6 @@
           end)
         '';
 
-      # programs.noctalia.settings = {
-      #   idle.behavior = {
-      #     "Lock & Suspend then Hibernate".enabled = lib.mkForce true;
-      #     lock-and-suspend.enabled = lib.mkForce false;
-      #   };
-      #   bar.default = {
-      #     radius = lib.mkForce 0;
-      #     shadow = lib.mkForce false;
-      #     thickness = lib.mkForce 30;
-      #     margin_edge = lib.mkForce 0;
-      #     margin_ends = lib.mkForce 0;
-      #   };
-      # };
-
       games = {
         enable = true;
         minecraft = true;

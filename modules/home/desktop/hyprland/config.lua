@@ -174,7 +174,7 @@ hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
 local special_windows_regex =
-  "^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
+"^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
 hl.window_rule({
   match = { class = special_windows_regex },
   float = true,
@@ -233,7 +233,7 @@ hl.bind("SUPER + U", hl.dsp.workspace.toggle_special())
 hl.bind("SUPER + CTRL + W", hl.dsp.exec_cmd("wroomer -cf"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
-hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("satty-screenshot"))
+hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
@@ -268,13 +268,14 @@ hl.bind(
 hl.bind("SUPER + D", hl.dsp.exec_cmd("vpn discord"))
 hl.bind(
   "SUPER + CTRL + C",
-  hl.dsp.exec_cmd("pw-connect 'spotify' 'WEBRTC VoiceEngine' | notify-send -a 'pw-connect'")
+  hl.dsp.exec_cmd("hijacker link -s 'spotify' -t 'WEBRTC VoiceEngine'")
 )
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
 hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("noctalia msg bar-toggle default"))
 hl.bind("CTRL + SHIFT + D", hl.dsp.pass({ window = "class:^(discord)$" }))
@@ -287,11 +288,11 @@ hl.bind("SUPER + ALT + H", function()
   hl.exec_cmd("noctalia msg notification-show 'Hijacker' '" .. msg .. "'")
 end)
 
-hl.bind("SUPER + ALT + 0", hl.dsp.exec_cmd("pkill hijacker2"))
+hl.bind("SUPER + ALT + 0", hl.dsp.exec_cmd("pkill hijacker"))
 for i = 1, 9 do
   hl.bind("SUPER + ALT + " .. i, function()
     if hijacker_enabled then
-      hl.exec_cmd("clever-hijacker 'easyeffects_source' ~/Music/hijacker-presets/" .. i .. ".mp3")
+      hl.exec_cmd("hijacker clever-play ~/Music/hijacker-presets/" .. i .. ".mp3 -s 'easyeffects_source'")
     end
   end)
 end

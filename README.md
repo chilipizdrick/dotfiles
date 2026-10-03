@@ -36,3 +36,4 @@ sudo tailscale-vpn up --accept-dns=false --login-server=<login-server> --exit-no
 
 - [zDyant](https://github.com/zDyanTB) and [Ja.KooLit](https://github.com/JaKooLit) for creating insanely cool dotfiles
 - [Gabriel Fontes](https://github.com/Misterio77) for creating comprehensive and comprehensible starting templates for NixOS and home-manager configurations
+- [Gen-cape](https://github.com/Gen-cape) for being a great (and insane in some regards) friend and opening my eyes to a lot of stuff in the Nix world.
