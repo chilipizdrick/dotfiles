@@ -268,7 +268,9 @@ hl.bind(
 hl.bind("SUPER + D", hl.dsp.exec_cmd("vpn discord"))
 hl.bind(
   "SUPER + CTRL + C",
-  hl.dsp.exec_cmd("hijacker link -s 'spotify' -t 'WEBRTC VoiceEngine'")
+  hl.dsp.exec_cmd(
+    "notify-send -a 'Hijacker' 'Audio Link' \"$(hijacker link -s 'spotify' -t 'WEBRTC VoiceEngine' 2>&1)\""
+  )
 )
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
@@ -292,7 +294,9 @@ hl.bind("SUPER + ALT + 0", hl.dsp.exec_cmd("pkill hijacker"))
 for i = 1, 9 do
   hl.bind("SUPER + ALT + " .. i, function()
     if hijacker_enabled then
-      hl.exec_cmd("hijacker clever-play ~/Music/hijacker-presets/" .. i .. ".mp3 -s 'easyeffects_source'")
+      hl.exec_cmd(
+        "hijacker clever-play ~/Music/hijacker-presets/" .. i .. ".mp3 -s 'easyeffects_source'"
+      )
     end
   end)
 end

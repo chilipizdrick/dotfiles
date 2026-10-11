@@ -8,13 +8,6 @@
 
     amdVideoDrivers.enable = true;
 
-    games = {
-      enable = true;
-      steam = true;
-      gamescope = true;
-      minecraft = true;
-    };
-
     environment.systemPackages = with pkgs; [(btop.override {rocmSupport = true;})];
 
     services.displayManager.noctalia-greeter.settings.output.scale = 1.666667;
@@ -38,11 +31,6 @@
             hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ${xrdbConfig}")
           end)
         '';
-
-      games = {
-        enable = true;
-        minecraft = true;
-      };
     };
   };
 in {

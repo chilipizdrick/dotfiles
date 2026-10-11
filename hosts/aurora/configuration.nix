@@ -13,12 +13,6 @@
 
     printerScanner.enable = true;
 
-    games = {
-      enable = true;
-      steam = true;
-      minecraft = true;
-    };
-
     services.displayManager.noctalia-greeter.settings.output.name = "HDMI-A-1";
 
     boot.loader.timeout = lib.mkForce null;
@@ -75,11 +69,6 @@
         GBM_BACKEND = "nvidia-drm";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
         NVD_BACKEND = "direct";
-      };
-
-      games = {
-        enable = true;
-        minecraft = true;
       };
 
       home.packages = with pkgs; [hyperhdr];
