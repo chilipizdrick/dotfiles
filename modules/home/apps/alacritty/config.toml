@@ -1,3 +1,6 @@
+[terminal]
+shell = "fish"
+
 [window]
 padding = { x = 10, y = 10 }
 decorations = "none"

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.noctalia = {
     enable = true;
     settings = fromTOML (builtins.readFile ./config.toml);
@@ -7,21 +7,19 @@
 
   xdg.configFile."noctalia/templates/kdeglobals.mustache".text = ''
     [General]
-    ColorScheme=NoctaliaBreeze
-    Name=Noctalia Dynamic Breeze
+    ColorScheme=Noctalia
+    Name=noctalia
     shadeSortColumn=true
+    TerminalApplication=alacritty
+    TerminalService=Alacritty.desktop
 
     [KDE]
-    colorScheme=NoctaliaBreeze
+    colorScheme=Noctalia
     widgetStyle=Breeze
     contrast=4
 
     [Icons]
     Theme=breeze-dark
-
-    [General]
-    ColorScheme=Noctalia
-    Name=noctalia
 
     [ColorEffects:Disabled]
     Color={{colors.surface_container_lowest.default.rgb_csv}}
@@ -163,6 +161,4 @@
     inactiveBlend={{colors.on_surface_variant.default.rgb_csv}}
     inactiveForeground={{colors.on_surface_variant.default.rgb_csv}}
   '';
-
-  home.packages = with pkgs; [gpu-screen-recorder];
 }

@@ -6,12 +6,12 @@
   copyDesktopItems,
 }: let
   pname = "helium-browser";
-  version = "0.18.2.1";
+  version = "0.20.1.1";
 
   architectures = {
     "x86_64-linux" = {
       arch = "x86_64";
-      hash = "sha256-qm7EQA3TQT9d1eYzpRQI4HzT894GJlAc1OVc3RNk3iE=";
+      hash = "sha256-1LeJsl0KmuEsdmceRE6Khe3Pgo4EGcZ40YxB+xrDAw4=";
     };
   };
 

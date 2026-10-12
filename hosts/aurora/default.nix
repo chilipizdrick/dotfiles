@@ -5,25 +5,17 @@
     ...
   }: {
     imports = [
-      ./_hardware-configuration.nix
-      ./_hyperhdr.nix
+      ./boot.nix
+      ./hardware-configuration.nix
+      ./hyperhdr.nix
+      ./nvidia.nix
+      ./printer-scanner.nix
     ];
 
-    nvidiaVideoDrivers.enable = true;
-
-    printerScanner.enable = true;
+    networking.hostName = "aurora";
 
     services.displayManager.noctalia-greeter.settings.output.name = "HDMI-A-1";
-
-    boot.loader.timeout = lib.mkForce null;
-    boot.loader.systemd-boot.windows.windows-11 = {
-      title = "Windows 11";
-      efiDeviceHandle = "FS0";
-    };
-
-    environment.systemPackages = with pkgs; [(btop.override {cudaSupport = true;})];
-
-    networking.hostName = "aurora";
+    environment.systemPackages = [(pkgs.btop.override {cudaSupport = true;})];
 
     home-manager.users.alex = {
       wayland.windowManager.hyprland.extraConfig =
@@ -33,11 +25,9 @@
             gaps_in = { top = 10, bottom = 0, left = 10, right = 0 },
             gaps_out = 10,
           }})
-
           hl.monitor({ output = "Unknown-1", disabled = true })
           hl.monitor({ output = "DP-3", mode = "1920x1080@75", position = "0x0", scale = 1 })
           hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60", position = "1920x0", scale = 1 })
-
           for i = 1,9 do
             hl.workspace_rule({workspace = i, monitor = "HDMI-A-1"})
           end
@@ -70,8 +60,6 @@
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
         NVD_BACKEND = "direct";
       };
-
-      home.packages = with pkgs; [hyperhdr];
     };
   };
 in {

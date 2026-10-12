@@ -3,12 +3,17 @@
   inputs,
   ...
 }: {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
-    };
-  };
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "b43-firmware"
+      "broadcom-bt-firmware"
+      "corefonts"
+      "facetimehd-calibration"
+      "facetimehd-firmware"
+      "steam"
+      "steam-unwrapped"
+      "xone-dongle-firmware"
+    ];
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -20,14 +25,6 @@
       experimental-features = ["nix-command" "flakes"];
       nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       trusted-users = ["alex"];
-      substituters = [
-        # "https://chilipizdrick.cachix.org"
-        # "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        # "chilipizdrick.cachix.org-1:xVL2Q4Rbpc6EpDJ8lNHg7BMRhPfT26jw7l+jk4taUI8="
-        # "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
     };
     channel.enable = false;
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;

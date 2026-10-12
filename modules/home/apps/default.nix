@@ -8,31 +8,19 @@
   programs.command-not-found.enable = false;
   programs.eza.enable = true;
   programs.fzf.enable = true;
+  programs.prismlauncher.enable = true;
+  programs.zed-editor.enable = true;
 
-  home.packages = with pkgs; let
-    withVpnDesktop = self'.lib.withVpnDesktop pkgs;
-  in [
-    syncthing
-    audacity
-    coppwr
-    decibels
-    discord
-    (withVpnDesktop discord)
-    easyeffects
-    imv
+  home.packages = [
+    pkgs.coppwr
+    pkgs.easyeffects
+    pkgs.imv
+    pkgs.onlyoffice-desktopeditors
+    pkgs.qbittorrent
+    pkgs.ripdrag
+    pkgs.telegram-desktop
+
     inputs'.hijacker.packages.hijacker
-    kdePackages.kolourpaint
-    loupe
-    obsidian
-    onlyoffice-desktopeditors
-    qbittorrent
-    (withVpnDesktop qbittorrent)
-    ripdrag
-    spotify
-    (withVpnDesktop spotify)
-    telegram-desktop
-    (withVpnDesktop telegram-desktop)
     self'.packages.helium-browser
-    (withVpnDesktop self'.packages.helium-browser)
   ];
 }

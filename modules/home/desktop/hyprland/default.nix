@@ -16,22 +16,16 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  home.packages = with pkgs; [
-    grim
-    gtk3
-    hyprpicker
-    killall
-    libnotify
-    nautilus
-    procps
-    satty
-    slurp
-    uwsm
-    wl-clipboard
+  home.packages = [
+    pkgs.hyprpicker
+    pkgs.libnotify
+    pkgs.kdePackages.dolphin
+    pkgs.kdePackages.ark
+    pkgs.procps
+    pkgs.uwsm
+    pkgs.wl-clipboard
 
     inputs'.wroomer.packages.wroomer-wayland
-
-    self'.packages.satty-screenshot
     self'.packages.daemonologist
   ];
 

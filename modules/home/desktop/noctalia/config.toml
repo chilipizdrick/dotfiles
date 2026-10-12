@@ -3,7 +3,7 @@ enable_overdrive = true
 enable_sounds = false
 
 [bar]
-order = [ "default" ]
+order = ["default"]
 
 [bar.default]
 background_opacity = 0.8
@@ -11,17 +11,26 @@ capsule = true
 capsule_fill = "tertiary"
 capsule_opacity = 0.1
 capsule_thickness = 0.75
-center = [ "workspaces" ]
+center = ["workspaces"]
 concave_edge_corners = false
 contact_shadow = true
-end = [ "tray", "brightness", "group:g2", "network", "group:g1", "battery", "notifications", "session" ]
+end = [
+  "tray",
+  "brightness",
+  "group:g2",
+  "network",
+  "group:g1",
+  "battery",
+  "notifications",
+  "session",
+]
 font_weight = 600
 margin_edge = 0
 margin_ends = 0
 padding = 6
 radius = 0
 shadow = false
-start = [ "launcher", "clock", "media" ]
+start = ["launcher", "clock", "media"]
 thickness = 30
 
 [[bar.default.capsule_group]]
@@ -31,7 +40,7 @@ enabled = true
 fill = "tertiary"
 id = "g2"
 
-members = [ "volume", "input_volume" ]
+members = ["volume", "input_volume"]
 opacity = 0.1
 padding = 6.0
 
@@ -41,7 +50,7 @@ accordion_direction = "end"
 enabled = true
 fill = "tertiary"
 id = "g1"
-members = [ "ram", "cpu" ]
+members = ["ram", "cpu"]
 opacity = 0.1
 padding = 6.0
 
@@ -61,7 +70,12 @@ visible = true
 started = ""
 
 [idle]
-behavior_order = [ "lock", "screen-off", "Lock & Suspend then Hibernate", "lock-and-suspend" ]
+behavior_order = [
+  "lock",
+  "screen-off",
+  "Lock & Suspend then Hibernate",
+  "lock-and-suspend",
+]
 
 [idle.behavior."Lock & Suspend then Hibernate"]
 action = "command"
@@ -87,12 +101,12 @@ enabled = false
 timeout = 660.0
 
 [keybinds]
-down = [ "Down", "Ctrl+j" ]
-left = [ "Left", "Ctrl+h" ]
-right = [ "Right", "Ctrl+l" ]
-tab_next = [ "Tab", "Ctrl+n" ]
-tab_previous = [ "Shift+ISO_Left_Tab", "Ctrl+p" ]
-up = [ "Up", "Ctrl+k" ]
+down = ["Down", "Ctrl+j"]
+left = ["Left", "Ctrl+h"]
+right = ["Right", "Ctrl+l"]
+tab_next = ["Tab", "Ctrl+n"]
+tab_previous = ["Shift+ISO_Left_Tab", "Ctrl+p"]
+up = ["Up", "Ctrl+k"]
 
 [location]
 auto_locate = true
@@ -104,19 +118,19 @@ tint_intensity = 0.0
 enabled = true
 schema_version = 2
 widget_order = [
-"lockscreen-login-box@Unknown-1",
-"lockscreen-login-box@WAYLAND-1",
-"lockscreen-login-box@eDP-1",
-"lockscreen-login-box@DP-3",
-"lockscreen-login-box@HDMI-A-1",
-"lockscreen-widget-0000000000000001",
-"lockscreen-widget-0000000000000002",
-"lockscreen-widget-0000000000000003",
-"lockscreen-widget-0000000000000004",
-"lockscreen-widget-0000000000000005",
-"lockscreen-widget-0000000000000009",
-"lockscreen-widget-0000000000000010",
-"lockscreen-widget-0000000000000011"
+  "lockscreen-login-box@Unknown-1",
+  "lockscreen-login-box@WAYLAND-1",
+  "lockscreen-login-box@eDP-1",
+  "lockscreen-login-box@DP-3",
+  "lockscreen-login-box@HDMI-A-1",
+  "lockscreen-widget-0000000000000001",
+  "lockscreen-widget-0000000000000002",
+  "lockscreen-widget-0000000000000003",
+  "lockscreen-widget-0000000000000004",
+  "lockscreen-widget-0000000000000005",
+  "lockscreen-widget-0000000000000009",
+  "lockscreen-widget-0000000000000010",
+  "lockscreen-widget-0000000000000011",
 ]
 
 [lockscreen_widgets.grid]
@@ -496,7 +510,6 @@ wallpaper_placement = "floating"
 
 [shell.screenshot]
 directory = "~/Pictures/Screenshots"
-pipe_command = "satty -f -"
 
 [[shell.session.actions]]
 action = "lock"
@@ -543,15 +556,16 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
-builtin_ids = [ "gtk3", "gtk4", "qt" ]
+builtin_ids = ["gtk3", "gtk4", "qt"]
 
 [theme.templates.user.kdeglobals]
 input_path = "templates/kdeglobals.mustache"
 output_path = "~/.config/kdeglobals"
+hook = "dbus-send --session --type=signal /KGlobalSettings org.kde.KGlobalSettings.notifyChange int32:0 int32:0"
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"
-transition = [ "fade" ]
+transition = ["fade"]
 
 [wallpaper.default]
 path = "/home/alex/Pictures/wallpapers/landscapes/red_forest.jpg"

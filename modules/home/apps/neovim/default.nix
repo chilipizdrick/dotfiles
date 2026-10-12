@@ -3,39 +3,37 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [
-    neovim
+  home.packages = [
+    pkgs.neovim
 
-    rustc
-    cargo
-    clippy
-    rustfmt
-    rust-analyzer
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.clippy
+    pkgs.rustfmt
+    pkgs.rust-analyzer
 
-    vscode-langservers-extracted
+    pkgs.vscode-langservers-extracted
 
-    taplo
+    pkgs.taplo
 
-    # wgsl-analyzer
+    pkgs.python3
+    pkgs.ruff
+    pkgs.ty
 
-    python3
-    ruff
-    ty
+    pkgs.llvmPackages.clang
+    pkgs.llvmPackages.clang-tools
 
-    llvmPackages.clang
-    llvmPackages.clang-tools
+    pkgs.lua-language-server
+    pkgs.stylua
 
-    lua-language-server
-    stylua
+    pkgs.nixd
 
-    nixd
+    pkgs.typst
+    pkgs.tinymist
+    pkgs.typstyle
 
-    typst
-    tinymist
-    typstyle
-
-    gnumake
-    tree-sitter
+    pkgs.gnumake
+    pkgs.tree-sitter
   ];
 
   home.sessionVariables = {

@@ -1,9 +1,8 @@
 {pkgs, ...}: {
+  environment.systemPackages = [pkgs.temurin-bin-21];
   hardware.uinput.enable = true;
-  services.udev.packages = [
-    pkgs.game-devices-udev-rules
-  ];
-  programs.steam.enable = true;
   programs.gamemode.enable = true;
-  environment.systemPackages = with pkgs; [temurin-bin-21];
+  programs.gamescope.enable = true;
+  programs.steam.enable = true;
+  services.udev.packages = [pkgs.game-devices-udev-rules];
 }

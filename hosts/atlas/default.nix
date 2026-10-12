@@ -2,33 +2,25 @@
   nixosModule = {pkgs, ...}: {
     imports = [
       inputs.disko.nixosModules.disko
-      ./_disko.nix
-      ./_hardware-configuration.nix
+      ./disko.nix
+      ./hardware-configuration.nix
     ];
-
-    amdVideoDrivers.enable = true;
-
-    environment.systemPackages = with pkgs; [(btop.override {rocmSupport = true;})];
-
-    services.displayManager.noctalia-greeter.settings.output.scale = 1.666667;
-
-    services.upower.enable = true;
-    services.thermald.enable = true;
 
     networking.hostName = "atlas";
 
+    environment.systemPackages = [(pkgs.btop.override {rocmSupport = true;})];
+    services.displayManager.noctalia-greeter.settings.output.scale = 1.6;
+    services.upower.enable = true;
+    services.thermald.enable = true;
+
     home-manager.users.alex = {
-      wayland.windowManager.hyprland.extraConfig = let
-        xrdbConfig = pkgs.writeText "xrdb-config" ''
-          Xft.dpi: 154
-        '';
-      in
+      xresources.properties."Xft.dpi" = 154;
+      wayland.windowManager.hyprland.extraConfig =
         # lua
         ''
           hl.monitor({ output = "eDP-1", mode = "highres", position = "auto", scale = 1.6 })
-
           hl.on("hyprland.start", function()
-            hl.exec_cmd("${pkgs.xrdb}/bin/xrdb ${xrdbConfig}")
+            hl.exec_cmd("${pkgs.xrdb}/bin/xrdb -merge ~/.Xresources")
           end)
         '';
     };

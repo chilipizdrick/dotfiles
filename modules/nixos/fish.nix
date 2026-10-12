@@ -1,11 +1,4 @@
 {pkgs, ...}: {
-  programs.fish = {
-    enable = true;
-    shellAbbrs = {
-      nsn = "nix shell nixpkgs#";
-    };
-  };
-
+  programs.fish.enable = true;
   environment.shells = [pkgs.fish];
-  users.defaultUserShell = pkgs.fish;
 }

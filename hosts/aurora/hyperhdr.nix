@@ -28,4 +28,6 @@
       ExecStart = "${pkgs.systemd}/bin/systemctl --user --machine=alex@ restart hyperhdr.service";
     };
   };
+
+  environment.systemPackages = [pkgs.hyperhdr];
 }

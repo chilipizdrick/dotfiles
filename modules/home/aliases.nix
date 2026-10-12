@@ -10,7 +10,6 @@
     gps = "git push";
     gs = "git status";
     nrs = "sudo nixos-rebuild switch --flake .";
-    oe = "nautilus . &";
     vi = "nvim";
     vim = "nvim";
     vimdiff = "nvim -d";

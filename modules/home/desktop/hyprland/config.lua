@@ -155,8 +155,6 @@ hl.bind("SUPER + SHIFT + B", function()
   hl.config({ decoration = { blur = { enabled = blur_enabled } } })
 end)
 
--- hl.workspace_rule({ workspace = 1, layout = "scrolling" })
-
 hl.layer_rule({
   name = "noctalia",
   match = {
@@ -173,25 +171,10 @@ hl.window_rule({ match = { workspace = "w[t1]", float = false }, border_size = 0
 hl.window_rule({ match = { title = "^(Wroomer)$" }, animation = "popin" })
 hl.window_rule({ match = { class = "^(factorio)$" }, render_unfocused = true })
 
-local special_windows_regex =
-"^(\\.blueman-manager-wrapped|xdg-desktop-portal-gtk|org\\.pulseaudio\\.pavucontrol)$"
+local dialogs_regex =
+  "^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename|Select what to share)$"
 hl.window_rule({
-  match = { class = special_windows_regex },
-  float = true,
-  center = true,
-  size = { "monitor_w * 0.5", "monitor_h * 0.7" },
-})
-
-hl.window_rule({
-  match = { title = "Select what to share" },
-  float = true,
-  center = true,
-  size = { "monitor_w * 0.5", "monitor_h * 0.7" },
-})
-
-local file_dialogs_regex = "^(Open File|Open|Save|Save As|Export|Import|Choose File|Rename)$"
-hl.window_rule({
-  match = { title = file_dialogs_regex },
+  match = { title = dialogs_regex },
   float = true,
   center = true,
   size = { "monitor_w * 0.5", "monitor_h * 0.7" },
@@ -238,8 +221,8 @@ hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("alacritty"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("gtk-launch helium-vpn.desktop"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("vpn helium-browser"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("vpn Telegram"))
 
 hl.bind("SUPER + ALT + T", function()
@@ -278,7 +261,7 @@ hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
-hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
+hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker --autocopy"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("noctalia msg bar-toggle default"))
 hl.bind("CTRL + SHIFT + D", hl.dsp.pass({ window = "class:^(discord)$" }))
 hl.bind("F9", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }))

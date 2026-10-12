@@ -8,34 +8,29 @@
     escapeTime = 0;
     secureSocket = false;
 
-    plugins = with pkgs; [
-      tmuxPlugins.better-mouse-mode
-      tmuxPlugins.catppuccin
+    plugins = [
+      pkgs.tmuxPlugins.better-mouse-mode
+      pkgs.tmuxPlugins.catppuccin
     ];
 
     extraConfig = ''
       set -g focus-events on
       set -g renumber-windows on
-
-      set-option -ga terminal-overrides ",alacritty:Tc"
-      set -g default-terminal "alacritty"
-      set-option -g default-shell ${pkgs.fish}/bin/fish
-
+      set -ga terminal-overrides ",alacritty:Tc"
+      set -g default-terminal alacritty
+      set -g default-shell fish
       set -ga terminal-overrides ",*:RGB"
       set -ga terminal-overrides ",*:Tc"
       set -ga terminal-features ",*:usstyle"
-
-      # Mouse config
-      set-option -g mouse on
-
-      # Catppuccin theme config
+      set -g mouse on
       set -g @catppuccin_flavor "mocha"
       set -g status-left ""
       set -g status-right ""
+      set-window-option -g window-status-current-style none
     '';
   };
 
-  home.packages = with pkgs; [tmux-sessionizer];
+  home.packages = [pkgs.tmux-sessionizer];
 
   xdg.configFile."tms/config.toml".text =
     # toml

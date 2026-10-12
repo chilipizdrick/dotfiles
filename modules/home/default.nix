@@ -1,4 +1,6 @@
 {
+  services.udiskie.enable = true;
+
   home = {
     username = "alex";
     homeDirectory = "/home/alex";

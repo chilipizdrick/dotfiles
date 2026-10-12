@@ -2,7 +2,7 @@ use std::{
     env,
     error::Error,
     fs,
-    io::{BufRead, BufReader},
+    io::{self, BufRead, BufReader, ErrorKind},
     os::unix::net::UnixStream,
     process::{Child, Command},
 };
@@ -14,33 +14,42 @@ const HYPRLAND_INSTANCE_SIGNATURE: &str = "HYPRLAND_INSTANCE_SIGNATURE";
 const XDG_RUNTIME_DIR: &str = "XDG_RUNTIME_DIR";
 
 fn main() -> AnyErrResult<()> {
-    let hyprland_instance_signature = env::var(HYPRLAND_INSTANCE_SIGNATURE).map_err(|err| {
-        format!("Error reading {HYPRLAND_INSTANCE_SIGNATURE} environment variable: {err}")
+    let hyprland_instance_signature = env::var(HYPRLAND_INSTANCE_SIGNATURE).map_err(|e| {
+        format!("could not read {HYPRLAND_INSTANCE_SIGNATURE} environment variable: {e}")
     })?;
     let xdg_runtime_dir = env::var(XDG_RUNTIME_DIR)
-        .map_err(|err| format!("Error reading {XDG_RUNTIME_DIR} environment variable: {err}"))?;
+        .map_err(|e| format!("could not read {XDG_RUNTIME_DIR} environment variable: {e}"))?;
 
     let hyprland_socket2_path = format!(
         "{}/hypr/{}/.socket2.sock",
         xdg_runtime_dir, hyprland_instance_signature
     );
 
-    let stream = UnixStream::connect(&hyprland_socket2_path)
-        .map_err(|err| format!("Error connecting to {hyprland_socket2_path} unix socket: {err}"))?;
+    loop {
+        let stream = UnixStream::connect(&hyprland_socket2_path).map_err(|e| {
+            format!("could not connect to {hyprland_socket2_path} unix socket: {e}")
+        })?;
 
-    run(stream)
+        if let Err(e) = run_inner_loop(stream) {
+            eprintln!("[ERROR] could not read hyprland sock: {e}")
+        }
+    }
 }
 
-fn run(stream: UnixStream) -> ! {
+fn run_inner_loop(stream: UnixStream) -> AnyErrResult<()> {
     let mut reader = BufReader::new(stream);
     let mut message = String::new();
 
     loop {
         message.clear();
 
-        if let Err(err) = reader.read_line(&mut message) {
-            eprintln!("[ERROR] Error reading stream: {err}");
-            continue;
+        // Here [`ErrorKind::WouldBlock`], [`ErrorKind::TimedOut`] and [`ErrorKind::Interrupted`]
+        // would never surface, thus we propagate every error encountered. If any severe error
+        // occurs, the connection will not be reestablished and the daemon would exit.
+        let read_len = reader.read_line(&mut message)?;
+
+        if read_len == 0 {
+            return Err(io::Error::from(ErrorKind::UnexpectedEof).into());
         }
 
         let Some(event) = parse_event(&message) else {
@@ -48,17 +57,13 @@ fn run(stream: UnixStream) -> ! {
             continue;
         };
 
-        match event {
-            Event::OpenWindow {
-                window_class: "discord",
-                ..
-            } => {
-                if let Err(err) = start_easyeffects_if_not_running() {
-                    eprintln!("[ERROR] {err}")
-                }
-            }
-
-            _ => {}
+        if let Event::OpenWindow {
+            window_class: "discord",
+            ..
+        } = event
+            && let Err(e) = start_easyeffects_if_not_running()
+        {
+            eprintln!("[ERROR] could not start easyeffects: {e}")
         }
     }
 }
@@ -66,7 +71,7 @@ fn run(stream: UnixStream) -> ! {
 fn start_easyeffects_if_not_running() -> AnyErrResult<Option<Child>> {
     if !is_program_running(".easyeffects-wrapped")? {
         let child = Command::new("easyeffects").arg("--hide-window").spawn()?;
-        eprintln!("Started Easy Effects");
+        eprintln!("[INFO] started Easy Effects");
         return Ok(Some(child));
     }
     Ok(None)
@@ -77,7 +82,7 @@ fn is_program_running(executable_name: &str) -> AnyErrResult<bool> {
         let name = entry.file_name();
         let name = name
             .to_str()
-            .ok_or("String contains non UTF-8 characters")?;
+            .ok_or("string contains non UTF-8 characters")?;
 
         if name.chars().all(char::is_numeric) {
             let exe_path = entry.path().join("exe");

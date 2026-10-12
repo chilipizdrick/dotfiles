@@ -2,17 +2,17 @@
   fonts = {
     fontconfig.enable = true;
     enableDefaultPackages = true;
-    packages = with pkgs; [
-      corefonts
-      inter
-      open-sans
-      jetbrains-mono
-      liberation_ttf
-      nerd-fonts.jetbrains-mono
-      monocraft
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
+    packages = [
+      pkgs.corefonts
+      pkgs.inter
+      pkgs.open-sans
+      pkgs.jetbrains-mono
+      pkgs.liberation_ttf
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.monocraft
+      pkgs.noto-fonts
+      pkgs.noto-fonts-cjk-sans
+      pkgs.noto-fonts-color-emoji
     ];
   };
 }

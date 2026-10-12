@@ -14,6 +14,7 @@
       user.default = config.users.users.alex.name;
       keyboard.layout = "us";
       cursor.size = 20;
+      clock.enabled = false;
       appearance = {
         scheme = "Synced";
         password_style = "random";

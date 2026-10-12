@@ -4,5 +4,5 @@
     binfmt = true;
   };
 
-  environment.systemPackages = with pkgs; [appimage-run];
+  environment.systemPackages = [pkgs.appimage-run];
 }

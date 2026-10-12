@@ -14,7 +14,7 @@
   hardware.i2c.enable = true;
 
   # Limit max size of systemd journal
-  services.journald.settings.Journal.SystemMaxUse = "50M";
+  services.journald.settings.Journal.SystemMaxUse = "100M";
 
   services.speechd.enable = lib.mkForce false;
 

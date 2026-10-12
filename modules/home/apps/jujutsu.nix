@@ -10,7 +10,5 @@
     };
   };
 
-  home.packages = with pkgs; [
-    jj-fzf
-  ];
+  home.packages = [pkgs.jj-fzf];
 }

@@ -10,7 +10,14 @@ lib: let
       )
       input
     else input;
-in rec {
+
+  getPrimes = system: inputs: let
+    inputs' = lib.mapAttrs (_: input: applySystem system input) inputs;
+  in {
+    inherit inputs';
+    self' = inputs'.self;
+  };
+
   listModulesRecursive = path: let
     isModuleViable = p: let
       base = baseNameOf p;
@@ -18,6 +25,8 @@ in rec {
       lib.hasSuffix ".nix" base && !lib.hasPrefix "_" base;
   in
     builtins.filter isModuleViable (lib.filesystem.listFilesRecursive path);
+in {
+  inherit getPrimes listModulesRecursive;
 
   forAllSystems = let
     systems = [
@@ -28,13 +37,6 @@ in rec {
     ];
   in
     lib.genAttrs systems;
-
-  getPrimes = system: inputs: let
-    inputs' = lib.mapAttrs (_: input: applySystem system input) inputs;
-  in {
-    inherit inputs';
-    self' = inputs'.self;
-  };
 
   withSystem = system: inputs: f:
     f (getPrimes system inputs);
@@ -72,35 +74,14 @@ in rec {
     };
 
   importHostsConfig = hostsPath: inputs: let
-    hosts = listModulesRecursive hostsPath;
+    hostDirs = builtins.readDir hostsPath;
+    hostModules =
+      lib.mapAttrsToList
+      (name: _: hostsPath + "/${name}")
+      hostDirs;
   in
     lib.foldr
     (mod: acc: lib.recursiveUpdate (import mod inputs) acc)
     {}
-    hosts;
-
-  withVpnDesktop = pkgs: package:
-    pkgs.runCommand "${package.pname or package.name}-vpn-desktop" {
-      nativeBuildInputs = [
-        pkgs.gnused
-        pkgs.coreutils
-      ];
-    } ''
-      mkdir -p "$out/share/applications"
-
-      for desktop in ${package}/share/applications/*.desktop; do
-        [ -e "$desktop" ] || continue
-
-        name="$(basename "$desktop" .desktop)"
-
-        cp "$desktop" \
-          "$out/share/applications/$name.desktop"
-
-        sed \
-          -e 's/^Name=\(.*\)$/Name=\1 (VPN)/' \
-          -e 's|^Exec=|Exec=/run/wrappers/bin/vpn |' \
-          "$desktop" \
-          > "$out/share/applications/$name-vpn.desktop"
-      done
-    '';
+    hostModules;
 }
