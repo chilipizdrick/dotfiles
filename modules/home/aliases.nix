@@ -1,6 +1,5 @@
 {
   home.shellAliases = {
-    l = "ls -l";
     ll = "ls -l";
     la = "ls -a";
     lla = "ls -la";
@@ -10,8 +9,6 @@
     gps = "git push";
     gs = "git status";
     nrs = "sudo nixos-rebuild switch --flake .";
-    vi = "nvim";
     vim = "nvim";
-    vimdiff = "nvim -d";
   };
 }

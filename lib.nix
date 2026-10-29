@@ -28,15 +28,7 @@ lib: let
 in {
   inherit getPrimes listModulesRecursive;
 
-  forAllSystems = let
-    systems = [
-      "aarch64-darwin"
-      "aarch64-linux"
-      "x86_64-darwin"
-      "x86_64-linux"
-    ];
-  in
-    lib.genAttrs systems;
+  forEachSystem = lib.genAttrs lib.systems.flakeExposed;
 
   withSystem = system: inputs: f:
     f (getPrimes system inputs);

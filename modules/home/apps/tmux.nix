@@ -18,7 +18,7 @@
       set -g renumber-windows on
       set -ga terminal-overrides ",alacritty:Tc"
       set -g default-terminal alacritty
-      set -g default-shell fish
+      set -g default-shell ${pkgs.fish}/bin/fish
       set -ga terminal-overrides ",*:RGB"
       set -ga terminal-overrides ",*:Tc"
       set -ga terminal-features ",*:usstyle"

@@ -18,9 +18,9 @@
 
   home.packages = [
     pkgs.hyprpicker
-    pkgs.libnotify
-    pkgs.kdePackages.dolphin
     pkgs.kdePackages.ark
+    pkgs.kdePackages.dolphin
+    pkgs.libnotify
     pkgs.procps
     pkgs.uwsm
     pkgs.wl-clipboard

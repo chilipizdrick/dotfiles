@@ -21,7 +21,6 @@ hl.config({
 
   dwindle = {
     preserve_split = true,
-    special_scale_factor = 0.8,
   },
 
   scrolling = {
@@ -221,9 +220,9 @@ hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("alacritty"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("vpn helium-browser"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("dolphin"))
-hl.bind("SUPER + T", hl.dsp.exec_cmd("vpn Telegram"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("Telegram"))
 
 hl.bind("SUPER + ALT + T", function()
   local border_size = hl.get_config("general.border_size")
@@ -246,9 +245,9 @@ end)
 
 hl.bind(
   "SUPER + S",
-  hl.dsp.exec_cmd("vpn spotify --enable-features=UseOzonePlatform --ozone-platform=wayland")
+  hl.dsp.exec_cmd("spotify --enable-features=UseOzonePlatform --ozone-platform=wayland")
 )
-hl.bind("SUPER + D", hl.dsp.exec_cmd("vpn discord"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
 hl.bind(
   "SUPER + CTRL + C",
   hl.dsp.exec_cmd(
@@ -260,7 +259,8 @@ hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
-hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
+-- hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("alacritty -e nvim ~/Documents/Notes/scratchpad.md"))
 hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker --autocopy"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("noctalia msg bar-toggle default"))
 hl.bind("CTRL + SHIFT + D", hl.dsp.pass({ window = "class:^(discord)$" }))

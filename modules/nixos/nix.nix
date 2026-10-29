@@ -3,17 +3,19 @@
   inputs,
   ...
 }: {
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "b43-firmware"
-      "broadcom-bt-firmware"
-      "corefonts"
-      "facetimehd-calibration"
-      "facetimehd-firmware"
-      "steam"
-      "steam-unwrapped"
-      "xone-dongle-firmware"
-    ];
+  nixpkgs.config = {
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "b43-firmware"
+        "broadcom-bt-firmware"
+        "corefonts"
+        "facetimehd-calibration"
+        "facetimehd-firmware"
+        "steam"
+        "steam-unwrapped"
+        "xone-dongle-firmware"
+      ];
+  };
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;

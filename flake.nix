@@ -27,7 +27,7 @@
   in
     {
       inherit lib;
-      packages = lib.forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
+      packages = lib.forEachSystem (system: import ./packages nixpkgs.legacyPackages.${system});
     }
     // (lib.importHostsConfig ./hosts inputs);
 }
