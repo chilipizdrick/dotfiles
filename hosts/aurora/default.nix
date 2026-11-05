@@ -46,7 +46,7 @@
           # margin_edge = lib.mkForce 10;
           # margin_ends = lib.mkForce 10;
         };
-        shell.pannel.floating_offet = 10;
+        shell.panel.floating_offset = lib.mkForce 10;
         osd.offset_y = lib.mkForce 10;
         notification = {
           offset_x = lib.mkForce 15;

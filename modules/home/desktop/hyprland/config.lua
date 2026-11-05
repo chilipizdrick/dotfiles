@@ -277,9 +277,7 @@ hl.bind("SUPER + ALT + 0", hl.dsp.exec_cmd("pkill hijacker"))
 for i = 1, 9 do
   hl.bind("SUPER + ALT + " .. i, function()
     if hijacker_enabled then
-      hl.exec_cmd(
-        "hijacker clever-play ~/Music/hijacker-presets/" .. i .. ".mp3 -s 'easyeffects_source'"
-      )
+      hl.exec_cmd("hijacker clever-play ~/hijacker-presets/" .. i .. ".mp3 -s 'easyeffects_source'")
     end
   end)
 end
