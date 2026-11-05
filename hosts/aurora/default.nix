@@ -40,11 +40,11 @@
           lock-and-suspend.enabled = lib.mkForce true;
         };
         bar.default = {
-          radius = lib.mkForce 15;
-          shadow = lib.mkForce true;
+          # radius = lib.mkForce 15;
+          # shadow = lib.mkForce true;
           thickness = lib.mkForce 34;
-          margin_edge = lib.mkForce 10;
-          margin_ends = lib.mkForce 10;
+          # margin_edge = lib.mkForce 10;
+          # margin_ends = lib.mkForce 10;
         };
         shell.pannel.floating_offet = 10;
         osd.offset_y = lib.mkForce 10;

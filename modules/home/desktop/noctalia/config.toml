@@ -112,7 +112,9 @@ up = ["Up", "Ctrl+k"]
 auto_locate = true
 
 [lockscreen]
+fingerprint = false
 tint_intensity = 0.0
+transition = []
 
 [lockscreen_widgets]
 enabled = true
@@ -556,12 +558,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
-builtin_ids = ["gtk3", "gtk4", "qt"]
-
-[theme.templates.user.kdeglobals]
-input_path = "templates/kdeglobals.mustache"
-output_path = "~/.config/kdeglobals"
-hook = "dbus-send --session --type=signal /KGlobalSettings org.kde.KGlobalSettings.notifyChange int32:0 int32:0"
+builtin_ids = ["gtk3", "gtk4", "qt", "kcolorscheme"]
 
 [wallpaper]
 directory = "/home/alex/Pictures/wallpapers"
