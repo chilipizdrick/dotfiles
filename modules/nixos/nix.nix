@@ -8,9 +8,13 @@
       builtins.elem (lib.getName pkg) [
         "b43-firmware"
         "broadcom-bt-firmware"
+        "brother-udev-rule-type1"
+        "brscan4"
+        "brscan4-etc-files"
         "corefonts"
         "facetimehd-calibration"
         "facetimehd-firmware"
+        "nvidia-x11"
         "steam"
         "steam-unwrapped"
         "xone-dongle-firmware"
