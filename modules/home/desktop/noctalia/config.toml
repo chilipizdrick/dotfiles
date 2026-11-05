@@ -612,4 +612,4 @@ show_label = false
 enabled = true
 
 [widget.tray]
-drawer = true
+drawer = false
