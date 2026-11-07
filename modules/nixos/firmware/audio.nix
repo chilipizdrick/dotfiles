@@ -6,6 +6,6 @@
     alsa.enable = true;
     pulse.enable = true;
     audio.enable = true;
-    jack.enable = true;
+    jack.enable = false;
   };
 }
