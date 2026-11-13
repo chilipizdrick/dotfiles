@@ -22,17 +22,17 @@
   };
 
   nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    # flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
       keep-outputs = false;
       experimental-features = ["nix-command" "flakes"];
-      nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+      # nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       trusted-users = ["alex"];
     };
     channel.enable = false;
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    # registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
   };
 }

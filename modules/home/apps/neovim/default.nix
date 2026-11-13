@@ -27,6 +27,7 @@
     pkgs.stylua
 
     pkgs.nixd
+    pkgs.alejandra
 
     pkgs.typst
     pkgs.tinymist
