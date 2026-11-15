@@ -256,11 +256,17 @@ hl.bind(
 )
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
+hl.bind("SUPER + P", hl.dsp.exec_cmd("euphonica"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
 -- hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/notes:panel"))
-hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("alacritty -e nvim ~/Documents/Notes/scratchpad.md"))
+hl.bind(
+  "SUPER + SHIFT + N",
+  hl.dsp.exec_cmd(
+    "mkdir -p ~/Documents/Notes/ && alacritty -e nvim ~/Documents/Notes/scratchpad.md"
+  )
+)
 hl.bind("SUPER + ALT + C", hl.dsp.exec_cmd("hyprpicker --autocopy"))
 hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("noctalia msg bar-toggle default"))
 hl.bind("CTRL + SHIFT + D", hl.dsp.pass({ window = "class:^(discord)$" }))

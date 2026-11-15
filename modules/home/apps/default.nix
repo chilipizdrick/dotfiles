@@ -19,7 +19,7 @@
     pkgs.qbittorrent
     pkgs.ripdrag
     pkgs.telegram-desktop
-    pkgs.kdePackages.elisa
+    pkgs.euphonica
 
     inputs'.hijacker.packages.hijacker
     self'.packages.helium-browser
