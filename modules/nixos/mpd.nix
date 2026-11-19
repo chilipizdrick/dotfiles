@@ -38,11 +38,18 @@
             name                     "PipeWire"
     }
   '';
+
+  mpdMprisStart = pkgs.writeShellScript "mpd-mpris-start" ''
+    socket="$HOME/.config/mpd/socket"
+    if [ -S "$socket" ]; then
+      exec ${pkgs.mpd-mpris}/bin/mpd-mpris -no-instance -network unix -host "$socket"
+    fi
+    exec ${pkgs.mpd-mpris}/bin/mpd-mpris -no-instance -network tcp -host 127.0.0.1 -port 6600
+  '';
 in {
   environment.systemPackages = [
     pkgs.mpc
     pkgs.mpd
-    pkgs.mpd-mpris
     pkgs.rmpc
   ];
 
@@ -58,6 +65,21 @@ in {
     serviceConfig = {
       Type = "notify";
       ExecStart = "${pkgs.mpd}/bin/mpd --systemd ${mpdConfig}";
+      Restart = "on-failure";
+      RestartSec = "5";
+    };
+  };
+
+  systemd.user.services.mpd-mpris = {
+    description = "mpd-mpris: An implementation of the MPRIS protocol for MPD";
+    wantedBy = ["default.target"];
+    requires = ["mpd.service"];
+    after = ["mpd.service"];
+
+    serviceConfig = {
+      Type = "dbus";
+      BusName = "org.mpris.MediaPlayer2.mpd";
+      ExecStart = mpdMprisStart;
       Restart = "on-failure";
       RestartSec = "5";
     };
