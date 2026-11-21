@@ -6,7 +6,6 @@
     state_file                       "~/.local/share/mpd/state"
     sticker_file                     "~/.local/share/mpd/sticker.sql"
 
-    bind_to_address                  "~/.config/mpd/socket"
     bind_to_address                  "127.0.0.1"
     port                             "6600"
 
@@ -40,17 +39,14 @@
   '';
 
   mpdMprisStart = pkgs.writeShellScript "mpd-mpris-start" ''
-    socket="$HOME/.config/mpd/socket"
-    if [ -S "$socket" ]; then
-      exec ${pkgs.mpd-mpris}/bin/mpd-mpris -no-instance -network unix -host "$socket"
-    fi
-    exec ${pkgs.mpd-mpris}/bin/mpd-mpris -no-instance -network tcp -host 127.0.0.1 -port 6600
+    exec ${pkgs.mpd-mpris}/bin/mpd-mpris -no-instance
   '';
 in {
   environment.systemPackages = [
     pkgs.mpc
     pkgs.mpd
     pkgs.rmpc
+    pkgs.euphonica
   ];
 
   environment.etc."mpd.conf".source = mpdConfig;
@@ -60,7 +56,7 @@ in {
     wantedBy = ["default.target"];
     after = ["network.target" "sound.target" "pipewire.service"];
     wants = ["pipewire.service"];
-    preStart = ''mkdir -p "$HOME/.local/share/mpd" "$HOME/.config/mpd" "$HOME/Music/playlists"'';
+    preStart = ''mkdir -p "$HOME/.local/share/mpd" "$HOME/Music/playlists"'';
 
     serviceConfig = {
       Type = "notify";

@@ -12,6 +12,11 @@
       ./printer-scanner.nix
     ];
 
+    hardware.opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
+    };
+
     networking.hostName = "aurora";
 
     services.displayManager.noctalia-greeter.settings.output.name = "HDMI-A-1";
